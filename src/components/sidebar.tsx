@@ -132,6 +132,7 @@ export function Sidebar({ isCollapsed, onToggle }: SidebarProps) {
                             variant={isActive ? "secondary" : "ghost"}
                             className={cn(
                               "w-full justify-start",
+                              isActive && "bg-primary text-white hover:bg-primary hover:text-white",
                               isCollapsed && "justify-center px-2",
                               !hasMultipleItems && "font-medium",
                               hasMultipleItems && !isCollapsed && "pl-10"

@@ -1,31 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { useRouter } from "next/navigation";
 import {
   HandCoins,
   Plus,
-  Pencil,
   Trash2,
   Eye,
-  ChevronDown,
-  ChevronUp,
   FileText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { DatePicker } from "@/components/ui/date-picker";
 import { DataTable } from "@/components/ui/data-table";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Textarea } from "@/components/ui/textarea";
-import type { DataTableColumn, DataTableAction } from "@/components/ui/data-table";
+import type { DataTableColumn } from "@/components/ui/data-table";
+import { InvoiceSearchModal } from "./InvoiceSearchModal";
 
 // Types
 type Mutasi = {
@@ -38,15 +30,15 @@ type Mutasi = {
   [key: string]: unknown;
 };
 
-// Validation Schema
-const mutasiFormSchema = z.object({
-  timestamp: z.date({ required_error: "Timestamp harus diisi" }),
-  deskripsi: z.string().min(3, "Deskripsi minimal 3 karakter"),
-  reff: z.string().min(3, "Reference number minimal 3 karakter"),
-  amount: z.number().min(1, "Amount harus lebih dari 0"),
-});
-
-type MutasiFormValues = z.infer<typeof mutasiFormSchema>;
+type InvoiceGroup = {
+  invoiceNo: string;
+  totalMutasi: number;
+  totalInvoice: number;
+  totalTerbayar: number;
+  totalTerhutang: number;
+  mutasiIds: number[];
+  mutasiList: Mutasi[];
+};
 
 // Mockup Data - 15-20 payment entries
 const initialMockMutasi: Mutasi[] = [
@@ -224,46 +216,18 @@ const formatDateTime = (date: Date): string => {
   }).format(date);
 };
 
-const formatDate = (date: Date): string => {
-  return new Intl.DateTimeFormat("id-ID", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  }).format(date);
-};
-
-const generateReferenceNumber = (existingMutasi: Mutasi[]): string => {
-  const today = new Date();
-  const dateStr = today.toISOString().split("T")[0]?.replace(/-/g, "") ?? "";
-  const todayMutasi = existingMutasi.filter((m) =>
-    m.reff.startsWith(`TRF${dateStr}`)
-  );
-  const nextNumber = todayMutasi.length + 1;
-  return `TRF${dateStr}${String(nextNumber).padStart(3, "0")}`;
-};
-
 export default function PembayaranPage() {
+  const router = useRouter();
   const [mutasiList, setMutasiList] = useState<Mutasi[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isFormOpen, setIsFormOpen] = useState(true);
-  const [editingMutasi, setEditingMutasi] = useState<Mutasi | null>(null);
-  const [deleteDialog, setDeleteDialog] = useState<{ open: boolean; mutasi: Mutasi | null }>({
+  const [isInvoiceModalOpen, setIsInvoiceModalOpen] = useState(false);
+  const [deleteDialog, setDeleteDialog] = useState<{ open: boolean; invoiceGroup: InvoiceGroup | null }>({
     open: false,
-    mutasi: null,
+    invoiceGroup: null,
   });
-  const [viewDialog, setViewDialog] = useState<{ open: boolean; mutasi: Mutasi | null }>({
+  const [viewDialog, setViewDialog] = useState<{ open: boolean; invoiceGroup: InvoiceGroup | null }>({
     open: false,
-    mutasi: null,
-  });
-
-  const form = useForm<MutasiFormValues>({
-    resolver: zodResolver(mutasiFormSchema),
-    defaultValues: {
-      timestamp: new Date(),
-      deskripsi: "",
-      reff: "",
-      amount: 0,
-    },
+    invoiceGroup: null,
   });
 
   // Load initial data
@@ -274,136 +238,140 @@ export default function PembayaranPage() {
     }, 1000);
   }, []);
 
-  // Auto-generate reference number
-  useEffect(() => {
-    if (!editingMutasi && mutasiList.length > 0) {
-      const suggestedReff = generateReferenceNumber(mutasiList);
-      form.setValue("reff", suggestedReff);
-    }
-  }, [mutasiList, editingMutasi, form]);
-
-  const onSubmit = (data: MutasiFormValues) => {
-    if (editingMutasi) {
-      // Update existing mutasi
-      setMutasiList((prev) =>
-        prev.map((mutasi) =>
-          mutasi.id === editingMutasi.id
-            ? {
-                ...mutasi,
-                ...data,
-              }
-            : mutasi
-        )
-      );
-      setEditingMutasi(null);
-    } else {
-      // Create new mutasi
-      const newMutasi: Mutasi = {
-        id: Math.max(...mutasiList.map((m) => m.id), 0) + 1,
-        ...data,
-        allocatedInvoices: [],
-      };
-      setMutasiList((prev) => [newMutasi, ...prev]);
-    }
-
-    // Reset form
-    form.reset({
-      timestamp: new Date(),
-      deskripsi: "",
-      reff: generateReferenceNumber(mutasiList),
-      amount: 0,
+  // Transform mutasi data to group by invoice (exclude unallocated)
+  const groupedByInvoice = (): InvoiceGroup[] => {
+    const invoiceMap = new Map<string, InvoiceGroup>();
+    
+    // Mock invoice totals - in real app, this would come from invoice data
+    const mockInvoiceTotals: Record<string, number> = {
+      "INV-2026-001": 115550000,
+      "INV-2026-003": 125000000,
+      "INV-2026-004": 69540000,
+      "INV-2026-007": 45000000,
+      "INV-2026-008": 40000000,
+      "INV-2026-009": 95000000,
+      "INV-2026-010": 120000000,
+      "INV-2026-011": 78000000,
+      "INV-2026-012": 102000000,
+      "INV-2026-013": 156000000,
+      "INV-2026-014": 89750000,
+      "INV-2026-015": 88000000,
+      "INV-2026-016": 110000000,
+      "INV-2026-017": 98500000,
+      "INV-2026-018": 92000000,
+      "INV-2026-019": 73000000,
+      "INV-2026-020": 60000000,
+    };
+    
+    mutasiList.forEach((mutasi) => {
+      // Skip unallocated mutations
+      if (mutasi.allocatedInvoices.length > 0) {
+        // Group by each invoice in allocatedInvoices
+        mutasi.allocatedInvoices.forEach((allocation) => {
+          if (!invoiceMap.has(allocation.invoiceNo)) {
+            const invoiceTotal = mockInvoiceTotals[allocation.invoiceNo] || 0;
+            invoiceMap.set(allocation.invoiceNo, {
+              invoiceNo: allocation.invoiceNo,
+              totalMutasi: 0,
+              totalInvoice: invoiceTotal,
+              totalTerbayar: 0,
+              totalTerhutang: invoiceTotal,
+              mutasiIds: [],
+              mutasiList: [],
+            });
+          }
+          const group = invoiceMap.get(allocation.invoiceNo)!;
+          group.totalMutasi += 1;
+          group.totalTerbayar += allocation.amount;
+          group.totalTerhutang = group.totalInvoice - group.totalTerbayar;
+          group.mutasiIds.push(mutasi.id);
+          group.mutasiList.push(mutasi);
+        });
+      }
     });
+
+    return Array.from(invoiceMap.values());
   };
 
-  const handleEdit = (mutasi: Mutasi) => {
-    setEditingMutasi(mutasi);
-    form.reset({
-      timestamp: mutasi.timestamp,
-      deskripsi: mutasi.deskripsi,
-      reff: mutasi.reff,
-      amount: mutasi.amount,
-    });
-    setIsFormOpen(true);
-  };
+  const invoiceGroups = groupedByInvoice();
 
-  const handleCancelEdit = () => {
-    setEditingMutasi(null);
-    form.reset({
-      timestamp: new Date(),
-      deskripsi: "",
-      reff: generateReferenceNumber(mutasiList),
-      amount: 0,
-    });
-  };
-
-  const handleDelete = (mutasi: Mutasi) => {
-    setDeleteDialog({ open: true, mutasi });
+  const handleDelete = (invoiceGroup: InvoiceGroup) => {
+    setDeleteDialog({ open: true, invoiceGroup });
   };
 
   const confirmDelete = () => {
-    if (deleteDialog.mutasi) {
-      setMutasiList((prev) => prev.filter((m) => m.id !== deleteDialog.mutasi!.id));
-      setDeleteDialog({ open: false, mutasi: null });
+    if (deleteDialog.invoiceGroup) {
+      // Delete all mutations related to this invoice group
+      setMutasiList((prev) =>
+        prev.filter((m) => !deleteDialog.invoiceGroup!.mutasiIds.includes(m.id))
+      );
+      setDeleteDialog({ open: false, invoiceGroup: null });
     }
   };
 
-  const handleView = (mutasi: Mutasi) => {
-    setViewDialog({ open: true, mutasi });
+  const handleView = (invoiceGroup: InvoiceGroup) => {
+    setViewDialog({ open: true, invoiceGroup });
   };
 
-  const columns: DataTableColumn<Mutasi>[] = [
+  const handleSelectInvoice = (invoice: { id: number; nomor: string; total: number; agenName: string; status: string }) => {
+    // Navigate to create payment page with invoice data as query params
+    router.push(`/aktifitas/pembayaran/buat?invoiceId=${invoice.id}&invoiceNumber=${invoice.nomor}&total=${invoice.total}`);
+  };
+
+  const columns: DataTableColumn<InvoiceGroup>[] = [
     {
-      id: "timestamp",
-      accessorKey: "timestamp",
-      header: "Timestamp",
-      cell: (row) => formatDateTime(row.timestamp),
-    },
-    {
-      id: "reff",
-      accessorKey: "reff",
-      header: "Reference",
+      id: "invoiceNo",
+      accessorKey: "invoiceNo",
+      header: "Nomor Invoice",
       cell: (row) => (
-        <div className="font-mono text-sm">{row.reff}</div>
-      ),
-    },
-    {
-      id: "deskripsi",
-      accessorKey: "deskripsi",
-      header: "Deskripsi",
-      cell: (row) => (
-        <div className="max-w-md truncate">{row.deskripsi}</div>
-      ),
-    },
-    {
-      id: "amount",
-      accessorKey: "amount",
-      header: "Amount",
-      cell: (row) => (
-        <div className="font-semibold text-green-600">
-          {formatCurrency(row.amount)}
+        <div className="font-mono text-sm font-semibold">
+          {row.invoiceNo}
         </div>
       ),
     },
     {
-      id: "allocations",
-      header: "Allocations",
-      cell: (row) => {
-        return (
-          <div>
-            {row.allocatedInvoices.length > 0 ? (
-              <Badge variant="outline">
-                {row.allocatedInvoices.length} invoice(s)
-              </Badge>
-            ) : (
-              <Badge variant="secondary">Unallocated</Badge>
-            )}
-          </div>
-        );
-      },
+      id: "totalInvoice",
+      accessorKey: "totalInvoice",
+      header: "Total Invoice",
+      cell: (row) => (
+        <div className="font-semibold">
+          {formatCurrency(row.totalInvoice)}
+        </div>
+      ),
+    },
+    {
+      id: "totalTerbayar",
+      accessorKey: "totalTerbayar",
+      header: "Terbayar",
+      cell: (row) => (
+        <div className="font-semibold text-green-600">
+          {formatCurrency(row.totalTerbayar)}
+        </div>
+      ),
+    },
+    {
+      id: "totalTerhutang",
+      accessorKey: "totalTerhutang",
+      header: "Terhutang",
+      cell: (row) => (
+        <div className="font-semibold text-orange-600">
+          {formatCurrency(row.totalTerhutang)}
+        </div>
+      ),
+    },
+    {
+      id: "totalMutasi",
+      accessorKey: "totalMutasi",
+      header: "Total Mutasi",
+      cell: (row) => (
+        <Badge variant="outline">
+          {row.totalMutasi} mutasi
+        </Badge>
+      ),
     },
     {
       id: "actions",
-      header: "Actions",
+      header: "Aksi",
       cell: (row) => {
         return (
           <div className="flex items-center gap-2">
@@ -411,23 +379,15 @@ export default function PembayaranPage() {
               variant="ghost"
               size="icon"
               onClick={() => handleView(row)}
-              title="View Details"
+              title="Lihat Detail"
             >
               <Eye className="h-4 w-4" />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => handleEdit(row)}
-              title="Edit"
-            >
-              <Pencil className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
               onClick={() => handleDelete(row)}
-              title="Delete"
+              title="Hapus"
             >
               <Trash2 className="h-4 w-4 text-destructive" />
             </Button>
@@ -455,157 +415,36 @@ export default function PembayaranPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center gap-3">
-        <HandCoins className="h-8 w-8 text-primary" />
-        <div>
-          <h1 className="text-3xl font-bold">Pembayaran</h1>
-          <p className="text-muted-foreground">
-            Manage payment transactions and mutations
-          </p>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <HandCoins className="h-8 w-8 text-primary" />
+          <div>
+            <h1 className="text-3xl font-bold">Pembayaran</h1>
+            <p className="text-muted-foreground">
+              Kelola transaksi pembayaran dan mutasi
+            </p>
+          </div>
         </div>
+        <Button
+          onClick={() => setIsInvoiceModalOpen(true)}
+          className="gap-2 relative z-50"
+        >
+          <Plus className="h-4 w-4" />
+          Buat Pembayaran
+        </Button>
       </div>
 
-      {/* Create/Edit Form */}
-      <Card>
-        <CardHeader
-          className="cursor-pointer"
-          onClick={() => setIsFormOpen(!isFormOpen)}
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <CardTitle>
-                {editingMutasi ? "Edit Payment" : "Create New Payment"}
-              </CardTitle>
-              <CardDescription>
-                {editingMutasi
-                  ? "Update payment transaction details"
-                  : "Fill in the form to record a new payment"}
-              </CardDescription>
-            </div>
-            {isFormOpen ? (
-              <ChevronUp className="h-5 w-5" />
-            ) : (
-              <ChevronDown className="h-5 w-5" />
-            )}
-          </div>
-        </CardHeader>
-        {isFormOpen && (
-          <CardContent>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                {/* Row 1: Timestamp, Reference */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="timestamp"
-                    render={({ field }) => (
-                      <FormItem className="flex flex-col">
-                        <FormLabel>Timestamp</FormLabel>
-                        <DatePicker
-                          date={field.value}
-                          onSelect={field.onChange}
-                        />
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="reff"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Reference Number</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="TRF20260112001"
-                            className="font-mono"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                {/* Row 2: Amount */}
-                <FormField
-                  control={form.control}
-                  name="amount"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Amount (IDR)</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="number"
-                          {...field}
-                          onChange={(e) => field.onChange(parseFloat(e.target.value))}
-                          placeholder="50000000"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Row 3: Deskripsi */}
-                <FormField
-                  control={form.control}
-                  name="deskripsi"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Deskripsi</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          placeholder="Describe the payment transaction..."
-                          rows={3}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Action Buttons */}
-                <div className="flex gap-2">
-                  <Button type="submit" className="gap-2">
-                    {editingMutasi ? (
-                      <>
-                        <Pencil className="h-4 w-4" />
-                        Update Payment
-                      </>
-                    ) : (
-                      <>
-                        <Plus className="h-4 w-4" />
-                        Create Payment
-                      </>
-                    )}
-                  </Button>
-                  {editingMutasi && (
-                    <Button type="button" variant="outline" onClick={handleCancelEdit}>
-                      Cancel
-                    </Button>
-                  )}
-                </div>
-              </form>
-            </Form>
-          </CardContent>
-        )}
-      </Card>
-
       {/* Statistics Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="pb-3">
-            <CardDescription>Total Payments</CardDescription>
-            <CardTitle className="text-2xl">{mutasiList.length}</CardTitle>
+            <CardDescription>Total Invoice</CardDescription>
+            <CardTitle className="text-2xl">{invoiceGroups.length}</CardTitle>
           </CardHeader>
         </Card>
         <Card>
           <CardHeader className="pb-3">
-            <CardDescription>Total Amount</CardDescription>
+            <CardDescription>Total Terbayar</CardDescription>
             <CardTitle className="text-2xl text-green-600">
               {formatCurrency(mutasiList.reduce((sum, m) => sum + m.amount, 0))}
             </CardTitle>
@@ -613,7 +452,15 @@ export default function PembayaranPage() {
         </Card>
         <Card>
           <CardHeader className="pb-3">
-            <CardDescription>Allocated Payments</CardDescription>
+            <CardDescription>Terhutang</CardDescription>
+            <CardTitle className="text-2xl text-orange-600">
+              {formatCurrency(0)}
+            </CardTitle>
+          </CardHeader>
+        </Card>
+        <Card>
+          <CardHeader className="pb-3">
+            <CardDescription>Pembayaran Teralokasi</CardDescription>
             <CardTitle className="text-2xl">
               {mutasiList.filter((m) => m.allocatedInvoices.length > 0).length}
             </CardTitle>
@@ -624,30 +471,38 @@ export default function PembayaranPage() {
       {/* Data Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Payment List</CardTitle>
+          <CardTitle>Daftar Pembayaran</CardTitle>
           <CardDescription>
-            View and manage all payment transactions ({mutasiList.length} total)
+            Lihat dan kelola semua transaksi pembayaran ({mutasiList.length} total)
           </CardDescription>
         </CardHeader>
         <CardContent>
           <DataTable
             columns={columns}
-            data={mutasiList}
+            data={invoiceGroups}
           />
         </CardContent>
       </Card>
 
+      {/* Invoice Search Modal */}
+      <InvoiceSearchModal
+        isOpen={isInvoiceModalOpen}
+        onClose={() => setIsInvoiceModalOpen(false)}
+        onSelectInvoice={handleSelectInvoice}
+      />
+
       {/* Delete Confirmation Dialog */}
-      <Dialog open={deleteDialog.open} onOpenChange={(open) => setDeleteDialog({ open, mutasi: null })}>
+      <Dialog open={deleteDialog.open} onOpenChange={(open) => setDeleteDialog({ open, invoiceGroup: null })}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Confirm Delete</DialogTitle>
+            <DialogTitle>Konfirmasi Hapus</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete payment{" "}
-              <span className="font-semibold font-mono">{deleteDialog.mutasi?.reff}</span>?
-              {deleteDialog.mutasi && deleteDialog.mutasi.allocatedInvoices.length > 0 && (
+              Apakah Anda yakin ingin menghapus semua pembayaran untuk invoice{" "}
+              <span className="font-semibold font-mono">{deleteDialog.invoiceGroup?.invoiceNo}</span>?
+              {deleteDialog.invoiceGroup && (
                 <div className="mt-2 p-2 bg-yellow-50 dark:bg-yellow-950 border border-yellow-200 dark:border-yellow-800 rounded text-yellow-800 dark:text-yellow-200">
-                  Warning: This payment is allocated to {deleteDialog.mutasi.allocatedInvoices.length} invoice(s).
+                  Peringatan: Ini akan menghapus {deleteDialog.invoiceGroup.totalMutasi} mutasi
+                  dengan total terbayar {formatCurrency(deleteDialog.invoiceGroup.totalTerbayar)}.
                 </div>
               )}
             </DialogDescription>
@@ -655,90 +510,98 @@ export default function PembayaranPage() {
           <DialogFooter>
             <Button
               variant="outline"
-              onClick={() => setDeleteDialog({ open: false, mutasi: null })}
+              onClick={() => setDeleteDialog({ open: false, invoiceGroup: null })}
             >
-              Cancel
+              Batal
             </Button>
             <Button variant="destructive" onClick={confirmDelete}>
-              Delete
+              Hapus
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
       {/* View Details Dialog */}
-      <Dialog open={viewDialog.open} onOpenChange={(open) => setViewDialog({ open, mutasi: null })}>
-        <DialogContent className="max-w-2xl">
+      <Dialog open={viewDialog.open} onOpenChange={(open) => setViewDialog({ open, invoiceGroup: null })}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <HandCoins className="h-5 w-5" />
-              Payment Details
+              Detail Grup Invoice
             </DialogTitle>
           </DialogHeader>
-          {viewDialog.mutasi && (
+          {viewDialog.invoiceGroup && (
             <div className="space-y-4">
-              {/* Payment Header */}
+              {/* Invoice Header */}
               <div className="grid grid-cols-2 gap-4 p-4 bg-muted/50 rounded-lg">
-                <div>
-                  <Label className="text-muted-foreground">Reference Number</Label>
-                  <p className="font-mono font-semibold">{viewDialog.mutasi.reff}</p>
-                </div>
-                <div>
-                  <Label className="text-muted-foreground">Timestamp</Label>
-                  <p>{formatDateTime(viewDialog.mutasi.timestamp)}</p>
-                </div>
                 <div className="col-span-2">
-                  <Label className="text-muted-foreground">Amount</Label>
-                  <p className="text-2xl font-bold text-green-600">
-                    {formatCurrency(viewDialog.mutasi.amount)}
+                  <Label className="text-muted-foreground">Nomor Invoice</Label>
+                  <p className="font-mono font-semibold text-lg">
+                    {viewDialog.invoiceGroup.invoiceNo}
+                  </p>
+                </div>
+                <div>
+                  <Label className="text-muted-foreground">Total Mutasi</Label>
+                  <p className="text-xl font-bold">
+                    {viewDialog.invoiceGroup.totalMutasi}
+                  </p>
+                </div>
+                <div>
+                  <Label className="text-muted-foreground">Total Terbayar</Label>
+                  <p className="text-xl font-bold text-green-600">
+                    {formatCurrency(viewDialog.invoiceGroup.totalTerbayar)}
+                  </p>
+                </div>
+                <div>
+                  <Label className="text-muted-foreground">Terhutang</Label>
+                  <p className="text-xl font-bold text-orange-600">
+                    {formatCurrency(viewDialog.invoiceGroup.totalTerhutang)}
                   </p>
                 </div>
               </div>
 
-              {/* Description */}
-              <div>
-                <Label className="text-muted-foreground">Description</Label>
-                <p className="mt-1 p-3 bg-muted/30 rounded-lg">
-                  {viewDialog.mutasi.deskripsi}
-                </p>
-              </div>
-
-              {/* Invoice Allocations */}
+              {/* Mutations List */}
               <div>
                 <h3 className="font-semibold mb-2 flex items-center gap-2">
                   <FileText className="h-4 w-4" />
-                  Invoice Allocations ({viewDialog.mutasi.allocatedInvoices.length})
+                  Mutasi ({viewDialog.invoiceGroup.mutasiList.length})
                 </h3>
-                {viewDialog.mutasi.allocatedInvoices.length > 0 ? (
-                  <div className="border rounded-lg divide-y">
-                    {viewDialog.mutasi.allocatedInvoices.map((allocation, idx) => (
-                      <div
-                        key={idx}
-                        className="flex justify-between items-center p-3"
-                      >
-                        <span className="font-mono text-sm">
-                          {allocation.invoiceNo}
-                        </span>
-                        <span className="font-semibold">
-                          {formatCurrency(allocation.amount)}
-                        </span>
+                <div className="border rounded-lg divide-y max-h-96 overflow-y-auto">
+                  {viewDialog.invoiceGroup.mutasiList.map((mutasi) => (
+                    <div key={mutasi.id} className="p-3 space-y-2">
+                      <div className="flex justify-between items-start">
+                        <div className="flex-1">
+                          <p className="font-mono text-sm text-muted-foreground">
+                            {mutasi.reff}
+                          </p>
+                          <p className="text-sm mt-1">{mutasi.deskripsi}</p>
+                        </div>
+                        <div className="text-right ml-4">
+                          <p className="font-semibold text-green-600">
+                            {formatCurrency(mutasi.amount)}
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            {formatDateTime(mutasi.timestamp)}
+                          </p>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="p-4 text-center text-muted-foreground border rounded-lg">
-                    No invoice allocations yet
-                  </div>
-                )}
+                      {mutasi.allocatedInvoices.length > 0 && (
+                        <div className="text-xs text-muted-foreground">
+                          Dialokasikan ke: {mutasi.allocatedInvoices.map(a => a.invoiceNo).join(", ")}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           )}
           <DialogFooter>
             <Button
               variant="outline"
-              onClick={() => setViewDialog({ open: false, mutasi: null })}
+              onClick={() => setViewDialog({ open: false, invoiceGroup: null })}
             >
-              Close
+              Tutup
             </Button>
           </DialogFooter>
         </DialogContent>

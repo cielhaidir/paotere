@@ -12,6 +12,7 @@ import {
     FileText,
     Truck,
     ClipboardList,
+    ArrowLeftRight,
 } from "lucide-react";
 import { type LucideIcon, HandCoins } from "lucide-react";
 
@@ -95,31 +96,49 @@ export const Menu: { navMain: MenuGroup[] } = {
                 requiredPermission: "menu:pembayaran",
             },
             {
-                title: "Batch Flight",
+                title: "Mutasi",
+                url: "/aktifitas/mutasi",
+                icon: ArrowLeftRight,
+                requiredPermission: "menu:mutasi",
+            },
+            {
+                title: "Batch Penerbangan",
                 url: "/aktifitas/batch-flight",
                 icon: Truck,
                 requiredPermission: "menu:batch-flight",
             },
-            {
-                title: "Pengeluaran",
-                url: "/aktifitas/pengeluaran",
-                icon: DollarSign,
-                requiredPermission: "menu:pengeluaran",
-            },
+            // {
+            //     title: "Pengeluaran",
+            //     url: "/aktifitas/pengeluaran",
+            //     icon: DollarSign,
+            //     requiredPermission: "menu:pengeluaran",
+            // },
             {
                 title: "Journal Keuangan",
                 url: "/aktifitas/journal-keuangan",
                 icon: ClipboardList,
                 requiredPermission: "menu:journal-keuangan",
             },
-            {
-                title: "Laporan Keuangan",
-                url: "/aktifitas/laporan-keuangan",
-                icon: BarChart3,
-                requiredPermission: "menu:laporan-keuangan",
-            },
             ],
         },
+        {
+            title: "Laporan",
+            url: "#",
+            items: [
+                {
+                    title: "Laporan Keuangan",
+                    url: "/laporan/laporan-keuangan",
+                    icon: BarChart3,
+                    requiredPermission: "menu:laporan-keuangan",
+                },
+                {
+                    title: "Laporan Agen",
+                    url: "/laporan/laporan-agen",
+                    icon: BarChart3,
+                    requiredPermission: "menu:laporan-agen",
+                }
+            ],
+        }
 
     ],
 };

@@ -16,6 +16,7 @@ import {
   FileText,
   DollarSign,
   Plane,
+  Receipt,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,10 +25,10 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { DatePicker } from "@/components/ui/date-picker";
 import { DataTable } from "@/components/ui/data-table";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { DataTableColumn, DataTableAction } from "@/components/ui/data-table";
+import { ExpenseTracking } from "./ExpenseTracking";
 
 // Types
 interface BatchFlight {
@@ -247,13 +248,17 @@ const generateBatchNumber = (existingBatches: BatchFlight[]): string => {
 export default function BatchFlightPage() {
   const [batchFlights, setBatchFlights] = useState<BatchFlight[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isFormOpen, setIsFormOpen] = useState(true);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingBatch, setEditingBatch] = useState<BatchFlight | null>(null);
   const [deleteDialog, setDeleteDialog] = useState<{ open: boolean; batch: BatchFlight | null }>({
     open: false,
     batch: null,
   });
   const [viewDialog, setViewDialog] = useState<{ open: boolean; batch: BatchFlight | null }>({
+    open: false,
+    batch: null,
+  });
+  const [pencatatanDialog, setPencatatanDialog] = useState<{ open: boolean; batch: BatchFlight | null }>({
     open: false,
     batch: null,
   });
@@ -356,6 +361,10 @@ export default function BatchFlightPage() {
     setViewDialog({ open: true, batch });
   };
 
+  const handlePencatatan = (batch: BatchFlight) => {
+    setPencatatanDialog({ open: true, batch });
+  };
+
   const columns: DataTableColumn<BatchFlight>[] = [
     {
       id: "nomorBatch",
@@ -368,7 +377,7 @@ export default function BatchFlightPage() {
     {
       id: "route",
       accessorKey: "route",
-      header: "Route",
+      header: "Rute",
       cell: (row) => (
         <div className="flex items-center gap-2">
           <Plane className="h-4 w-4 text-primary" />
@@ -379,7 +388,7 @@ export default function BatchFlightPage() {
     {
       id: "bookingCode",
       accessorKey: "bookingCode",
-      header: "Booking Code",
+      header: "Kode Booking",
       cell: (row) => (
         <Badge variant="outline" className="font-mono">
           {row.bookingCode}
@@ -389,7 +398,7 @@ export default function BatchFlightPage() {
     {
       id: "flightDate",
       accessorKey: "flightDate",
-      header: "Flight Date",
+      header: "Tanggal Penerbangan",
       cell: (row) => formatDate(row.flightDate as Date),
     },
     {
@@ -417,7 +426,7 @@ export default function BatchFlightPage() {
     {
       id: "totalPengeluaran",
       accessorKey: "totalPengeluaran",
-      header: "Total Expenses",
+      header: "Total Pengeluaran",
       cell: (row) => (
         <div className="font-semibold text-orange-600">
           {formatCurrency(row.totalPengeluaran as number)}
@@ -426,7 +435,7 @@ export default function BatchFlightPage() {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: "Aksi",
       cell: (row) => {
         const batch = row;
         return (
@@ -434,8 +443,16 @@ export default function BatchFlightPage() {
             <Button
               variant="ghost"
               size="icon"
+              onClick={() => handlePencatatan(batch)}
+              title="Pencatatan Modal"
+            >
+              <Receipt className="h-4 w-4 text-blue-600" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
               onClick={() => handleView(batch)}
-              title="View Details"
+              title="Lihat Detail"
             >
               <Eye className="h-4 w-4" />
             </Button>
@@ -482,9 +499,9 @@ export default function BatchFlightPage() {
       <div className="flex items-center gap-3">
         <Truck className="h-8 w-8 text-primary" />
         <div>
-          <h1 className="text-3xl font-bold">Batch Flight</h1>
+          <h1 className="text-3xl font-bold">Batch Penerbangan</h1>
           <p className="text-muted-foreground">
-            Manage flight batches and group bookings
+            Kelola batch penerbangan dan booking grup
           </p>
         </div>
       </div>
@@ -498,12 +515,12 @@ export default function BatchFlightPage() {
           <div className="flex items-center justify-between">
             <div>
               <CardTitle>
-                {editingBatch ? "Edit Batch Flight" : "Create New Batch Flight"}
+                {editingBatch ? "Edit Batch Penerbangan" : "Buat Batch Penerbangan Baru"}
               </CardTitle>
               <CardDescription>
                 {editingBatch
-                  ? "Update batch flight details"
-                  : "Fill in the form to create a new flight batch"}
+                  ? "Perbarui detail batch penerbangan"
+                  : "Isi formulir untuk membuat batch penerbangan baru"}
               </CardDescription>
             </div>
             {isFormOpen ? (
@@ -524,12 +541,13 @@ export default function BatchFlightPage() {
                     name="nomorBatch"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Nomor Batch</FormLabel>
+                        <FormLabel>Nomor Batch (Otomatis)</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
                             placeholder="BATCH-001"
-                            disabled={!!editingBatch}
+                            disabled
+                            className="bg-muted"
                           />
                         </FormControl>
                         <FormMessage />
@@ -542,7 +560,7 @@ export default function BatchFlightPage() {
                     name="route"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Route</FormLabel>
+                        <FormLabel>Rute</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
@@ -563,7 +581,7 @@ export default function BatchFlightPage() {
                     name="bookingCode"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Booking Code</FormLabel>
+                        <FormLabel>Kode Booking</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
@@ -581,10 +599,11 @@ export default function BatchFlightPage() {
                     name="flightDate"
                     render={({ field }) => (
                       <FormItem className="flex flex-col">
-                        <FormLabel>Flight Date</FormLabel>
-                        <DatePicker
-                          date={field.value}
-                          onSelect={field.onChange}
+                        <FormLabel>Tanggal Penerbangan</FormLabel>
+                        <Input
+                          type="date"
+                          value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''}
+                          onChange={(e) => field.onChange(e.target.value ? new Date(e.target.value) : null)}
                         />
                         <FormMessage />
                       </FormItem>
@@ -598,18 +617,18 @@ export default function BatchFlightPage() {
                     {editingBatch ? (
                       <>
                         <Pencil className="h-4 w-4" />
-                        Update Batch
+                        Perbarui Batch
                       </>
                     ) : (
                       <>
                         <Plus className="h-4 w-4" />
-                        Create Batch
+                        Buat Batch
                       </>
                     )}
                   </Button>
                   {editingBatch && (
                     <Button type="button" variant="outline" onClick={handleCancelEdit}>
-                      Cancel
+                      Batal
                     </Button>
                   )}
                 </div>
@@ -623,13 +642,13 @@ export default function BatchFlightPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="pb-3">
-            <CardDescription>Total Batches</CardDescription>
+            <CardDescription>Total Batch</CardDescription>
             <CardTitle className="text-2xl">{batchFlights.length}</CardTitle>
           </CardHeader>
         </Card>
         <Card>
           <CardHeader className="pb-3">
-            <CardDescription>Total Invoices</CardDescription>
+            <CardDescription>Total Invoice</CardDescription>
             <CardTitle className="text-2xl">
               {batchFlights.reduce((sum, b) => sum + b.jumlahInvoice, 0)}
             </CardTitle>
@@ -645,7 +664,7 @@ export default function BatchFlightPage() {
         </Card>
         <Card>
           <CardHeader className="pb-3">
-            <CardDescription>Total Expenses</CardDescription>
+            <CardDescription>Total Pengeluaran</CardDescription>
             <CardTitle className="text-xl text-orange-600">
               {formatCurrency(batchFlights.reduce((sum, b) => sum + b.totalPengeluaran, 0))}
             </CardTitle>
@@ -656,16 +675,16 @@ export default function BatchFlightPage() {
       {/* Data Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Batch Flight List</CardTitle>
+          <CardTitle>Daftar Batch Penerbangan</CardTitle>
           <CardDescription>
-            View and manage all flight batches ({batchFlights.length} total)
+            Lihat dan kelola semua batch penerbangan ({batchFlights.length} total)
           </CardDescription>
         </CardHeader>
         <CardContent>
           <DataTable
             columns={columns}
             data={batchFlights}
-            searchPlaceholder="Search by batch number..."
+            searchPlaceholder="Cari berdasarkan nomor batch..."
           />
         </CardContent>
       </Card>
@@ -674,13 +693,13 @@ export default function BatchFlightPage() {
       <Dialog open={deleteDialog.open} onOpenChange={(open) => setDeleteDialog({ open, batch: null })}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Confirm Delete</DialogTitle>
+            <DialogTitle>Konfirmasi Hapus</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete batch{" "}
+              Apakah Anda yakin ingin menghapus batch{" "}
               <span className="font-semibold">{deleteDialog.batch?.nomorBatch}</span>?
               {deleteDialog.batch && deleteDialog.batch.jumlahInvoice > 0 && (
                 <div className="mt-2 p-2 bg-yellow-50 dark:bg-yellow-950 border border-yellow-200 dark:border-yellow-800 rounded text-yellow-800 dark:text-yellow-200">
-                  Warning: This batch has {deleteDialog.batch.jumlahInvoice} related invoice(s).
+                  Peringatan: Batch ini memiliki {deleteDialog.batch.jumlahInvoice} invoice terkait.
                 </div>
               )}
             </DialogDescription>
@@ -690,12 +709,36 @@ export default function BatchFlightPage() {
               variant="outline"
               onClick={() => setDeleteDialog({ open: false, batch: null })}
             >
-              Cancel
+              Batal
             </Button>
             <Button variant="destructive" onClick={confirmDelete}>
-              Delete
+              Hapus
             </Button>
           </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Pencatatan Modal Dialog */}
+      <Dialog open={pencatatanDialog.open} onOpenChange={(open) => setPencatatanDialog({ open, batch: null })}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Receipt className="h-5 w-5" />
+              Pencatatan Modal - {pencatatanDialog.batch?.nomorBatch}
+            </DialogTitle>
+          </DialogHeader>
+          {pencatatanDialog.batch && (
+            <ExpenseTracking
+              batch={{
+                id: pencatatanDialog.batch.id,
+                nomorBatch: pencatatanDialog.batch.nomorBatch,
+                rutePenerbangan: pencatatanDialog.batch.route,
+                tanggal: pencatatanDialog.batch.flightDate.toISOString(),
+                invoices: pencatatanDialog.batch.relatedInvoices,
+                invoiceAmounts: {},
+              }}
+            />
+          )}
         </DialogContent>
       </Dialog>
 
@@ -705,7 +748,7 @@ export default function BatchFlightPage() {
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <Truck className="h-5 w-5" />
-              Batch Flight Details
+              Detail Batch Penerbangan
             </DialogTitle>
           </DialogHeader>
           {viewDialog.batch && (
@@ -713,21 +756,21 @@ export default function BatchFlightPage() {
               {/* Batch Header */}
               <div className="grid grid-cols-2 gap-4 p-4 bg-muted/50 rounded-lg">
                 <div>
-                  <Label className="text-muted-foreground">Batch Number</Label>
+                  <Label className="text-muted-foreground">Nomor Batch</Label>
                   <p className="font-semibold text-lg">{viewDialog.batch.nomorBatch}</p>
                 </div>
                 <div>
-                  <Label className="text-muted-foreground">Route</Label>
+                  <Label className="text-muted-foreground">Rute</Label>
                   <p className="font-mono text-lg">{viewDialog.batch.route}</p>
                 </div>
                 <div>
-                  <Label className="text-muted-foreground">Booking Code</Label>
+                  <Label className="text-muted-foreground">Kode Booking</Label>
                   <Badge variant="outline" className="font-mono text-base">
                     {viewDialog.batch.bookingCode}
                   </Badge>
                 </div>
                 <div>
-                  <Label className="text-muted-foreground">Flight Date</Label>
+                  <Label className="text-muted-foreground">Tanggal Penerbangan</Label>
                   <p>{formatDate(viewDialog.batch.flightDate)}</p>
                 </div>
               </div>
@@ -760,7 +803,7 @@ export default function BatchFlightPage() {
                   <CardHeader className="pb-3">
                     <CardDescription className="flex items-center gap-2">
                       <DollarSign className="h-4 w-4" />
-                      Expenses
+                      Pengeluaran
                     </CardDescription>
                     <CardTitle className="text-lg text-orange-600">
                       {formatCurrency(viewDialog.batch.totalPengeluaran)}
@@ -773,7 +816,7 @@ export default function BatchFlightPage() {
               <div>
                 <h3 className="font-semibold mb-2 flex items-center gap-2">
                   <FileText className="h-4 w-4" />
-                  Related Invoices ({viewDialog.batch.relatedInvoices.length})
+                  Invoice Terkait ({viewDialog.batch.relatedInvoices.length})
                 </h3>
                 {viewDialog.batch.relatedInvoices.length > 0 ? (
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
@@ -785,7 +828,7 @@ export default function BatchFlightPage() {
                   </div>
                 ) : (
                   <div className="p-4 text-center text-muted-foreground border rounded-lg">
-                    No invoices assigned yet
+                    Belum ada invoice yang ditambahkan
                   </div>
                 )}
               </div>
@@ -796,7 +839,7 @@ export default function BatchFlightPage() {
               variant="outline"
               onClick={() => setViewDialog({ open: false, batch: null })}
             >
-              Close
+              Tutup
             </Button>
           </DialogFooter>
         </DialogContent>

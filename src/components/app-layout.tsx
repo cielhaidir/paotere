@@ -40,6 +40,7 @@ export function AppLayout({ children }: AppLayoutProps) {
     <div className="relative min-h-screen">
       {/* Desktop Sidebar */}
       <div className="hidden md:block">
+        
         <Sidebar isCollapsed={isSidebarCollapsed} onToggle={toggleSidebar} />
       </div>
 
@@ -58,6 +59,7 @@ export function AppLayout({ children }: AppLayoutProps) {
           isSidebarCollapsed && "md:pl-16"
         )}
       >
+          <div className="bg-blue/20 absolute inset-0" />
         <Navbar onMenuClick={toggleMobileMenu} title={getPageTitle()} />
         <main className="p-6">{children}</main>
       </div>

@@ -24,9 +24,9 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { DatePicker } from "@/components/ui/date-picker";
 import { DataTable } from "@/components/ui/data-table";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Combobox } from "@/components/ui/combobox";
 import type { DataTableColumn, DataTableAction } from "@/components/ui/data-table";
 
 // Types
@@ -66,18 +66,26 @@ const jurnalFormSchema = z.object({
 
 type JurnalFormValues = z.infer<typeof jurnalFormSchema>;
 
-// Mockup COA Data
-const mockCOA: COA[] = [
-  { id: 1, kodeAkun: "1-1000", namaAkun: "Kas" },
-  { id: 2, kodeAkun: "1-1100", namaAkun: "Bank BCA" },
-  { id: 3, kodeAkun: "1-1200", namaAkun: "Bank Mandiri" },
-  { id: 4, kodeAkun: "1-2000", namaAkun: "Piutang Usaha" },
-  { id: 5, kodeAkun: "2-1000", namaAkun: "Hutang Usaha" },
-  { id: 6, kodeAkun: "4-1000", namaAkun: "Pendapatan Jasa Umroh" },
-  { id: 7, kodeAkun: "5-1000", namaAkun: "Beban Hotel" },
-  { id: 8, kodeAkun: "5-2000", namaAkun: "Beban Transportasi" },
-  { id: 9, kodeAkun: "5-3000", namaAkun: "Beban Konsumsi" },
-  { id: 10, kodeAkun: "5-4000", namaAkun: "Beban Operasional" },
+// Mockup COA Data with tipe field based on schema
+interface COAWithType extends COA {
+  tipe: TransactionType;
+}
+
+const mockCOA: COAWithType[] = [
+  { id: 1, kodeAkun: "1-1000", namaAkun: "Kas", tipe: "PEMASUKAN" },
+  { id: 2, kodeAkun: "1-1100", namaAkun: "Bank BCA", tipe: "PEMASUKAN" },
+  { id: 3, kodeAkun: "1-1200", namaAkun: "Bank Mandiri", tipe: "PEMASUKAN" },
+  { id: 4, kodeAkun: "1-2000", namaAkun: "Piutang Usaha", tipe: "PEMASUKAN" },
+  { id: 5, kodeAkun: "2-1000", namaAkun: "Hutang Usaha", tipe: "PENGELUARAN" },
+  { id: 6, kodeAkun: "4-1000", namaAkun: "Pendapatan Jasa Umroh", tipe: "PEMASUKAN" },
+  { id: 7, kodeAkun: "4-1100", namaAkun: "Pendapatan Paket Haji", tipe: "PEMASUKAN" },
+  { id: 8, kodeAkun: "4-1200", namaAkun: "Pendapatan Visa", tipe: "PEMASUKAN" },
+  { id: 9, kodeAkun: "5-1000", namaAkun: "Beban Hotel", tipe: "PENGELUARAN" },
+  { id: 10, kodeAkun: "5-2000", namaAkun: "Beban Transportasi", tipe: "PENGELUARAN" },
+  { id: 11, kodeAkun: "5-3000", namaAkun: "Beban Konsumsi", tipe: "PENGELUARAN" },
+  { id: 12, kodeAkun: "5-4000", namaAkun: "Beban Operasional", tipe: "PENGELUARAN" },
+  { id: 13, kodeAkun: "5-4100", namaAkun: "Beban Gaji Karyawan", tipe: "PENGELUARAN" },
+  { id: 14, kodeAkun: "5-4200", namaAkun: "Beban Marketing", tipe: "PENGELUARAN" },
 ];
 
 // Mockup Data - 25-35 journal entries
@@ -498,7 +506,7 @@ const generateJournalNumber = (existingJurnal: Jurnal[]): string => {
 export default function JournalKeuanganPage() {
   const [jurnalList, setJurnalList] = useState<Jurnal[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isFormOpen, setIsFormOpen] = useState(true);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingJurnal, setEditingJurnal] = useState<Jurnal | null>(null);
   const [deleteDialog, setDeleteDialog] = useState<{ open: boolean; jurnal: Jurnal | null }>({
     open: false,
@@ -523,6 +531,18 @@ export default function JournalKeuanganPage() {
     },
   });
 
+  // Watch tipe field to filter COA
+  const selectedTipe = form.watch("tipe");
+
+  // Filter COA based on selected transaction type
+  const filteredCOA = mockCOA.filter((coa) => coa.tipe === selectedTipe);
+
+  // Convert filtered COA to combobox options
+  const coaOptions = filteredCOA.map((coa) => ({
+    value: coa.id.toString(),
+    label: `${coa.kodeAkun} - ${coa.namaAkun}`,
+  }));
+
   // Load initial data
   useEffect(() => {
     setTimeout(() => {
@@ -538,6 +558,13 @@ export default function JournalKeuanganPage() {
       form.setValue("jurnalNumber", suggestedNumber);
     }
   }, [jurnalList, editingJurnal, form]);
+
+  // Reset COA selection when transaction type changes
+  useEffect(() => {
+    if (!editingJurnal) {
+      form.setValue("coaId", 0);
+    }
+  }, [selectedTipe, editingJurnal, form]);
 
   const onSubmit = (data: JurnalFormValues) => {
     const coa = mockCOA.find((c) => c.id === data.coaId);
@@ -645,7 +672,7 @@ export default function JournalKeuanganPage() {
     {
       id: "jurnalNumber",
       accessorKey: "jurnalNumber",
-      header: "Journal Number",
+      header: "Nomor Jurnal",
       cell: (row) => (
         <div className="font-mono text-sm">{row.jurnalNumber}</div>
       ),
@@ -706,7 +733,7 @@ export default function JournalKeuanganPage() {
     },
     {
       id: "actions",
-      header: "Actions",
+      header: "Aksi",
       cell: (row) => {
         const jurnal = row;
         return (
@@ -771,9 +798,9 @@ export default function JournalKeuanganPage() {
       <div className="flex items-center gap-3">
         <ClipboardList className="h-8 w-8 text-primary" />
         <div>
-          <h1 className="text-3xl font-bold">Journal Keuangan</h1>
+          <h1 className="text-3xl font-bold">Jurnal Keuangan</h1>
           <p className="text-muted-foreground">
-            Manage financial journal entries and transactions
+            Kelola entri jurnal keuangan dan transaksi
           </p>
         </div>
       </div>
@@ -787,12 +814,12 @@ export default function JournalKeuanganPage() {
           <div className="flex items-center justify-between">
             <div>
               <CardTitle>
-                {editingJurnal ? "Edit Journal Entry" : "Create New Journal Entry"}
+                {editingJurnal ? "Edit Entri Jurnal" : "Buat Entri Jurnal Baru"}
               </CardTitle>
               <CardDescription>
                 {editingJurnal
-                  ? "Update journal entry details"
-                  : "Fill in the form to create a new journal entry"}
+                  ? "Perbarui detail entri jurnal"
+                  : "Isi formulir untuk membuat entri jurnal baru"}
               </CardDescription>
             </div>
             {isFormOpen ? (
@@ -813,7 +840,7 @@ export default function JournalKeuanganPage() {
                     name="jurnalNumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Journal Number</FormLabel>
+                        <FormLabel>Nomor Jurnal</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
@@ -833,9 +860,10 @@ export default function JournalKeuanganPage() {
                     render={({ field }) => (
                       <FormItem className="flex flex-col">
                         <FormLabel>Tanggal Transaksi</FormLabel>
-                        <DatePicker
-                          date={field.value}
-                          onSelect={field.onChange}
+                        <Input
+                          type="date"
+                          value={field.value ? new Date(field.value).toISOString().split('T')[0] : ''}
+                          onChange={(e) => field.onChange(e.target.value ? new Date(e.target.value) : null)}
                         />
                         <FormMessage />
                       </FormItem>
@@ -891,23 +919,17 @@ export default function JournalKeuanganPage() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Chart of Account (COA)</FormLabel>
-                        <Select
-                          onValueChange={(value) => field.onChange(parseInt(value))}
-                          value={field.value?.toString() || ""}
-                        >
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Pilih COA" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            {mockCOA.map((coa) => (
-                              <SelectItem key={coa.id} value={coa.id.toString()}>
-                                {coa.kodeAkun} - {coa.namaAkun}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                        <FormControl>
+                          <Combobox
+                            options={coaOptions}
+                            value={field.value ? field.value.toString() : ""}
+                            onValueChange={(value) => field.onChange(value ? parseInt(value) : 0)}
+                            placeholder={selectedTipe ? "Cari dan pilih COA..." : "Pilih tipe transaksi dulu"}
+                            emptyText="Tidak ada COA ditemukan"
+                            searchPlaceholder="Cari kode atau nama akun..."
+                            disabled={!selectedTipe}
+                          />
+                        </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
@@ -940,18 +962,18 @@ export default function JournalKeuanganPage() {
                     {editingJurnal ? (
                       <>
                         <Pencil className="h-4 w-4" />
-                        Update Journal
+                        Perbarui Jurnal
                       </>
                     ) : (
                       <>
                         <Plus className="h-4 w-4" />
-                        Create Journal
+                        Buat Jurnal
                       </>
                     )}
                   </Button>
                   {editingJurnal && (
                     <Button type="button" variant="outline" onClick={handleCancelEdit}>
-                      Cancel
+                      Batal
                     </Button>
                   )}
                 </div>
@@ -965,7 +987,7 @@ export default function JournalKeuanganPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="pb-3">
-            <CardDescription>Total Entries</CardDescription>
+            <CardDescription>Total Entri</CardDescription>
             <CardTitle className="text-2xl">{filteredJurnal.length}</CardTitle>
           </CardHeader>
         </Card>
@@ -987,7 +1009,7 @@ export default function JournalKeuanganPage() {
         </Card>
         <Card>
           <CardHeader className="pb-3">
-            <CardDescription>Net Amount</CardDescription>
+            <CardDescription>Jumlah Bersih</CardDescription>
             <CardTitle className={`text-xl ${netAmount >= 0 ? "text-green-600" : "text-red-600"}`}>
               {formatCurrency(Math.abs(netAmount))}
             </CardTitle>
@@ -998,31 +1020,31 @@ export default function JournalKeuanganPage() {
       {/* Filters */}
       <Card>
         <CardHeader>
-          <CardTitle>Filters</CardTitle>
+          <CardTitle>Filter</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <Label>Filter by Type</Label>
+              <Label>Filter berdasarkan Tipe</Label>
               <Select value={filterType} onValueChange={setFilterType}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Types</SelectItem>
+                  <SelectItem value="all">Semua Tipe</SelectItem>
                   <SelectItem value="PENGELUARAN">PENGELUARAN</SelectItem>
                   <SelectItem value="PEMASUKAN">PEMASUKAN</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div>
-              <Label>Filter by COA</Label>
+              <Label>Filter berdasarkan COA</Label>
               <Select value={filterCOA} onValueChange={setFilterCOA}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All COA</SelectItem>
+                  <SelectItem value="all">Semua COA</SelectItem>
                   {mockCOA.map((coa) => (
                     <SelectItem key={coa.id} value={coa.kodeAkun}>
                       {coa.kodeAkun} - {coa.namaAkun}
@@ -1038,16 +1060,16 @@ export default function JournalKeuanganPage() {
       {/* Data Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Journal List</CardTitle>
+          <CardTitle>Daftar Jurnal</CardTitle>
           <CardDescription>
-            View and manage all journal entries ({filteredJurnal.length} total)
+            Lihat dan kelola semua entri jurnal ({filteredJurnal.length} total)
           </CardDescription>
         </CardHeader>
         <CardContent>
           <DataTable
             columns={columns}
             data={filteredJurnal}
-            searchPlaceholder="Search by transaction name..."
+            searchPlaceholder="Cari berdasarkan nama transaksi..."
           />
         </CardContent>
       </Card>
@@ -1056,9 +1078,9 @@ export default function JournalKeuanganPage() {
       <Dialog open={deleteDialog.open} onOpenChange={(open) => setDeleteDialog({ open, jurnal: null })}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Confirm Delete</DialogTitle>
+            <DialogTitle>Konfirmasi Hapus</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete journal entry{" "}
+              Apakah Anda yakin ingin menghapus entri jurnal{" "}
               <span className="font-semibold font-mono">{deleteDialog.jurnal?.jurnalNumber}</span>?
             </DialogDescription>
           </DialogHeader>
@@ -1067,10 +1089,10 @@ export default function JournalKeuanganPage() {
               variant="outline"
               onClick={() => setDeleteDialog({ open: false, jurnal: null })}
             >
-              Cancel
+              Batal
             </Button>
             <Button variant="destructive" onClick={confirmDelete}>
-              Delete
+              Hapus
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -1082,7 +1104,7 @@ export default function JournalKeuanganPage() {
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <ClipboardList className="h-5 w-5" />
-              Journal Entry Details
+              Detail Entri Jurnal
             </DialogTitle>
           </DialogHeader>
           {viewDialog.jurnal && (
@@ -1090,18 +1112,18 @@ export default function JournalKeuanganPage() {
               {/* Journal Header */}
               <div className="grid grid-cols-2 gap-4 p-4 bg-muted/50 rounded-lg">
                 <div>
-                  <Label className="text-muted-foreground">Journal Number</Label>
+                  <Label className="text-muted-foreground">Nomor Jurnal</Label>
                   <p className="font-mono font-semibold">{viewDialog.jurnal.jurnalNumber}</p>
                 </div>
                 <div>
-                  <Label className="text-muted-foreground">Transaction Date</Label>
+                  <Label className="text-muted-foreground">Tanggal Transaksi</Label>
                   <p className="flex items-center gap-2">
                     <Calendar className="h-4 w-4" />
                     {formatDate(viewDialog.jurnal.tanggalTransaksi)}
                   </p>
                 </div>
                 <div className="col-span-2">
-                  <Label className="text-muted-foreground">Transaction Name</Label>
+                  <Label className="text-muted-foreground">Nama Transaksi</Label>
                   <p className="font-semibold">{viewDialog.jurnal.namaTransaksi}</p>
                 </div>
               </div>
@@ -1109,7 +1131,7 @@ export default function JournalKeuanganPage() {
               {/* Transaction Details */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <Label className="text-muted-foreground">Transaction Type</Label>
+                  <Label className="text-muted-foreground">Tipe Transaksi</Label>
                   <div className="mt-1">
                     <Badge
                       variant={getTypeBadge(viewDialog.jurnal.tipe).variant}
@@ -1133,7 +1155,7 @@ export default function JournalKeuanganPage() {
 
               {/* Amount */}
               <div>
-                <Label className="text-muted-foreground">Amount</Label>
+                <Label className="text-muted-foreground">Nominal</Label>
                 <p className={`text-3xl font-bold ${viewDialog.jurnal.tipe === "PENGELUARAN" ? "text-red-600" : "text-green-600"}`}>
                   {formatCurrency(viewDialog.jurnal.nominal)}
                 </p>
@@ -1145,7 +1167,7 @@ export default function JournalKeuanganPage() {
               variant="outline"
               onClick={() => setViewDialog({ open: false, jurnal: null })}
             >
-              Close
+              Tutup
             </Button>
           </DialogFooter>
         </DialogContent>
