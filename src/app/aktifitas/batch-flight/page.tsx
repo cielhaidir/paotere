@@ -263,6 +263,67 @@ export default function BatchFlightPage() {
     batch: null,
   });
 
+  // Mock invoice data to calculate amounts (should be fetched from actual invoice system)
+  const mockInvoiceData: { [key: string]: number } = {
+    "INV-2026-001": 35000000,
+    "INV-2026-002": 36000000,
+    "INV-2026-003": 37000000,
+    "INV-2026-004": 45000000,
+    "INV-2026-005": 29000000,
+    "INV-2026-006": 32000000,
+    "INV-2026-007": 42000000,
+    "INV-2026-008": 38000000,
+    "INV-2026-009": 33000000,
+    "INV-2026-010": 28000000,
+    "INV-2026-011": 44000000,
+    "INV-2026-012": 35000000,
+    "INV-2026-013": 37000000,
+    "INV-2026-014": 39000000,
+    "INV-2026-015": 36000000,
+    "INV-2026-016": 38000000,
+    "INV-2026-017": 32000000,
+    "INV-2026-018": 34000000,
+    "INV-2026-019": 32000000,
+    "INV-2026-020": 38000000,
+    "INV-2026-021": 40000000,
+    "INV-2026-022": 36000000,
+    "INV-2026-023": 38000000,
+    "INV-2026-024": 45000000,
+    "INV-2026-025": 43000000,
+    "INV-2026-026": 37000000,
+    "INV-2026-027": 39000000,
+    "INV-2026-028": 39000000,
+    "INV-2026-029": 31000000,
+    "INV-2026-030": 37000000,
+    "INV-2026-031": 40000000,
+    "INV-2026-032": 42000000,
+    "INV-2026-033": 41000000,
+    "INV-2026-034": 39000000,
+    "INV-2026-035": 32000000,
+    "INV-2026-036": 31000000,
+    "INV-2026-037": 32000000,
+    "INV-2026-038": 38000000,
+    "INV-2026-039": 40000000,
+    "INV-2026-040": 39000000,
+    "INV-2026-041": 41000000,
+    "INV-2026-042": 40000000,
+    "INV-2026-043": 37000000,
+    "INV-2026-044": 38000000,
+    "INV-2026-045": 43000000,
+    "INV-2026-046": 44000000,
+    "INV-2026-047": 45000000,
+    "INV-2026-048": 43000000,
+  };
+
+  // Helper function to get invoice amounts for a batch
+  const getInvoiceAmounts = (invoiceNumbers: string[]): { [key: string]: number } => {
+    const amounts: { [key: string]: number } = {};
+    invoiceNumbers.forEach((invNumber) => {
+      amounts[invNumber] = mockInvoiceData[invNumber] || 0;
+    });
+    return amounts;
+  };
+
   const form = useForm<BatchFlightFormValues>({
     resolver: zodResolver(batchFlightFormSchema),
     defaultValues: {
@@ -735,7 +796,7 @@ export default function BatchFlightPage() {
                 rutePenerbangan: pencatatanDialog.batch.route,
                 tanggal: pencatatanDialog.batch.flightDate.toISOString(),
                 invoices: pencatatanDialog.batch.relatedInvoices,
-                invoiceAmounts: {},
+                invoiceAmounts: getInvoiceAmounts(pencatatanDialog.batch.relatedInvoices),
               }}
             />
           )}
