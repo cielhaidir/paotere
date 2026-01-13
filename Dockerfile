@@ -1,5 +1,5 @@
 # syntax=docker.io/docker/dockerfile:1
-ARG BUN_VERSION=1.3.2
+ARG BUN_VERSION=latest
 
 FROM oven/bun:${BUN_VERSION} AS base
 
@@ -28,7 +28,7 @@ RUN bunx prisma generate
 RUN bun run build
 
 # Production image, copy all the files and run next
-FROM oven/bun:${BUN_VERSION}-slim AS runner
+FROM oven/bun:${BUN_VERSION} AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
