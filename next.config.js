@@ -6,6 +6,7 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
+  output: "standalone",
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

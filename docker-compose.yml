@@ -1,0 +1,20 @@
+  services:
+
+    app:
+      image: paotere
+      container_name: paotere-app
+      build:
+        context: .
+        dockerfile: Dockerfile
+      ports:
+        - "3050:3000"
+      env_file:
+        - .env
+      networks:
+        - paotere-network
+
+
+  networks:
+    paotere-network:
+      name: paotere-shared
+      external: true
