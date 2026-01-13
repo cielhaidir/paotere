@@ -166,6 +166,126 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.AgenScalarFieldEnum = {
+  id: 'id',
+  nama: 'nama',
+  alamat: 'alamat',
+  nomorHp: 'nomorHp'
+};
+
+exports.Prisma.ProdukScalarFieldEnum = {
+  id: 'id',
+  nama: 'nama'
+};
+
+exports.Prisma.PaketScalarFieldEnum = {
+  id: 'id',
+  produkId: 'produkId',
+  nama: 'nama'
+};
+
+exports.Prisma.FileScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  type: 'type'
+};
+
+exports.Prisma.BarcodeJemaahScalarFieldEnum = {
+  id: 'id',
+  oldBarcode: 'oldBarcode',
+  nama: 'nama',
+  ktp: 'ktp',
+  alamat: 'alamat',
+  produkId: 'produkId',
+  paketId: 'paketId',
+  tingkat: 'tingkat',
+  tanggalKeberangkatan: 'tanggalKeberangkatan',
+  deskripsi: 'deskripsi',
+  agenId: 'agenId',
+  harga: 'harga',
+  fileId: 'fileId',
+  invoiceId: 'invoiceId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InvoiceScalarFieldEnum = {
+  id: 'id',
+  nomor: 'nomor',
+  tanggal: 'tanggal',
+  agenId: 'agenId',
+  taxPercent: 'taxPercent',
+  diskon: 'diskon',
+  total: 'total',
+  status: 'status',
+  dueDate: 'dueDate',
+  batchFlightId: 'batchFlightId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MutasiScalarFieldEnum = {
+  id: 'id',
+  timestamp: 'timestamp',
+  deskripsi: 'deskripsi',
+  reff: 'reff',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InvoiceMutasiScalarFieldEnum = {
+  id: 'id',
+  invoiceId: 'invoiceId',
+  mutasiId: 'mutasiId',
+  totalDigunakan: 'totalDigunakan',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BatchFlightScalarFieldEnum = {
+  id: 'id',
+  nomorBatch: 'nomorBatch',
+  route: 'route',
+  bookingCode: 'bookingCode',
+  flightDate: 'flightDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BatchTransactionScalarFieldEnum = {
+  id: 'id',
+  batchId: 'batchId',
+  tipe: 'tipe',
+  namaTransaksi: 'namaTransaksi',
+  nominal: 'nominal',
+  deskripsi: 'deskripsi',
+  fileId: 'fileId',
+  mutasiId: 'mutasiId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.JurnalScalarFieldEnum = {
+  id: 'id',
+  jurnalNumber: 'jurnalNumber',
+  namaTransaksi: 'namaTransaksi',
+  tipe: 'tipe',
+  coaId: 'coaId',
+  tanggalTransaksi: 'tanggalTransaksi',
+  fileId: 'fileId',
+  nominal: 'nominal',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.COAScalarFieldEnum = {
+  id: 'id',
+  tipe: 'tipe',
+  kodeAkun: 'kodeAkun',
+  namaAkun: 'namaAkun'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -180,14 +300,35 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.InvoiceStatus = exports.$Enums.InvoiceStatus = {
+  DRAFT: 'DRAFT',
+  PAID: 'PAID',
+  OVERDUE: 'OVERDUE'
+};
 
+exports.TipeTransaksi = exports.$Enums.TipeTransaksi = {
+  PENGELUARAN: 'PENGELUARAN',
+  PEMASUKAN: 'PEMASUKAN'
+};
 
 exports.Prisma.ModelName = {
   Post: 'Post',
   Account: 'Account',
   Session: 'Session',
   User: 'User',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  Agen: 'Agen',
+  Produk: 'Produk',
+  Paket: 'Paket',
+  File: 'File',
+  BarcodeJemaah: 'BarcodeJemaah',
+  Invoice: 'Invoice',
+  Mutasi: 'Mutasi',
+  InvoiceMutasi: 'InvoiceMutasi',
+  BatchFlight: 'BatchFlight',
+  BatchTransaction: 'BatchTransaction',
+  Jurnal: 'Jurnal',
+  COA: 'COA'
 };
 
 /**

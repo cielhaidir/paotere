@@ -38,6 +38,96 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * 
  */
 export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTokenPayload>
+/**
+ * Model Agen
+ * 
+ */
+export type Agen = $Result.DefaultSelection<Prisma.$AgenPayload>
+/**
+ * Model Produk
+ * 
+ */
+export type Produk = $Result.DefaultSelection<Prisma.$ProdukPayload>
+/**
+ * Model Paket
+ * 
+ */
+export type Paket = $Result.DefaultSelection<Prisma.$PaketPayload>
+/**
+ * Model File
+ * 
+ */
+export type File = $Result.DefaultSelection<Prisma.$FilePayload>
+/**
+ * Model BarcodeJemaah
+ * 
+ */
+export type BarcodeJemaah = $Result.DefaultSelection<Prisma.$BarcodeJemaahPayload>
+/**
+ * Model Invoice
+ * 
+ */
+export type Invoice = $Result.DefaultSelection<Prisma.$InvoicePayload>
+/**
+ * Model Mutasi
+ * 
+ */
+export type Mutasi = $Result.DefaultSelection<Prisma.$MutasiPayload>
+/**
+ * Model InvoiceMutasi
+ * 
+ */
+export type InvoiceMutasi = $Result.DefaultSelection<Prisma.$InvoiceMutasiPayload>
+/**
+ * Model BatchFlight
+ * 
+ */
+export type BatchFlight = $Result.DefaultSelection<Prisma.$BatchFlightPayload>
+/**
+ * Model BatchTransaction
+ * 
+ */
+export type BatchTransaction = $Result.DefaultSelection<Prisma.$BatchTransactionPayload>
+/**
+ * Model Jurnal
+ * 
+ */
+export type Jurnal = $Result.DefaultSelection<Prisma.$JurnalPayload>
+/**
+ * Model COA
+ * 
+ */
+export type COA = $Result.DefaultSelection<Prisma.$COAPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const TipeTransaksi: {
+  PENGELUARAN: 'PENGELUARAN',
+  PEMASUKAN: 'PEMASUKAN'
+};
+
+export type TipeTransaksi = (typeof TipeTransaksi)[keyof typeof TipeTransaksi]
+
+
+export const InvoiceStatus: {
+  DRAFT: 'DRAFT',
+  PAID: 'PAID',
+  OVERDUE: 'OVERDUE'
+};
+
+export type InvoiceStatus = (typeof InvoiceStatus)[keyof typeof InvoiceStatus]
+
+}
+
+export type TipeTransaksi = $Enums.TipeTransaksi
+
+export const TipeTransaksi: typeof $Enums.TipeTransaksi
+
+export type InvoiceStatus = $Enums.InvoiceStatus
+
+export const InvoiceStatus: typeof $Enums.InvoiceStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -206,6 +296,126 @@ export class PrismaClient<
     * ```
     */
   get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.agen`: Exposes CRUD operations for the **Agen** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Agens
+    * const agens = await prisma.agen.findMany()
+    * ```
+    */
+  get agen(): Prisma.AgenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.produk`: Exposes CRUD operations for the **Produk** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Produks
+    * const produks = await prisma.produk.findMany()
+    * ```
+    */
+  get produk(): Prisma.ProdukDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.paket`: Exposes CRUD operations for the **Paket** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Pakets
+    * const pakets = await prisma.paket.findMany()
+    * ```
+    */
+  get paket(): Prisma.PaketDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.file`: Exposes CRUD operations for the **File** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Files
+    * const files = await prisma.file.findMany()
+    * ```
+    */
+  get file(): Prisma.FileDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.barcodeJemaah`: Exposes CRUD operations for the **BarcodeJemaah** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BarcodeJemaahs
+    * const barcodeJemaahs = await prisma.barcodeJemaah.findMany()
+    * ```
+    */
+  get barcodeJemaah(): Prisma.BarcodeJemaahDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.invoice`: Exposes CRUD operations for the **Invoice** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Invoices
+    * const invoices = await prisma.invoice.findMany()
+    * ```
+    */
+  get invoice(): Prisma.InvoiceDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.mutasi`: Exposes CRUD operations for the **Mutasi** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mutasis
+    * const mutasis = await prisma.mutasi.findMany()
+    * ```
+    */
+  get mutasi(): Prisma.MutasiDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.invoiceMutasi`: Exposes CRUD operations for the **InvoiceMutasi** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more InvoiceMutasis
+    * const invoiceMutasis = await prisma.invoiceMutasi.findMany()
+    * ```
+    */
+  get invoiceMutasi(): Prisma.InvoiceMutasiDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.batchFlight`: Exposes CRUD operations for the **BatchFlight** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BatchFlights
+    * const batchFlights = await prisma.batchFlight.findMany()
+    * ```
+    */
+  get batchFlight(): Prisma.BatchFlightDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.batchTransaction`: Exposes CRUD operations for the **BatchTransaction** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BatchTransactions
+    * const batchTransactions = await prisma.batchTransaction.findMany()
+    * ```
+    */
+  get batchTransaction(): Prisma.BatchTransactionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jurnal`: Exposes CRUD operations for the **Jurnal** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Jurnals
+    * const jurnals = await prisma.jurnal.findMany()
+    * ```
+    */
+  get jurnal(): Prisma.JurnalDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.cOA`: Exposes CRUD operations for the **COA** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more COAS
+    * const cOAS = await prisma.cOA.findMany()
+    * ```
+    */
+  get cOA(): Prisma.COADelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -651,7 +861,19 @@ export namespace Prisma {
     Account: 'Account',
     Session: 'Session',
     User: 'User',
-    VerificationToken: 'VerificationToken'
+    VerificationToken: 'VerificationToken',
+    Agen: 'Agen',
+    Produk: 'Produk',
+    Paket: 'Paket',
+    File: 'File',
+    BarcodeJemaah: 'BarcodeJemaah',
+    Invoice: 'Invoice',
+    Mutasi: 'Mutasi',
+    InvoiceMutasi: 'InvoiceMutasi',
+    BatchFlight: 'BatchFlight',
+    BatchTransaction: 'BatchTransaction',
+    Jurnal: 'Jurnal',
+    COA: 'COA'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -670,7 +892,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "post" | "account" | "session" | "user" | "verificationToken"
+      modelProps: "post" | "account" | "session" | "user" | "verificationToken" | "agen" | "produk" | "paket" | "file" | "barcodeJemaah" | "invoice" | "mutasi" | "invoiceMutasi" | "batchFlight" | "batchTransaction" | "jurnal" | "cOA"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1044,6 +1266,894 @@ export namespace Prisma {
           }
         }
       }
+      Agen: {
+        payload: Prisma.$AgenPayload<ExtArgs>
+        fields: Prisma.AgenFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AgenFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AgenFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>
+          }
+          findFirst: {
+            args: Prisma.AgenFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AgenFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>
+          }
+          findMany: {
+            args: Prisma.AgenFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>[]
+          }
+          create: {
+            args: Prisma.AgenCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>
+          }
+          createMany: {
+            args: Prisma.AgenCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AgenCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>[]
+          }
+          delete: {
+            args: Prisma.AgenDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>
+          }
+          update: {
+            args: Prisma.AgenUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>
+          }
+          deleteMany: {
+            args: Prisma.AgenDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AgenUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AgenUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>[]
+          }
+          upsert: {
+            args: Prisma.AgenUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AgenPayload>
+          }
+          aggregate: {
+            args: Prisma.AgenAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAgen>
+          }
+          groupBy: {
+            args: Prisma.AgenGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AgenGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AgenCountArgs<ExtArgs>
+            result: $Utils.Optional<AgenCountAggregateOutputType> | number
+          }
+        }
+      }
+      Produk: {
+        payload: Prisma.$ProdukPayload<ExtArgs>
+        fields: Prisma.ProdukFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProdukFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProdukFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>
+          }
+          findFirst: {
+            args: Prisma.ProdukFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProdukFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>
+          }
+          findMany: {
+            args: Prisma.ProdukFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>[]
+          }
+          create: {
+            args: Prisma.ProdukCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>
+          }
+          createMany: {
+            args: Prisma.ProdukCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProdukCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>[]
+          }
+          delete: {
+            args: Prisma.ProdukDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>
+          }
+          update: {
+            args: Prisma.ProdukUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProdukDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProdukUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProdukUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProdukUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProdukPayload>
+          }
+          aggregate: {
+            args: Prisma.ProdukAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProduk>
+          }
+          groupBy: {
+            args: Prisma.ProdukGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProdukGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProdukCountArgs<ExtArgs>
+            result: $Utils.Optional<ProdukCountAggregateOutputType> | number
+          }
+        }
+      }
+      Paket: {
+        payload: Prisma.$PaketPayload<ExtArgs>
+        fields: Prisma.PaketFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PaketFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PaketFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>
+          }
+          findFirst: {
+            args: Prisma.PaketFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PaketFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>
+          }
+          findMany: {
+            args: Prisma.PaketFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>[]
+          }
+          create: {
+            args: Prisma.PaketCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>
+          }
+          createMany: {
+            args: Prisma.PaketCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PaketCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>[]
+          }
+          delete: {
+            args: Prisma.PaketDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>
+          }
+          update: {
+            args: Prisma.PaketUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>
+          }
+          deleteMany: {
+            args: Prisma.PaketDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PaketUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PaketUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>[]
+          }
+          upsert: {
+            args: Prisma.PaketUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaketPayload>
+          }
+          aggregate: {
+            args: Prisma.PaketAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePaket>
+          }
+          groupBy: {
+            args: Prisma.PaketGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PaketGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PaketCountArgs<ExtArgs>
+            result: $Utils.Optional<PaketCountAggregateOutputType> | number
+          }
+        }
+      }
+      File: {
+        payload: Prisma.$FilePayload<ExtArgs>
+        fields: Prisma.FileFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.FileFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.FileFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>
+          }
+          findFirst: {
+            args: Prisma.FileFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.FileFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>
+          }
+          findMany: {
+            args: Prisma.FileFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>[]
+          }
+          create: {
+            args: Prisma.FileCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>
+          }
+          createMany: {
+            args: Prisma.FileCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.FileCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>[]
+          }
+          delete: {
+            args: Prisma.FileDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>
+          }
+          update: {
+            args: Prisma.FileUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>
+          }
+          deleteMany: {
+            args: Prisma.FileDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.FileUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.FileUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>[]
+          }
+          upsert: {
+            args: Prisma.FileUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$FilePayload>
+          }
+          aggregate: {
+            args: Prisma.FileAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateFile>
+          }
+          groupBy: {
+            args: Prisma.FileGroupByArgs<ExtArgs>
+            result: $Utils.Optional<FileGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.FileCountArgs<ExtArgs>
+            result: $Utils.Optional<FileCountAggregateOutputType> | number
+          }
+        }
+      }
+      BarcodeJemaah: {
+        payload: Prisma.$BarcodeJemaahPayload<ExtArgs>
+        fields: Prisma.BarcodeJemaahFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BarcodeJemaahFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BarcodeJemaahFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>
+          }
+          findFirst: {
+            args: Prisma.BarcodeJemaahFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BarcodeJemaahFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>
+          }
+          findMany: {
+            args: Prisma.BarcodeJemaahFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>[]
+          }
+          create: {
+            args: Prisma.BarcodeJemaahCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>
+          }
+          createMany: {
+            args: Prisma.BarcodeJemaahCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BarcodeJemaahCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>[]
+          }
+          delete: {
+            args: Prisma.BarcodeJemaahDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>
+          }
+          update: {
+            args: Prisma.BarcodeJemaahUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>
+          }
+          deleteMany: {
+            args: Prisma.BarcodeJemaahDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BarcodeJemaahUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BarcodeJemaahUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>[]
+          }
+          upsert: {
+            args: Prisma.BarcodeJemaahUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BarcodeJemaahPayload>
+          }
+          aggregate: {
+            args: Prisma.BarcodeJemaahAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBarcodeJemaah>
+          }
+          groupBy: {
+            args: Prisma.BarcodeJemaahGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BarcodeJemaahGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BarcodeJemaahCountArgs<ExtArgs>
+            result: $Utils.Optional<BarcodeJemaahCountAggregateOutputType> | number
+          }
+        }
+      }
+      Invoice: {
+        payload: Prisma.$InvoicePayload<ExtArgs>
+        fields: Prisma.InvoiceFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.InvoiceFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.InvoiceFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>
+          }
+          findFirst: {
+            args: Prisma.InvoiceFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.InvoiceFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>
+          }
+          findMany: {
+            args: Prisma.InvoiceFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>[]
+          }
+          create: {
+            args: Prisma.InvoiceCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>
+          }
+          createMany: {
+            args: Prisma.InvoiceCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.InvoiceCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>[]
+          }
+          delete: {
+            args: Prisma.InvoiceDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>
+          }
+          update: {
+            args: Prisma.InvoiceUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>
+          }
+          deleteMany: {
+            args: Prisma.InvoiceDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.InvoiceUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.InvoiceUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>[]
+          }
+          upsert: {
+            args: Prisma.InvoiceUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoicePayload>
+          }
+          aggregate: {
+            args: Prisma.InvoiceAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateInvoice>
+          }
+          groupBy: {
+            args: Prisma.InvoiceGroupByArgs<ExtArgs>
+            result: $Utils.Optional<InvoiceGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.InvoiceCountArgs<ExtArgs>
+            result: $Utils.Optional<InvoiceCountAggregateOutputType> | number
+          }
+        }
+      }
+      Mutasi: {
+        payload: Prisma.$MutasiPayload<ExtArgs>
+        fields: Prisma.MutasiFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MutasiFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MutasiFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>
+          }
+          findFirst: {
+            args: Prisma.MutasiFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MutasiFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>
+          }
+          findMany: {
+            args: Prisma.MutasiFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>[]
+          }
+          create: {
+            args: Prisma.MutasiCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>
+          }
+          createMany: {
+            args: Prisma.MutasiCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MutasiCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>[]
+          }
+          delete: {
+            args: Prisma.MutasiDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>
+          }
+          update: {
+            args: Prisma.MutasiUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>
+          }
+          deleteMany: {
+            args: Prisma.MutasiDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MutasiUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MutasiUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>[]
+          }
+          upsert: {
+            args: Prisma.MutasiUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MutasiPayload>
+          }
+          aggregate: {
+            args: Prisma.MutasiAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMutasi>
+          }
+          groupBy: {
+            args: Prisma.MutasiGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MutasiGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MutasiCountArgs<ExtArgs>
+            result: $Utils.Optional<MutasiCountAggregateOutputType> | number
+          }
+        }
+      }
+      InvoiceMutasi: {
+        payload: Prisma.$InvoiceMutasiPayload<ExtArgs>
+        fields: Prisma.InvoiceMutasiFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.InvoiceMutasiFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.InvoiceMutasiFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>
+          }
+          findFirst: {
+            args: Prisma.InvoiceMutasiFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.InvoiceMutasiFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>
+          }
+          findMany: {
+            args: Prisma.InvoiceMutasiFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>[]
+          }
+          create: {
+            args: Prisma.InvoiceMutasiCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>
+          }
+          createMany: {
+            args: Prisma.InvoiceMutasiCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.InvoiceMutasiCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>[]
+          }
+          delete: {
+            args: Prisma.InvoiceMutasiDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>
+          }
+          update: {
+            args: Prisma.InvoiceMutasiUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>
+          }
+          deleteMany: {
+            args: Prisma.InvoiceMutasiDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.InvoiceMutasiUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.InvoiceMutasiUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>[]
+          }
+          upsert: {
+            args: Prisma.InvoiceMutasiUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InvoiceMutasiPayload>
+          }
+          aggregate: {
+            args: Prisma.InvoiceMutasiAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateInvoiceMutasi>
+          }
+          groupBy: {
+            args: Prisma.InvoiceMutasiGroupByArgs<ExtArgs>
+            result: $Utils.Optional<InvoiceMutasiGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.InvoiceMutasiCountArgs<ExtArgs>
+            result: $Utils.Optional<InvoiceMutasiCountAggregateOutputType> | number
+          }
+        }
+      }
+      BatchFlight: {
+        payload: Prisma.$BatchFlightPayload<ExtArgs>
+        fields: Prisma.BatchFlightFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BatchFlightFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BatchFlightFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>
+          }
+          findFirst: {
+            args: Prisma.BatchFlightFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BatchFlightFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>
+          }
+          findMany: {
+            args: Prisma.BatchFlightFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>[]
+          }
+          create: {
+            args: Prisma.BatchFlightCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>
+          }
+          createMany: {
+            args: Prisma.BatchFlightCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BatchFlightCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>[]
+          }
+          delete: {
+            args: Prisma.BatchFlightDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>
+          }
+          update: {
+            args: Prisma.BatchFlightUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>
+          }
+          deleteMany: {
+            args: Prisma.BatchFlightDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BatchFlightUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BatchFlightUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>[]
+          }
+          upsert: {
+            args: Prisma.BatchFlightUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchFlightPayload>
+          }
+          aggregate: {
+            args: Prisma.BatchFlightAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBatchFlight>
+          }
+          groupBy: {
+            args: Prisma.BatchFlightGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BatchFlightGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BatchFlightCountArgs<ExtArgs>
+            result: $Utils.Optional<BatchFlightCountAggregateOutputType> | number
+          }
+        }
+      }
+      BatchTransaction: {
+        payload: Prisma.$BatchTransactionPayload<ExtArgs>
+        fields: Prisma.BatchTransactionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BatchTransactionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BatchTransactionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>
+          }
+          findFirst: {
+            args: Prisma.BatchTransactionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BatchTransactionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>
+          }
+          findMany: {
+            args: Prisma.BatchTransactionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>[]
+          }
+          create: {
+            args: Prisma.BatchTransactionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>
+          }
+          createMany: {
+            args: Prisma.BatchTransactionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BatchTransactionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>[]
+          }
+          delete: {
+            args: Prisma.BatchTransactionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>
+          }
+          update: {
+            args: Prisma.BatchTransactionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>
+          }
+          deleteMany: {
+            args: Prisma.BatchTransactionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BatchTransactionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BatchTransactionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>[]
+          }
+          upsert: {
+            args: Prisma.BatchTransactionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BatchTransactionPayload>
+          }
+          aggregate: {
+            args: Prisma.BatchTransactionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBatchTransaction>
+          }
+          groupBy: {
+            args: Prisma.BatchTransactionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BatchTransactionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BatchTransactionCountArgs<ExtArgs>
+            result: $Utils.Optional<BatchTransactionCountAggregateOutputType> | number
+          }
+        }
+      }
+      Jurnal: {
+        payload: Prisma.$JurnalPayload<ExtArgs>
+        fields: Prisma.JurnalFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JurnalFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JurnalFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>
+          }
+          findFirst: {
+            args: Prisma.JurnalFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JurnalFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>
+          }
+          findMany: {
+            args: Prisma.JurnalFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>[]
+          }
+          create: {
+            args: Prisma.JurnalCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>
+          }
+          createMany: {
+            args: Prisma.JurnalCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.JurnalCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>[]
+          }
+          delete: {
+            args: Prisma.JurnalDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>
+          }
+          update: {
+            args: Prisma.JurnalUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>
+          }
+          deleteMany: {
+            args: Prisma.JurnalDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JurnalUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.JurnalUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>[]
+          }
+          upsert: {
+            args: Prisma.JurnalUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JurnalPayload>
+          }
+          aggregate: {
+            args: Prisma.JurnalAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJurnal>
+          }
+          groupBy: {
+            args: Prisma.JurnalGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JurnalGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JurnalCountArgs<ExtArgs>
+            result: $Utils.Optional<JurnalCountAggregateOutputType> | number
+          }
+        }
+      }
+      COA: {
+        payload: Prisma.$COAPayload<ExtArgs>
+        fields: Prisma.COAFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.COAFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.COAFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>
+          }
+          findFirst: {
+            args: Prisma.COAFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.COAFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>
+          }
+          findMany: {
+            args: Prisma.COAFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>[]
+          }
+          create: {
+            args: Prisma.COACreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>
+          }
+          createMany: {
+            args: Prisma.COACreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.COACreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>[]
+          }
+          delete: {
+            args: Prisma.COADeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>
+          }
+          update: {
+            args: Prisma.COAUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>
+          }
+          deleteMany: {
+            args: Prisma.COADeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.COAUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.COAUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>[]
+          }
+          upsert: {
+            args: Prisma.COAUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$COAPayload>
+          }
+          aggregate: {
+            args: Prisma.COAAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCOA>
+          }
+          groupBy: {
+            args: Prisma.COAGroupByArgs<ExtArgs>
+            result: $Utils.Optional<COAGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.COACountArgs<ExtArgs>
+            result: $Utils.Optional<COACountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1145,6 +2255,18 @@ export namespace Prisma {
     session?: SessionOmit
     user?: UserOmit
     verificationToken?: VerificationTokenOmit
+    agen?: AgenOmit
+    produk?: ProdukOmit
+    paket?: PaketOmit
+    file?: FileOmit
+    barcodeJemaah?: BarcodeJemaahOmit
+    invoice?: InvoiceOmit
+    mutasi?: MutasiOmit
+    invoiceMutasi?: InvoiceMutasiOmit
+    batchFlight?: BatchFlightOmit
+    batchTransaction?: BatchTransactionOmit
+    jurnal?: JurnalOmit
+    cOA?: COAOmit
   }
 
   /* Types for Logging */
@@ -1266,6 +2388,317 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountPostsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PostWhereInput
+  }
+
+
+  /**
+   * Count Type AgenCountOutputType
+   */
+
+  export type AgenCountOutputType = {
+    barcodes: number
+    invoices: number
+  }
+
+  export type AgenCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    barcodes?: boolean | AgenCountOutputTypeCountBarcodesArgs
+    invoices?: boolean | AgenCountOutputTypeCountInvoicesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * AgenCountOutputType without action
+   */
+  export type AgenCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AgenCountOutputType
+     */
+    select?: AgenCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * AgenCountOutputType without action
+   */
+  export type AgenCountOutputTypeCountBarcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BarcodeJemaahWhereInput
+  }
+
+  /**
+   * AgenCountOutputType without action
+   */
+  export type AgenCountOutputTypeCountInvoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvoiceWhereInput
+  }
+
+
+  /**
+   * Count Type ProdukCountOutputType
+   */
+
+  export type ProdukCountOutputType = {
+    paket: number
+    barcodes: number
+  }
+
+  export type ProdukCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    paket?: boolean | ProdukCountOutputTypeCountPaketArgs
+    barcodes?: boolean | ProdukCountOutputTypeCountBarcodesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProdukCountOutputType without action
+   */
+  export type ProdukCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProdukCountOutputType
+     */
+    select?: ProdukCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProdukCountOutputType without action
+   */
+  export type ProdukCountOutputTypeCountPaketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaketWhereInput
+  }
+
+  /**
+   * ProdukCountOutputType without action
+   */
+  export type ProdukCountOutputTypeCountBarcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BarcodeJemaahWhereInput
+  }
+
+
+  /**
+   * Count Type PaketCountOutputType
+   */
+
+  export type PaketCountOutputType = {
+    barcodes: number
+  }
+
+  export type PaketCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    barcodes?: boolean | PaketCountOutputTypeCountBarcodesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PaketCountOutputType without action
+   */
+  export type PaketCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PaketCountOutputType
+     */
+    select?: PaketCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PaketCountOutputType without action
+   */
+  export type PaketCountOutputTypeCountBarcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BarcodeJemaahWhereInput
+  }
+
+
+  /**
+   * Count Type FileCountOutputType
+   */
+
+  export type FileCountOutputType = {
+    barcodes: number
+    batchTransactions: number
+    journals: number
+  }
+
+  export type FileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    barcodes?: boolean | FileCountOutputTypeCountBarcodesArgs
+    batchTransactions?: boolean | FileCountOutputTypeCountBatchTransactionsArgs
+    journals?: boolean | FileCountOutputTypeCountJournalsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * FileCountOutputType without action
+   */
+  export type FileCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the FileCountOutputType
+     */
+    select?: FileCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * FileCountOutputType without action
+   */
+  export type FileCountOutputTypeCountBarcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BarcodeJemaahWhereInput
+  }
+
+  /**
+   * FileCountOutputType without action
+   */
+  export type FileCountOutputTypeCountBatchTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BatchTransactionWhereInput
+  }
+
+  /**
+   * FileCountOutputType without action
+   */
+  export type FileCountOutputTypeCountJournalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JurnalWhereInput
+  }
+
+
+  /**
+   * Count Type InvoiceCountOutputType
+   */
+
+  export type InvoiceCountOutputType = {
+    barcodes: number
+    mutasiLinks: number
+  }
+
+  export type InvoiceCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    barcodes?: boolean | InvoiceCountOutputTypeCountBarcodesArgs
+    mutasiLinks?: boolean | InvoiceCountOutputTypeCountMutasiLinksArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * InvoiceCountOutputType without action
+   */
+  export type InvoiceCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceCountOutputType
+     */
+    select?: InvoiceCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * InvoiceCountOutputType without action
+   */
+  export type InvoiceCountOutputTypeCountBarcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BarcodeJemaahWhereInput
+  }
+
+  /**
+   * InvoiceCountOutputType without action
+   */
+  export type InvoiceCountOutputTypeCountMutasiLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvoiceMutasiWhereInput
+  }
+
+
+  /**
+   * Count Type MutasiCountOutputType
+   */
+
+  export type MutasiCountOutputType = {
+    invoiceLinks: number
+    batchTransactions: number
+  }
+
+  export type MutasiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invoiceLinks?: boolean | MutasiCountOutputTypeCountInvoiceLinksArgs
+    batchTransactions?: boolean | MutasiCountOutputTypeCountBatchTransactionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * MutasiCountOutputType without action
+   */
+  export type MutasiCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MutasiCountOutputType
+     */
+    select?: MutasiCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * MutasiCountOutputType without action
+   */
+  export type MutasiCountOutputTypeCountInvoiceLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvoiceMutasiWhereInput
+  }
+
+  /**
+   * MutasiCountOutputType without action
+   */
+  export type MutasiCountOutputTypeCountBatchTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BatchTransactionWhereInput
+  }
+
+
+  /**
+   * Count Type BatchFlightCountOutputType
+   */
+
+  export type BatchFlightCountOutputType = {
+    invoices: number
+    transactions: number
+  }
+
+  export type BatchFlightCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invoices?: boolean | BatchFlightCountOutputTypeCountInvoicesArgs
+    transactions?: boolean | BatchFlightCountOutputTypeCountTransactionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BatchFlightCountOutputType without action
+   */
+  export type BatchFlightCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlightCountOutputType
+     */
+    select?: BatchFlightCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BatchFlightCountOutputType without action
+   */
+  export type BatchFlightCountOutputTypeCountInvoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvoiceWhereInput
+  }
+
+  /**
+   * BatchFlightCountOutputType without action
+   */
+  export type BatchFlightCountOutputTypeCountTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BatchTransactionWhereInput
+  }
+
+
+  /**
+   * Count Type COACountOutputType
+   */
+
+  export type COACountOutputType = {
+    journals: number
+  }
+
+  export type COACountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journals?: boolean | COACountOutputTypeCountJournalsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * COACountOutputType without action
+   */
+  export type COACountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COACountOutputType
+     */
+    select?: COACountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * COACountOutputType without action
+   */
+  export type COACountOutputTypeCountJournalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JurnalWhereInput
   }
 
 
@@ -6706,6 +8139,14028 @@ export namespace Prisma {
 
 
   /**
+   * Model Agen
+   */
+
+  export type AggregateAgen = {
+    _count: AgenCountAggregateOutputType | null
+    _avg: AgenAvgAggregateOutputType | null
+    _sum: AgenSumAggregateOutputType | null
+    _min: AgenMinAggregateOutputType | null
+    _max: AgenMaxAggregateOutputType | null
+  }
+
+  export type AgenAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type AgenSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type AgenMinAggregateOutputType = {
+    id: number | null
+    nama: string | null
+    alamat: string | null
+    nomorHp: string | null
+  }
+
+  export type AgenMaxAggregateOutputType = {
+    id: number | null
+    nama: string | null
+    alamat: string | null
+    nomorHp: string | null
+  }
+
+  export type AgenCountAggregateOutputType = {
+    id: number
+    nama: number
+    alamat: number
+    nomorHp: number
+    _all: number
+  }
+
+
+  export type AgenAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type AgenSumAggregateInputType = {
+    id?: true
+  }
+
+  export type AgenMinAggregateInputType = {
+    id?: true
+    nama?: true
+    alamat?: true
+    nomorHp?: true
+  }
+
+  export type AgenMaxAggregateInputType = {
+    id?: true
+    nama?: true
+    alamat?: true
+    nomorHp?: true
+  }
+
+  export type AgenCountAggregateInputType = {
+    id?: true
+    nama?: true
+    alamat?: true
+    nomorHp?: true
+    _all?: true
+  }
+
+  export type AgenAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Agen to aggregate.
+     */
+    where?: AgenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Agens to fetch.
+     */
+    orderBy?: AgenOrderByWithRelationInput | AgenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AgenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Agens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Agens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Agens
+    **/
+    _count?: true | AgenCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AgenAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AgenSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AgenMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AgenMaxAggregateInputType
+  }
+
+  export type GetAgenAggregateType<T extends AgenAggregateArgs> = {
+        [P in keyof T & keyof AggregateAgen]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAgen[P]>
+      : GetScalarType<T[P], AggregateAgen[P]>
+  }
+
+
+
+
+  export type AgenGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AgenWhereInput
+    orderBy?: AgenOrderByWithAggregationInput | AgenOrderByWithAggregationInput[]
+    by: AgenScalarFieldEnum[] | AgenScalarFieldEnum
+    having?: AgenScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AgenCountAggregateInputType | true
+    _avg?: AgenAvgAggregateInputType
+    _sum?: AgenSumAggregateInputType
+    _min?: AgenMinAggregateInputType
+    _max?: AgenMaxAggregateInputType
+  }
+
+  export type AgenGroupByOutputType = {
+    id: number
+    nama: string
+    alamat: string
+    nomorHp: string
+    _count: AgenCountAggregateOutputType | null
+    _avg: AgenAvgAggregateOutputType | null
+    _sum: AgenSumAggregateOutputType | null
+    _min: AgenMinAggregateOutputType | null
+    _max: AgenMaxAggregateOutputType | null
+  }
+
+  type GetAgenGroupByPayload<T extends AgenGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AgenGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AgenGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AgenGroupByOutputType[P]>
+            : GetScalarType<T[P], AgenGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AgenSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nama?: boolean
+    alamat?: boolean
+    nomorHp?: boolean
+    barcodes?: boolean | Agen$barcodesArgs<ExtArgs>
+    invoices?: boolean | Agen$invoicesArgs<ExtArgs>
+    _count?: boolean | AgenCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["agen"]>
+
+  export type AgenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nama?: boolean
+    alamat?: boolean
+    nomorHp?: boolean
+  }, ExtArgs["result"]["agen"]>
+
+  export type AgenSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nama?: boolean
+    alamat?: boolean
+    nomorHp?: boolean
+  }, ExtArgs["result"]["agen"]>
+
+  export type AgenSelectScalar = {
+    id?: boolean
+    nama?: boolean
+    alamat?: boolean
+    nomorHp?: boolean
+  }
+
+  export type AgenOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nama" | "alamat" | "nomorHp", ExtArgs["result"]["agen"]>
+  export type AgenInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    barcodes?: boolean | Agen$barcodesArgs<ExtArgs>
+    invoices?: boolean | Agen$invoicesArgs<ExtArgs>
+    _count?: boolean | AgenCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type AgenIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type AgenIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $AgenPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Agen"
+    objects: {
+      barcodes: Prisma.$BarcodeJemaahPayload<ExtArgs>[]
+      invoices: Prisma.$InvoicePayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nama: string
+      alamat: string
+      nomorHp: string
+    }, ExtArgs["result"]["agen"]>
+    composites: {}
+  }
+
+  type AgenGetPayload<S extends boolean | null | undefined | AgenDefaultArgs> = $Result.GetResult<Prisma.$AgenPayload, S>
+
+  type AgenCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AgenFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AgenCountAggregateInputType | true
+    }
+
+  export interface AgenDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Agen'], meta: { name: 'Agen' } }
+    /**
+     * Find zero or one Agen that matches the filter.
+     * @param {AgenFindUniqueArgs} args - Arguments to find a Agen
+     * @example
+     * // Get one Agen
+     * const agen = await prisma.agen.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AgenFindUniqueArgs>(args: SelectSubset<T, AgenFindUniqueArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Agen that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AgenFindUniqueOrThrowArgs} args - Arguments to find a Agen
+     * @example
+     * // Get one Agen
+     * const agen = await prisma.agen.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AgenFindUniqueOrThrowArgs>(args: SelectSubset<T, AgenFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Agen that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgenFindFirstArgs} args - Arguments to find a Agen
+     * @example
+     * // Get one Agen
+     * const agen = await prisma.agen.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AgenFindFirstArgs>(args?: SelectSubset<T, AgenFindFirstArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Agen that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgenFindFirstOrThrowArgs} args - Arguments to find a Agen
+     * @example
+     * // Get one Agen
+     * const agen = await prisma.agen.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AgenFindFirstOrThrowArgs>(args?: SelectSubset<T, AgenFindFirstOrThrowArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Agens that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgenFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Agens
+     * const agens = await prisma.agen.findMany()
+     * 
+     * // Get first 10 Agens
+     * const agens = await prisma.agen.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const agenWithIdOnly = await prisma.agen.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AgenFindManyArgs>(args?: SelectSubset<T, AgenFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Agen.
+     * @param {AgenCreateArgs} args - Arguments to create a Agen.
+     * @example
+     * // Create one Agen
+     * const Agen = await prisma.agen.create({
+     *   data: {
+     *     // ... data to create a Agen
+     *   }
+     * })
+     * 
+     */
+    create<T extends AgenCreateArgs>(args: SelectSubset<T, AgenCreateArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Agens.
+     * @param {AgenCreateManyArgs} args - Arguments to create many Agens.
+     * @example
+     * // Create many Agens
+     * const agen = await prisma.agen.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AgenCreateManyArgs>(args?: SelectSubset<T, AgenCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Agens and returns the data saved in the database.
+     * @param {AgenCreateManyAndReturnArgs} args - Arguments to create many Agens.
+     * @example
+     * // Create many Agens
+     * const agen = await prisma.agen.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Agens and only return the `id`
+     * const agenWithIdOnly = await prisma.agen.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AgenCreateManyAndReturnArgs>(args?: SelectSubset<T, AgenCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Agen.
+     * @param {AgenDeleteArgs} args - Arguments to delete one Agen.
+     * @example
+     * // Delete one Agen
+     * const Agen = await prisma.agen.delete({
+     *   where: {
+     *     // ... filter to delete one Agen
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AgenDeleteArgs>(args: SelectSubset<T, AgenDeleteArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Agen.
+     * @param {AgenUpdateArgs} args - Arguments to update one Agen.
+     * @example
+     * // Update one Agen
+     * const agen = await prisma.agen.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AgenUpdateArgs>(args: SelectSubset<T, AgenUpdateArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Agens.
+     * @param {AgenDeleteManyArgs} args - Arguments to filter Agens to delete.
+     * @example
+     * // Delete a few Agens
+     * const { count } = await prisma.agen.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AgenDeleteManyArgs>(args?: SelectSubset<T, AgenDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Agens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgenUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Agens
+     * const agen = await prisma.agen.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AgenUpdateManyArgs>(args: SelectSubset<T, AgenUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Agens and returns the data updated in the database.
+     * @param {AgenUpdateManyAndReturnArgs} args - Arguments to update many Agens.
+     * @example
+     * // Update many Agens
+     * const agen = await prisma.agen.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Agens and only return the `id`
+     * const agenWithIdOnly = await prisma.agen.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AgenUpdateManyAndReturnArgs>(args: SelectSubset<T, AgenUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Agen.
+     * @param {AgenUpsertArgs} args - Arguments to update or create a Agen.
+     * @example
+     * // Update or create a Agen
+     * const agen = await prisma.agen.upsert({
+     *   create: {
+     *     // ... data to create a Agen
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Agen we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AgenUpsertArgs>(args: SelectSubset<T, AgenUpsertArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Agens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgenCountArgs} args - Arguments to filter Agens to count.
+     * @example
+     * // Count the number of Agens
+     * const count = await prisma.agen.count({
+     *   where: {
+     *     // ... the filter for the Agens we want to count
+     *   }
+     * })
+    **/
+    count<T extends AgenCountArgs>(
+      args?: Subset<T, AgenCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AgenCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Agen.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgenAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AgenAggregateArgs>(args: Subset<T, AgenAggregateArgs>): Prisma.PrismaPromise<GetAgenAggregateType<T>>
+
+    /**
+     * Group by Agen.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AgenGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AgenGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AgenGroupByArgs['orderBy'] }
+        : { orderBy?: AgenGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AgenGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAgenGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Agen model
+   */
+  readonly fields: AgenFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Agen.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AgenClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    barcodes<T extends Agen$barcodesArgs<ExtArgs> = {}>(args?: Subset<T, Agen$barcodesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    invoices<T extends Agen$invoicesArgs<ExtArgs> = {}>(args?: Subset<T, Agen$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Agen model
+   */
+  interface AgenFieldRefs {
+    readonly id: FieldRef<"Agen", 'Int'>
+    readonly nama: FieldRef<"Agen", 'String'>
+    readonly alamat: FieldRef<"Agen", 'String'>
+    readonly nomorHp: FieldRef<"Agen", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Agen findUnique
+   */
+  export type AgenFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * Filter, which Agen to fetch.
+     */
+    where: AgenWhereUniqueInput
+  }
+
+  /**
+   * Agen findUniqueOrThrow
+   */
+  export type AgenFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * Filter, which Agen to fetch.
+     */
+    where: AgenWhereUniqueInput
+  }
+
+  /**
+   * Agen findFirst
+   */
+  export type AgenFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * Filter, which Agen to fetch.
+     */
+    where?: AgenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Agens to fetch.
+     */
+    orderBy?: AgenOrderByWithRelationInput | AgenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Agens.
+     */
+    cursor?: AgenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Agens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Agens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Agens.
+     */
+    distinct?: AgenScalarFieldEnum | AgenScalarFieldEnum[]
+  }
+
+  /**
+   * Agen findFirstOrThrow
+   */
+  export type AgenFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * Filter, which Agen to fetch.
+     */
+    where?: AgenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Agens to fetch.
+     */
+    orderBy?: AgenOrderByWithRelationInput | AgenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Agens.
+     */
+    cursor?: AgenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Agens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Agens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Agens.
+     */
+    distinct?: AgenScalarFieldEnum | AgenScalarFieldEnum[]
+  }
+
+  /**
+   * Agen findMany
+   */
+  export type AgenFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * Filter, which Agens to fetch.
+     */
+    where?: AgenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Agens to fetch.
+     */
+    orderBy?: AgenOrderByWithRelationInput | AgenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Agens.
+     */
+    cursor?: AgenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Agens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Agens.
+     */
+    skip?: number
+    distinct?: AgenScalarFieldEnum | AgenScalarFieldEnum[]
+  }
+
+  /**
+   * Agen create
+   */
+  export type AgenCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Agen.
+     */
+    data: XOR<AgenCreateInput, AgenUncheckedCreateInput>
+  }
+
+  /**
+   * Agen createMany
+   */
+  export type AgenCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Agens.
+     */
+    data: AgenCreateManyInput | AgenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Agen createManyAndReturn
+   */
+  export type AgenCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * The data used to create many Agens.
+     */
+    data: AgenCreateManyInput | AgenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Agen update
+   */
+  export type AgenUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Agen.
+     */
+    data: XOR<AgenUpdateInput, AgenUncheckedUpdateInput>
+    /**
+     * Choose, which Agen to update.
+     */
+    where: AgenWhereUniqueInput
+  }
+
+  /**
+   * Agen updateMany
+   */
+  export type AgenUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Agens.
+     */
+    data: XOR<AgenUpdateManyMutationInput, AgenUncheckedUpdateManyInput>
+    /**
+     * Filter which Agens to update
+     */
+    where?: AgenWhereInput
+    /**
+     * Limit how many Agens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Agen updateManyAndReturn
+   */
+  export type AgenUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * The data used to update Agens.
+     */
+    data: XOR<AgenUpdateManyMutationInput, AgenUncheckedUpdateManyInput>
+    /**
+     * Filter which Agens to update
+     */
+    where?: AgenWhereInput
+    /**
+     * Limit how many Agens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Agen upsert
+   */
+  export type AgenUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Agen to update in case it exists.
+     */
+    where: AgenWhereUniqueInput
+    /**
+     * In case the Agen found by the `where` argument doesn't exist, create a new Agen with this data.
+     */
+    create: XOR<AgenCreateInput, AgenUncheckedCreateInput>
+    /**
+     * In case the Agen was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AgenUpdateInput, AgenUncheckedUpdateInput>
+  }
+
+  /**
+   * Agen delete
+   */
+  export type AgenDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+    /**
+     * Filter which Agen to delete.
+     */
+    where: AgenWhereUniqueInput
+  }
+
+  /**
+   * Agen deleteMany
+   */
+  export type AgenDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Agens to delete
+     */
+    where?: AgenWhereInput
+    /**
+     * Limit how many Agens to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Agen.barcodes
+   */
+  export type Agen$barcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    where?: BarcodeJemaahWhereInput
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    cursor?: BarcodeJemaahWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BarcodeJemaahScalarFieldEnum | BarcodeJemaahScalarFieldEnum[]
+  }
+
+  /**
+   * Agen.invoices
+   */
+  export type Agen$invoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    where?: InvoiceWhereInput
+    orderBy?: InvoiceOrderByWithRelationInput | InvoiceOrderByWithRelationInput[]
+    cursor?: InvoiceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
+  }
+
+  /**
+   * Agen without action
+   */
+  export type AgenDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Agen
+     */
+    select?: AgenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Agen
+     */
+    omit?: AgenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AgenInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Produk
+   */
+
+  export type AggregateProduk = {
+    _count: ProdukCountAggregateOutputType | null
+    _avg: ProdukAvgAggregateOutputType | null
+    _sum: ProdukSumAggregateOutputType | null
+    _min: ProdukMinAggregateOutputType | null
+    _max: ProdukMaxAggregateOutputType | null
+  }
+
+  export type ProdukAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ProdukSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ProdukMinAggregateOutputType = {
+    id: number | null
+    nama: string | null
+  }
+
+  export type ProdukMaxAggregateOutputType = {
+    id: number | null
+    nama: string | null
+  }
+
+  export type ProdukCountAggregateOutputType = {
+    id: number
+    nama: number
+    _all: number
+  }
+
+
+  export type ProdukAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ProdukSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ProdukMinAggregateInputType = {
+    id?: true
+    nama?: true
+  }
+
+  export type ProdukMaxAggregateInputType = {
+    id?: true
+    nama?: true
+  }
+
+  export type ProdukCountAggregateInputType = {
+    id?: true
+    nama?: true
+    _all?: true
+  }
+
+  export type ProdukAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Produk to aggregate.
+     */
+    where?: ProdukWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Produks to fetch.
+     */
+    orderBy?: ProdukOrderByWithRelationInput | ProdukOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProdukWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Produks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Produks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Produks
+    **/
+    _count?: true | ProdukCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProdukAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProdukSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProdukMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProdukMaxAggregateInputType
+  }
+
+  export type GetProdukAggregateType<T extends ProdukAggregateArgs> = {
+        [P in keyof T & keyof AggregateProduk]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProduk[P]>
+      : GetScalarType<T[P], AggregateProduk[P]>
+  }
+
+
+
+
+  export type ProdukGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProdukWhereInput
+    orderBy?: ProdukOrderByWithAggregationInput | ProdukOrderByWithAggregationInput[]
+    by: ProdukScalarFieldEnum[] | ProdukScalarFieldEnum
+    having?: ProdukScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProdukCountAggregateInputType | true
+    _avg?: ProdukAvgAggregateInputType
+    _sum?: ProdukSumAggregateInputType
+    _min?: ProdukMinAggregateInputType
+    _max?: ProdukMaxAggregateInputType
+  }
+
+  export type ProdukGroupByOutputType = {
+    id: number
+    nama: string
+    _count: ProdukCountAggregateOutputType | null
+    _avg: ProdukAvgAggregateOutputType | null
+    _sum: ProdukSumAggregateOutputType | null
+    _min: ProdukMinAggregateOutputType | null
+    _max: ProdukMaxAggregateOutputType | null
+  }
+
+  type GetProdukGroupByPayload<T extends ProdukGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProdukGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProdukGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProdukGroupByOutputType[P]>
+            : GetScalarType<T[P], ProdukGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProdukSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nama?: boolean
+    paket?: boolean | Produk$paketArgs<ExtArgs>
+    barcodes?: boolean | Produk$barcodesArgs<ExtArgs>
+    _count?: boolean | ProdukCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["produk"]>
+
+  export type ProdukSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nama?: boolean
+  }, ExtArgs["result"]["produk"]>
+
+  export type ProdukSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nama?: boolean
+  }, ExtArgs["result"]["produk"]>
+
+  export type ProdukSelectScalar = {
+    id?: boolean
+    nama?: boolean
+  }
+
+  export type ProdukOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nama", ExtArgs["result"]["produk"]>
+  export type ProdukInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    paket?: boolean | Produk$paketArgs<ExtArgs>
+    barcodes?: boolean | Produk$barcodesArgs<ExtArgs>
+    _count?: boolean | ProdukCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ProdukIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProdukIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $ProdukPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Produk"
+    objects: {
+      paket: Prisma.$PaketPayload<ExtArgs>[]
+      barcodes: Prisma.$BarcodeJemaahPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nama: string
+    }, ExtArgs["result"]["produk"]>
+    composites: {}
+  }
+
+  type ProdukGetPayload<S extends boolean | null | undefined | ProdukDefaultArgs> = $Result.GetResult<Prisma.$ProdukPayload, S>
+
+  type ProdukCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProdukFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProdukCountAggregateInputType | true
+    }
+
+  export interface ProdukDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Produk'], meta: { name: 'Produk' } }
+    /**
+     * Find zero or one Produk that matches the filter.
+     * @param {ProdukFindUniqueArgs} args - Arguments to find a Produk
+     * @example
+     * // Get one Produk
+     * const produk = await prisma.produk.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProdukFindUniqueArgs>(args: SelectSubset<T, ProdukFindUniqueArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Produk that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProdukFindUniqueOrThrowArgs} args - Arguments to find a Produk
+     * @example
+     * // Get one Produk
+     * const produk = await prisma.produk.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProdukFindUniqueOrThrowArgs>(args: SelectSubset<T, ProdukFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Produk that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdukFindFirstArgs} args - Arguments to find a Produk
+     * @example
+     * // Get one Produk
+     * const produk = await prisma.produk.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProdukFindFirstArgs>(args?: SelectSubset<T, ProdukFindFirstArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Produk that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdukFindFirstOrThrowArgs} args - Arguments to find a Produk
+     * @example
+     * // Get one Produk
+     * const produk = await prisma.produk.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProdukFindFirstOrThrowArgs>(args?: SelectSubset<T, ProdukFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Produks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdukFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Produks
+     * const produks = await prisma.produk.findMany()
+     * 
+     * // Get first 10 Produks
+     * const produks = await prisma.produk.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const produkWithIdOnly = await prisma.produk.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProdukFindManyArgs>(args?: SelectSubset<T, ProdukFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Produk.
+     * @param {ProdukCreateArgs} args - Arguments to create a Produk.
+     * @example
+     * // Create one Produk
+     * const Produk = await prisma.produk.create({
+     *   data: {
+     *     // ... data to create a Produk
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProdukCreateArgs>(args: SelectSubset<T, ProdukCreateArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Produks.
+     * @param {ProdukCreateManyArgs} args - Arguments to create many Produks.
+     * @example
+     * // Create many Produks
+     * const produk = await prisma.produk.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProdukCreateManyArgs>(args?: SelectSubset<T, ProdukCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Produks and returns the data saved in the database.
+     * @param {ProdukCreateManyAndReturnArgs} args - Arguments to create many Produks.
+     * @example
+     * // Create many Produks
+     * const produk = await prisma.produk.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Produks and only return the `id`
+     * const produkWithIdOnly = await prisma.produk.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProdukCreateManyAndReturnArgs>(args?: SelectSubset<T, ProdukCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Produk.
+     * @param {ProdukDeleteArgs} args - Arguments to delete one Produk.
+     * @example
+     * // Delete one Produk
+     * const Produk = await prisma.produk.delete({
+     *   where: {
+     *     // ... filter to delete one Produk
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProdukDeleteArgs>(args: SelectSubset<T, ProdukDeleteArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Produk.
+     * @param {ProdukUpdateArgs} args - Arguments to update one Produk.
+     * @example
+     * // Update one Produk
+     * const produk = await prisma.produk.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProdukUpdateArgs>(args: SelectSubset<T, ProdukUpdateArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Produks.
+     * @param {ProdukDeleteManyArgs} args - Arguments to filter Produks to delete.
+     * @example
+     * // Delete a few Produks
+     * const { count } = await prisma.produk.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProdukDeleteManyArgs>(args?: SelectSubset<T, ProdukDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Produks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdukUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Produks
+     * const produk = await prisma.produk.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProdukUpdateManyArgs>(args: SelectSubset<T, ProdukUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Produks and returns the data updated in the database.
+     * @param {ProdukUpdateManyAndReturnArgs} args - Arguments to update many Produks.
+     * @example
+     * // Update many Produks
+     * const produk = await prisma.produk.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Produks and only return the `id`
+     * const produkWithIdOnly = await prisma.produk.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProdukUpdateManyAndReturnArgs>(args: SelectSubset<T, ProdukUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Produk.
+     * @param {ProdukUpsertArgs} args - Arguments to update or create a Produk.
+     * @example
+     * // Update or create a Produk
+     * const produk = await prisma.produk.upsert({
+     *   create: {
+     *     // ... data to create a Produk
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Produk we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProdukUpsertArgs>(args: SelectSubset<T, ProdukUpsertArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Produks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdukCountArgs} args - Arguments to filter Produks to count.
+     * @example
+     * // Count the number of Produks
+     * const count = await prisma.produk.count({
+     *   where: {
+     *     // ... the filter for the Produks we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProdukCountArgs>(
+      args?: Subset<T, ProdukCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProdukCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Produk.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdukAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProdukAggregateArgs>(args: Subset<T, ProdukAggregateArgs>): Prisma.PrismaPromise<GetProdukAggregateType<T>>
+
+    /**
+     * Group by Produk.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProdukGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProdukGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProdukGroupByArgs['orderBy'] }
+        : { orderBy?: ProdukGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProdukGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProdukGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Produk model
+   */
+  readonly fields: ProdukFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Produk.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProdukClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    paket<T extends Produk$paketArgs<ExtArgs> = {}>(args?: Subset<T, Produk$paketArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    barcodes<T extends Produk$barcodesArgs<ExtArgs> = {}>(args?: Subset<T, Produk$barcodesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Produk model
+   */
+  interface ProdukFieldRefs {
+    readonly id: FieldRef<"Produk", 'Int'>
+    readonly nama: FieldRef<"Produk", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Produk findUnique
+   */
+  export type ProdukFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * Filter, which Produk to fetch.
+     */
+    where: ProdukWhereUniqueInput
+  }
+
+  /**
+   * Produk findUniqueOrThrow
+   */
+  export type ProdukFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * Filter, which Produk to fetch.
+     */
+    where: ProdukWhereUniqueInput
+  }
+
+  /**
+   * Produk findFirst
+   */
+  export type ProdukFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * Filter, which Produk to fetch.
+     */
+    where?: ProdukWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Produks to fetch.
+     */
+    orderBy?: ProdukOrderByWithRelationInput | ProdukOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Produks.
+     */
+    cursor?: ProdukWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Produks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Produks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Produks.
+     */
+    distinct?: ProdukScalarFieldEnum | ProdukScalarFieldEnum[]
+  }
+
+  /**
+   * Produk findFirstOrThrow
+   */
+  export type ProdukFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * Filter, which Produk to fetch.
+     */
+    where?: ProdukWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Produks to fetch.
+     */
+    orderBy?: ProdukOrderByWithRelationInput | ProdukOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Produks.
+     */
+    cursor?: ProdukWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Produks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Produks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Produks.
+     */
+    distinct?: ProdukScalarFieldEnum | ProdukScalarFieldEnum[]
+  }
+
+  /**
+   * Produk findMany
+   */
+  export type ProdukFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * Filter, which Produks to fetch.
+     */
+    where?: ProdukWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Produks to fetch.
+     */
+    orderBy?: ProdukOrderByWithRelationInput | ProdukOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Produks.
+     */
+    cursor?: ProdukWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Produks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Produks.
+     */
+    skip?: number
+    distinct?: ProdukScalarFieldEnum | ProdukScalarFieldEnum[]
+  }
+
+  /**
+   * Produk create
+   */
+  export type ProdukCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Produk.
+     */
+    data: XOR<ProdukCreateInput, ProdukUncheckedCreateInput>
+  }
+
+  /**
+   * Produk createMany
+   */
+  export type ProdukCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Produks.
+     */
+    data: ProdukCreateManyInput | ProdukCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Produk createManyAndReturn
+   */
+  export type ProdukCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * The data used to create many Produks.
+     */
+    data: ProdukCreateManyInput | ProdukCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Produk update
+   */
+  export type ProdukUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Produk.
+     */
+    data: XOR<ProdukUpdateInput, ProdukUncheckedUpdateInput>
+    /**
+     * Choose, which Produk to update.
+     */
+    where: ProdukWhereUniqueInput
+  }
+
+  /**
+   * Produk updateMany
+   */
+  export type ProdukUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Produks.
+     */
+    data: XOR<ProdukUpdateManyMutationInput, ProdukUncheckedUpdateManyInput>
+    /**
+     * Filter which Produks to update
+     */
+    where?: ProdukWhereInput
+    /**
+     * Limit how many Produks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Produk updateManyAndReturn
+   */
+  export type ProdukUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * The data used to update Produks.
+     */
+    data: XOR<ProdukUpdateManyMutationInput, ProdukUncheckedUpdateManyInput>
+    /**
+     * Filter which Produks to update
+     */
+    where?: ProdukWhereInput
+    /**
+     * Limit how many Produks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Produk upsert
+   */
+  export type ProdukUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Produk to update in case it exists.
+     */
+    where: ProdukWhereUniqueInput
+    /**
+     * In case the Produk found by the `where` argument doesn't exist, create a new Produk with this data.
+     */
+    create: XOR<ProdukCreateInput, ProdukUncheckedCreateInput>
+    /**
+     * In case the Produk was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProdukUpdateInput, ProdukUncheckedUpdateInput>
+  }
+
+  /**
+   * Produk delete
+   */
+  export type ProdukDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+    /**
+     * Filter which Produk to delete.
+     */
+    where: ProdukWhereUniqueInput
+  }
+
+  /**
+   * Produk deleteMany
+   */
+  export type ProdukDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Produks to delete
+     */
+    where?: ProdukWhereInput
+    /**
+     * Limit how many Produks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Produk.paket
+   */
+  export type Produk$paketArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    where?: PaketWhereInput
+    orderBy?: PaketOrderByWithRelationInput | PaketOrderByWithRelationInput[]
+    cursor?: PaketWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PaketScalarFieldEnum | PaketScalarFieldEnum[]
+  }
+
+  /**
+   * Produk.barcodes
+   */
+  export type Produk$barcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    where?: BarcodeJemaahWhereInput
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    cursor?: BarcodeJemaahWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BarcodeJemaahScalarFieldEnum | BarcodeJemaahScalarFieldEnum[]
+  }
+
+  /**
+   * Produk without action
+   */
+  export type ProdukDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Produk
+     */
+    select?: ProdukSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Produk
+     */
+    omit?: ProdukOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProdukInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Paket
+   */
+
+  export type AggregatePaket = {
+    _count: PaketCountAggregateOutputType | null
+    _avg: PaketAvgAggregateOutputType | null
+    _sum: PaketSumAggregateOutputType | null
+    _min: PaketMinAggregateOutputType | null
+    _max: PaketMaxAggregateOutputType | null
+  }
+
+  export type PaketAvgAggregateOutputType = {
+    id: number | null
+    produkId: number | null
+  }
+
+  export type PaketSumAggregateOutputType = {
+    id: number | null
+    produkId: number | null
+  }
+
+  export type PaketMinAggregateOutputType = {
+    id: number | null
+    produkId: number | null
+    nama: string | null
+  }
+
+  export type PaketMaxAggregateOutputType = {
+    id: number | null
+    produkId: number | null
+    nama: string | null
+  }
+
+  export type PaketCountAggregateOutputType = {
+    id: number
+    produkId: number
+    nama: number
+    _all: number
+  }
+
+
+  export type PaketAvgAggregateInputType = {
+    id?: true
+    produkId?: true
+  }
+
+  export type PaketSumAggregateInputType = {
+    id?: true
+    produkId?: true
+  }
+
+  export type PaketMinAggregateInputType = {
+    id?: true
+    produkId?: true
+    nama?: true
+  }
+
+  export type PaketMaxAggregateInputType = {
+    id?: true
+    produkId?: true
+    nama?: true
+  }
+
+  export type PaketCountAggregateInputType = {
+    id?: true
+    produkId?: true
+    nama?: true
+    _all?: true
+  }
+
+  export type PaketAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Paket to aggregate.
+     */
+    where?: PaketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Pakets to fetch.
+     */
+    orderBy?: PaketOrderByWithRelationInput | PaketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PaketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Pakets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Pakets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Pakets
+    **/
+    _count?: true | PaketCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PaketAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PaketSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PaketMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PaketMaxAggregateInputType
+  }
+
+  export type GetPaketAggregateType<T extends PaketAggregateArgs> = {
+        [P in keyof T & keyof AggregatePaket]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePaket[P]>
+      : GetScalarType<T[P], AggregatePaket[P]>
+  }
+
+
+
+
+  export type PaketGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaketWhereInput
+    orderBy?: PaketOrderByWithAggregationInput | PaketOrderByWithAggregationInput[]
+    by: PaketScalarFieldEnum[] | PaketScalarFieldEnum
+    having?: PaketScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PaketCountAggregateInputType | true
+    _avg?: PaketAvgAggregateInputType
+    _sum?: PaketSumAggregateInputType
+    _min?: PaketMinAggregateInputType
+    _max?: PaketMaxAggregateInputType
+  }
+
+  export type PaketGroupByOutputType = {
+    id: number
+    produkId: number
+    nama: string
+    _count: PaketCountAggregateOutputType | null
+    _avg: PaketAvgAggregateOutputType | null
+    _sum: PaketSumAggregateOutputType | null
+    _min: PaketMinAggregateOutputType | null
+    _max: PaketMaxAggregateOutputType | null
+  }
+
+  type GetPaketGroupByPayload<T extends PaketGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PaketGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PaketGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PaketGroupByOutputType[P]>
+            : GetScalarType<T[P], PaketGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PaketSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    produkId?: boolean
+    nama?: boolean
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+    barcodes?: boolean | Paket$barcodesArgs<ExtArgs>
+    _count?: boolean | PaketCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["paket"]>
+
+  export type PaketSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    produkId?: boolean
+    nama?: boolean
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["paket"]>
+
+  export type PaketSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    produkId?: boolean
+    nama?: boolean
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["paket"]>
+
+  export type PaketSelectScalar = {
+    id?: boolean
+    produkId?: boolean
+    nama?: boolean
+  }
+
+  export type PaketOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "produkId" | "nama", ExtArgs["result"]["paket"]>
+  export type PaketInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+    barcodes?: boolean | Paket$barcodesArgs<ExtArgs>
+    _count?: boolean | PaketCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PaketIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+  }
+  export type PaketIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+  }
+
+  export type $PaketPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Paket"
+    objects: {
+      produk: Prisma.$ProdukPayload<ExtArgs>
+      barcodes: Prisma.$BarcodeJemaahPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      produkId: number
+      nama: string
+    }, ExtArgs["result"]["paket"]>
+    composites: {}
+  }
+
+  type PaketGetPayload<S extends boolean | null | undefined | PaketDefaultArgs> = $Result.GetResult<Prisma.$PaketPayload, S>
+
+  type PaketCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PaketFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PaketCountAggregateInputType | true
+    }
+
+  export interface PaketDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Paket'], meta: { name: 'Paket' } }
+    /**
+     * Find zero or one Paket that matches the filter.
+     * @param {PaketFindUniqueArgs} args - Arguments to find a Paket
+     * @example
+     * // Get one Paket
+     * const paket = await prisma.paket.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PaketFindUniqueArgs>(args: SelectSubset<T, PaketFindUniqueArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Paket that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PaketFindUniqueOrThrowArgs} args - Arguments to find a Paket
+     * @example
+     * // Get one Paket
+     * const paket = await prisma.paket.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PaketFindUniqueOrThrowArgs>(args: SelectSubset<T, PaketFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Paket that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaketFindFirstArgs} args - Arguments to find a Paket
+     * @example
+     * // Get one Paket
+     * const paket = await prisma.paket.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PaketFindFirstArgs>(args?: SelectSubset<T, PaketFindFirstArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Paket that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaketFindFirstOrThrowArgs} args - Arguments to find a Paket
+     * @example
+     * // Get one Paket
+     * const paket = await prisma.paket.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PaketFindFirstOrThrowArgs>(args?: SelectSubset<T, PaketFindFirstOrThrowArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Pakets that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaketFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Pakets
+     * const pakets = await prisma.paket.findMany()
+     * 
+     * // Get first 10 Pakets
+     * const pakets = await prisma.paket.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const paketWithIdOnly = await prisma.paket.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PaketFindManyArgs>(args?: SelectSubset<T, PaketFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Paket.
+     * @param {PaketCreateArgs} args - Arguments to create a Paket.
+     * @example
+     * // Create one Paket
+     * const Paket = await prisma.paket.create({
+     *   data: {
+     *     // ... data to create a Paket
+     *   }
+     * })
+     * 
+     */
+    create<T extends PaketCreateArgs>(args: SelectSubset<T, PaketCreateArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Pakets.
+     * @param {PaketCreateManyArgs} args - Arguments to create many Pakets.
+     * @example
+     * // Create many Pakets
+     * const paket = await prisma.paket.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PaketCreateManyArgs>(args?: SelectSubset<T, PaketCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Pakets and returns the data saved in the database.
+     * @param {PaketCreateManyAndReturnArgs} args - Arguments to create many Pakets.
+     * @example
+     * // Create many Pakets
+     * const paket = await prisma.paket.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Pakets and only return the `id`
+     * const paketWithIdOnly = await prisma.paket.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PaketCreateManyAndReturnArgs>(args?: SelectSubset<T, PaketCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Paket.
+     * @param {PaketDeleteArgs} args - Arguments to delete one Paket.
+     * @example
+     * // Delete one Paket
+     * const Paket = await prisma.paket.delete({
+     *   where: {
+     *     // ... filter to delete one Paket
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PaketDeleteArgs>(args: SelectSubset<T, PaketDeleteArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Paket.
+     * @param {PaketUpdateArgs} args - Arguments to update one Paket.
+     * @example
+     * // Update one Paket
+     * const paket = await prisma.paket.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PaketUpdateArgs>(args: SelectSubset<T, PaketUpdateArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Pakets.
+     * @param {PaketDeleteManyArgs} args - Arguments to filter Pakets to delete.
+     * @example
+     * // Delete a few Pakets
+     * const { count } = await prisma.paket.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PaketDeleteManyArgs>(args?: SelectSubset<T, PaketDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Pakets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaketUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Pakets
+     * const paket = await prisma.paket.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PaketUpdateManyArgs>(args: SelectSubset<T, PaketUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Pakets and returns the data updated in the database.
+     * @param {PaketUpdateManyAndReturnArgs} args - Arguments to update many Pakets.
+     * @example
+     * // Update many Pakets
+     * const paket = await prisma.paket.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Pakets and only return the `id`
+     * const paketWithIdOnly = await prisma.paket.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PaketUpdateManyAndReturnArgs>(args: SelectSubset<T, PaketUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Paket.
+     * @param {PaketUpsertArgs} args - Arguments to update or create a Paket.
+     * @example
+     * // Update or create a Paket
+     * const paket = await prisma.paket.upsert({
+     *   create: {
+     *     // ... data to create a Paket
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Paket we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PaketUpsertArgs>(args: SelectSubset<T, PaketUpsertArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Pakets.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaketCountArgs} args - Arguments to filter Pakets to count.
+     * @example
+     * // Count the number of Pakets
+     * const count = await prisma.paket.count({
+     *   where: {
+     *     // ... the filter for the Pakets we want to count
+     *   }
+     * })
+    **/
+    count<T extends PaketCountArgs>(
+      args?: Subset<T, PaketCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PaketCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Paket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaketAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PaketAggregateArgs>(args: Subset<T, PaketAggregateArgs>): Prisma.PrismaPromise<GetPaketAggregateType<T>>
+
+    /**
+     * Group by Paket.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaketGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PaketGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PaketGroupByArgs['orderBy'] }
+        : { orderBy?: PaketGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PaketGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPaketGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Paket model
+   */
+  readonly fields: PaketFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Paket.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PaketClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    produk<T extends ProdukDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProdukDefaultArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    barcodes<T extends Paket$barcodesArgs<ExtArgs> = {}>(args?: Subset<T, Paket$barcodesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Paket model
+   */
+  interface PaketFieldRefs {
+    readonly id: FieldRef<"Paket", 'Int'>
+    readonly produkId: FieldRef<"Paket", 'Int'>
+    readonly nama: FieldRef<"Paket", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Paket findUnique
+   */
+  export type PaketFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * Filter, which Paket to fetch.
+     */
+    where: PaketWhereUniqueInput
+  }
+
+  /**
+   * Paket findUniqueOrThrow
+   */
+  export type PaketFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * Filter, which Paket to fetch.
+     */
+    where: PaketWhereUniqueInput
+  }
+
+  /**
+   * Paket findFirst
+   */
+  export type PaketFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * Filter, which Paket to fetch.
+     */
+    where?: PaketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Pakets to fetch.
+     */
+    orderBy?: PaketOrderByWithRelationInput | PaketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Pakets.
+     */
+    cursor?: PaketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Pakets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Pakets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Pakets.
+     */
+    distinct?: PaketScalarFieldEnum | PaketScalarFieldEnum[]
+  }
+
+  /**
+   * Paket findFirstOrThrow
+   */
+  export type PaketFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * Filter, which Paket to fetch.
+     */
+    where?: PaketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Pakets to fetch.
+     */
+    orderBy?: PaketOrderByWithRelationInput | PaketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Pakets.
+     */
+    cursor?: PaketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Pakets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Pakets.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Pakets.
+     */
+    distinct?: PaketScalarFieldEnum | PaketScalarFieldEnum[]
+  }
+
+  /**
+   * Paket findMany
+   */
+  export type PaketFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * Filter, which Pakets to fetch.
+     */
+    where?: PaketWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Pakets to fetch.
+     */
+    orderBy?: PaketOrderByWithRelationInput | PaketOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Pakets.
+     */
+    cursor?: PaketWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Pakets from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Pakets.
+     */
+    skip?: number
+    distinct?: PaketScalarFieldEnum | PaketScalarFieldEnum[]
+  }
+
+  /**
+   * Paket create
+   */
+  export type PaketCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Paket.
+     */
+    data: XOR<PaketCreateInput, PaketUncheckedCreateInput>
+  }
+
+  /**
+   * Paket createMany
+   */
+  export type PaketCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Pakets.
+     */
+    data: PaketCreateManyInput | PaketCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Paket createManyAndReturn
+   */
+  export type PaketCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * The data used to create many Pakets.
+     */
+    data: PaketCreateManyInput | PaketCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Paket update
+   */
+  export type PaketUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Paket.
+     */
+    data: XOR<PaketUpdateInput, PaketUncheckedUpdateInput>
+    /**
+     * Choose, which Paket to update.
+     */
+    where: PaketWhereUniqueInput
+  }
+
+  /**
+   * Paket updateMany
+   */
+  export type PaketUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Pakets.
+     */
+    data: XOR<PaketUpdateManyMutationInput, PaketUncheckedUpdateManyInput>
+    /**
+     * Filter which Pakets to update
+     */
+    where?: PaketWhereInput
+    /**
+     * Limit how many Pakets to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Paket updateManyAndReturn
+   */
+  export type PaketUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * The data used to update Pakets.
+     */
+    data: XOR<PaketUpdateManyMutationInput, PaketUncheckedUpdateManyInput>
+    /**
+     * Filter which Pakets to update
+     */
+    where?: PaketWhereInput
+    /**
+     * Limit how many Pakets to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Paket upsert
+   */
+  export type PaketUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Paket to update in case it exists.
+     */
+    where: PaketWhereUniqueInput
+    /**
+     * In case the Paket found by the `where` argument doesn't exist, create a new Paket with this data.
+     */
+    create: XOR<PaketCreateInput, PaketUncheckedCreateInput>
+    /**
+     * In case the Paket was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PaketUpdateInput, PaketUncheckedUpdateInput>
+  }
+
+  /**
+   * Paket delete
+   */
+  export type PaketDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+    /**
+     * Filter which Paket to delete.
+     */
+    where: PaketWhereUniqueInput
+  }
+
+  /**
+   * Paket deleteMany
+   */
+  export type PaketDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Pakets to delete
+     */
+    where?: PaketWhereInput
+    /**
+     * Limit how many Pakets to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Paket.barcodes
+   */
+  export type Paket$barcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    where?: BarcodeJemaahWhereInput
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    cursor?: BarcodeJemaahWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BarcodeJemaahScalarFieldEnum | BarcodeJemaahScalarFieldEnum[]
+  }
+
+  /**
+   * Paket without action
+   */
+  export type PaketDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Paket
+     */
+    select?: PaketSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Paket
+     */
+    omit?: PaketOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaketInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model File
+   */
+
+  export type AggregateFile = {
+    _count: FileCountAggregateOutputType | null
+    _avg: FileAvgAggregateOutputType | null
+    _sum: FileSumAggregateOutputType | null
+    _min: FileMinAggregateOutputType | null
+    _max: FileMaxAggregateOutputType | null
+  }
+
+  export type FileAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type FileSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type FileMinAggregateOutputType = {
+    id: number | null
+    url: string | null
+    type: string | null
+  }
+
+  export type FileMaxAggregateOutputType = {
+    id: number | null
+    url: string | null
+    type: string | null
+  }
+
+  export type FileCountAggregateOutputType = {
+    id: number
+    url: number
+    type: number
+    _all: number
+  }
+
+
+  export type FileAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type FileSumAggregateInputType = {
+    id?: true
+  }
+
+  export type FileMinAggregateInputType = {
+    id?: true
+    url?: true
+    type?: true
+  }
+
+  export type FileMaxAggregateInputType = {
+    id?: true
+    url?: true
+    type?: true
+  }
+
+  export type FileCountAggregateInputType = {
+    id?: true
+    url?: true
+    type?: true
+    _all?: true
+  }
+
+  export type FileAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which File to aggregate.
+     */
+    where?: FileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Files to fetch.
+     */
+    orderBy?: FileOrderByWithRelationInput | FileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: FileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Files from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Files.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Files
+    **/
+    _count?: true | FileCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: FileAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: FileSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: FileMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: FileMaxAggregateInputType
+  }
+
+  export type GetFileAggregateType<T extends FileAggregateArgs> = {
+        [P in keyof T & keyof AggregateFile]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateFile[P]>
+      : GetScalarType<T[P], AggregateFile[P]>
+  }
+
+
+
+
+  export type FileGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FileWhereInput
+    orderBy?: FileOrderByWithAggregationInput | FileOrderByWithAggregationInput[]
+    by: FileScalarFieldEnum[] | FileScalarFieldEnum
+    having?: FileScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: FileCountAggregateInputType | true
+    _avg?: FileAvgAggregateInputType
+    _sum?: FileSumAggregateInputType
+    _min?: FileMinAggregateInputType
+    _max?: FileMaxAggregateInputType
+  }
+
+  export type FileGroupByOutputType = {
+    id: number
+    url: string
+    type: string
+    _count: FileCountAggregateOutputType | null
+    _avg: FileAvgAggregateOutputType | null
+    _sum: FileSumAggregateOutputType | null
+    _min: FileMinAggregateOutputType | null
+    _max: FileMaxAggregateOutputType | null
+  }
+
+  type GetFileGroupByPayload<T extends FileGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<FileGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof FileGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], FileGroupByOutputType[P]>
+            : GetScalarType<T[P], FileGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type FileSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    type?: boolean
+    barcodes?: boolean | File$barcodesArgs<ExtArgs>
+    batchTransactions?: boolean | File$batchTransactionsArgs<ExtArgs>
+    journals?: boolean | File$journalsArgs<ExtArgs>
+    _count?: boolean | FileCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["file"]>
+
+  export type FileSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    type?: boolean
+  }, ExtArgs["result"]["file"]>
+
+  export type FileSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    type?: boolean
+  }, ExtArgs["result"]["file"]>
+
+  export type FileSelectScalar = {
+    id?: boolean
+    url?: boolean
+    type?: boolean
+  }
+
+  export type FileOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "type", ExtArgs["result"]["file"]>
+  export type FileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    barcodes?: boolean | File$barcodesArgs<ExtArgs>
+    batchTransactions?: boolean | File$batchTransactionsArgs<ExtArgs>
+    journals?: boolean | File$journalsArgs<ExtArgs>
+    _count?: boolean | FileCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type FileIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type FileIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $FilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "File"
+    objects: {
+      barcodes: Prisma.$BarcodeJemaahPayload<ExtArgs>[]
+      batchTransactions: Prisma.$BatchTransactionPayload<ExtArgs>[]
+      journals: Prisma.$JurnalPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      url: string
+      type: string
+    }, ExtArgs["result"]["file"]>
+    composites: {}
+  }
+
+  type FileGetPayload<S extends boolean | null | undefined | FileDefaultArgs> = $Result.GetResult<Prisma.$FilePayload, S>
+
+  type FileCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<FileFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: FileCountAggregateInputType | true
+    }
+
+  export interface FileDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['File'], meta: { name: 'File' } }
+    /**
+     * Find zero or one File that matches the filter.
+     * @param {FileFindUniqueArgs} args - Arguments to find a File
+     * @example
+     * // Get one File
+     * const file = await prisma.file.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends FileFindUniqueArgs>(args: SelectSubset<T, FileFindUniqueArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one File that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {FileFindUniqueOrThrowArgs} args - Arguments to find a File
+     * @example
+     * // Get one File
+     * const file = await prisma.file.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends FileFindUniqueOrThrowArgs>(args: SelectSubset<T, FileFindUniqueOrThrowArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first File that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FileFindFirstArgs} args - Arguments to find a File
+     * @example
+     * // Get one File
+     * const file = await prisma.file.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends FileFindFirstArgs>(args?: SelectSubset<T, FileFindFirstArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first File that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FileFindFirstOrThrowArgs} args - Arguments to find a File
+     * @example
+     * // Get one File
+     * const file = await prisma.file.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends FileFindFirstOrThrowArgs>(args?: SelectSubset<T, FileFindFirstOrThrowArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Files that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FileFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Files
+     * const files = await prisma.file.findMany()
+     * 
+     * // Get first 10 Files
+     * const files = await prisma.file.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const fileWithIdOnly = await prisma.file.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends FileFindManyArgs>(args?: SelectSubset<T, FileFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a File.
+     * @param {FileCreateArgs} args - Arguments to create a File.
+     * @example
+     * // Create one File
+     * const File = await prisma.file.create({
+     *   data: {
+     *     // ... data to create a File
+     *   }
+     * })
+     * 
+     */
+    create<T extends FileCreateArgs>(args: SelectSubset<T, FileCreateArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Files.
+     * @param {FileCreateManyArgs} args - Arguments to create many Files.
+     * @example
+     * // Create many Files
+     * const file = await prisma.file.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends FileCreateManyArgs>(args?: SelectSubset<T, FileCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Files and returns the data saved in the database.
+     * @param {FileCreateManyAndReturnArgs} args - Arguments to create many Files.
+     * @example
+     * // Create many Files
+     * const file = await prisma.file.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Files and only return the `id`
+     * const fileWithIdOnly = await prisma.file.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends FileCreateManyAndReturnArgs>(args?: SelectSubset<T, FileCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a File.
+     * @param {FileDeleteArgs} args - Arguments to delete one File.
+     * @example
+     * // Delete one File
+     * const File = await prisma.file.delete({
+     *   where: {
+     *     // ... filter to delete one File
+     *   }
+     * })
+     * 
+     */
+    delete<T extends FileDeleteArgs>(args: SelectSubset<T, FileDeleteArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one File.
+     * @param {FileUpdateArgs} args - Arguments to update one File.
+     * @example
+     * // Update one File
+     * const file = await prisma.file.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends FileUpdateArgs>(args: SelectSubset<T, FileUpdateArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Files.
+     * @param {FileDeleteManyArgs} args - Arguments to filter Files to delete.
+     * @example
+     * // Delete a few Files
+     * const { count } = await prisma.file.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends FileDeleteManyArgs>(args?: SelectSubset<T, FileDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Files.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FileUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Files
+     * const file = await prisma.file.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends FileUpdateManyArgs>(args: SelectSubset<T, FileUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Files and returns the data updated in the database.
+     * @param {FileUpdateManyAndReturnArgs} args - Arguments to update many Files.
+     * @example
+     * // Update many Files
+     * const file = await prisma.file.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Files and only return the `id`
+     * const fileWithIdOnly = await prisma.file.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends FileUpdateManyAndReturnArgs>(args: SelectSubset<T, FileUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one File.
+     * @param {FileUpsertArgs} args - Arguments to update or create a File.
+     * @example
+     * // Update or create a File
+     * const file = await prisma.file.upsert({
+     *   create: {
+     *     // ... data to create a File
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the File we want to update
+     *   }
+     * })
+     */
+    upsert<T extends FileUpsertArgs>(args: SelectSubset<T, FileUpsertArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Files.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FileCountArgs} args - Arguments to filter Files to count.
+     * @example
+     * // Count the number of Files
+     * const count = await prisma.file.count({
+     *   where: {
+     *     // ... the filter for the Files we want to count
+     *   }
+     * })
+    **/
+    count<T extends FileCountArgs>(
+      args?: Subset<T, FileCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], FileCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a File.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FileAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends FileAggregateArgs>(args: Subset<T, FileAggregateArgs>): Prisma.PrismaPromise<GetFileAggregateType<T>>
+
+    /**
+     * Group by File.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {FileGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends FileGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: FileGroupByArgs['orderBy'] }
+        : { orderBy?: FileGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, FileGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetFileGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the File model
+   */
+  readonly fields: FileFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for File.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__FileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    barcodes<T extends File$barcodesArgs<ExtArgs> = {}>(args?: Subset<T, File$barcodesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    batchTransactions<T extends File$batchTransactionsArgs<ExtArgs> = {}>(args?: Subset<T, File$batchTransactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    journals<T extends File$journalsArgs<ExtArgs> = {}>(args?: Subset<T, File$journalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the File model
+   */
+  interface FileFieldRefs {
+    readonly id: FieldRef<"File", 'Int'>
+    readonly url: FieldRef<"File", 'String'>
+    readonly type: FieldRef<"File", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * File findUnique
+   */
+  export type FileFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * Filter, which File to fetch.
+     */
+    where: FileWhereUniqueInput
+  }
+
+  /**
+   * File findUniqueOrThrow
+   */
+  export type FileFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * Filter, which File to fetch.
+     */
+    where: FileWhereUniqueInput
+  }
+
+  /**
+   * File findFirst
+   */
+  export type FileFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * Filter, which File to fetch.
+     */
+    where?: FileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Files to fetch.
+     */
+    orderBy?: FileOrderByWithRelationInput | FileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Files.
+     */
+    cursor?: FileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Files from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Files.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Files.
+     */
+    distinct?: FileScalarFieldEnum | FileScalarFieldEnum[]
+  }
+
+  /**
+   * File findFirstOrThrow
+   */
+  export type FileFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * Filter, which File to fetch.
+     */
+    where?: FileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Files to fetch.
+     */
+    orderBy?: FileOrderByWithRelationInput | FileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Files.
+     */
+    cursor?: FileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Files from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Files.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Files.
+     */
+    distinct?: FileScalarFieldEnum | FileScalarFieldEnum[]
+  }
+
+  /**
+   * File findMany
+   */
+  export type FileFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * Filter, which Files to fetch.
+     */
+    where?: FileWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Files to fetch.
+     */
+    orderBy?: FileOrderByWithRelationInput | FileOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Files.
+     */
+    cursor?: FileWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Files from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Files.
+     */
+    skip?: number
+    distinct?: FileScalarFieldEnum | FileScalarFieldEnum[]
+  }
+
+  /**
+   * File create
+   */
+  export type FileCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * The data needed to create a File.
+     */
+    data: XOR<FileCreateInput, FileUncheckedCreateInput>
+  }
+
+  /**
+   * File createMany
+   */
+  export type FileCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Files.
+     */
+    data: FileCreateManyInput | FileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * File createManyAndReturn
+   */
+  export type FileCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * The data used to create many Files.
+     */
+    data: FileCreateManyInput | FileCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * File update
+   */
+  export type FileUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * The data needed to update a File.
+     */
+    data: XOR<FileUpdateInput, FileUncheckedUpdateInput>
+    /**
+     * Choose, which File to update.
+     */
+    where: FileWhereUniqueInput
+  }
+
+  /**
+   * File updateMany
+   */
+  export type FileUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Files.
+     */
+    data: XOR<FileUpdateManyMutationInput, FileUncheckedUpdateManyInput>
+    /**
+     * Filter which Files to update
+     */
+    where?: FileWhereInput
+    /**
+     * Limit how many Files to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * File updateManyAndReturn
+   */
+  export type FileUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * The data used to update Files.
+     */
+    data: XOR<FileUpdateManyMutationInput, FileUncheckedUpdateManyInput>
+    /**
+     * Filter which Files to update
+     */
+    where?: FileWhereInput
+    /**
+     * Limit how many Files to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * File upsert
+   */
+  export type FileUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * The filter to search for the File to update in case it exists.
+     */
+    where: FileWhereUniqueInput
+    /**
+     * In case the File found by the `where` argument doesn't exist, create a new File with this data.
+     */
+    create: XOR<FileCreateInput, FileUncheckedCreateInput>
+    /**
+     * In case the File was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<FileUpdateInput, FileUncheckedUpdateInput>
+  }
+
+  /**
+   * File delete
+   */
+  export type FileDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    /**
+     * Filter which File to delete.
+     */
+    where: FileWhereUniqueInput
+  }
+
+  /**
+   * File deleteMany
+   */
+  export type FileDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Files to delete
+     */
+    where?: FileWhereInput
+    /**
+     * Limit how many Files to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * File.barcodes
+   */
+  export type File$barcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    where?: BarcodeJemaahWhereInput
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    cursor?: BarcodeJemaahWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BarcodeJemaahScalarFieldEnum | BarcodeJemaahScalarFieldEnum[]
+  }
+
+  /**
+   * File.batchTransactions
+   */
+  export type File$batchTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    where?: BatchTransactionWhereInput
+    orderBy?: BatchTransactionOrderByWithRelationInput | BatchTransactionOrderByWithRelationInput[]
+    cursor?: BatchTransactionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BatchTransactionScalarFieldEnum | BatchTransactionScalarFieldEnum[]
+  }
+
+  /**
+   * File.journals
+   */
+  export type File$journalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    where?: JurnalWhereInput
+    orderBy?: JurnalOrderByWithRelationInput | JurnalOrderByWithRelationInput[]
+    cursor?: JurnalWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JurnalScalarFieldEnum | JurnalScalarFieldEnum[]
+  }
+
+  /**
+   * File without action
+   */
+  export type FileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BarcodeJemaah
+   */
+
+  export type AggregateBarcodeJemaah = {
+    _count: BarcodeJemaahCountAggregateOutputType | null
+    _avg: BarcodeJemaahAvgAggregateOutputType | null
+    _sum: BarcodeJemaahSumAggregateOutputType | null
+    _min: BarcodeJemaahMinAggregateOutputType | null
+    _max: BarcodeJemaahMaxAggregateOutputType | null
+  }
+
+  export type BarcodeJemaahAvgAggregateOutputType = {
+    id: number | null
+    produkId: number | null
+    paketId: number | null
+    agenId: number | null
+    harga: number | null
+    fileId: number | null
+    invoiceId: number | null
+  }
+
+  export type BarcodeJemaahSumAggregateOutputType = {
+    id: number | null
+    produkId: number | null
+    paketId: number | null
+    agenId: number | null
+    harga: number | null
+    fileId: number | null
+    invoiceId: number | null
+  }
+
+  export type BarcodeJemaahMinAggregateOutputType = {
+    id: number | null
+    oldBarcode: string | null
+    nama: string | null
+    ktp: string | null
+    alamat: string | null
+    produkId: number | null
+    paketId: number | null
+    tingkat: string | null
+    tanggalKeberangkatan: Date | null
+    deskripsi: string | null
+    agenId: number | null
+    harga: number | null
+    fileId: number | null
+    invoiceId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BarcodeJemaahMaxAggregateOutputType = {
+    id: number | null
+    oldBarcode: string | null
+    nama: string | null
+    ktp: string | null
+    alamat: string | null
+    produkId: number | null
+    paketId: number | null
+    tingkat: string | null
+    tanggalKeberangkatan: Date | null
+    deskripsi: string | null
+    agenId: number | null
+    harga: number | null
+    fileId: number | null
+    invoiceId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BarcodeJemaahCountAggregateOutputType = {
+    id: number
+    oldBarcode: number
+    nama: number
+    ktp: number
+    alamat: number
+    produkId: number
+    paketId: number
+    tingkat: number
+    tanggalKeberangkatan: number
+    deskripsi: number
+    agenId: number
+    harga: number
+    fileId: number
+    invoiceId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BarcodeJemaahAvgAggregateInputType = {
+    id?: true
+    produkId?: true
+    paketId?: true
+    agenId?: true
+    harga?: true
+    fileId?: true
+    invoiceId?: true
+  }
+
+  export type BarcodeJemaahSumAggregateInputType = {
+    id?: true
+    produkId?: true
+    paketId?: true
+    agenId?: true
+    harga?: true
+    fileId?: true
+    invoiceId?: true
+  }
+
+  export type BarcodeJemaahMinAggregateInputType = {
+    id?: true
+    oldBarcode?: true
+    nama?: true
+    ktp?: true
+    alamat?: true
+    produkId?: true
+    paketId?: true
+    tingkat?: true
+    tanggalKeberangkatan?: true
+    deskripsi?: true
+    agenId?: true
+    harga?: true
+    fileId?: true
+    invoiceId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BarcodeJemaahMaxAggregateInputType = {
+    id?: true
+    oldBarcode?: true
+    nama?: true
+    ktp?: true
+    alamat?: true
+    produkId?: true
+    paketId?: true
+    tingkat?: true
+    tanggalKeberangkatan?: true
+    deskripsi?: true
+    agenId?: true
+    harga?: true
+    fileId?: true
+    invoiceId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BarcodeJemaahCountAggregateInputType = {
+    id?: true
+    oldBarcode?: true
+    nama?: true
+    ktp?: true
+    alamat?: true
+    produkId?: true
+    paketId?: true
+    tingkat?: true
+    tanggalKeberangkatan?: true
+    deskripsi?: true
+    agenId?: true
+    harga?: true
+    fileId?: true
+    invoiceId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BarcodeJemaahAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BarcodeJemaah to aggregate.
+     */
+    where?: BarcodeJemaahWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BarcodeJemaahs to fetch.
+     */
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BarcodeJemaahWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BarcodeJemaahs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BarcodeJemaahs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BarcodeJemaahs
+    **/
+    _count?: true | BarcodeJemaahCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BarcodeJemaahAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BarcodeJemaahSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BarcodeJemaahMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BarcodeJemaahMaxAggregateInputType
+  }
+
+  export type GetBarcodeJemaahAggregateType<T extends BarcodeJemaahAggregateArgs> = {
+        [P in keyof T & keyof AggregateBarcodeJemaah]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBarcodeJemaah[P]>
+      : GetScalarType<T[P], AggregateBarcodeJemaah[P]>
+  }
+
+
+
+
+  export type BarcodeJemaahGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BarcodeJemaahWhereInput
+    orderBy?: BarcodeJemaahOrderByWithAggregationInput | BarcodeJemaahOrderByWithAggregationInput[]
+    by: BarcodeJemaahScalarFieldEnum[] | BarcodeJemaahScalarFieldEnum
+    having?: BarcodeJemaahScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BarcodeJemaahCountAggregateInputType | true
+    _avg?: BarcodeJemaahAvgAggregateInputType
+    _sum?: BarcodeJemaahSumAggregateInputType
+    _min?: BarcodeJemaahMinAggregateInputType
+    _max?: BarcodeJemaahMaxAggregateInputType
+  }
+
+  export type BarcodeJemaahGroupByOutputType = {
+    id: number
+    oldBarcode: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date
+    deskripsi: string | null
+    agenId: number
+    harga: number
+    fileId: number | null
+    invoiceId: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: BarcodeJemaahCountAggregateOutputType | null
+    _avg: BarcodeJemaahAvgAggregateOutputType | null
+    _sum: BarcodeJemaahSumAggregateOutputType | null
+    _min: BarcodeJemaahMinAggregateOutputType | null
+    _max: BarcodeJemaahMaxAggregateOutputType | null
+  }
+
+  type GetBarcodeJemaahGroupByPayload<T extends BarcodeJemaahGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BarcodeJemaahGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BarcodeJemaahGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BarcodeJemaahGroupByOutputType[P]>
+            : GetScalarType<T[P], BarcodeJemaahGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BarcodeJemaahSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    oldBarcode?: boolean
+    nama?: boolean
+    ktp?: boolean
+    alamat?: boolean
+    produkId?: boolean
+    paketId?: boolean
+    tingkat?: boolean
+    tanggalKeberangkatan?: boolean
+    deskripsi?: boolean
+    agenId?: boolean
+    harga?: boolean
+    fileId?: boolean
+    invoiceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+    paket?: boolean | PaketDefaultArgs<ExtArgs>
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    file?: boolean | BarcodeJemaah$fileArgs<ExtArgs>
+    invoice?: boolean | BarcodeJemaah$invoiceArgs<ExtArgs>
+  }, ExtArgs["result"]["barcodeJemaah"]>
+
+  export type BarcodeJemaahSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    oldBarcode?: boolean
+    nama?: boolean
+    ktp?: boolean
+    alamat?: boolean
+    produkId?: boolean
+    paketId?: boolean
+    tingkat?: boolean
+    tanggalKeberangkatan?: boolean
+    deskripsi?: boolean
+    agenId?: boolean
+    harga?: boolean
+    fileId?: boolean
+    invoiceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+    paket?: boolean | PaketDefaultArgs<ExtArgs>
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    file?: boolean | BarcodeJemaah$fileArgs<ExtArgs>
+    invoice?: boolean | BarcodeJemaah$invoiceArgs<ExtArgs>
+  }, ExtArgs["result"]["barcodeJemaah"]>
+
+  export type BarcodeJemaahSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    oldBarcode?: boolean
+    nama?: boolean
+    ktp?: boolean
+    alamat?: boolean
+    produkId?: boolean
+    paketId?: boolean
+    tingkat?: boolean
+    tanggalKeberangkatan?: boolean
+    deskripsi?: boolean
+    agenId?: boolean
+    harga?: boolean
+    fileId?: boolean
+    invoiceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+    paket?: boolean | PaketDefaultArgs<ExtArgs>
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    file?: boolean | BarcodeJemaah$fileArgs<ExtArgs>
+    invoice?: boolean | BarcodeJemaah$invoiceArgs<ExtArgs>
+  }, ExtArgs["result"]["barcodeJemaah"]>
+
+  export type BarcodeJemaahSelectScalar = {
+    id?: boolean
+    oldBarcode?: boolean
+    nama?: boolean
+    ktp?: boolean
+    alamat?: boolean
+    produkId?: boolean
+    paketId?: boolean
+    tingkat?: boolean
+    tanggalKeberangkatan?: boolean
+    deskripsi?: boolean
+    agenId?: boolean
+    harga?: boolean
+    fileId?: boolean
+    invoiceId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BarcodeJemaahOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "oldBarcode" | "nama" | "ktp" | "alamat" | "produkId" | "paketId" | "tingkat" | "tanggalKeberangkatan" | "deskripsi" | "agenId" | "harga" | "fileId" | "invoiceId" | "createdAt" | "updatedAt", ExtArgs["result"]["barcodeJemaah"]>
+  export type BarcodeJemaahInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+    paket?: boolean | PaketDefaultArgs<ExtArgs>
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    file?: boolean | BarcodeJemaah$fileArgs<ExtArgs>
+    invoice?: boolean | BarcodeJemaah$invoiceArgs<ExtArgs>
+  }
+  export type BarcodeJemaahIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+    paket?: boolean | PaketDefaultArgs<ExtArgs>
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    file?: boolean | BarcodeJemaah$fileArgs<ExtArgs>
+    invoice?: boolean | BarcodeJemaah$invoiceArgs<ExtArgs>
+  }
+  export type BarcodeJemaahIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    produk?: boolean | ProdukDefaultArgs<ExtArgs>
+    paket?: boolean | PaketDefaultArgs<ExtArgs>
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    file?: boolean | BarcodeJemaah$fileArgs<ExtArgs>
+    invoice?: boolean | BarcodeJemaah$invoiceArgs<ExtArgs>
+  }
+
+  export type $BarcodeJemaahPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BarcodeJemaah"
+    objects: {
+      produk: Prisma.$ProdukPayload<ExtArgs>
+      paket: Prisma.$PaketPayload<ExtArgs>
+      agen: Prisma.$AgenPayload<ExtArgs>
+      file: Prisma.$FilePayload<ExtArgs> | null
+      invoice: Prisma.$InvoicePayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      oldBarcode: string | null
+      nama: string
+      ktp: string
+      alamat: string
+      produkId: number
+      paketId: number
+      tingkat: string
+      tanggalKeberangkatan: Date
+      deskripsi: string | null
+      agenId: number
+      harga: number
+      fileId: number | null
+      invoiceId: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["barcodeJemaah"]>
+    composites: {}
+  }
+
+  type BarcodeJemaahGetPayload<S extends boolean | null | undefined | BarcodeJemaahDefaultArgs> = $Result.GetResult<Prisma.$BarcodeJemaahPayload, S>
+
+  type BarcodeJemaahCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BarcodeJemaahFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BarcodeJemaahCountAggregateInputType | true
+    }
+
+  export interface BarcodeJemaahDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BarcodeJemaah'], meta: { name: 'BarcodeJemaah' } }
+    /**
+     * Find zero or one BarcodeJemaah that matches the filter.
+     * @param {BarcodeJemaahFindUniqueArgs} args - Arguments to find a BarcodeJemaah
+     * @example
+     * // Get one BarcodeJemaah
+     * const barcodeJemaah = await prisma.barcodeJemaah.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BarcodeJemaahFindUniqueArgs>(args: SelectSubset<T, BarcodeJemaahFindUniqueArgs<ExtArgs>>): Prisma__BarcodeJemaahClient<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BarcodeJemaah that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BarcodeJemaahFindUniqueOrThrowArgs} args - Arguments to find a BarcodeJemaah
+     * @example
+     * // Get one BarcodeJemaah
+     * const barcodeJemaah = await prisma.barcodeJemaah.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BarcodeJemaahFindUniqueOrThrowArgs>(args: SelectSubset<T, BarcodeJemaahFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BarcodeJemaahClient<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BarcodeJemaah that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BarcodeJemaahFindFirstArgs} args - Arguments to find a BarcodeJemaah
+     * @example
+     * // Get one BarcodeJemaah
+     * const barcodeJemaah = await prisma.barcodeJemaah.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BarcodeJemaahFindFirstArgs>(args?: SelectSubset<T, BarcodeJemaahFindFirstArgs<ExtArgs>>): Prisma__BarcodeJemaahClient<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BarcodeJemaah that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BarcodeJemaahFindFirstOrThrowArgs} args - Arguments to find a BarcodeJemaah
+     * @example
+     * // Get one BarcodeJemaah
+     * const barcodeJemaah = await prisma.barcodeJemaah.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BarcodeJemaahFindFirstOrThrowArgs>(args?: SelectSubset<T, BarcodeJemaahFindFirstOrThrowArgs<ExtArgs>>): Prisma__BarcodeJemaahClient<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BarcodeJemaahs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BarcodeJemaahFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BarcodeJemaahs
+     * const barcodeJemaahs = await prisma.barcodeJemaah.findMany()
+     * 
+     * // Get first 10 BarcodeJemaahs
+     * const barcodeJemaahs = await prisma.barcodeJemaah.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const barcodeJemaahWithIdOnly = await prisma.barcodeJemaah.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BarcodeJemaahFindManyArgs>(args?: SelectSubset<T, BarcodeJemaahFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BarcodeJemaah.
+     * @param {BarcodeJemaahCreateArgs} args - Arguments to create a BarcodeJemaah.
+     * @example
+     * // Create one BarcodeJemaah
+     * const BarcodeJemaah = await prisma.barcodeJemaah.create({
+     *   data: {
+     *     // ... data to create a BarcodeJemaah
+     *   }
+     * })
+     * 
+     */
+    create<T extends BarcodeJemaahCreateArgs>(args: SelectSubset<T, BarcodeJemaahCreateArgs<ExtArgs>>): Prisma__BarcodeJemaahClient<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BarcodeJemaahs.
+     * @param {BarcodeJemaahCreateManyArgs} args - Arguments to create many BarcodeJemaahs.
+     * @example
+     * // Create many BarcodeJemaahs
+     * const barcodeJemaah = await prisma.barcodeJemaah.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BarcodeJemaahCreateManyArgs>(args?: SelectSubset<T, BarcodeJemaahCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BarcodeJemaahs and returns the data saved in the database.
+     * @param {BarcodeJemaahCreateManyAndReturnArgs} args - Arguments to create many BarcodeJemaahs.
+     * @example
+     * // Create many BarcodeJemaahs
+     * const barcodeJemaah = await prisma.barcodeJemaah.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BarcodeJemaahs and only return the `id`
+     * const barcodeJemaahWithIdOnly = await prisma.barcodeJemaah.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BarcodeJemaahCreateManyAndReturnArgs>(args?: SelectSubset<T, BarcodeJemaahCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BarcodeJemaah.
+     * @param {BarcodeJemaahDeleteArgs} args - Arguments to delete one BarcodeJemaah.
+     * @example
+     * // Delete one BarcodeJemaah
+     * const BarcodeJemaah = await prisma.barcodeJemaah.delete({
+     *   where: {
+     *     // ... filter to delete one BarcodeJemaah
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BarcodeJemaahDeleteArgs>(args: SelectSubset<T, BarcodeJemaahDeleteArgs<ExtArgs>>): Prisma__BarcodeJemaahClient<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BarcodeJemaah.
+     * @param {BarcodeJemaahUpdateArgs} args - Arguments to update one BarcodeJemaah.
+     * @example
+     * // Update one BarcodeJemaah
+     * const barcodeJemaah = await prisma.barcodeJemaah.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BarcodeJemaahUpdateArgs>(args: SelectSubset<T, BarcodeJemaahUpdateArgs<ExtArgs>>): Prisma__BarcodeJemaahClient<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BarcodeJemaahs.
+     * @param {BarcodeJemaahDeleteManyArgs} args - Arguments to filter BarcodeJemaahs to delete.
+     * @example
+     * // Delete a few BarcodeJemaahs
+     * const { count } = await prisma.barcodeJemaah.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BarcodeJemaahDeleteManyArgs>(args?: SelectSubset<T, BarcodeJemaahDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BarcodeJemaahs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BarcodeJemaahUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BarcodeJemaahs
+     * const barcodeJemaah = await prisma.barcodeJemaah.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BarcodeJemaahUpdateManyArgs>(args: SelectSubset<T, BarcodeJemaahUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BarcodeJemaahs and returns the data updated in the database.
+     * @param {BarcodeJemaahUpdateManyAndReturnArgs} args - Arguments to update many BarcodeJemaahs.
+     * @example
+     * // Update many BarcodeJemaahs
+     * const barcodeJemaah = await prisma.barcodeJemaah.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BarcodeJemaahs and only return the `id`
+     * const barcodeJemaahWithIdOnly = await prisma.barcodeJemaah.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BarcodeJemaahUpdateManyAndReturnArgs>(args: SelectSubset<T, BarcodeJemaahUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BarcodeJemaah.
+     * @param {BarcodeJemaahUpsertArgs} args - Arguments to update or create a BarcodeJemaah.
+     * @example
+     * // Update or create a BarcodeJemaah
+     * const barcodeJemaah = await prisma.barcodeJemaah.upsert({
+     *   create: {
+     *     // ... data to create a BarcodeJemaah
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BarcodeJemaah we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BarcodeJemaahUpsertArgs>(args: SelectSubset<T, BarcodeJemaahUpsertArgs<ExtArgs>>): Prisma__BarcodeJemaahClient<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BarcodeJemaahs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BarcodeJemaahCountArgs} args - Arguments to filter BarcodeJemaahs to count.
+     * @example
+     * // Count the number of BarcodeJemaahs
+     * const count = await prisma.barcodeJemaah.count({
+     *   where: {
+     *     // ... the filter for the BarcodeJemaahs we want to count
+     *   }
+     * })
+    **/
+    count<T extends BarcodeJemaahCountArgs>(
+      args?: Subset<T, BarcodeJemaahCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BarcodeJemaahCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BarcodeJemaah.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BarcodeJemaahAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BarcodeJemaahAggregateArgs>(args: Subset<T, BarcodeJemaahAggregateArgs>): Prisma.PrismaPromise<GetBarcodeJemaahAggregateType<T>>
+
+    /**
+     * Group by BarcodeJemaah.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BarcodeJemaahGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BarcodeJemaahGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BarcodeJemaahGroupByArgs['orderBy'] }
+        : { orderBy?: BarcodeJemaahGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BarcodeJemaahGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBarcodeJemaahGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BarcodeJemaah model
+   */
+  readonly fields: BarcodeJemaahFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BarcodeJemaah.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BarcodeJemaahClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    produk<T extends ProdukDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProdukDefaultArgs<ExtArgs>>): Prisma__ProdukClient<$Result.GetResult<Prisma.$ProdukPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    paket<T extends PaketDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PaketDefaultArgs<ExtArgs>>): Prisma__PaketClient<$Result.GetResult<Prisma.$PaketPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    agen<T extends AgenDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AgenDefaultArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    file<T extends BarcodeJemaah$fileArgs<ExtArgs> = {}>(args?: Subset<T, BarcodeJemaah$fileArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    invoice<T extends BarcodeJemaah$invoiceArgs<ExtArgs> = {}>(args?: Subset<T, BarcodeJemaah$invoiceArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BarcodeJemaah model
+   */
+  interface BarcodeJemaahFieldRefs {
+    readonly id: FieldRef<"BarcodeJemaah", 'Int'>
+    readonly oldBarcode: FieldRef<"BarcodeJemaah", 'String'>
+    readonly nama: FieldRef<"BarcodeJemaah", 'String'>
+    readonly ktp: FieldRef<"BarcodeJemaah", 'String'>
+    readonly alamat: FieldRef<"BarcodeJemaah", 'String'>
+    readonly produkId: FieldRef<"BarcodeJemaah", 'Int'>
+    readonly paketId: FieldRef<"BarcodeJemaah", 'Int'>
+    readonly tingkat: FieldRef<"BarcodeJemaah", 'String'>
+    readonly tanggalKeberangkatan: FieldRef<"BarcodeJemaah", 'DateTime'>
+    readonly deskripsi: FieldRef<"BarcodeJemaah", 'String'>
+    readonly agenId: FieldRef<"BarcodeJemaah", 'Int'>
+    readonly harga: FieldRef<"BarcodeJemaah", 'Float'>
+    readonly fileId: FieldRef<"BarcodeJemaah", 'Int'>
+    readonly invoiceId: FieldRef<"BarcodeJemaah", 'Int'>
+    readonly createdAt: FieldRef<"BarcodeJemaah", 'DateTime'>
+    readonly updatedAt: FieldRef<"BarcodeJemaah", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BarcodeJemaah findUnique
+   */
+  export type BarcodeJemaahFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * Filter, which BarcodeJemaah to fetch.
+     */
+    where: BarcodeJemaahWhereUniqueInput
+  }
+
+  /**
+   * BarcodeJemaah findUniqueOrThrow
+   */
+  export type BarcodeJemaahFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * Filter, which BarcodeJemaah to fetch.
+     */
+    where: BarcodeJemaahWhereUniqueInput
+  }
+
+  /**
+   * BarcodeJemaah findFirst
+   */
+  export type BarcodeJemaahFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * Filter, which BarcodeJemaah to fetch.
+     */
+    where?: BarcodeJemaahWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BarcodeJemaahs to fetch.
+     */
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BarcodeJemaahs.
+     */
+    cursor?: BarcodeJemaahWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BarcodeJemaahs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BarcodeJemaahs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BarcodeJemaahs.
+     */
+    distinct?: BarcodeJemaahScalarFieldEnum | BarcodeJemaahScalarFieldEnum[]
+  }
+
+  /**
+   * BarcodeJemaah findFirstOrThrow
+   */
+  export type BarcodeJemaahFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * Filter, which BarcodeJemaah to fetch.
+     */
+    where?: BarcodeJemaahWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BarcodeJemaahs to fetch.
+     */
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BarcodeJemaahs.
+     */
+    cursor?: BarcodeJemaahWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BarcodeJemaahs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BarcodeJemaahs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BarcodeJemaahs.
+     */
+    distinct?: BarcodeJemaahScalarFieldEnum | BarcodeJemaahScalarFieldEnum[]
+  }
+
+  /**
+   * BarcodeJemaah findMany
+   */
+  export type BarcodeJemaahFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * Filter, which BarcodeJemaahs to fetch.
+     */
+    where?: BarcodeJemaahWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BarcodeJemaahs to fetch.
+     */
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BarcodeJemaahs.
+     */
+    cursor?: BarcodeJemaahWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BarcodeJemaahs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BarcodeJemaahs.
+     */
+    skip?: number
+    distinct?: BarcodeJemaahScalarFieldEnum | BarcodeJemaahScalarFieldEnum[]
+  }
+
+  /**
+   * BarcodeJemaah create
+   */
+  export type BarcodeJemaahCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BarcodeJemaah.
+     */
+    data: XOR<BarcodeJemaahCreateInput, BarcodeJemaahUncheckedCreateInput>
+  }
+
+  /**
+   * BarcodeJemaah createMany
+   */
+  export type BarcodeJemaahCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BarcodeJemaahs.
+     */
+    data: BarcodeJemaahCreateManyInput | BarcodeJemaahCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BarcodeJemaah createManyAndReturn
+   */
+  export type BarcodeJemaahCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * The data used to create many BarcodeJemaahs.
+     */
+    data: BarcodeJemaahCreateManyInput | BarcodeJemaahCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BarcodeJemaah update
+   */
+  export type BarcodeJemaahUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BarcodeJemaah.
+     */
+    data: XOR<BarcodeJemaahUpdateInput, BarcodeJemaahUncheckedUpdateInput>
+    /**
+     * Choose, which BarcodeJemaah to update.
+     */
+    where: BarcodeJemaahWhereUniqueInput
+  }
+
+  /**
+   * BarcodeJemaah updateMany
+   */
+  export type BarcodeJemaahUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BarcodeJemaahs.
+     */
+    data: XOR<BarcodeJemaahUpdateManyMutationInput, BarcodeJemaahUncheckedUpdateManyInput>
+    /**
+     * Filter which BarcodeJemaahs to update
+     */
+    where?: BarcodeJemaahWhereInput
+    /**
+     * Limit how many BarcodeJemaahs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BarcodeJemaah updateManyAndReturn
+   */
+  export type BarcodeJemaahUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * The data used to update BarcodeJemaahs.
+     */
+    data: XOR<BarcodeJemaahUpdateManyMutationInput, BarcodeJemaahUncheckedUpdateManyInput>
+    /**
+     * Filter which BarcodeJemaahs to update
+     */
+    where?: BarcodeJemaahWhereInput
+    /**
+     * Limit how many BarcodeJemaahs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BarcodeJemaah upsert
+   */
+  export type BarcodeJemaahUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BarcodeJemaah to update in case it exists.
+     */
+    where: BarcodeJemaahWhereUniqueInput
+    /**
+     * In case the BarcodeJemaah found by the `where` argument doesn't exist, create a new BarcodeJemaah with this data.
+     */
+    create: XOR<BarcodeJemaahCreateInput, BarcodeJemaahUncheckedCreateInput>
+    /**
+     * In case the BarcodeJemaah was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BarcodeJemaahUpdateInput, BarcodeJemaahUncheckedUpdateInput>
+  }
+
+  /**
+   * BarcodeJemaah delete
+   */
+  export type BarcodeJemaahDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    /**
+     * Filter which BarcodeJemaah to delete.
+     */
+    where: BarcodeJemaahWhereUniqueInput
+  }
+
+  /**
+   * BarcodeJemaah deleteMany
+   */
+  export type BarcodeJemaahDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BarcodeJemaahs to delete
+     */
+    where?: BarcodeJemaahWhereInput
+    /**
+     * Limit how many BarcodeJemaahs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BarcodeJemaah.file
+   */
+  export type BarcodeJemaah$fileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    where?: FileWhereInput
+  }
+
+  /**
+   * BarcodeJemaah.invoice
+   */
+  export type BarcodeJemaah$invoiceArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    where?: InvoiceWhereInput
+  }
+
+  /**
+   * BarcodeJemaah without action
+   */
+  export type BarcodeJemaahDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Invoice
+   */
+
+  export type AggregateInvoice = {
+    _count: InvoiceCountAggregateOutputType | null
+    _avg: InvoiceAvgAggregateOutputType | null
+    _sum: InvoiceSumAggregateOutputType | null
+    _min: InvoiceMinAggregateOutputType | null
+    _max: InvoiceMaxAggregateOutputType | null
+  }
+
+  export type InvoiceAvgAggregateOutputType = {
+    id: number | null
+    agenId: number | null
+    taxPercent: number | null
+    diskon: number | null
+    total: number | null
+    batchFlightId: number | null
+  }
+
+  export type InvoiceSumAggregateOutputType = {
+    id: number | null
+    agenId: number | null
+    taxPercent: number | null
+    diskon: number | null
+    total: number | null
+    batchFlightId: number | null
+  }
+
+  export type InvoiceMinAggregateOutputType = {
+    id: number | null
+    nomor: string | null
+    tanggal: Date | null
+    agenId: number | null
+    taxPercent: number | null
+    diskon: number | null
+    total: number | null
+    status: $Enums.InvoiceStatus | null
+    dueDate: Date | null
+    batchFlightId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type InvoiceMaxAggregateOutputType = {
+    id: number | null
+    nomor: string | null
+    tanggal: Date | null
+    agenId: number | null
+    taxPercent: number | null
+    diskon: number | null
+    total: number | null
+    status: $Enums.InvoiceStatus | null
+    dueDate: Date | null
+    batchFlightId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type InvoiceCountAggregateOutputType = {
+    id: number
+    nomor: number
+    tanggal: number
+    agenId: number
+    taxPercent: number
+    diskon: number
+    total: number
+    status: number
+    dueDate: number
+    batchFlightId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type InvoiceAvgAggregateInputType = {
+    id?: true
+    agenId?: true
+    taxPercent?: true
+    diskon?: true
+    total?: true
+    batchFlightId?: true
+  }
+
+  export type InvoiceSumAggregateInputType = {
+    id?: true
+    agenId?: true
+    taxPercent?: true
+    diskon?: true
+    total?: true
+    batchFlightId?: true
+  }
+
+  export type InvoiceMinAggregateInputType = {
+    id?: true
+    nomor?: true
+    tanggal?: true
+    agenId?: true
+    taxPercent?: true
+    diskon?: true
+    total?: true
+    status?: true
+    dueDate?: true
+    batchFlightId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type InvoiceMaxAggregateInputType = {
+    id?: true
+    nomor?: true
+    tanggal?: true
+    agenId?: true
+    taxPercent?: true
+    diskon?: true
+    total?: true
+    status?: true
+    dueDate?: true
+    batchFlightId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type InvoiceCountAggregateInputType = {
+    id?: true
+    nomor?: true
+    tanggal?: true
+    agenId?: true
+    taxPercent?: true
+    diskon?: true
+    total?: true
+    status?: true
+    dueDate?: true
+    batchFlightId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type InvoiceAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Invoice to aggregate.
+     */
+    where?: InvoiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Invoices to fetch.
+     */
+    orderBy?: InvoiceOrderByWithRelationInput | InvoiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: InvoiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Invoices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Invoices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Invoices
+    **/
+    _count?: true | InvoiceCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: InvoiceAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: InvoiceSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: InvoiceMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: InvoiceMaxAggregateInputType
+  }
+
+  export type GetInvoiceAggregateType<T extends InvoiceAggregateArgs> = {
+        [P in keyof T & keyof AggregateInvoice]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateInvoice[P]>
+      : GetScalarType<T[P], AggregateInvoice[P]>
+  }
+
+
+
+
+  export type InvoiceGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvoiceWhereInput
+    orderBy?: InvoiceOrderByWithAggregationInput | InvoiceOrderByWithAggregationInput[]
+    by: InvoiceScalarFieldEnum[] | InvoiceScalarFieldEnum
+    having?: InvoiceScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: InvoiceCountAggregateInputType | true
+    _avg?: InvoiceAvgAggregateInputType
+    _sum?: InvoiceSumAggregateInputType
+    _min?: InvoiceMinAggregateInputType
+    _max?: InvoiceMaxAggregateInputType
+  }
+
+  export type InvoiceGroupByOutputType = {
+    id: number
+    nomor: string
+    tanggal: Date
+    agenId: number
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date
+    batchFlightId: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: InvoiceCountAggregateOutputType | null
+    _avg: InvoiceAvgAggregateOutputType | null
+    _sum: InvoiceSumAggregateOutputType | null
+    _min: InvoiceMinAggregateOutputType | null
+    _max: InvoiceMaxAggregateOutputType | null
+  }
+
+  type GetInvoiceGroupByPayload<T extends InvoiceGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<InvoiceGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof InvoiceGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], InvoiceGroupByOutputType[P]>
+            : GetScalarType<T[P], InvoiceGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type InvoiceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nomor?: boolean
+    tanggal?: boolean
+    agenId?: boolean
+    taxPercent?: boolean
+    diskon?: boolean
+    total?: boolean
+    status?: boolean
+    dueDate?: boolean
+    batchFlightId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    barcodes?: boolean | Invoice$barcodesArgs<ExtArgs>
+    mutasiLinks?: boolean | Invoice$mutasiLinksArgs<ExtArgs>
+    batch?: boolean | Invoice$batchArgs<ExtArgs>
+    _count?: boolean | InvoiceCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["invoice"]>
+
+  export type InvoiceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nomor?: boolean
+    tanggal?: boolean
+    agenId?: boolean
+    taxPercent?: boolean
+    diskon?: boolean
+    total?: boolean
+    status?: boolean
+    dueDate?: boolean
+    batchFlightId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    batch?: boolean | Invoice$batchArgs<ExtArgs>
+  }, ExtArgs["result"]["invoice"]>
+
+  export type InvoiceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nomor?: boolean
+    tanggal?: boolean
+    agenId?: boolean
+    taxPercent?: boolean
+    diskon?: boolean
+    total?: boolean
+    status?: boolean
+    dueDate?: boolean
+    batchFlightId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    batch?: boolean | Invoice$batchArgs<ExtArgs>
+  }, ExtArgs["result"]["invoice"]>
+
+  export type InvoiceSelectScalar = {
+    id?: boolean
+    nomor?: boolean
+    tanggal?: boolean
+    agenId?: boolean
+    taxPercent?: boolean
+    diskon?: boolean
+    total?: boolean
+    status?: boolean
+    dueDate?: boolean
+    batchFlightId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type InvoiceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nomor" | "tanggal" | "agenId" | "taxPercent" | "diskon" | "total" | "status" | "dueDate" | "batchFlightId" | "createdAt" | "updatedAt", ExtArgs["result"]["invoice"]>
+  export type InvoiceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    barcodes?: boolean | Invoice$barcodesArgs<ExtArgs>
+    mutasiLinks?: boolean | Invoice$mutasiLinksArgs<ExtArgs>
+    batch?: boolean | Invoice$batchArgs<ExtArgs>
+    _count?: boolean | InvoiceCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type InvoiceIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    batch?: boolean | Invoice$batchArgs<ExtArgs>
+  }
+  export type InvoiceIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    agen?: boolean | AgenDefaultArgs<ExtArgs>
+    batch?: boolean | Invoice$batchArgs<ExtArgs>
+  }
+
+  export type $InvoicePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Invoice"
+    objects: {
+      agen: Prisma.$AgenPayload<ExtArgs>
+      barcodes: Prisma.$BarcodeJemaahPayload<ExtArgs>[]
+      mutasiLinks: Prisma.$InvoiceMutasiPayload<ExtArgs>[]
+      batch: Prisma.$BatchFlightPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nomor: string
+      tanggal: Date
+      agenId: number
+      taxPercent: number
+      diskon: number
+      total: number
+      status: $Enums.InvoiceStatus
+      dueDate: Date
+      batchFlightId: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["invoice"]>
+    composites: {}
+  }
+
+  type InvoiceGetPayload<S extends boolean | null | undefined | InvoiceDefaultArgs> = $Result.GetResult<Prisma.$InvoicePayload, S>
+
+  type InvoiceCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<InvoiceFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: InvoiceCountAggregateInputType | true
+    }
+
+  export interface InvoiceDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Invoice'], meta: { name: 'Invoice' } }
+    /**
+     * Find zero or one Invoice that matches the filter.
+     * @param {InvoiceFindUniqueArgs} args - Arguments to find a Invoice
+     * @example
+     * // Get one Invoice
+     * const invoice = await prisma.invoice.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends InvoiceFindUniqueArgs>(args: SelectSubset<T, InvoiceFindUniqueArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Invoice that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {InvoiceFindUniqueOrThrowArgs} args - Arguments to find a Invoice
+     * @example
+     * // Get one Invoice
+     * const invoice = await prisma.invoice.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends InvoiceFindUniqueOrThrowArgs>(args: SelectSubset<T, InvoiceFindUniqueOrThrowArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Invoice that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceFindFirstArgs} args - Arguments to find a Invoice
+     * @example
+     * // Get one Invoice
+     * const invoice = await prisma.invoice.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends InvoiceFindFirstArgs>(args?: SelectSubset<T, InvoiceFindFirstArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Invoice that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceFindFirstOrThrowArgs} args - Arguments to find a Invoice
+     * @example
+     * // Get one Invoice
+     * const invoice = await prisma.invoice.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends InvoiceFindFirstOrThrowArgs>(args?: SelectSubset<T, InvoiceFindFirstOrThrowArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Invoices that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Invoices
+     * const invoices = await prisma.invoice.findMany()
+     * 
+     * // Get first 10 Invoices
+     * const invoices = await prisma.invoice.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const invoiceWithIdOnly = await prisma.invoice.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends InvoiceFindManyArgs>(args?: SelectSubset<T, InvoiceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Invoice.
+     * @param {InvoiceCreateArgs} args - Arguments to create a Invoice.
+     * @example
+     * // Create one Invoice
+     * const Invoice = await prisma.invoice.create({
+     *   data: {
+     *     // ... data to create a Invoice
+     *   }
+     * })
+     * 
+     */
+    create<T extends InvoiceCreateArgs>(args: SelectSubset<T, InvoiceCreateArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Invoices.
+     * @param {InvoiceCreateManyArgs} args - Arguments to create many Invoices.
+     * @example
+     * // Create many Invoices
+     * const invoice = await prisma.invoice.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends InvoiceCreateManyArgs>(args?: SelectSubset<T, InvoiceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Invoices and returns the data saved in the database.
+     * @param {InvoiceCreateManyAndReturnArgs} args - Arguments to create many Invoices.
+     * @example
+     * // Create many Invoices
+     * const invoice = await prisma.invoice.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Invoices and only return the `id`
+     * const invoiceWithIdOnly = await prisma.invoice.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends InvoiceCreateManyAndReturnArgs>(args?: SelectSubset<T, InvoiceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Invoice.
+     * @param {InvoiceDeleteArgs} args - Arguments to delete one Invoice.
+     * @example
+     * // Delete one Invoice
+     * const Invoice = await prisma.invoice.delete({
+     *   where: {
+     *     // ... filter to delete one Invoice
+     *   }
+     * })
+     * 
+     */
+    delete<T extends InvoiceDeleteArgs>(args: SelectSubset<T, InvoiceDeleteArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Invoice.
+     * @param {InvoiceUpdateArgs} args - Arguments to update one Invoice.
+     * @example
+     * // Update one Invoice
+     * const invoice = await prisma.invoice.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends InvoiceUpdateArgs>(args: SelectSubset<T, InvoiceUpdateArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Invoices.
+     * @param {InvoiceDeleteManyArgs} args - Arguments to filter Invoices to delete.
+     * @example
+     * // Delete a few Invoices
+     * const { count } = await prisma.invoice.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends InvoiceDeleteManyArgs>(args?: SelectSubset<T, InvoiceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Invoices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Invoices
+     * const invoice = await prisma.invoice.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends InvoiceUpdateManyArgs>(args: SelectSubset<T, InvoiceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Invoices and returns the data updated in the database.
+     * @param {InvoiceUpdateManyAndReturnArgs} args - Arguments to update many Invoices.
+     * @example
+     * // Update many Invoices
+     * const invoice = await prisma.invoice.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Invoices and only return the `id`
+     * const invoiceWithIdOnly = await prisma.invoice.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends InvoiceUpdateManyAndReturnArgs>(args: SelectSubset<T, InvoiceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Invoice.
+     * @param {InvoiceUpsertArgs} args - Arguments to update or create a Invoice.
+     * @example
+     * // Update or create a Invoice
+     * const invoice = await prisma.invoice.upsert({
+     *   create: {
+     *     // ... data to create a Invoice
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Invoice we want to update
+     *   }
+     * })
+     */
+    upsert<T extends InvoiceUpsertArgs>(args: SelectSubset<T, InvoiceUpsertArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Invoices.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceCountArgs} args - Arguments to filter Invoices to count.
+     * @example
+     * // Count the number of Invoices
+     * const count = await prisma.invoice.count({
+     *   where: {
+     *     // ... the filter for the Invoices we want to count
+     *   }
+     * })
+    **/
+    count<T extends InvoiceCountArgs>(
+      args?: Subset<T, InvoiceCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], InvoiceCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Invoice.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends InvoiceAggregateArgs>(args: Subset<T, InvoiceAggregateArgs>): Prisma.PrismaPromise<GetInvoiceAggregateType<T>>
+
+    /**
+     * Group by Invoice.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends InvoiceGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: InvoiceGroupByArgs['orderBy'] }
+        : { orderBy?: InvoiceGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, InvoiceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInvoiceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Invoice model
+   */
+  readonly fields: InvoiceFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Invoice.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__InvoiceClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    agen<T extends AgenDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AgenDefaultArgs<ExtArgs>>): Prisma__AgenClient<$Result.GetResult<Prisma.$AgenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    barcodes<T extends Invoice$barcodesArgs<ExtArgs> = {}>(args?: Subset<T, Invoice$barcodesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BarcodeJemaahPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    mutasiLinks<T extends Invoice$mutasiLinksArgs<ExtArgs> = {}>(args?: Subset<T, Invoice$mutasiLinksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    batch<T extends Invoice$batchArgs<ExtArgs> = {}>(args?: Subset<T, Invoice$batchArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Invoice model
+   */
+  interface InvoiceFieldRefs {
+    readonly id: FieldRef<"Invoice", 'Int'>
+    readonly nomor: FieldRef<"Invoice", 'String'>
+    readonly tanggal: FieldRef<"Invoice", 'DateTime'>
+    readonly agenId: FieldRef<"Invoice", 'Int'>
+    readonly taxPercent: FieldRef<"Invoice", 'Float'>
+    readonly diskon: FieldRef<"Invoice", 'Float'>
+    readonly total: FieldRef<"Invoice", 'Float'>
+    readonly status: FieldRef<"Invoice", 'InvoiceStatus'>
+    readonly dueDate: FieldRef<"Invoice", 'DateTime'>
+    readonly batchFlightId: FieldRef<"Invoice", 'Int'>
+    readonly createdAt: FieldRef<"Invoice", 'DateTime'>
+    readonly updatedAt: FieldRef<"Invoice", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Invoice findUnique
+   */
+  export type InvoiceFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Invoice to fetch.
+     */
+    where: InvoiceWhereUniqueInput
+  }
+
+  /**
+   * Invoice findUniqueOrThrow
+   */
+  export type InvoiceFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Invoice to fetch.
+     */
+    where: InvoiceWhereUniqueInput
+  }
+
+  /**
+   * Invoice findFirst
+   */
+  export type InvoiceFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Invoice to fetch.
+     */
+    where?: InvoiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Invoices to fetch.
+     */
+    orderBy?: InvoiceOrderByWithRelationInput | InvoiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Invoices.
+     */
+    cursor?: InvoiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Invoices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Invoices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Invoices.
+     */
+    distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
+  }
+
+  /**
+   * Invoice findFirstOrThrow
+   */
+  export type InvoiceFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Invoice to fetch.
+     */
+    where?: InvoiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Invoices to fetch.
+     */
+    orderBy?: InvoiceOrderByWithRelationInput | InvoiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Invoices.
+     */
+    cursor?: InvoiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Invoices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Invoices.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Invoices.
+     */
+    distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
+  }
+
+  /**
+   * Invoice findMany
+   */
+  export type InvoiceFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * Filter, which Invoices to fetch.
+     */
+    where?: InvoiceWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Invoices to fetch.
+     */
+    orderBy?: InvoiceOrderByWithRelationInput | InvoiceOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Invoices.
+     */
+    cursor?: InvoiceWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Invoices from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Invoices.
+     */
+    skip?: number
+    distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
+  }
+
+  /**
+   * Invoice create
+   */
+  export type InvoiceCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Invoice.
+     */
+    data: XOR<InvoiceCreateInput, InvoiceUncheckedCreateInput>
+  }
+
+  /**
+   * Invoice createMany
+   */
+  export type InvoiceCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Invoices.
+     */
+    data: InvoiceCreateManyInput | InvoiceCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Invoice createManyAndReturn
+   */
+  export type InvoiceCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * The data used to create many Invoices.
+     */
+    data: InvoiceCreateManyInput | InvoiceCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Invoice update
+   */
+  export type InvoiceUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Invoice.
+     */
+    data: XOR<InvoiceUpdateInput, InvoiceUncheckedUpdateInput>
+    /**
+     * Choose, which Invoice to update.
+     */
+    where: InvoiceWhereUniqueInput
+  }
+
+  /**
+   * Invoice updateMany
+   */
+  export type InvoiceUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Invoices.
+     */
+    data: XOR<InvoiceUpdateManyMutationInput, InvoiceUncheckedUpdateManyInput>
+    /**
+     * Filter which Invoices to update
+     */
+    where?: InvoiceWhereInput
+    /**
+     * Limit how many Invoices to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Invoice updateManyAndReturn
+   */
+  export type InvoiceUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * The data used to update Invoices.
+     */
+    data: XOR<InvoiceUpdateManyMutationInput, InvoiceUncheckedUpdateManyInput>
+    /**
+     * Filter which Invoices to update
+     */
+    where?: InvoiceWhereInput
+    /**
+     * Limit how many Invoices to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Invoice upsert
+   */
+  export type InvoiceUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Invoice to update in case it exists.
+     */
+    where: InvoiceWhereUniqueInput
+    /**
+     * In case the Invoice found by the `where` argument doesn't exist, create a new Invoice with this data.
+     */
+    create: XOR<InvoiceCreateInput, InvoiceUncheckedCreateInput>
+    /**
+     * In case the Invoice was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<InvoiceUpdateInput, InvoiceUncheckedUpdateInput>
+  }
+
+  /**
+   * Invoice delete
+   */
+  export type InvoiceDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    /**
+     * Filter which Invoice to delete.
+     */
+    where: InvoiceWhereUniqueInput
+  }
+
+  /**
+   * Invoice deleteMany
+   */
+  export type InvoiceDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Invoices to delete
+     */
+    where?: InvoiceWhereInput
+    /**
+     * Limit how many Invoices to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Invoice.barcodes
+   */
+  export type Invoice$barcodesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BarcodeJemaah
+     */
+    select?: BarcodeJemaahSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BarcodeJemaah
+     */
+    omit?: BarcodeJemaahOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BarcodeJemaahInclude<ExtArgs> | null
+    where?: BarcodeJemaahWhereInput
+    orderBy?: BarcodeJemaahOrderByWithRelationInput | BarcodeJemaahOrderByWithRelationInput[]
+    cursor?: BarcodeJemaahWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BarcodeJemaahScalarFieldEnum | BarcodeJemaahScalarFieldEnum[]
+  }
+
+  /**
+   * Invoice.mutasiLinks
+   */
+  export type Invoice$mutasiLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    where?: InvoiceMutasiWhereInput
+    orderBy?: InvoiceMutasiOrderByWithRelationInput | InvoiceMutasiOrderByWithRelationInput[]
+    cursor?: InvoiceMutasiWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InvoiceMutasiScalarFieldEnum | InvoiceMutasiScalarFieldEnum[]
+  }
+
+  /**
+   * Invoice.batch
+   */
+  export type Invoice$batchArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    where?: BatchFlightWhereInput
+  }
+
+  /**
+   * Invoice without action
+   */
+  export type InvoiceDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Mutasi
+   */
+
+  export type AggregateMutasi = {
+    _count: MutasiCountAggregateOutputType | null
+    _avg: MutasiAvgAggregateOutputType | null
+    _sum: MutasiSumAggregateOutputType | null
+    _min: MutasiMinAggregateOutputType | null
+    _max: MutasiMaxAggregateOutputType | null
+  }
+
+  export type MutasiAvgAggregateOutputType = {
+    id: number | null
+    amount: number | null
+  }
+
+  export type MutasiSumAggregateOutputType = {
+    id: number | null
+    amount: number | null
+  }
+
+  export type MutasiMinAggregateOutputType = {
+    id: number | null
+    timestamp: Date | null
+    deskripsi: string | null
+    reff: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MutasiMaxAggregateOutputType = {
+    id: number | null
+    timestamp: Date | null
+    deskripsi: string | null
+    reff: string | null
+    amount: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MutasiCountAggregateOutputType = {
+    id: number
+    timestamp: number
+    deskripsi: number
+    reff: number
+    amount: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type MutasiAvgAggregateInputType = {
+    id?: true
+    amount?: true
+  }
+
+  export type MutasiSumAggregateInputType = {
+    id?: true
+    amount?: true
+  }
+
+  export type MutasiMinAggregateInputType = {
+    id?: true
+    timestamp?: true
+    deskripsi?: true
+    reff?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MutasiMaxAggregateInputType = {
+    id?: true
+    timestamp?: true
+    deskripsi?: true
+    reff?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MutasiCountAggregateInputType = {
+    id?: true
+    timestamp?: true
+    deskripsi?: true
+    reff?: true
+    amount?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type MutasiAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Mutasi to aggregate.
+     */
+    where?: MutasiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mutasis to fetch.
+     */
+    orderBy?: MutasiOrderByWithRelationInput | MutasiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MutasiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mutasis from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mutasis.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Mutasis
+    **/
+    _count?: true | MutasiCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MutasiAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MutasiSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MutasiMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MutasiMaxAggregateInputType
+  }
+
+  export type GetMutasiAggregateType<T extends MutasiAggregateArgs> = {
+        [P in keyof T & keyof AggregateMutasi]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMutasi[P]>
+      : GetScalarType<T[P], AggregateMutasi[P]>
+  }
+
+
+
+
+  export type MutasiGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MutasiWhereInput
+    orderBy?: MutasiOrderByWithAggregationInput | MutasiOrderByWithAggregationInput[]
+    by: MutasiScalarFieldEnum[] | MutasiScalarFieldEnum
+    having?: MutasiScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MutasiCountAggregateInputType | true
+    _avg?: MutasiAvgAggregateInputType
+    _sum?: MutasiSumAggregateInputType
+    _min?: MutasiMinAggregateInputType
+    _max?: MutasiMaxAggregateInputType
+  }
+
+  export type MutasiGroupByOutputType = {
+    id: number
+    timestamp: Date
+    deskripsi: string
+    reff: string
+    amount: number
+    createdAt: Date
+    updatedAt: Date
+    _count: MutasiCountAggregateOutputType | null
+    _avg: MutasiAvgAggregateOutputType | null
+    _sum: MutasiSumAggregateOutputType | null
+    _min: MutasiMinAggregateOutputType | null
+    _max: MutasiMaxAggregateOutputType | null
+  }
+
+  type GetMutasiGroupByPayload<T extends MutasiGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MutasiGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MutasiGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MutasiGroupByOutputType[P]>
+            : GetScalarType<T[P], MutasiGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MutasiSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    timestamp?: boolean
+    deskripsi?: boolean
+    reff?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    invoiceLinks?: boolean | Mutasi$invoiceLinksArgs<ExtArgs>
+    batchTransactions?: boolean | Mutasi$batchTransactionsArgs<ExtArgs>
+    _count?: boolean | MutasiCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mutasi"]>
+
+  export type MutasiSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    timestamp?: boolean
+    deskripsi?: boolean
+    reff?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["mutasi"]>
+
+  export type MutasiSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    timestamp?: boolean
+    deskripsi?: boolean
+    reff?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["mutasi"]>
+
+  export type MutasiSelectScalar = {
+    id?: boolean
+    timestamp?: boolean
+    deskripsi?: boolean
+    reff?: boolean
+    amount?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type MutasiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "timestamp" | "deskripsi" | "reff" | "amount" | "createdAt" | "updatedAt", ExtArgs["result"]["mutasi"]>
+  export type MutasiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invoiceLinks?: boolean | Mutasi$invoiceLinksArgs<ExtArgs>
+    batchTransactions?: boolean | Mutasi$batchTransactionsArgs<ExtArgs>
+    _count?: boolean | MutasiCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type MutasiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type MutasiIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $MutasiPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Mutasi"
+    objects: {
+      invoiceLinks: Prisma.$InvoiceMutasiPayload<ExtArgs>[]
+      batchTransactions: Prisma.$BatchTransactionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      timestamp: Date
+      deskripsi: string
+      reff: string
+      amount: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["mutasi"]>
+    composites: {}
+  }
+
+  type MutasiGetPayload<S extends boolean | null | undefined | MutasiDefaultArgs> = $Result.GetResult<Prisma.$MutasiPayload, S>
+
+  type MutasiCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MutasiFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MutasiCountAggregateInputType | true
+    }
+
+  export interface MutasiDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Mutasi'], meta: { name: 'Mutasi' } }
+    /**
+     * Find zero or one Mutasi that matches the filter.
+     * @param {MutasiFindUniqueArgs} args - Arguments to find a Mutasi
+     * @example
+     * // Get one Mutasi
+     * const mutasi = await prisma.mutasi.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MutasiFindUniqueArgs>(args: SelectSubset<T, MutasiFindUniqueArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Mutasi that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MutasiFindUniqueOrThrowArgs} args - Arguments to find a Mutasi
+     * @example
+     * // Get one Mutasi
+     * const mutasi = await prisma.mutasi.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MutasiFindUniqueOrThrowArgs>(args: SelectSubset<T, MutasiFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Mutasi that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MutasiFindFirstArgs} args - Arguments to find a Mutasi
+     * @example
+     * // Get one Mutasi
+     * const mutasi = await prisma.mutasi.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MutasiFindFirstArgs>(args?: SelectSubset<T, MutasiFindFirstArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Mutasi that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MutasiFindFirstOrThrowArgs} args - Arguments to find a Mutasi
+     * @example
+     * // Get one Mutasi
+     * const mutasi = await prisma.mutasi.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MutasiFindFirstOrThrowArgs>(args?: SelectSubset<T, MutasiFindFirstOrThrowArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Mutasis that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MutasiFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mutasis
+     * const mutasis = await prisma.mutasi.findMany()
+     * 
+     * // Get first 10 Mutasis
+     * const mutasis = await prisma.mutasi.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mutasiWithIdOnly = await prisma.mutasi.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MutasiFindManyArgs>(args?: SelectSubset<T, MutasiFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Mutasi.
+     * @param {MutasiCreateArgs} args - Arguments to create a Mutasi.
+     * @example
+     * // Create one Mutasi
+     * const Mutasi = await prisma.mutasi.create({
+     *   data: {
+     *     // ... data to create a Mutasi
+     *   }
+     * })
+     * 
+     */
+    create<T extends MutasiCreateArgs>(args: SelectSubset<T, MutasiCreateArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Mutasis.
+     * @param {MutasiCreateManyArgs} args - Arguments to create many Mutasis.
+     * @example
+     * // Create many Mutasis
+     * const mutasi = await prisma.mutasi.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MutasiCreateManyArgs>(args?: SelectSubset<T, MutasiCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Mutasis and returns the data saved in the database.
+     * @param {MutasiCreateManyAndReturnArgs} args - Arguments to create many Mutasis.
+     * @example
+     * // Create many Mutasis
+     * const mutasi = await prisma.mutasi.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Mutasis and only return the `id`
+     * const mutasiWithIdOnly = await prisma.mutasi.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MutasiCreateManyAndReturnArgs>(args?: SelectSubset<T, MutasiCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Mutasi.
+     * @param {MutasiDeleteArgs} args - Arguments to delete one Mutasi.
+     * @example
+     * // Delete one Mutasi
+     * const Mutasi = await prisma.mutasi.delete({
+     *   where: {
+     *     // ... filter to delete one Mutasi
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MutasiDeleteArgs>(args: SelectSubset<T, MutasiDeleteArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Mutasi.
+     * @param {MutasiUpdateArgs} args - Arguments to update one Mutasi.
+     * @example
+     * // Update one Mutasi
+     * const mutasi = await prisma.mutasi.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MutasiUpdateArgs>(args: SelectSubset<T, MutasiUpdateArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Mutasis.
+     * @param {MutasiDeleteManyArgs} args - Arguments to filter Mutasis to delete.
+     * @example
+     * // Delete a few Mutasis
+     * const { count } = await prisma.mutasi.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MutasiDeleteManyArgs>(args?: SelectSubset<T, MutasiDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mutasis.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MutasiUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mutasis
+     * const mutasi = await prisma.mutasi.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MutasiUpdateManyArgs>(args: SelectSubset<T, MutasiUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mutasis and returns the data updated in the database.
+     * @param {MutasiUpdateManyAndReturnArgs} args - Arguments to update many Mutasis.
+     * @example
+     * // Update many Mutasis
+     * const mutasi = await prisma.mutasi.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Mutasis and only return the `id`
+     * const mutasiWithIdOnly = await prisma.mutasi.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MutasiUpdateManyAndReturnArgs>(args: SelectSubset<T, MutasiUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Mutasi.
+     * @param {MutasiUpsertArgs} args - Arguments to update or create a Mutasi.
+     * @example
+     * // Update or create a Mutasi
+     * const mutasi = await prisma.mutasi.upsert({
+     *   create: {
+     *     // ... data to create a Mutasi
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mutasi we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MutasiUpsertArgs>(args: SelectSubset<T, MutasiUpsertArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Mutasis.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MutasiCountArgs} args - Arguments to filter Mutasis to count.
+     * @example
+     * // Count the number of Mutasis
+     * const count = await prisma.mutasi.count({
+     *   where: {
+     *     // ... the filter for the Mutasis we want to count
+     *   }
+     * })
+    **/
+    count<T extends MutasiCountArgs>(
+      args?: Subset<T, MutasiCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MutasiCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mutasi.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MutasiAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MutasiAggregateArgs>(args: Subset<T, MutasiAggregateArgs>): Prisma.PrismaPromise<GetMutasiAggregateType<T>>
+
+    /**
+     * Group by Mutasi.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MutasiGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MutasiGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MutasiGroupByArgs['orderBy'] }
+        : { orderBy?: MutasiGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MutasiGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMutasiGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Mutasi model
+   */
+  readonly fields: MutasiFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Mutasi.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MutasiClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    invoiceLinks<T extends Mutasi$invoiceLinksArgs<ExtArgs> = {}>(args?: Subset<T, Mutasi$invoiceLinksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    batchTransactions<T extends Mutasi$batchTransactionsArgs<ExtArgs> = {}>(args?: Subset<T, Mutasi$batchTransactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Mutasi model
+   */
+  interface MutasiFieldRefs {
+    readonly id: FieldRef<"Mutasi", 'Int'>
+    readonly timestamp: FieldRef<"Mutasi", 'DateTime'>
+    readonly deskripsi: FieldRef<"Mutasi", 'String'>
+    readonly reff: FieldRef<"Mutasi", 'String'>
+    readonly amount: FieldRef<"Mutasi", 'Float'>
+    readonly createdAt: FieldRef<"Mutasi", 'DateTime'>
+    readonly updatedAt: FieldRef<"Mutasi", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Mutasi findUnique
+   */
+  export type MutasiFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which Mutasi to fetch.
+     */
+    where: MutasiWhereUniqueInput
+  }
+
+  /**
+   * Mutasi findUniqueOrThrow
+   */
+  export type MutasiFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which Mutasi to fetch.
+     */
+    where: MutasiWhereUniqueInput
+  }
+
+  /**
+   * Mutasi findFirst
+   */
+  export type MutasiFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which Mutasi to fetch.
+     */
+    where?: MutasiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mutasis to fetch.
+     */
+    orderBy?: MutasiOrderByWithRelationInput | MutasiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Mutasis.
+     */
+    cursor?: MutasiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mutasis from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mutasis.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Mutasis.
+     */
+    distinct?: MutasiScalarFieldEnum | MutasiScalarFieldEnum[]
+  }
+
+  /**
+   * Mutasi findFirstOrThrow
+   */
+  export type MutasiFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which Mutasi to fetch.
+     */
+    where?: MutasiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mutasis to fetch.
+     */
+    orderBy?: MutasiOrderByWithRelationInput | MutasiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Mutasis.
+     */
+    cursor?: MutasiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mutasis from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mutasis.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Mutasis.
+     */
+    distinct?: MutasiScalarFieldEnum | MutasiScalarFieldEnum[]
+  }
+
+  /**
+   * Mutasi findMany
+   */
+  export type MutasiFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which Mutasis to fetch.
+     */
+    where?: MutasiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Mutasis to fetch.
+     */
+    orderBy?: MutasiOrderByWithRelationInput | MutasiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Mutasis.
+     */
+    cursor?: MutasiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Mutasis from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Mutasis.
+     */
+    skip?: number
+    distinct?: MutasiScalarFieldEnum | MutasiScalarFieldEnum[]
+  }
+
+  /**
+   * Mutasi create
+   */
+  export type MutasiCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Mutasi.
+     */
+    data: XOR<MutasiCreateInput, MutasiUncheckedCreateInput>
+  }
+
+  /**
+   * Mutasi createMany
+   */
+  export type MutasiCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Mutasis.
+     */
+    data: MutasiCreateManyInput | MutasiCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Mutasi createManyAndReturn
+   */
+  export type MutasiCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * The data used to create many Mutasis.
+     */
+    data: MutasiCreateManyInput | MutasiCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Mutasi update
+   */
+  export type MutasiUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Mutasi.
+     */
+    data: XOR<MutasiUpdateInput, MutasiUncheckedUpdateInput>
+    /**
+     * Choose, which Mutasi to update.
+     */
+    where: MutasiWhereUniqueInput
+  }
+
+  /**
+   * Mutasi updateMany
+   */
+  export type MutasiUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Mutasis.
+     */
+    data: XOR<MutasiUpdateManyMutationInput, MutasiUncheckedUpdateManyInput>
+    /**
+     * Filter which Mutasis to update
+     */
+    where?: MutasiWhereInput
+    /**
+     * Limit how many Mutasis to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mutasi updateManyAndReturn
+   */
+  export type MutasiUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * The data used to update Mutasis.
+     */
+    data: XOR<MutasiUpdateManyMutationInput, MutasiUncheckedUpdateManyInput>
+    /**
+     * Filter which Mutasis to update
+     */
+    where?: MutasiWhereInput
+    /**
+     * Limit how many Mutasis to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mutasi upsert
+   */
+  export type MutasiUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Mutasi to update in case it exists.
+     */
+    where: MutasiWhereUniqueInput
+    /**
+     * In case the Mutasi found by the `where` argument doesn't exist, create a new Mutasi with this data.
+     */
+    create: XOR<MutasiCreateInput, MutasiUncheckedCreateInput>
+    /**
+     * In case the Mutasi was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MutasiUpdateInput, MutasiUncheckedUpdateInput>
+  }
+
+  /**
+   * Mutasi delete
+   */
+  export type MutasiDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    /**
+     * Filter which Mutasi to delete.
+     */
+    where: MutasiWhereUniqueInput
+  }
+
+  /**
+   * Mutasi deleteMany
+   */
+  export type MutasiDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Mutasis to delete
+     */
+    where?: MutasiWhereInput
+    /**
+     * Limit how many Mutasis to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Mutasi.invoiceLinks
+   */
+  export type Mutasi$invoiceLinksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    where?: InvoiceMutasiWhereInput
+    orderBy?: InvoiceMutasiOrderByWithRelationInput | InvoiceMutasiOrderByWithRelationInput[]
+    cursor?: InvoiceMutasiWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InvoiceMutasiScalarFieldEnum | InvoiceMutasiScalarFieldEnum[]
+  }
+
+  /**
+   * Mutasi.batchTransactions
+   */
+  export type Mutasi$batchTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    where?: BatchTransactionWhereInput
+    orderBy?: BatchTransactionOrderByWithRelationInput | BatchTransactionOrderByWithRelationInput[]
+    cursor?: BatchTransactionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BatchTransactionScalarFieldEnum | BatchTransactionScalarFieldEnum[]
+  }
+
+  /**
+   * Mutasi without action
+   */
+  export type MutasiDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model InvoiceMutasi
+   */
+
+  export type AggregateInvoiceMutasi = {
+    _count: InvoiceMutasiCountAggregateOutputType | null
+    _avg: InvoiceMutasiAvgAggregateOutputType | null
+    _sum: InvoiceMutasiSumAggregateOutputType | null
+    _min: InvoiceMutasiMinAggregateOutputType | null
+    _max: InvoiceMutasiMaxAggregateOutputType | null
+  }
+
+  export type InvoiceMutasiAvgAggregateOutputType = {
+    id: number | null
+    invoiceId: number | null
+    mutasiId: number | null
+    totalDigunakan: number | null
+  }
+
+  export type InvoiceMutasiSumAggregateOutputType = {
+    id: number | null
+    invoiceId: number | null
+    mutasiId: number | null
+    totalDigunakan: number | null
+  }
+
+  export type InvoiceMutasiMinAggregateOutputType = {
+    id: number | null
+    invoiceId: number | null
+    mutasiId: number | null
+    totalDigunakan: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type InvoiceMutasiMaxAggregateOutputType = {
+    id: number | null
+    invoiceId: number | null
+    mutasiId: number | null
+    totalDigunakan: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type InvoiceMutasiCountAggregateOutputType = {
+    id: number
+    invoiceId: number
+    mutasiId: number
+    totalDigunakan: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type InvoiceMutasiAvgAggregateInputType = {
+    id?: true
+    invoiceId?: true
+    mutasiId?: true
+    totalDigunakan?: true
+  }
+
+  export type InvoiceMutasiSumAggregateInputType = {
+    id?: true
+    invoiceId?: true
+    mutasiId?: true
+    totalDigunakan?: true
+  }
+
+  export type InvoiceMutasiMinAggregateInputType = {
+    id?: true
+    invoiceId?: true
+    mutasiId?: true
+    totalDigunakan?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type InvoiceMutasiMaxAggregateInputType = {
+    id?: true
+    invoiceId?: true
+    mutasiId?: true
+    totalDigunakan?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type InvoiceMutasiCountAggregateInputType = {
+    id?: true
+    invoiceId?: true
+    mutasiId?: true
+    totalDigunakan?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type InvoiceMutasiAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which InvoiceMutasi to aggregate.
+     */
+    where?: InvoiceMutasiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of InvoiceMutasis to fetch.
+     */
+    orderBy?: InvoiceMutasiOrderByWithRelationInput | InvoiceMutasiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: InvoiceMutasiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` InvoiceMutasis from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` InvoiceMutasis.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned InvoiceMutasis
+    **/
+    _count?: true | InvoiceMutasiCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: InvoiceMutasiAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: InvoiceMutasiSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: InvoiceMutasiMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: InvoiceMutasiMaxAggregateInputType
+  }
+
+  export type GetInvoiceMutasiAggregateType<T extends InvoiceMutasiAggregateArgs> = {
+        [P in keyof T & keyof AggregateInvoiceMutasi]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateInvoiceMutasi[P]>
+      : GetScalarType<T[P], AggregateInvoiceMutasi[P]>
+  }
+
+
+
+
+  export type InvoiceMutasiGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InvoiceMutasiWhereInput
+    orderBy?: InvoiceMutasiOrderByWithAggregationInput | InvoiceMutasiOrderByWithAggregationInput[]
+    by: InvoiceMutasiScalarFieldEnum[] | InvoiceMutasiScalarFieldEnum
+    having?: InvoiceMutasiScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: InvoiceMutasiCountAggregateInputType | true
+    _avg?: InvoiceMutasiAvgAggregateInputType
+    _sum?: InvoiceMutasiSumAggregateInputType
+    _min?: InvoiceMutasiMinAggregateInputType
+    _max?: InvoiceMutasiMaxAggregateInputType
+  }
+
+  export type InvoiceMutasiGroupByOutputType = {
+    id: number
+    invoiceId: number
+    mutasiId: number
+    totalDigunakan: number
+    createdAt: Date
+    updatedAt: Date
+    _count: InvoiceMutasiCountAggregateOutputType | null
+    _avg: InvoiceMutasiAvgAggregateOutputType | null
+    _sum: InvoiceMutasiSumAggregateOutputType | null
+    _min: InvoiceMutasiMinAggregateOutputType | null
+    _max: InvoiceMutasiMaxAggregateOutputType | null
+  }
+
+  type GetInvoiceMutasiGroupByPayload<T extends InvoiceMutasiGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<InvoiceMutasiGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof InvoiceMutasiGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], InvoiceMutasiGroupByOutputType[P]>
+            : GetScalarType<T[P], InvoiceMutasiGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type InvoiceMutasiSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    invoiceId?: boolean
+    mutasiId?: boolean
+    totalDigunakan?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    invoice?: boolean | InvoiceDefaultArgs<ExtArgs>
+    mutasi?: boolean | MutasiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["invoiceMutasi"]>
+
+  export type InvoiceMutasiSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    invoiceId?: boolean
+    mutasiId?: boolean
+    totalDigunakan?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    invoice?: boolean | InvoiceDefaultArgs<ExtArgs>
+    mutasi?: boolean | MutasiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["invoiceMutasi"]>
+
+  export type InvoiceMutasiSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    invoiceId?: boolean
+    mutasiId?: boolean
+    totalDigunakan?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    invoice?: boolean | InvoiceDefaultArgs<ExtArgs>
+    mutasi?: boolean | MutasiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["invoiceMutasi"]>
+
+  export type InvoiceMutasiSelectScalar = {
+    id?: boolean
+    invoiceId?: boolean
+    mutasiId?: boolean
+    totalDigunakan?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type InvoiceMutasiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "invoiceId" | "mutasiId" | "totalDigunakan" | "createdAt" | "updatedAt", ExtArgs["result"]["invoiceMutasi"]>
+  export type InvoiceMutasiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invoice?: boolean | InvoiceDefaultArgs<ExtArgs>
+    mutasi?: boolean | MutasiDefaultArgs<ExtArgs>
+  }
+  export type InvoiceMutasiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invoice?: boolean | InvoiceDefaultArgs<ExtArgs>
+    mutasi?: boolean | MutasiDefaultArgs<ExtArgs>
+  }
+  export type InvoiceMutasiIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invoice?: boolean | InvoiceDefaultArgs<ExtArgs>
+    mutasi?: boolean | MutasiDefaultArgs<ExtArgs>
+  }
+
+  export type $InvoiceMutasiPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "InvoiceMutasi"
+    objects: {
+      invoice: Prisma.$InvoicePayload<ExtArgs>
+      mutasi: Prisma.$MutasiPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      invoiceId: number
+      mutasiId: number
+      totalDigunakan: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["invoiceMutasi"]>
+    composites: {}
+  }
+
+  type InvoiceMutasiGetPayload<S extends boolean | null | undefined | InvoiceMutasiDefaultArgs> = $Result.GetResult<Prisma.$InvoiceMutasiPayload, S>
+
+  type InvoiceMutasiCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<InvoiceMutasiFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: InvoiceMutasiCountAggregateInputType | true
+    }
+
+  export interface InvoiceMutasiDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['InvoiceMutasi'], meta: { name: 'InvoiceMutasi' } }
+    /**
+     * Find zero or one InvoiceMutasi that matches the filter.
+     * @param {InvoiceMutasiFindUniqueArgs} args - Arguments to find a InvoiceMutasi
+     * @example
+     * // Get one InvoiceMutasi
+     * const invoiceMutasi = await prisma.invoiceMutasi.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends InvoiceMutasiFindUniqueArgs>(args: SelectSubset<T, InvoiceMutasiFindUniqueArgs<ExtArgs>>): Prisma__InvoiceMutasiClient<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one InvoiceMutasi that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {InvoiceMutasiFindUniqueOrThrowArgs} args - Arguments to find a InvoiceMutasi
+     * @example
+     * // Get one InvoiceMutasi
+     * const invoiceMutasi = await prisma.invoiceMutasi.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends InvoiceMutasiFindUniqueOrThrowArgs>(args: SelectSubset<T, InvoiceMutasiFindUniqueOrThrowArgs<ExtArgs>>): Prisma__InvoiceMutasiClient<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first InvoiceMutasi that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceMutasiFindFirstArgs} args - Arguments to find a InvoiceMutasi
+     * @example
+     * // Get one InvoiceMutasi
+     * const invoiceMutasi = await prisma.invoiceMutasi.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends InvoiceMutasiFindFirstArgs>(args?: SelectSubset<T, InvoiceMutasiFindFirstArgs<ExtArgs>>): Prisma__InvoiceMutasiClient<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first InvoiceMutasi that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceMutasiFindFirstOrThrowArgs} args - Arguments to find a InvoiceMutasi
+     * @example
+     * // Get one InvoiceMutasi
+     * const invoiceMutasi = await prisma.invoiceMutasi.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends InvoiceMutasiFindFirstOrThrowArgs>(args?: SelectSubset<T, InvoiceMutasiFindFirstOrThrowArgs<ExtArgs>>): Prisma__InvoiceMutasiClient<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more InvoiceMutasis that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceMutasiFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all InvoiceMutasis
+     * const invoiceMutasis = await prisma.invoiceMutasi.findMany()
+     * 
+     * // Get first 10 InvoiceMutasis
+     * const invoiceMutasis = await prisma.invoiceMutasi.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const invoiceMutasiWithIdOnly = await prisma.invoiceMutasi.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends InvoiceMutasiFindManyArgs>(args?: SelectSubset<T, InvoiceMutasiFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a InvoiceMutasi.
+     * @param {InvoiceMutasiCreateArgs} args - Arguments to create a InvoiceMutasi.
+     * @example
+     * // Create one InvoiceMutasi
+     * const InvoiceMutasi = await prisma.invoiceMutasi.create({
+     *   data: {
+     *     // ... data to create a InvoiceMutasi
+     *   }
+     * })
+     * 
+     */
+    create<T extends InvoiceMutasiCreateArgs>(args: SelectSubset<T, InvoiceMutasiCreateArgs<ExtArgs>>): Prisma__InvoiceMutasiClient<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many InvoiceMutasis.
+     * @param {InvoiceMutasiCreateManyArgs} args - Arguments to create many InvoiceMutasis.
+     * @example
+     * // Create many InvoiceMutasis
+     * const invoiceMutasi = await prisma.invoiceMutasi.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends InvoiceMutasiCreateManyArgs>(args?: SelectSubset<T, InvoiceMutasiCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many InvoiceMutasis and returns the data saved in the database.
+     * @param {InvoiceMutasiCreateManyAndReturnArgs} args - Arguments to create many InvoiceMutasis.
+     * @example
+     * // Create many InvoiceMutasis
+     * const invoiceMutasi = await prisma.invoiceMutasi.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many InvoiceMutasis and only return the `id`
+     * const invoiceMutasiWithIdOnly = await prisma.invoiceMutasi.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends InvoiceMutasiCreateManyAndReturnArgs>(args?: SelectSubset<T, InvoiceMutasiCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a InvoiceMutasi.
+     * @param {InvoiceMutasiDeleteArgs} args - Arguments to delete one InvoiceMutasi.
+     * @example
+     * // Delete one InvoiceMutasi
+     * const InvoiceMutasi = await prisma.invoiceMutasi.delete({
+     *   where: {
+     *     // ... filter to delete one InvoiceMutasi
+     *   }
+     * })
+     * 
+     */
+    delete<T extends InvoiceMutasiDeleteArgs>(args: SelectSubset<T, InvoiceMutasiDeleteArgs<ExtArgs>>): Prisma__InvoiceMutasiClient<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one InvoiceMutasi.
+     * @param {InvoiceMutasiUpdateArgs} args - Arguments to update one InvoiceMutasi.
+     * @example
+     * // Update one InvoiceMutasi
+     * const invoiceMutasi = await prisma.invoiceMutasi.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends InvoiceMutasiUpdateArgs>(args: SelectSubset<T, InvoiceMutasiUpdateArgs<ExtArgs>>): Prisma__InvoiceMutasiClient<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more InvoiceMutasis.
+     * @param {InvoiceMutasiDeleteManyArgs} args - Arguments to filter InvoiceMutasis to delete.
+     * @example
+     * // Delete a few InvoiceMutasis
+     * const { count } = await prisma.invoiceMutasi.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends InvoiceMutasiDeleteManyArgs>(args?: SelectSubset<T, InvoiceMutasiDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more InvoiceMutasis.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceMutasiUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many InvoiceMutasis
+     * const invoiceMutasi = await prisma.invoiceMutasi.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends InvoiceMutasiUpdateManyArgs>(args: SelectSubset<T, InvoiceMutasiUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more InvoiceMutasis and returns the data updated in the database.
+     * @param {InvoiceMutasiUpdateManyAndReturnArgs} args - Arguments to update many InvoiceMutasis.
+     * @example
+     * // Update many InvoiceMutasis
+     * const invoiceMutasi = await prisma.invoiceMutasi.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more InvoiceMutasis and only return the `id`
+     * const invoiceMutasiWithIdOnly = await prisma.invoiceMutasi.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends InvoiceMutasiUpdateManyAndReturnArgs>(args: SelectSubset<T, InvoiceMutasiUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one InvoiceMutasi.
+     * @param {InvoiceMutasiUpsertArgs} args - Arguments to update or create a InvoiceMutasi.
+     * @example
+     * // Update or create a InvoiceMutasi
+     * const invoiceMutasi = await prisma.invoiceMutasi.upsert({
+     *   create: {
+     *     // ... data to create a InvoiceMutasi
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the InvoiceMutasi we want to update
+     *   }
+     * })
+     */
+    upsert<T extends InvoiceMutasiUpsertArgs>(args: SelectSubset<T, InvoiceMutasiUpsertArgs<ExtArgs>>): Prisma__InvoiceMutasiClient<$Result.GetResult<Prisma.$InvoiceMutasiPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of InvoiceMutasis.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceMutasiCountArgs} args - Arguments to filter InvoiceMutasis to count.
+     * @example
+     * // Count the number of InvoiceMutasis
+     * const count = await prisma.invoiceMutasi.count({
+     *   where: {
+     *     // ... the filter for the InvoiceMutasis we want to count
+     *   }
+     * })
+    **/
+    count<T extends InvoiceMutasiCountArgs>(
+      args?: Subset<T, InvoiceMutasiCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], InvoiceMutasiCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a InvoiceMutasi.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceMutasiAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends InvoiceMutasiAggregateArgs>(args: Subset<T, InvoiceMutasiAggregateArgs>): Prisma.PrismaPromise<GetInvoiceMutasiAggregateType<T>>
+
+    /**
+     * Group by InvoiceMutasi.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InvoiceMutasiGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends InvoiceMutasiGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: InvoiceMutasiGroupByArgs['orderBy'] }
+        : { orderBy?: InvoiceMutasiGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, InvoiceMutasiGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInvoiceMutasiGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the InvoiceMutasi model
+   */
+  readonly fields: InvoiceMutasiFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for InvoiceMutasi.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__InvoiceMutasiClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    invoice<T extends InvoiceDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InvoiceDefaultArgs<ExtArgs>>): Prisma__InvoiceClient<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    mutasi<T extends MutasiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, MutasiDefaultArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the InvoiceMutasi model
+   */
+  interface InvoiceMutasiFieldRefs {
+    readonly id: FieldRef<"InvoiceMutasi", 'Int'>
+    readonly invoiceId: FieldRef<"InvoiceMutasi", 'Int'>
+    readonly mutasiId: FieldRef<"InvoiceMutasi", 'Int'>
+    readonly totalDigunakan: FieldRef<"InvoiceMutasi", 'Float'>
+    readonly createdAt: FieldRef<"InvoiceMutasi", 'DateTime'>
+    readonly updatedAt: FieldRef<"InvoiceMutasi", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * InvoiceMutasi findUnique
+   */
+  export type InvoiceMutasiFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which InvoiceMutasi to fetch.
+     */
+    where: InvoiceMutasiWhereUniqueInput
+  }
+
+  /**
+   * InvoiceMutasi findUniqueOrThrow
+   */
+  export type InvoiceMutasiFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which InvoiceMutasi to fetch.
+     */
+    where: InvoiceMutasiWhereUniqueInput
+  }
+
+  /**
+   * InvoiceMutasi findFirst
+   */
+  export type InvoiceMutasiFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which InvoiceMutasi to fetch.
+     */
+    where?: InvoiceMutasiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of InvoiceMutasis to fetch.
+     */
+    orderBy?: InvoiceMutasiOrderByWithRelationInput | InvoiceMutasiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for InvoiceMutasis.
+     */
+    cursor?: InvoiceMutasiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` InvoiceMutasis from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` InvoiceMutasis.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of InvoiceMutasis.
+     */
+    distinct?: InvoiceMutasiScalarFieldEnum | InvoiceMutasiScalarFieldEnum[]
+  }
+
+  /**
+   * InvoiceMutasi findFirstOrThrow
+   */
+  export type InvoiceMutasiFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which InvoiceMutasi to fetch.
+     */
+    where?: InvoiceMutasiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of InvoiceMutasis to fetch.
+     */
+    orderBy?: InvoiceMutasiOrderByWithRelationInput | InvoiceMutasiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for InvoiceMutasis.
+     */
+    cursor?: InvoiceMutasiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` InvoiceMutasis from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` InvoiceMutasis.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of InvoiceMutasis.
+     */
+    distinct?: InvoiceMutasiScalarFieldEnum | InvoiceMutasiScalarFieldEnum[]
+  }
+
+  /**
+   * InvoiceMutasi findMany
+   */
+  export type InvoiceMutasiFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * Filter, which InvoiceMutasis to fetch.
+     */
+    where?: InvoiceMutasiWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of InvoiceMutasis to fetch.
+     */
+    orderBy?: InvoiceMutasiOrderByWithRelationInput | InvoiceMutasiOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing InvoiceMutasis.
+     */
+    cursor?: InvoiceMutasiWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` InvoiceMutasis from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` InvoiceMutasis.
+     */
+    skip?: number
+    distinct?: InvoiceMutasiScalarFieldEnum | InvoiceMutasiScalarFieldEnum[]
+  }
+
+  /**
+   * InvoiceMutasi create
+   */
+  export type InvoiceMutasiCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * The data needed to create a InvoiceMutasi.
+     */
+    data: XOR<InvoiceMutasiCreateInput, InvoiceMutasiUncheckedCreateInput>
+  }
+
+  /**
+   * InvoiceMutasi createMany
+   */
+  export type InvoiceMutasiCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many InvoiceMutasis.
+     */
+    data: InvoiceMutasiCreateManyInput | InvoiceMutasiCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * InvoiceMutasi createManyAndReturn
+   */
+  export type InvoiceMutasiCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * The data used to create many InvoiceMutasis.
+     */
+    data: InvoiceMutasiCreateManyInput | InvoiceMutasiCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * InvoiceMutasi update
+   */
+  export type InvoiceMutasiUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * The data needed to update a InvoiceMutasi.
+     */
+    data: XOR<InvoiceMutasiUpdateInput, InvoiceMutasiUncheckedUpdateInput>
+    /**
+     * Choose, which InvoiceMutasi to update.
+     */
+    where: InvoiceMutasiWhereUniqueInput
+  }
+
+  /**
+   * InvoiceMutasi updateMany
+   */
+  export type InvoiceMutasiUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update InvoiceMutasis.
+     */
+    data: XOR<InvoiceMutasiUpdateManyMutationInput, InvoiceMutasiUncheckedUpdateManyInput>
+    /**
+     * Filter which InvoiceMutasis to update
+     */
+    where?: InvoiceMutasiWhereInput
+    /**
+     * Limit how many InvoiceMutasis to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * InvoiceMutasi updateManyAndReturn
+   */
+  export type InvoiceMutasiUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * The data used to update InvoiceMutasis.
+     */
+    data: XOR<InvoiceMutasiUpdateManyMutationInput, InvoiceMutasiUncheckedUpdateManyInput>
+    /**
+     * Filter which InvoiceMutasis to update
+     */
+    where?: InvoiceMutasiWhereInput
+    /**
+     * Limit how many InvoiceMutasis to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * InvoiceMutasi upsert
+   */
+  export type InvoiceMutasiUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * The filter to search for the InvoiceMutasi to update in case it exists.
+     */
+    where: InvoiceMutasiWhereUniqueInput
+    /**
+     * In case the InvoiceMutasi found by the `where` argument doesn't exist, create a new InvoiceMutasi with this data.
+     */
+    create: XOR<InvoiceMutasiCreateInput, InvoiceMutasiUncheckedCreateInput>
+    /**
+     * In case the InvoiceMutasi was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<InvoiceMutasiUpdateInput, InvoiceMutasiUncheckedUpdateInput>
+  }
+
+  /**
+   * InvoiceMutasi delete
+   */
+  export type InvoiceMutasiDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+    /**
+     * Filter which InvoiceMutasi to delete.
+     */
+    where: InvoiceMutasiWhereUniqueInput
+  }
+
+  /**
+   * InvoiceMutasi deleteMany
+   */
+  export type InvoiceMutasiDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which InvoiceMutasis to delete
+     */
+    where?: InvoiceMutasiWhereInput
+    /**
+     * Limit how many InvoiceMutasis to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * InvoiceMutasi without action
+   */
+  export type InvoiceMutasiDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InvoiceMutasi
+     */
+    select?: InvoiceMutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InvoiceMutasi
+     */
+    omit?: InvoiceMutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceMutasiInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BatchFlight
+   */
+
+  export type AggregateBatchFlight = {
+    _count: BatchFlightCountAggregateOutputType | null
+    _avg: BatchFlightAvgAggregateOutputType | null
+    _sum: BatchFlightSumAggregateOutputType | null
+    _min: BatchFlightMinAggregateOutputType | null
+    _max: BatchFlightMaxAggregateOutputType | null
+  }
+
+  export type BatchFlightAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type BatchFlightSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type BatchFlightMinAggregateOutputType = {
+    id: number | null
+    nomorBatch: string | null
+    route: string | null
+    bookingCode: string | null
+    flightDate: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BatchFlightMaxAggregateOutputType = {
+    id: number | null
+    nomorBatch: string | null
+    route: string | null
+    bookingCode: string | null
+    flightDate: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BatchFlightCountAggregateOutputType = {
+    id: number
+    nomorBatch: number
+    route: number
+    bookingCode: number
+    flightDate: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BatchFlightAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type BatchFlightSumAggregateInputType = {
+    id?: true
+  }
+
+  export type BatchFlightMinAggregateInputType = {
+    id?: true
+    nomorBatch?: true
+    route?: true
+    bookingCode?: true
+    flightDate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BatchFlightMaxAggregateInputType = {
+    id?: true
+    nomorBatch?: true
+    route?: true
+    bookingCode?: true
+    flightDate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BatchFlightCountAggregateInputType = {
+    id?: true
+    nomorBatch?: true
+    route?: true
+    bookingCode?: true
+    flightDate?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BatchFlightAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BatchFlight to aggregate.
+     */
+    where?: BatchFlightWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BatchFlights to fetch.
+     */
+    orderBy?: BatchFlightOrderByWithRelationInput | BatchFlightOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BatchFlightWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BatchFlights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BatchFlights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BatchFlights
+    **/
+    _count?: true | BatchFlightCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BatchFlightAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BatchFlightSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BatchFlightMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BatchFlightMaxAggregateInputType
+  }
+
+  export type GetBatchFlightAggregateType<T extends BatchFlightAggregateArgs> = {
+        [P in keyof T & keyof AggregateBatchFlight]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBatchFlight[P]>
+      : GetScalarType<T[P], AggregateBatchFlight[P]>
+  }
+
+
+
+
+  export type BatchFlightGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BatchFlightWhereInput
+    orderBy?: BatchFlightOrderByWithAggregationInput | BatchFlightOrderByWithAggregationInput[]
+    by: BatchFlightScalarFieldEnum[] | BatchFlightScalarFieldEnum
+    having?: BatchFlightScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BatchFlightCountAggregateInputType | true
+    _avg?: BatchFlightAvgAggregateInputType
+    _sum?: BatchFlightSumAggregateInputType
+    _min?: BatchFlightMinAggregateInputType
+    _max?: BatchFlightMaxAggregateInputType
+  }
+
+  export type BatchFlightGroupByOutputType = {
+    id: number
+    nomorBatch: string
+    route: string
+    bookingCode: string
+    flightDate: Date
+    createdAt: Date
+    updatedAt: Date
+    _count: BatchFlightCountAggregateOutputType | null
+    _avg: BatchFlightAvgAggregateOutputType | null
+    _sum: BatchFlightSumAggregateOutputType | null
+    _min: BatchFlightMinAggregateOutputType | null
+    _max: BatchFlightMaxAggregateOutputType | null
+  }
+
+  type GetBatchFlightGroupByPayload<T extends BatchFlightGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BatchFlightGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BatchFlightGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BatchFlightGroupByOutputType[P]>
+            : GetScalarType<T[P], BatchFlightGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BatchFlightSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nomorBatch?: boolean
+    route?: boolean
+    bookingCode?: boolean
+    flightDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    invoices?: boolean | BatchFlight$invoicesArgs<ExtArgs>
+    transactions?: boolean | BatchFlight$transactionsArgs<ExtArgs>
+    _count?: boolean | BatchFlightCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["batchFlight"]>
+
+  export type BatchFlightSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nomorBatch?: boolean
+    route?: boolean
+    bookingCode?: boolean
+    flightDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["batchFlight"]>
+
+  export type BatchFlightSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nomorBatch?: boolean
+    route?: boolean
+    bookingCode?: boolean
+    flightDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["batchFlight"]>
+
+  export type BatchFlightSelectScalar = {
+    id?: boolean
+    nomorBatch?: boolean
+    route?: boolean
+    bookingCode?: boolean
+    flightDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BatchFlightOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nomorBatch" | "route" | "bookingCode" | "flightDate" | "createdAt" | "updatedAt", ExtArgs["result"]["batchFlight"]>
+  export type BatchFlightInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    invoices?: boolean | BatchFlight$invoicesArgs<ExtArgs>
+    transactions?: boolean | BatchFlight$transactionsArgs<ExtArgs>
+    _count?: boolean | BatchFlightCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BatchFlightIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type BatchFlightIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $BatchFlightPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BatchFlight"
+    objects: {
+      invoices: Prisma.$InvoicePayload<ExtArgs>[]
+      transactions: Prisma.$BatchTransactionPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nomorBatch: string
+      route: string
+      bookingCode: string
+      flightDate: Date
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["batchFlight"]>
+    composites: {}
+  }
+
+  type BatchFlightGetPayload<S extends boolean | null | undefined | BatchFlightDefaultArgs> = $Result.GetResult<Prisma.$BatchFlightPayload, S>
+
+  type BatchFlightCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BatchFlightFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BatchFlightCountAggregateInputType | true
+    }
+
+  export interface BatchFlightDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BatchFlight'], meta: { name: 'BatchFlight' } }
+    /**
+     * Find zero or one BatchFlight that matches the filter.
+     * @param {BatchFlightFindUniqueArgs} args - Arguments to find a BatchFlight
+     * @example
+     * // Get one BatchFlight
+     * const batchFlight = await prisma.batchFlight.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BatchFlightFindUniqueArgs>(args: SelectSubset<T, BatchFlightFindUniqueArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BatchFlight that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BatchFlightFindUniqueOrThrowArgs} args - Arguments to find a BatchFlight
+     * @example
+     * // Get one BatchFlight
+     * const batchFlight = await prisma.batchFlight.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BatchFlightFindUniqueOrThrowArgs>(args: SelectSubset<T, BatchFlightFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BatchFlight that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchFlightFindFirstArgs} args - Arguments to find a BatchFlight
+     * @example
+     * // Get one BatchFlight
+     * const batchFlight = await prisma.batchFlight.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BatchFlightFindFirstArgs>(args?: SelectSubset<T, BatchFlightFindFirstArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BatchFlight that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchFlightFindFirstOrThrowArgs} args - Arguments to find a BatchFlight
+     * @example
+     * // Get one BatchFlight
+     * const batchFlight = await prisma.batchFlight.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BatchFlightFindFirstOrThrowArgs>(args?: SelectSubset<T, BatchFlightFindFirstOrThrowArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BatchFlights that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchFlightFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BatchFlights
+     * const batchFlights = await prisma.batchFlight.findMany()
+     * 
+     * // Get first 10 BatchFlights
+     * const batchFlights = await prisma.batchFlight.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const batchFlightWithIdOnly = await prisma.batchFlight.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BatchFlightFindManyArgs>(args?: SelectSubset<T, BatchFlightFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BatchFlight.
+     * @param {BatchFlightCreateArgs} args - Arguments to create a BatchFlight.
+     * @example
+     * // Create one BatchFlight
+     * const BatchFlight = await prisma.batchFlight.create({
+     *   data: {
+     *     // ... data to create a BatchFlight
+     *   }
+     * })
+     * 
+     */
+    create<T extends BatchFlightCreateArgs>(args: SelectSubset<T, BatchFlightCreateArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BatchFlights.
+     * @param {BatchFlightCreateManyArgs} args - Arguments to create many BatchFlights.
+     * @example
+     * // Create many BatchFlights
+     * const batchFlight = await prisma.batchFlight.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BatchFlightCreateManyArgs>(args?: SelectSubset<T, BatchFlightCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BatchFlights and returns the data saved in the database.
+     * @param {BatchFlightCreateManyAndReturnArgs} args - Arguments to create many BatchFlights.
+     * @example
+     * // Create many BatchFlights
+     * const batchFlight = await prisma.batchFlight.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BatchFlights and only return the `id`
+     * const batchFlightWithIdOnly = await prisma.batchFlight.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BatchFlightCreateManyAndReturnArgs>(args?: SelectSubset<T, BatchFlightCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BatchFlight.
+     * @param {BatchFlightDeleteArgs} args - Arguments to delete one BatchFlight.
+     * @example
+     * // Delete one BatchFlight
+     * const BatchFlight = await prisma.batchFlight.delete({
+     *   where: {
+     *     // ... filter to delete one BatchFlight
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BatchFlightDeleteArgs>(args: SelectSubset<T, BatchFlightDeleteArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BatchFlight.
+     * @param {BatchFlightUpdateArgs} args - Arguments to update one BatchFlight.
+     * @example
+     * // Update one BatchFlight
+     * const batchFlight = await prisma.batchFlight.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BatchFlightUpdateArgs>(args: SelectSubset<T, BatchFlightUpdateArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BatchFlights.
+     * @param {BatchFlightDeleteManyArgs} args - Arguments to filter BatchFlights to delete.
+     * @example
+     * // Delete a few BatchFlights
+     * const { count } = await prisma.batchFlight.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BatchFlightDeleteManyArgs>(args?: SelectSubset<T, BatchFlightDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BatchFlights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchFlightUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BatchFlights
+     * const batchFlight = await prisma.batchFlight.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BatchFlightUpdateManyArgs>(args: SelectSubset<T, BatchFlightUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BatchFlights and returns the data updated in the database.
+     * @param {BatchFlightUpdateManyAndReturnArgs} args - Arguments to update many BatchFlights.
+     * @example
+     * // Update many BatchFlights
+     * const batchFlight = await prisma.batchFlight.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BatchFlights and only return the `id`
+     * const batchFlightWithIdOnly = await prisma.batchFlight.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BatchFlightUpdateManyAndReturnArgs>(args: SelectSubset<T, BatchFlightUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BatchFlight.
+     * @param {BatchFlightUpsertArgs} args - Arguments to update or create a BatchFlight.
+     * @example
+     * // Update or create a BatchFlight
+     * const batchFlight = await prisma.batchFlight.upsert({
+     *   create: {
+     *     // ... data to create a BatchFlight
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BatchFlight we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BatchFlightUpsertArgs>(args: SelectSubset<T, BatchFlightUpsertArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BatchFlights.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchFlightCountArgs} args - Arguments to filter BatchFlights to count.
+     * @example
+     * // Count the number of BatchFlights
+     * const count = await prisma.batchFlight.count({
+     *   where: {
+     *     // ... the filter for the BatchFlights we want to count
+     *   }
+     * })
+    **/
+    count<T extends BatchFlightCountArgs>(
+      args?: Subset<T, BatchFlightCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BatchFlightCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BatchFlight.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchFlightAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BatchFlightAggregateArgs>(args: Subset<T, BatchFlightAggregateArgs>): Prisma.PrismaPromise<GetBatchFlightAggregateType<T>>
+
+    /**
+     * Group by BatchFlight.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchFlightGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BatchFlightGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BatchFlightGroupByArgs['orderBy'] }
+        : { orderBy?: BatchFlightGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BatchFlightGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBatchFlightGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BatchFlight model
+   */
+  readonly fields: BatchFlightFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BatchFlight.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BatchFlightClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    invoices<T extends BatchFlight$invoicesArgs<ExtArgs> = {}>(args?: Subset<T, BatchFlight$invoicesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    transactions<T extends BatchFlight$transactionsArgs<ExtArgs> = {}>(args?: Subset<T, BatchFlight$transactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BatchFlight model
+   */
+  interface BatchFlightFieldRefs {
+    readonly id: FieldRef<"BatchFlight", 'Int'>
+    readonly nomorBatch: FieldRef<"BatchFlight", 'String'>
+    readonly route: FieldRef<"BatchFlight", 'String'>
+    readonly bookingCode: FieldRef<"BatchFlight", 'String'>
+    readonly flightDate: FieldRef<"BatchFlight", 'DateTime'>
+    readonly createdAt: FieldRef<"BatchFlight", 'DateTime'>
+    readonly updatedAt: FieldRef<"BatchFlight", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BatchFlight findUnique
+   */
+  export type BatchFlightFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchFlight to fetch.
+     */
+    where: BatchFlightWhereUniqueInput
+  }
+
+  /**
+   * BatchFlight findUniqueOrThrow
+   */
+  export type BatchFlightFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchFlight to fetch.
+     */
+    where: BatchFlightWhereUniqueInput
+  }
+
+  /**
+   * BatchFlight findFirst
+   */
+  export type BatchFlightFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchFlight to fetch.
+     */
+    where?: BatchFlightWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BatchFlights to fetch.
+     */
+    orderBy?: BatchFlightOrderByWithRelationInput | BatchFlightOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BatchFlights.
+     */
+    cursor?: BatchFlightWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BatchFlights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BatchFlights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BatchFlights.
+     */
+    distinct?: BatchFlightScalarFieldEnum | BatchFlightScalarFieldEnum[]
+  }
+
+  /**
+   * BatchFlight findFirstOrThrow
+   */
+  export type BatchFlightFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchFlight to fetch.
+     */
+    where?: BatchFlightWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BatchFlights to fetch.
+     */
+    orderBy?: BatchFlightOrderByWithRelationInput | BatchFlightOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BatchFlights.
+     */
+    cursor?: BatchFlightWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BatchFlights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BatchFlights.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BatchFlights.
+     */
+    distinct?: BatchFlightScalarFieldEnum | BatchFlightScalarFieldEnum[]
+  }
+
+  /**
+   * BatchFlight findMany
+   */
+  export type BatchFlightFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchFlights to fetch.
+     */
+    where?: BatchFlightWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BatchFlights to fetch.
+     */
+    orderBy?: BatchFlightOrderByWithRelationInput | BatchFlightOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BatchFlights.
+     */
+    cursor?: BatchFlightWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BatchFlights from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BatchFlights.
+     */
+    skip?: number
+    distinct?: BatchFlightScalarFieldEnum | BatchFlightScalarFieldEnum[]
+  }
+
+  /**
+   * BatchFlight create
+   */
+  export type BatchFlightCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BatchFlight.
+     */
+    data: XOR<BatchFlightCreateInput, BatchFlightUncheckedCreateInput>
+  }
+
+  /**
+   * BatchFlight createMany
+   */
+  export type BatchFlightCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BatchFlights.
+     */
+    data: BatchFlightCreateManyInput | BatchFlightCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BatchFlight createManyAndReturn
+   */
+  export type BatchFlightCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * The data used to create many BatchFlights.
+     */
+    data: BatchFlightCreateManyInput | BatchFlightCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BatchFlight update
+   */
+  export type BatchFlightUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BatchFlight.
+     */
+    data: XOR<BatchFlightUpdateInput, BatchFlightUncheckedUpdateInput>
+    /**
+     * Choose, which BatchFlight to update.
+     */
+    where: BatchFlightWhereUniqueInput
+  }
+
+  /**
+   * BatchFlight updateMany
+   */
+  export type BatchFlightUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BatchFlights.
+     */
+    data: XOR<BatchFlightUpdateManyMutationInput, BatchFlightUncheckedUpdateManyInput>
+    /**
+     * Filter which BatchFlights to update
+     */
+    where?: BatchFlightWhereInput
+    /**
+     * Limit how many BatchFlights to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BatchFlight updateManyAndReturn
+   */
+  export type BatchFlightUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * The data used to update BatchFlights.
+     */
+    data: XOR<BatchFlightUpdateManyMutationInput, BatchFlightUncheckedUpdateManyInput>
+    /**
+     * Filter which BatchFlights to update
+     */
+    where?: BatchFlightWhereInput
+    /**
+     * Limit how many BatchFlights to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BatchFlight upsert
+   */
+  export type BatchFlightUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BatchFlight to update in case it exists.
+     */
+    where: BatchFlightWhereUniqueInput
+    /**
+     * In case the BatchFlight found by the `where` argument doesn't exist, create a new BatchFlight with this data.
+     */
+    create: XOR<BatchFlightCreateInput, BatchFlightUncheckedCreateInput>
+    /**
+     * In case the BatchFlight was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BatchFlightUpdateInput, BatchFlightUncheckedUpdateInput>
+  }
+
+  /**
+   * BatchFlight delete
+   */
+  export type BatchFlightDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+    /**
+     * Filter which BatchFlight to delete.
+     */
+    where: BatchFlightWhereUniqueInput
+  }
+
+  /**
+   * BatchFlight deleteMany
+   */
+  export type BatchFlightDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BatchFlights to delete
+     */
+    where?: BatchFlightWhereInput
+    /**
+     * Limit how many BatchFlights to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BatchFlight.invoices
+   */
+  export type BatchFlight$invoicesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Invoice
+     */
+    select?: InvoiceSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Invoice
+     */
+    omit?: InvoiceOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InvoiceInclude<ExtArgs> | null
+    where?: InvoiceWhereInput
+    orderBy?: InvoiceOrderByWithRelationInput | InvoiceOrderByWithRelationInput[]
+    cursor?: InvoiceWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InvoiceScalarFieldEnum | InvoiceScalarFieldEnum[]
+  }
+
+  /**
+   * BatchFlight.transactions
+   */
+  export type BatchFlight$transactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    where?: BatchTransactionWhereInput
+    orderBy?: BatchTransactionOrderByWithRelationInput | BatchTransactionOrderByWithRelationInput[]
+    cursor?: BatchTransactionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BatchTransactionScalarFieldEnum | BatchTransactionScalarFieldEnum[]
+  }
+
+  /**
+   * BatchFlight without action
+   */
+  export type BatchFlightDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchFlight
+     */
+    select?: BatchFlightSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchFlight
+     */
+    omit?: BatchFlightOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchFlightInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model BatchTransaction
+   */
+
+  export type AggregateBatchTransaction = {
+    _count: BatchTransactionCountAggregateOutputType | null
+    _avg: BatchTransactionAvgAggregateOutputType | null
+    _sum: BatchTransactionSumAggregateOutputType | null
+    _min: BatchTransactionMinAggregateOutputType | null
+    _max: BatchTransactionMaxAggregateOutputType | null
+  }
+
+  export type BatchTransactionAvgAggregateOutputType = {
+    id: number | null
+    batchId: number | null
+    nominal: number | null
+    fileId: number | null
+    mutasiId: number | null
+  }
+
+  export type BatchTransactionSumAggregateOutputType = {
+    id: number | null
+    batchId: number | null
+    nominal: number | null
+    fileId: number | null
+    mutasiId: number | null
+  }
+
+  export type BatchTransactionMinAggregateOutputType = {
+    id: number | null
+    batchId: number | null
+    tipe: $Enums.TipeTransaksi | null
+    namaTransaksi: string | null
+    nominal: number | null
+    deskripsi: string | null
+    fileId: number | null
+    mutasiId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BatchTransactionMaxAggregateOutputType = {
+    id: number | null
+    batchId: number | null
+    tipe: $Enums.TipeTransaksi | null
+    namaTransaksi: string | null
+    nominal: number | null
+    deskripsi: string | null
+    fileId: number | null
+    mutasiId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BatchTransactionCountAggregateOutputType = {
+    id: number
+    batchId: number
+    tipe: number
+    namaTransaksi: number
+    nominal: number
+    deskripsi: number
+    fileId: number
+    mutasiId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BatchTransactionAvgAggregateInputType = {
+    id?: true
+    batchId?: true
+    nominal?: true
+    fileId?: true
+    mutasiId?: true
+  }
+
+  export type BatchTransactionSumAggregateInputType = {
+    id?: true
+    batchId?: true
+    nominal?: true
+    fileId?: true
+    mutasiId?: true
+  }
+
+  export type BatchTransactionMinAggregateInputType = {
+    id?: true
+    batchId?: true
+    tipe?: true
+    namaTransaksi?: true
+    nominal?: true
+    deskripsi?: true
+    fileId?: true
+    mutasiId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BatchTransactionMaxAggregateInputType = {
+    id?: true
+    batchId?: true
+    tipe?: true
+    namaTransaksi?: true
+    nominal?: true
+    deskripsi?: true
+    fileId?: true
+    mutasiId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BatchTransactionCountAggregateInputType = {
+    id?: true
+    batchId?: true
+    tipe?: true
+    namaTransaksi?: true
+    nominal?: true
+    deskripsi?: true
+    fileId?: true
+    mutasiId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BatchTransactionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BatchTransaction to aggregate.
+     */
+    where?: BatchTransactionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BatchTransactions to fetch.
+     */
+    orderBy?: BatchTransactionOrderByWithRelationInput | BatchTransactionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BatchTransactionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BatchTransactions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BatchTransactions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BatchTransactions
+    **/
+    _count?: true | BatchTransactionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BatchTransactionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BatchTransactionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BatchTransactionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BatchTransactionMaxAggregateInputType
+  }
+
+  export type GetBatchTransactionAggregateType<T extends BatchTransactionAggregateArgs> = {
+        [P in keyof T & keyof AggregateBatchTransaction]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBatchTransaction[P]>
+      : GetScalarType<T[P], AggregateBatchTransaction[P]>
+  }
+
+
+
+
+  export type BatchTransactionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BatchTransactionWhereInput
+    orderBy?: BatchTransactionOrderByWithAggregationInput | BatchTransactionOrderByWithAggregationInput[]
+    by: BatchTransactionScalarFieldEnum[] | BatchTransactionScalarFieldEnum
+    having?: BatchTransactionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BatchTransactionCountAggregateInputType | true
+    _avg?: BatchTransactionAvgAggregateInputType
+    _sum?: BatchTransactionSumAggregateInputType
+    _min?: BatchTransactionMinAggregateInputType
+    _max?: BatchTransactionMaxAggregateInputType
+  }
+
+  export type BatchTransactionGroupByOutputType = {
+    id: number
+    batchId: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    fileId: number | null
+    mutasiId: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: BatchTransactionCountAggregateOutputType | null
+    _avg: BatchTransactionAvgAggregateOutputType | null
+    _sum: BatchTransactionSumAggregateOutputType | null
+    _min: BatchTransactionMinAggregateOutputType | null
+    _max: BatchTransactionMaxAggregateOutputType | null
+  }
+
+  type GetBatchTransactionGroupByPayload<T extends BatchTransactionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BatchTransactionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BatchTransactionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BatchTransactionGroupByOutputType[P]>
+            : GetScalarType<T[P], BatchTransactionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BatchTransactionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    batchId?: boolean
+    tipe?: boolean
+    namaTransaksi?: boolean
+    nominal?: boolean
+    deskripsi?: boolean
+    fileId?: boolean
+    mutasiId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    batch?: boolean | BatchFlightDefaultArgs<ExtArgs>
+    file?: boolean | BatchTransaction$fileArgs<ExtArgs>
+    mutasi?: boolean | BatchTransaction$mutasiArgs<ExtArgs>
+  }, ExtArgs["result"]["batchTransaction"]>
+
+  export type BatchTransactionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    batchId?: boolean
+    tipe?: boolean
+    namaTransaksi?: boolean
+    nominal?: boolean
+    deskripsi?: boolean
+    fileId?: boolean
+    mutasiId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    batch?: boolean | BatchFlightDefaultArgs<ExtArgs>
+    file?: boolean | BatchTransaction$fileArgs<ExtArgs>
+    mutasi?: boolean | BatchTransaction$mutasiArgs<ExtArgs>
+  }, ExtArgs["result"]["batchTransaction"]>
+
+  export type BatchTransactionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    batchId?: boolean
+    tipe?: boolean
+    namaTransaksi?: boolean
+    nominal?: boolean
+    deskripsi?: boolean
+    fileId?: boolean
+    mutasiId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    batch?: boolean | BatchFlightDefaultArgs<ExtArgs>
+    file?: boolean | BatchTransaction$fileArgs<ExtArgs>
+    mutasi?: boolean | BatchTransaction$mutasiArgs<ExtArgs>
+  }, ExtArgs["result"]["batchTransaction"]>
+
+  export type BatchTransactionSelectScalar = {
+    id?: boolean
+    batchId?: boolean
+    tipe?: boolean
+    namaTransaksi?: boolean
+    nominal?: boolean
+    deskripsi?: boolean
+    fileId?: boolean
+    mutasiId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type BatchTransactionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "batchId" | "tipe" | "namaTransaksi" | "nominal" | "deskripsi" | "fileId" | "mutasiId" | "createdAt" | "updatedAt", ExtArgs["result"]["batchTransaction"]>
+  export type BatchTransactionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    batch?: boolean | BatchFlightDefaultArgs<ExtArgs>
+    file?: boolean | BatchTransaction$fileArgs<ExtArgs>
+    mutasi?: boolean | BatchTransaction$mutasiArgs<ExtArgs>
+  }
+  export type BatchTransactionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    batch?: boolean | BatchFlightDefaultArgs<ExtArgs>
+    file?: boolean | BatchTransaction$fileArgs<ExtArgs>
+    mutasi?: boolean | BatchTransaction$mutasiArgs<ExtArgs>
+  }
+  export type BatchTransactionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    batch?: boolean | BatchFlightDefaultArgs<ExtArgs>
+    file?: boolean | BatchTransaction$fileArgs<ExtArgs>
+    mutasi?: boolean | BatchTransaction$mutasiArgs<ExtArgs>
+  }
+
+  export type $BatchTransactionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BatchTransaction"
+    objects: {
+      batch: Prisma.$BatchFlightPayload<ExtArgs>
+      file: Prisma.$FilePayload<ExtArgs> | null
+      mutasi: Prisma.$MutasiPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      batchId: number
+      tipe: $Enums.TipeTransaksi
+      namaTransaksi: string
+      nominal: number
+      deskripsi: string
+      fileId: number | null
+      mutasiId: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["batchTransaction"]>
+    composites: {}
+  }
+
+  type BatchTransactionGetPayload<S extends boolean | null | undefined | BatchTransactionDefaultArgs> = $Result.GetResult<Prisma.$BatchTransactionPayload, S>
+
+  type BatchTransactionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BatchTransactionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BatchTransactionCountAggregateInputType | true
+    }
+
+  export interface BatchTransactionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BatchTransaction'], meta: { name: 'BatchTransaction' } }
+    /**
+     * Find zero or one BatchTransaction that matches the filter.
+     * @param {BatchTransactionFindUniqueArgs} args - Arguments to find a BatchTransaction
+     * @example
+     * // Get one BatchTransaction
+     * const batchTransaction = await prisma.batchTransaction.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BatchTransactionFindUniqueArgs>(args: SelectSubset<T, BatchTransactionFindUniqueArgs<ExtArgs>>): Prisma__BatchTransactionClient<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BatchTransaction that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BatchTransactionFindUniqueOrThrowArgs} args - Arguments to find a BatchTransaction
+     * @example
+     * // Get one BatchTransaction
+     * const batchTransaction = await prisma.batchTransaction.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BatchTransactionFindUniqueOrThrowArgs>(args: SelectSubset<T, BatchTransactionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BatchTransactionClient<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BatchTransaction that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchTransactionFindFirstArgs} args - Arguments to find a BatchTransaction
+     * @example
+     * // Get one BatchTransaction
+     * const batchTransaction = await prisma.batchTransaction.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BatchTransactionFindFirstArgs>(args?: SelectSubset<T, BatchTransactionFindFirstArgs<ExtArgs>>): Prisma__BatchTransactionClient<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BatchTransaction that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchTransactionFindFirstOrThrowArgs} args - Arguments to find a BatchTransaction
+     * @example
+     * // Get one BatchTransaction
+     * const batchTransaction = await prisma.batchTransaction.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BatchTransactionFindFirstOrThrowArgs>(args?: SelectSubset<T, BatchTransactionFindFirstOrThrowArgs<ExtArgs>>): Prisma__BatchTransactionClient<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BatchTransactions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchTransactionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BatchTransactions
+     * const batchTransactions = await prisma.batchTransaction.findMany()
+     * 
+     * // Get first 10 BatchTransactions
+     * const batchTransactions = await prisma.batchTransaction.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const batchTransactionWithIdOnly = await prisma.batchTransaction.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BatchTransactionFindManyArgs>(args?: SelectSubset<T, BatchTransactionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BatchTransaction.
+     * @param {BatchTransactionCreateArgs} args - Arguments to create a BatchTransaction.
+     * @example
+     * // Create one BatchTransaction
+     * const BatchTransaction = await prisma.batchTransaction.create({
+     *   data: {
+     *     // ... data to create a BatchTransaction
+     *   }
+     * })
+     * 
+     */
+    create<T extends BatchTransactionCreateArgs>(args: SelectSubset<T, BatchTransactionCreateArgs<ExtArgs>>): Prisma__BatchTransactionClient<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BatchTransactions.
+     * @param {BatchTransactionCreateManyArgs} args - Arguments to create many BatchTransactions.
+     * @example
+     * // Create many BatchTransactions
+     * const batchTransaction = await prisma.batchTransaction.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BatchTransactionCreateManyArgs>(args?: SelectSubset<T, BatchTransactionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BatchTransactions and returns the data saved in the database.
+     * @param {BatchTransactionCreateManyAndReturnArgs} args - Arguments to create many BatchTransactions.
+     * @example
+     * // Create many BatchTransactions
+     * const batchTransaction = await prisma.batchTransaction.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BatchTransactions and only return the `id`
+     * const batchTransactionWithIdOnly = await prisma.batchTransaction.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BatchTransactionCreateManyAndReturnArgs>(args?: SelectSubset<T, BatchTransactionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BatchTransaction.
+     * @param {BatchTransactionDeleteArgs} args - Arguments to delete one BatchTransaction.
+     * @example
+     * // Delete one BatchTransaction
+     * const BatchTransaction = await prisma.batchTransaction.delete({
+     *   where: {
+     *     // ... filter to delete one BatchTransaction
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BatchTransactionDeleteArgs>(args: SelectSubset<T, BatchTransactionDeleteArgs<ExtArgs>>): Prisma__BatchTransactionClient<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BatchTransaction.
+     * @param {BatchTransactionUpdateArgs} args - Arguments to update one BatchTransaction.
+     * @example
+     * // Update one BatchTransaction
+     * const batchTransaction = await prisma.batchTransaction.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BatchTransactionUpdateArgs>(args: SelectSubset<T, BatchTransactionUpdateArgs<ExtArgs>>): Prisma__BatchTransactionClient<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BatchTransactions.
+     * @param {BatchTransactionDeleteManyArgs} args - Arguments to filter BatchTransactions to delete.
+     * @example
+     * // Delete a few BatchTransactions
+     * const { count } = await prisma.batchTransaction.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BatchTransactionDeleteManyArgs>(args?: SelectSubset<T, BatchTransactionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BatchTransactions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchTransactionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BatchTransactions
+     * const batchTransaction = await prisma.batchTransaction.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BatchTransactionUpdateManyArgs>(args: SelectSubset<T, BatchTransactionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BatchTransactions and returns the data updated in the database.
+     * @param {BatchTransactionUpdateManyAndReturnArgs} args - Arguments to update many BatchTransactions.
+     * @example
+     * // Update many BatchTransactions
+     * const batchTransaction = await prisma.batchTransaction.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BatchTransactions and only return the `id`
+     * const batchTransactionWithIdOnly = await prisma.batchTransaction.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BatchTransactionUpdateManyAndReturnArgs>(args: SelectSubset<T, BatchTransactionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BatchTransaction.
+     * @param {BatchTransactionUpsertArgs} args - Arguments to update or create a BatchTransaction.
+     * @example
+     * // Update or create a BatchTransaction
+     * const batchTransaction = await prisma.batchTransaction.upsert({
+     *   create: {
+     *     // ... data to create a BatchTransaction
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BatchTransaction we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BatchTransactionUpsertArgs>(args: SelectSubset<T, BatchTransactionUpsertArgs<ExtArgs>>): Prisma__BatchTransactionClient<$Result.GetResult<Prisma.$BatchTransactionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BatchTransactions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchTransactionCountArgs} args - Arguments to filter BatchTransactions to count.
+     * @example
+     * // Count the number of BatchTransactions
+     * const count = await prisma.batchTransaction.count({
+     *   where: {
+     *     // ... the filter for the BatchTransactions we want to count
+     *   }
+     * })
+    **/
+    count<T extends BatchTransactionCountArgs>(
+      args?: Subset<T, BatchTransactionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BatchTransactionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BatchTransaction.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchTransactionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BatchTransactionAggregateArgs>(args: Subset<T, BatchTransactionAggregateArgs>): Prisma.PrismaPromise<GetBatchTransactionAggregateType<T>>
+
+    /**
+     * Group by BatchTransaction.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BatchTransactionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BatchTransactionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BatchTransactionGroupByArgs['orderBy'] }
+        : { orderBy?: BatchTransactionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BatchTransactionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBatchTransactionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BatchTransaction model
+   */
+  readonly fields: BatchTransactionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BatchTransaction.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BatchTransactionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    batch<T extends BatchFlightDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BatchFlightDefaultArgs<ExtArgs>>): Prisma__BatchFlightClient<$Result.GetResult<Prisma.$BatchFlightPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    file<T extends BatchTransaction$fileArgs<ExtArgs> = {}>(args?: Subset<T, BatchTransaction$fileArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    mutasi<T extends BatchTransaction$mutasiArgs<ExtArgs> = {}>(args?: Subset<T, BatchTransaction$mutasiArgs<ExtArgs>>): Prisma__MutasiClient<$Result.GetResult<Prisma.$MutasiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BatchTransaction model
+   */
+  interface BatchTransactionFieldRefs {
+    readonly id: FieldRef<"BatchTransaction", 'Int'>
+    readonly batchId: FieldRef<"BatchTransaction", 'Int'>
+    readonly tipe: FieldRef<"BatchTransaction", 'TipeTransaksi'>
+    readonly namaTransaksi: FieldRef<"BatchTransaction", 'String'>
+    readonly nominal: FieldRef<"BatchTransaction", 'Float'>
+    readonly deskripsi: FieldRef<"BatchTransaction", 'String'>
+    readonly fileId: FieldRef<"BatchTransaction", 'Int'>
+    readonly mutasiId: FieldRef<"BatchTransaction", 'Int'>
+    readonly createdAt: FieldRef<"BatchTransaction", 'DateTime'>
+    readonly updatedAt: FieldRef<"BatchTransaction", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BatchTransaction findUnique
+   */
+  export type BatchTransactionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchTransaction to fetch.
+     */
+    where: BatchTransactionWhereUniqueInput
+  }
+
+  /**
+   * BatchTransaction findUniqueOrThrow
+   */
+  export type BatchTransactionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchTransaction to fetch.
+     */
+    where: BatchTransactionWhereUniqueInput
+  }
+
+  /**
+   * BatchTransaction findFirst
+   */
+  export type BatchTransactionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchTransaction to fetch.
+     */
+    where?: BatchTransactionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BatchTransactions to fetch.
+     */
+    orderBy?: BatchTransactionOrderByWithRelationInput | BatchTransactionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BatchTransactions.
+     */
+    cursor?: BatchTransactionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BatchTransactions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BatchTransactions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BatchTransactions.
+     */
+    distinct?: BatchTransactionScalarFieldEnum | BatchTransactionScalarFieldEnum[]
+  }
+
+  /**
+   * BatchTransaction findFirstOrThrow
+   */
+  export type BatchTransactionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchTransaction to fetch.
+     */
+    where?: BatchTransactionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BatchTransactions to fetch.
+     */
+    orderBy?: BatchTransactionOrderByWithRelationInput | BatchTransactionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BatchTransactions.
+     */
+    cursor?: BatchTransactionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BatchTransactions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BatchTransactions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BatchTransactions.
+     */
+    distinct?: BatchTransactionScalarFieldEnum | BatchTransactionScalarFieldEnum[]
+  }
+
+  /**
+   * BatchTransaction findMany
+   */
+  export type BatchTransactionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * Filter, which BatchTransactions to fetch.
+     */
+    where?: BatchTransactionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BatchTransactions to fetch.
+     */
+    orderBy?: BatchTransactionOrderByWithRelationInput | BatchTransactionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BatchTransactions.
+     */
+    cursor?: BatchTransactionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BatchTransactions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BatchTransactions.
+     */
+    skip?: number
+    distinct?: BatchTransactionScalarFieldEnum | BatchTransactionScalarFieldEnum[]
+  }
+
+  /**
+   * BatchTransaction create
+   */
+  export type BatchTransactionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a BatchTransaction.
+     */
+    data: XOR<BatchTransactionCreateInput, BatchTransactionUncheckedCreateInput>
+  }
+
+  /**
+   * BatchTransaction createMany
+   */
+  export type BatchTransactionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BatchTransactions.
+     */
+    data: BatchTransactionCreateManyInput | BatchTransactionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BatchTransaction createManyAndReturn
+   */
+  export type BatchTransactionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * The data used to create many BatchTransactions.
+     */
+    data: BatchTransactionCreateManyInput | BatchTransactionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BatchTransaction update
+   */
+  export type BatchTransactionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a BatchTransaction.
+     */
+    data: XOR<BatchTransactionUpdateInput, BatchTransactionUncheckedUpdateInput>
+    /**
+     * Choose, which BatchTransaction to update.
+     */
+    where: BatchTransactionWhereUniqueInput
+  }
+
+  /**
+   * BatchTransaction updateMany
+   */
+  export type BatchTransactionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BatchTransactions.
+     */
+    data: XOR<BatchTransactionUpdateManyMutationInput, BatchTransactionUncheckedUpdateManyInput>
+    /**
+     * Filter which BatchTransactions to update
+     */
+    where?: BatchTransactionWhereInput
+    /**
+     * Limit how many BatchTransactions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BatchTransaction updateManyAndReturn
+   */
+  export type BatchTransactionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * The data used to update BatchTransactions.
+     */
+    data: XOR<BatchTransactionUpdateManyMutationInput, BatchTransactionUncheckedUpdateManyInput>
+    /**
+     * Filter which BatchTransactions to update
+     */
+    where?: BatchTransactionWhereInput
+    /**
+     * Limit how many BatchTransactions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * BatchTransaction upsert
+   */
+  export type BatchTransactionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the BatchTransaction to update in case it exists.
+     */
+    where: BatchTransactionWhereUniqueInput
+    /**
+     * In case the BatchTransaction found by the `where` argument doesn't exist, create a new BatchTransaction with this data.
+     */
+    create: XOR<BatchTransactionCreateInput, BatchTransactionUncheckedCreateInput>
+    /**
+     * In case the BatchTransaction was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BatchTransactionUpdateInput, BatchTransactionUncheckedUpdateInput>
+  }
+
+  /**
+   * BatchTransaction delete
+   */
+  export type BatchTransactionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+    /**
+     * Filter which BatchTransaction to delete.
+     */
+    where: BatchTransactionWhereUniqueInput
+  }
+
+  /**
+   * BatchTransaction deleteMany
+   */
+  export type BatchTransactionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BatchTransactions to delete
+     */
+    where?: BatchTransactionWhereInput
+    /**
+     * Limit how many BatchTransactions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BatchTransaction.file
+   */
+  export type BatchTransaction$fileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    where?: FileWhereInput
+  }
+
+  /**
+   * BatchTransaction.mutasi
+   */
+  export type BatchTransaction$mutasiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mutasi
+     */
+    select?: MutasiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Mutasi
+     */
+    omit?: MutasiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: MutasiInclude<ExtArgs> | null
+    where?: MutasiWhereInput
+  }
+
+  /**
+   * BatchTransaction without action
+   */
+  export type BatchTransactionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BatchTransaction
+     */
+    select?: BatchTransactionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BatchTransaction
+     */
+    omit?: BatchTransactionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BatchTransactionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Jurnal
+   */
+
+  export type AggregateJurnal = {
+    _count: JurnalCountAggregateOutputType | null
+    _avg: JurnalAvgAggregateOutputType | null
+    _sum: JurnalSumAggregateOutputType | null
+    _min: JurnalMinAggregateOutputType | null
+    _max: JurnalMaxAggregateOutputType | null
+  }
+
+  export type JurnalAvgAggregateOutputType = {
+    id: number | null
+    coaId: number | null
+    fileId: number | null
+    nominal: number | null
+  }
+
+  export type JurnalSumAggregateOutputType = {
+    id: number | null
+    coaId: number | null
+    fileId: number | null
+    nominal: number | null
+  }
+
+  export type JurnalMinAggregateOutputType = {
+    id: number | null
+    jurnalNumber: string | null
+    namaTransaksi: string | null
+    tipe: $Enums.TipeTransaksi | null
+    coaId: number | null
+    tanggalTransaksi: Date | null
+    fileId: number | null
+    nominal: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JurnalMaxAggregateOutputType = {
+    id: number | null
+    jurnalNumber: string | null
+    namaTransaksi: string | null
+    tipe: $Enums.TipeTransaksi | null
+    coaId: number | null
+    tanggalTransaksi: Date | null
+    fileId: number | null
+    nominal: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JurnalCountAggregateOutputType = {
+    id: number
+    jurnalNumber: number
+    namaTransaksi: number
+    tipe: number
+    coaId: number
+    tanggalTransaksi: number
+    fileId: number
+    nominal: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type JurnalAvgAggregateInputType = {
+    id?: true
+    coaId?: true
+    fileId?: true
+    nominal?: true
+  }
+
+  export type JurnalSumAggregateInputType = {
+    id?: true
+    coaId?: true
+    fileId?: true
+    nominal?: true
+  }
+
+  export type JurnalMinAggregateInputType = {
+    id?: true
+    jurnalNumber?: true
+    namaTransaksi?: true
+    tipe?: true
+    coaId?: true
+    tanggalTransaksi?: true
+    fileId?: true
+    nominal?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JurnalMaxAggregateInputType = {
+    id?: true
+    jurnalNumber?: true
+    namaTransaksi?: true
+    tipe?: true
+    coaId?: true
+    tanggalTransaksi?: true
+    fileId?: true
+    nominal?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JurnalCountAggregateInputType = {
+    id?: true
+    jurnalNumber?: true
+    namaTransaksi?: true
+    tipe?: true
+    coaId?: true
+    tanggalTransaksi?: true
+    fileId?: true
+    nominal?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type JurnalAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Jurnal to aggregate.
+     */
+    where?: JurnalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Jurnals to fetch.
+     */
+    orderBy?: JurnalOrderByWithRelationInput | JurnalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JurnalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Jurnals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Jurnals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Jurnals
+    **/
+    _count?: true | JurnalCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JurnalAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JurnalSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JurnalMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JurnalMaxAggregateInputType
+  }
+
+  export type GetJurnalAggregateType<T extends JurnalAggregateArgs> = {
+        [P in keyof T & keyof AggregateJurnal]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJurnal[P]>
+      : GetScalarType<T[P], AggregateJurnal[P]>
+  }
+
+
+
+
+  export type JurnalGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JurnalWhereInput
+    orderBy?: JurnalOrderByWithAggregationInput | JurnalOrderByWithAggregationInput[]
+    by: JurnalScalarFieldEnum[] | JurnalScalarFieldEnum
+    having?: JurnalScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JurnalCountAggregateInputType | true
+    _avg?: JurnalAvgAggregateInputType
+    _sum?: JurnalSumAggregateInputType
+    _min?: JurnalMinAggregateInputType
+    _max?: JurnalMaxAggregateInputType
+  }
+
+  export type JurnalGroupByOutputType = {
+    id: number
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    coaId: number
+    tanggalTransaksi: Date
+    fileId: number | null
+    nominal: number
+    createdAt: Date
+    updatedAt: Date
+    _count: JurnalCountAggregateOutputType | null
+    _avg: JurnalAvgAggregateOutputType | null
+    _sum: JurnalSumAggregateOutputType | null
+    _min: JurnalMinAggregateOutputType | null
+    _max: JurnalMaxAggregateOutputType | null
+  }
+
+  type GetJurnalGroupByPayload<T extends JurnalGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JurnalGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JurnalGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JurnalGroupByOutputType[P]>
+            : GetScalarType<T[P], JurnalGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JurnalSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    jurnalNumber?: boolean
+    namaTransaksi?: boolean
+    tipe?: boolean
+    coaId?: boolean
+    tanggalTransaksi?: boolean
+    fileId?: boolean
+    nominal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    coa?: boolean | COADefaultArgs<ExtArgs>
+    file?: boolean | Jurnal$fileArgs<ExtArgs>
+  }, ExtArgs["result"]["jurnal"]>
+
+  export type JurnalSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    jurnalNumber?: boolean
+    namaTransaksi?: boolean
+    tipe?: boolean
+    coaId?: boolean
+    tanggalTransaksi?: boolean
+    fileId?: boolean
+    nominal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    coa?: boolean | COADefaultArgs<ExtArgs>
+    file?: boolean | Jurnal$fileArgs<ExtArgs>
+  }, ExtArgs["result"]["jurnal"]>
+
+  export type JurnalSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    jurnalNumber?: boolean
+    namaTransaksi?: boolean
+    tipe?: boolean
+    coaId?: boolean
+    tanggalTransaksi?: boolean
+    fileId?: boolean
+    nominal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    coa?: boolean | COADefaultArgs<ExtArgs>
+    file?: boolean | Jurnal$fileArgs<ExtArgs>
+  }, ExtArgs["result"]["jurnal"]>
+
+  export type JurnalSelectScalar = {
+    id?: boolean
+    jurnalNumber?: boolean
+    namaTransaksi?: boolean
+    tipe?: boolean
+    coaId?: boolean
+    tanggalTransaksi?: boolean
+    fileId?: boolean
+    nominal?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type JurnalOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "jurnalNumber" | "namaTransaksi" | "tipe" | "coaId" | "tanggalTransaksi" | "fileId" | "nominal" | "createdAt" | "updatedAt", ExtArgs["result"]["jurnal"]>
+  export type JurnalInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    coa?: boolean | COADefaultArgs<ExtArgs>
+    file?: boolean | Jurnal$fileArgs<ExtArgs>
+  }
+  export type JurnalIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    coa?: boolean | COADefaultArgs<ExtArgs>
+    file?: boolean | Jurnal$fileArgs<ExtArgs>
+  }
+  export type JurnalIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    coa?: boolean | COADefaultArgs<ExtArgs>
+    file?: boolean | Jurnal$fileArgs<ExtArgs>
+  }
+
+  export type $JurnalPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Jurnal"
+    objects: {
+      coa: Prisma.$COAPayload<ExtArgs>
+      file: Prisma.$FilePayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      jurnalNumber: string
+      namaTransaksi: string
+      tipe: $Enums.TipeTransaksi
+      coaId: number
+      tanggalTransaksi: Date
+      fileId: number | null
+      nominal: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["jurnal"]>
+    composites: {}
+  }
+
+  type JurnalGetPayload<S extends boolean | null | undefined | JurnalDefaultArgs> = $Result.GetResult<Prisma.$JurnalPayload, S>
+
+  type JurnalCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JurnalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JurnalCountAggregateInputType | true
+    }
+
+  export interface JurnalDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Jurnal'], meta: { name: 'Jurnal' } }
+    /**
+     * Find zero or one Jurnal that matches the filter.
+     * @param {JurnalFindUniqueArgs} args - Arguments to find a Jurnal
+     * @example
+     * // Get one Jurnal
+     * const jurnal = await prisma.jurnal.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JurnalFindUniqueArgs>(args: SelectSubset<T, JurnalFindUniqueArgs<ExtArgs>>): Prisma__JurnalClient<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Jurnal that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JurnalFindUniqueOrThrowArgs} args - Arguments to find a Jurnal
+     * @example
+     * // Get one Jurnal
+     * const jurnal = await prisma.jurnal.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JurnalFindUniqueOrThrowArgs>(args: SelectSubset<T, JurnalFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JurnalClient<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Jurnal that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JurnalFindFirstArgs} args - Arguments to find a Jurnal
+     * @example
+     * // Get one Jurnal
+     * const jurnal = await prisma.jurnal.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JurnalFindFirstArgs>(args?: SelectSubset<T, JurnalFindFirstArgs<ExtArgs>>): Prisma__JurnalClient<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Jurnal that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JurnalFindFirstOrThrowArgs} args - Arguments to find a Jurnal
+     * @example
+     * // Get one Jurnal
+     * const jurnal = await prisma.jurnal.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JurnalFindFirstOrThrowArgs>(args?: SelectSubset<T, JurnalFindFirstOrThrowArgs<ExtArgs>>): Prisma__JurnalClient<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Jurnals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JurnalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Jurnals
+     * const jurnals = await prisma.jurnal.findMany()
+     * 
+     * // Get first 10 Jurnals
+     * const jurnals = await prisma.jurnal.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jurnalWithIdOnly = await prisma.jurnal.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JurnalFindManyArgs>(args?: SelectSubset<T, JurnalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Jurnal.
+     * @param {JurnalCreateArgs} args - Arguments to create a Jurnal.
+     * @example
+     * // Create one Jurnal
+     * const Jurnal = await prisma.jurnal.create({
+     *   data: {
+     *     // ... data to create a Jurnal
+     *   }
+     * })
+     * 
+     */
+    create<T extends JurnalCreateArgs>(args: SelectSubset<T, JurnalCreateArgs<ExtArgs>>): Prisma__JurnalClient<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Jurnals.
+     * @param {JurnalCreateManyArgs} args - Arguments to create many Jurnals.
+     * @example
+     * // Create many Jurnals
+     * const jurnal = await prisma.jurnal.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JurnalCreateManyArgs>(args?: SelectSubset<T, JurnalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Jurnals and returns the data saved in the database.
+     * @param {JurnalCreateManyAndReturnArgs} args - Arguments to create many Jurnals.
+     * @example
+     * // Create many Jurnals
+     * const jurnal = await prisma.jurnal.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Jurnals and only return the `id`
+     * const jurnalWithIdOnly = await prisma.jurnal.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends JurnalCreateManyAndReturnArgs>(args?: SelectSubset<T, JurnalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Jurnal.
+     * @param {JurnalDeleteArgs} args - Arguments to delete one Jurnal.
+     * @example
+     * // Delete one Jurnal
+     * const Jurnal = await prisma.jurnal.delete({
+     *   where: {
+     *     // ... filter to delete one Jurnal
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JurnalDeleteArgs>(args: SelectSubset<T, JurnalDeleteArgs<ExtArgs>>): Prisma__JurnalClient<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Jurnal.
+     * @param {JurnalUpdateArgs} args - Arguments to update one Jurnal.
+     * @example
+     * // Update one Jurnal
+     * const jurnal = await prisma.jurnal.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JurnalUpdateArgs>(args: SelectSubset<T, JurnalUpdateArgs<ExtArgs>>): Prisma__JurnalClient<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Jurnals.
+     * @param {JurnalDeleteManyArgs} args - Arguments to filter Jurnals to delete.
+     * @example
+     * // Delete a few Jurnals
+     * const { count } = await prisma.jurnal.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JurnalDeleteManyArgs>(args?: SelectSubset<T, JurnalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Jurnals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JurnalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Jurnals
+     * const jurnal = await prisma.jurnal.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JurnalUpdateManyArgs>(args: SelectSubset<T, JurnalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Jurnals and returns the data updated in the database.
+     * @param {JurnalUpdateManyAndReturnArgs} args - Arguments to update many Jurnals.
+     * @example
+     * // Update many Jurnals
+     * const jurnal = await prisma.jurnal.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Jurnals and only return the `id`
+     * const jurnalWithIdOnly = await prisma.jurnal.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends JurnalUpdateManyAndReturnArgs>(args: SelectSubset<T, JurnalUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Jurnal.
+     * @param {JurnalUpsertArgs} args - Arguments to update or create a Jurnal.
+     * @example
+     * // Update or create a Jurnal
+     * const jurnal = await prisma.jurnal.upsert({
+     *   create: {
+     *     // ... data to create a Jurnal
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Jurnal we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JurnalUpsertArgs>(args: SelectSubset<T, JurnalUpsertArgs<ExtArgs>>): Prisma__JurnalClient<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Jurnals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JurnalCountArgs} args - Arguments to filter Jurnals to count.
+     * @example
+     * // Count the number of Jurnals
+     * const count = await prisma.jurnal.count({
+     *   where: {
+     *     // ... the filter for the Jurnals we want to count
+     *   }
+     * })
+    **/
+    count<T extends JurnalCountArgs>(
+      args?: Subset<T, JurnalCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JurnalCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Jurnal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JurnalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JurnalAggregateArgs>(args: Subset<T, JurnalAggregateArgs>): Prisma.PrismaPromise<GetJurnalAggregateType<T>>
+
+    /**
+     * Group by Jurnal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JurnalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JurnalGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JurnalGroupByArgs['orderBy'] }
+        : { orderBy?: JurnalGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JurnalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJurnalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Jurnal model
+   */
+  readonly fields: JurnalFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Jurnal.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JurnalClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    coa<T extends COADefaultArgs<ExtArgs> = {}>(args?: Subset<T, COADefaultArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    file<T extends Jurnal$fileArgs<ExtArgs> = {}>(args?: Subset<T, Jurnal$fileArgs<ExtArgs>>): Prisma__FileClient<$Result.GetResult<Prisma.$FilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Jurnal model
+   */
+  interface JurnalFieldRefs {
+    readonly id: FieldRef<"Jurnal", 'Int'>
+    readonly jurnalNumber: FieldRef<"Jurnal", 'String'>
+    readonly namaTransaksi: FieldRef<"Jurnal", 'String'>
+    readonly tipe: FieldRef<"Jurnal", 'TipeTransaksi'>
+    readonly coaId: FieldRef<"Jurnal", 'Int'>
+    readonly tanggalTransaksi: FieldRef<"Jurnal", 'DateTime'>
+    readonly fileId: FieldRef<"Jurnal", 'Int'>
+    readonly nominal: FieldRef<"Jurnal", 'Float'>
+    readonly createdAt: FieldRef<"Jurnal", 'DateTime'>
+    readonly updatedAt: FieldRef<"Jurnal", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Jurnal findUnique
+   */
+  export type JurnalFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * Filter, which Jurnal to fetch.
+     */
+    where: JurnalWhereUniqueInput
+  }
+
+  /**
+   * Jurnal findUniqueOrThrow
+   */
+  export type JurnalFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * Filter, which Jurnal to fetch.
+     */
+    where: JurnalWhereUniqueInput
+  }
+
+  /**
+   * Jurnal findFirst
+   */
+  export type JurnalFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * Filter, which Jurnal to fetch.
+     */
+    where?: JurnalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Jurnals to fetch.
+     */
+    orderBy?: JurnalOrderByWithRelationInput | JurnalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Jurnals.
+     */
+    cursor?: JurnalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Jurnals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Jurnals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Jurnals.
+     */
+    distinct?: JurnalScalarFieldEnum | JurnalScalarFieldEnum[]
+  }
+
+  /**
+   * Jurnal findFirstOrThrow
+   */
+  export type JurnalFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * Filter, which Jurnal to fetch.
+     */
+    where?: JurnalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Jurnals to fetch.
+     */
+    orderBy?: JurnalOrderByWithRelationInput | JurnalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Jurnals.
+     */
+    cursor?: JurnalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Jurnals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Jurnals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Jurnals.
+     */
+    distinct?: JurnalScalarFieldEnum | JurnalScalarFieldEnum[]
+  }
+
+  /**
+   * Jurnal findMany
+   */
+  export type JurnalFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * Filter, which Jurnals to fetch.
+     */
+    where?: JurnalWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Jurnals to fetch.
+     */
+    orderBy?: JurnalOrderByWithRelationInput | JurnalOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Jurnals.
+     */
+    cursor?: JurnalWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Jurnals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Jurnals.
+     */
+    skip?: number
+    distinct?: JurnalScalarFieldEnum | JurnalScalarFieldEnum[]
+  }
+
+  /**
+   * Jurnal create
+   */
+  export type JurnalCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Jurnal.
+     */
+    data: XOR<JurnalCreateInput, JurnalUncheckedCreateInput>
+  }
+
+  /**
+   * Jurnal createMany
+   */
+  export type JurnalCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Jurnals.
+     */
+    data: JurnalCreateManyInput | JurnalCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Jurnal createManyAndReturn
+   */
+  export type JurnalCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * The data used to create many Jurnals.
+     */
+    data: JurnalCreateManyInput | JurnalCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Jurnal update
+   */
+  export type JurnalUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Jurnal.
+     */
+    data: XOR<JurnalUpdateInput, JurnalUncheckedUpdateInput>
+    /**
+     * Choose, which Jurnal to update.
+     */
+    where: JurnalWhereUniqueInput
+  }
+
+  /**
+   * Jurnal updateMany
+   */
+  export type JurnalUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Jurnals.
+     */
+    data: XOR<JurnalUpdateManyMutationInput, JurnalUncheckedUpdateManyInput>
+    /**
+     * Filter which Jurnals to update
+     */
+    where?: JurnalWhereInput
+    /**
+     * Limit how many Jurnals to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Jurnal updateManyAndReturn
+   */
+  export type JurnalUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * The data used to update Jurnals.
+     */
+    data: XOR<JurnalUpdateManyMutationInput, JurnalUncheckedUpdateManyInput>
+    /**
+     * Filter which Jurnals to update
+     */
+    where?: JurnalWhereInput
+    /**
+     * Limit how many Jurnals to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Jurnal upsert
+   */
+  export type JurnalUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Jurnal to update in case it exists.
+     */
+    where: JurnalWhereUniqueInput
+    /**
+     * In case the Jurnal found by the `where` argument doesn't exist, create a new Jurnal with this data.
+     */
+    create: XOR<JurnalCreateInput, JurnalUncheckedCreateInput>
+    /**
+     * In case the Jurnal was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JurnalUpdateInput, JurnalUncheckedUpdateInput>
+  }
+
+  /**
+   * Jurnal delete
+   */
+  export type JurnalDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    /**
+     * Filter which Jurnal to delete.
+     */
+    where: JurnalWhereUniqueInput
+  }
+
+  /**
+   * Jurnal deleteMany
+   */
+  export type JurnalDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Jurnals to delete
+     */
+    where?: JurnalWhereInput
+    /**
+     * Limit how many Jurnals to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Jurnal.file
+   */
+  export type Jurnal$fileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the File
+     */
+    select?: FileSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the File
+     */
+    omit?: FileOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FileInclude<ExtArgs> | null
+    where?: FileWhereInput
+  }
+
+  /**
+   * Jurnal without action
+   */
+  export type JurnalDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model COA
+   */
+
+  export type AggregateCOA = {
+    _count: COACountAggregateOutputType | null
+    _avg: COAAvgAggregateOutputType | null
+    _sum: COASumAggregateOutputType | null
+    _min: COAMinAggregateOutputType | null
+    _max: COAMaxAggregateOutputType | null
+  }
+
+  export type COAAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type COASumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type COAMinAggregateOutputType = {
+    id: number | null
+    tipe: $Enums.TipeTransaksi | null
+    kodeAkun: string | null
+    namaAkun: string | null
+  }
+
+  export type COAMaxAggregateOutputType = {
+    id: number | null
+    tipe: $Enums.TipeTransaksi | null
+    kodeAkun: string | null
+    namaAkun: string | null
+  }
+
+  export type COACountAggregateOutputType = {
+    id: number
+    tipe: number
+    kodeAkun: number
+    namaAkun: number
+    _all: number
+  }
+
+
+  export type COAAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type COASumAggregateInputType = {
+    id?: true
+  }
+
+  export type COAMinAggregateInputType = {
+    id?: true
+    tipe?: true
+    kodeAkun?: true
+    namaAkun?: true
+  }
+
+  export type COAMaxAggregateInputType = {
+    id?: true
+    tipe?: true
+    kodeAkun?: true
+    namaAkun?: true
+  }
+
+  export type COACountAggregateInputType = {
+    id?: true
+    tipe?: true
+    kodeAkun?: true
+    namaAkun?: true
+    _all?: true
+  }
+
+  export type COAAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which COA to aggregate.
+     */
+    where?: COAWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of COAS to fetch.
+     */
+    orderBy?: COAOrderByWithRelationInput | COAOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: COAWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` COAS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` COAS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned COAS
+    **/
+    _count?: true | COACountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: COAAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: COASumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: COAMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: COAMaxAggregateInputType
+  }
+
+  export type GetCOAAggregateType<T extends COAAggregateArgs> = {
+        [P in keyof T & keyof AggregateCOA]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCOA[P]>
+      : GetScalarType<T[P], AggregateCOA[P]>
+  }
+
+
+
+
+  export type COAGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: COAWhereInput
+    orderBy?: COAOrderByWithAggregationInput | COAOrderByWithAggregationInput[]
+    by: COAScalarFieldEnum[] | COAScalarFieldEnum
+    having?: COAScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: COACountAggregateInputType | true
+    _avg?: COAAvgAggregateInputType
+    _sum?: COASumAggregateInputType
+    _min?: COAMinAggregateInputType
+    _max?: COAMaxAggregateInputType
+  }
+
+  export type COAGroupByOutputType = {
+    id: number
+    tipe: $Enums.TipeTransaksi
+    kodeAkun: string
+    namaAkun: string
+    _count: COACountAggregateOutputType | null
+    _avg: COAAvgAggregateOutputType | null
+    _sum: COASumAggregateOutputType | null
+    _min: COAMinAggregateOutputType | null
+    _max: COAMaxAggregateOutputType | null
+  }
+
+  type GetCOAGroupByPayload<T extends COAGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<COAGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof COAGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], COAGroupByOutputType[P]>
+            : GetScalarType<T[P], COAGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type COASelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tipe?: boolean
+    kodeAkun?: boolean
+    namaAkun?: boolean
+    journals?: boolean | COA$journalsArgs<ExtArgs>
+    _count?: boolean | COACountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cOA"]>
+
+  export type COASelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tipe?: boolean
+    kodeAkun?: boolean
+    namaAkun?: boolean
+  }, ExtArgs["result"]["cOA"]>
+
+  export type COASelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    tipe?: boolean
+    kodeAkun?: boolean
+    namaAkun?: boolean
+  }, ExtArgs["result"]["cOA"]>
+
+  export type COASelectScalar = {
+    id?: boolean
+    tipe?: boolean
+    kodeAkun?: boolean
+    namaAkun?: boolean
+  }
+
+  export type COAOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "tipe" | "kodeAkun" | "namaAkun", ExtArgs["result"]["cOA"]>
+  export type COAInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    journals?: boolean | COA$journalsArgs<ExtArgs>
+    _count?: boolean | COACountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type COAIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type COAIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $COAPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "COA"
+    objects: {
+      journals: Prisma.$JurnalPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      tipe: $Enums.TipeTransaksi
+      kodeAkun: string
+      namaAkun: string
+    }, ExtArgs["result"]["cOA"]>
+    composites: {}
+  }
+
+  type COAGetPayload<S extends boolean | null | undefined | COADefaultArgs> = $Result.GetResult<Prisma.$COAPayload, S>
+
+  type COACountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<COAFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: COACountAggregateInputType | true
+    }
+
+  export interface COADelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['COA'], meta: { name: 'COA' } }
+    /**
+     * Find zero or one COA that matches the filter.
+     * @param {COAFindUniqueArgs} args - Arguments to find a COA
+     * @example
+     * // Get one COA
+     * const cOA = await prisma.cOA.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends COAFindUniqueArgs>(args: SelectSubset<T, COAFindUniqueArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one COA that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {COAFindUniqueOrThrowArgs} args - Arguments to find a COA
+     * @example
+     * // Get one COA
+     * const cOA = await prisma.cOA.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends COAFindUniqueOrThrowArgs>(args: SelectSubset<T, COAFindUniqueOrThrowArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first COA that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {COAFindFirstArgs} args - Arguments to find a COA
+     * @example
+     * // Get one COA
+     * const cOA = await prisma.cOA.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends COAFindFirstArgs>(args?: SelectSubset<T, COAFindFirstArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first COA that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {COAFindFirstOrThrowArgs} args - Arguments to find a COA
+     * @example
+     * // Get one COA
+     * const cOA = await prisma.cOA.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends COAFindFirstOrThrowArgs>(args?: SelectSubset<T, COAFindFirstOrThrowArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more COAS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {COAFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all COAS
+     * const cOAS = await prisma.cOA.findMany()
+     * 
+     * // Get first 10 COAS
+     * const cOAS = await prisma.cOA.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const cOAWithIdOnly = await prisma.cOA.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends COAFindManyArgs>(args?: SelectSubset<T, COAFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a COA.
+     * @param {COACreateArgs} args - Arguments to create a COA.
+     * @example
+     * // Create one COA
+     * const COA = await prisma.cOA.create({
+     *   data: {
+     *     // ... data to create a COA
+     *   }
+     * })
+     * 
+     */
+    create<T extends COACreateArgs>(args: SelectSubset<T, COACreateArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many COAS.
+     * @param {COACreateManyArgs} args - Arguments to create many COAS.
+     * @example
+     * // Create many COAS
+     * const cOA = await prisma.cOA.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends COACreateManyArgs>(args?: SelectSubset<T, COACreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many COAS and returns the data saved in the database.
+     * @param {COACreateManyAndReturnArgs} args - Arguments to create many COAS.
+     * @example
+     * // Create many COAS
+     * const cOA = await prisma.cOA.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many COAS and only return the `id`
+     * const cOAWithIdOnly = await prisma.cOA.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends COACreateManyAndReturnArgs>(args?: SelectSubset<T, COACreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a COA.
+     * @param {COADeleteArgs} args - Arguments to delete one COA.
+     * @example
+     * // Delete one COA
+     * const COA = await prisma.cOA.delete({
+     *   where: {
+     *     // ... filter to delete one COA
+     *   }
+     * })
+     * 
+     */
+    delete<T extends COADeleteArgs>(args: SelectSubset<T, COADeleteArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one COA.
+     * @param {COAUpdateArgs} args - Arguments to update one COA.
+     * @example
+     * // Update one COA
+     * const cOA = await prisma.cOA.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends COAUpdateArgs>(args: SelectSubset<T, COAUpdateArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more COAS.
+     * @param {COADeleteManyArgs} args - Arguments to filter COAS to delete.
+     * @example
+     * // Delete a few COAS
+     * const { count } = await prisma.cOA.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends COADeleteManyArgs>(args?: SelectSubset<T, COADeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more COAS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {COAUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many COAS
+     * const cOA = await prisma.cOA.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends COAUpdateManyArgs>(args: SelectSubset<T, COAUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more COAS and returns the data updated in the database.
+     * @param {COAUpdateManyAndReturnArgs} args - Arguments to update many COAS.
+     * @example
+     * // Update many COAS
+     * const cOA = await prisma.cOA.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more COAS and only return the `id`
+     * const cOAWithIdOnly = await prisma.cOA.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends COAUpdateManyAndReturnArgs>(args: SelectSubset<T, COAUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one COA.
+     * @param {COAUpsertArgs} args - Arguments to update or create a COA.
+     * @example
+     * // Update or create a COA
+     * const cOA = await prisma.cOA.upsert({
+     *   create: {
+     *     // ... data to create a COA
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the COA we want to update
+     *   }
+     * })
+     */
+    upsert<T extends COAUpsertArgs>(args: SelectSubset<T, COAUpsertArgs<ExtArgs>>): Prisma__COAClient<$Result.GetResult<Prisma.$COAPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of COAS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {COACountArgs} args - Arguments to filter COAS to count.
+     * @example
+     * // Count the number of COAS
+     * const count = await prisma.cOA.count({
+     *   where: {
+     *     // ... the filter for the COAS we want to count
+     *   }
+     * })
+    **/
+    count<T extends COACountArgs>(
+      args?: Subset<T, COACountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], COACountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a COA.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {COAAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends COAAggregateArgs>(args: Subset<T, COAAggregateArgs>): Prisma.PrismaPromise<GetCOAAggregateType<T>>
+
+    /**
+     * Group by COA.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {COAGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends COAGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: COAGroupByArgs['orderBy'] }
+        : { orderBy?: COAGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, COAGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCOAGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the COA model
+   */
+  readonly fields: COAFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for COA.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__COAClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    journals<T extends COA$journalsArgs<ExtArgs> = {}>(args?: Subset<T, COA$journalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JurnalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the COA model
+   */
+  interface COAFieldRefs {
+    readonly id: FieldRef<"COA", 'Int'>
+    readonly tipe: FieldRef<"COA", 'TipeTransaksi'>
+    readonly kodeAkun: FieldRef<"COA", 'String'>
+    readonly namaAkun: FieldRef<"COA", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * COA findUnique
+   */
+  export type COAFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * Filter, which COA to fetch.
+     */
+    where: COAWhereUniqueInput
+  }
+
+  /**
+   * COA findUniqueOrThrow
+   */
+  export type COAFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * Filter, which COA to fetch.
+     */
+    where: COAWhereUniqueInput
+  }
+
+  /**
+   * COA findFirst
+   */
+  export type COAFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * Filter, which COA to fetch.
+     */
+    where?: COAWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of COAS to fetch.
+     */
+    orderBy?: COAOrderByWithRelationInput | COAOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for COAS.
+     */
+    cursor?: COAWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` COAS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` COAS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of COAS.
+     */
+    distinct?: COAScalarFieldEnum | COAScalarFieldEnum[]
+  }
+
+  /**
+   * COA findFirstOrThrow
+   */
+  export type COAFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * Filter, which COA to fetch.
+     */
+    where?: COAWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of COAS to fetch.
+     */
+    orderBy?: COAOrderByWithRelationInput | COAOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for COAS.
+     */
+    cursor?: COAWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` COAS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` COAS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of COAS.
+     */
+    distinct?: COAScalarFieldEnum | COAScalarFieldEnum[]
+  }
+
+  /**
+   * COA findMany
+   */
+  export type COAFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * Filter, which COAS to fetch.
+     */
+    where?: COAWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of COAS to fetch.
+     */
+    orderBy?: COAOrderByWithRelationInput | COAOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing COAS.
+     */
+    cursor?: COAWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` COAS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` COAS.
+     */
+    skip?: number
+    distinct?: COAScalarFieldEnum | COAScalarFieldEnum[]
+  }
+
+  /**
+   * COA create
+   */
+  export type COACreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * The data needed to create a COA.
+     */
+    data: XOR<COACreateInput, COAUncheckedCreateInput>
+  }
+
+  /**
+   * COA createMany
+   */
+  export type COACreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many COAS.
+     */
+    data: COACreateManyInput | COACreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * COA createManyAndReturn
+   */
+  export type COACreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * The data used to create many COAS.
+     */
+    data: COACreateManyInput | COACreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * COA update
+   */
+  export type COAUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * The data needed to update a COA.
+     */
+    data: XOR<COAUpdateInput, COAUncheckedUpdateInput>
+    /**
+     * Choose, which COA to update.
+     */
+    where: COAWhereUniqueInput
+  }
+
+  /**
+   * COA updateMany
+   */
+  export type COAUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update COAS.
+     */
+    data: XOR<COAUpdateManyMutationInput, COAUncheckedUpdateManyInput>
+    /**
+     * Filter which COAS to update
+     */
+    where?: COAWhereInput
+    /**
+     * Limit how many COAS to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * COA updateManyAndReturn
+   */
+  export type COAUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * The data used to update COAS.
+     */
+    data: XOR<COAUpdateManyMutationInput, COAUncheckedUpdateManyInput>
+    /**
+     * Filter which COAS to update
+     */
+    where?: COAWhereInput
+    /**
+     * Limit how many COAS to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * COA upsert
+   */
+  export type COAUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * The filter to search for the COA to update in case it exists.
+     */
+    where: COAWhereUniqueInput
+    /**
+     * In case the COA found by the `where` argument doesn't exist, create a new COA with this data.
+     */
+    create: XOR<COACreateInput, COAUncheckedCreateInput>
+    /**
+     * In case the COA was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<COAUpdateInput, COAUncheckedUpdateInput>
+  }
+
+  /**
+   * COA delete
+   */
+  export type COADeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+    /**
+     * Filter which COA to delete.
+     */
+    where: COAWhereUniqueInput
+  }
+
+  /**
+   * COA deleteMany
+   */
+  export type COADeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which COAS to delete
+     */
+    where?: COAWhereInput
+    /**
+     * Limit how many COAS to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * COA.journals
+   */
+  export type COA$journalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Jurnal
+     */
+    select?: JurnalSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Jurnal
+     */
+    omit?: JurnalOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JurnalInclude<ExtArgs> | null
+    where?: JurnalWhereInput
+    orderBy?: JurnalOrderByWithRelationInput | JurnalOrderByWithRelationInput[]
+    cursor?: JurnalWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JurnalScalarFieldEnum | JurnalScalarFieldEnum[]
+  }
+
+  /**
+   * COA without action
+   */
+  export type COADefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the COA
+     */
+    select?: COASelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the COA
+     */
+    omit?: COAOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: COAInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -6777,6 +22232,162 @@ export namespace Prisma {
   };
 
   export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
+
+
+  export const AgenScalarFieldEnum: {
+    id: 'id',
+    nama: 'nama',
+    alamat: 'alamat',
+    nomorHp: 'nomorHp'
+  };
+
+  export type AgenScalarFieldEnum = (typeof AgenScalarFieldEnum)[keyof typeof AgenScalarFieldEnum]
+
+
+  export const ProdukScalarFieldEnum: {
+    id: 'id',
+    nama: 'nama'
+  };
+
+  export type ProdukScalarFieldEnum = (typeof ProdukScalarFieldEnum)[keyof typeof ProdukScalarFieldEnum]
+
+
+  export const PaketScalarFieldEnum: {
+    id: 'id',
+    produkId: 'produkId',
+    nama: 'nama'
+  };
+
+  export type PaketScalarFieldEnum = (typeof PaketScalarFieldEnum)[keyof typeof PaketScalarFieldEnum]
+
+
+  export const FileScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    type: 'type'
+  };
+
+  export type FileScalarFieldEnum = (typeof FileScalarFieldEnum)[keyof typeof FileScalarFieldEnum]
+
+
+  export const BarcodeJemaahScalarFieldEnum: {
+    id: 'id',
+    oldBarcode: 'oldBarcode',
+    nama: 'nama',
+    ktp: 'ktp',
+    alamat: 'alamat',
+    produkId: 'produkId',
+    paketId: 'paketId',
+    tingkat: 'tingkat',
+    tanggalKeberangkatan: 'tanggalKeberangkatan',
+    deskripsi: 'deskripsi',
+    agenId: 'agenId',
+    harga: 'harga',
+    fileId: 'fileId',
+    invoiceId: 'invoiceId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BarcodeJemaahScalarFieldEnum = (typeof BarcodeJemaahScalarFieldEnum)[keyof typeof BarcodeJemaahScalarFieldEnum]
+
+
+  export const InvoiceScalarFieldEnum: {
+    id: 'id',
+    nomor: 'nomor',
+    tanggal: 'tanggal',
+    agenId: 'agenId',
+    taxPercent: 'taxPercent',
+    diskon: 'diskon',
+    total: 'total',
+    status: 'status',
+    dueDate: 'dueDate',
+    batchFlightId: 'batchFlightId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type InvoiceScalarFieldEnum = (typeof InvoiceScalarFieldEnum)[keyof typeof InvoiceScalarFieldEnum]
+
+
+  export const MutasiScalarFieldEnum: {
+    id: 'id',
+    timestamp: 'timestamp',
+    deskripsi: 'deskripsi',
+    reff: 'reff',
+    amount: 'amount',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MutasiScalarFieldEnum = (typeof MutasiScalarFieldEnum)[keyof typeof MutasiScalarFieldEnum]
+
+
+  export const InvoiceMutasiScalarFieldEnum: {
+    id: 'id',
+    invoiceId: 'invoiceId',
+    mutasiId: 'mutasiId',
+    totalDigunakan: 'totalDigunakan',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type InvoiceMutasiScalarFieldEnum = (typeof InvoiceMutasiScalarFieldEnum)[keyof typeof InvoiceMutasiScalarFieldEnum]
+
+
+  export const BatchFlightScalarFieldEnum: {
+    id: 'id',
+    nomorBatch: 'nomorBatch',
+    route: 'route',
+    bookingCode: 'bookingCode',
+    flightDate: 'flightDate',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BatchFlightScalarFieldEnum = (typeof BatchFlightScalarFieldEnum)[keyof typeof BatchFlightScalarFieldEnum]
+
+
+  export const BatchTransactionScalarFieldEnum: {
+    id: 'id',
+    batchId: 'batchId',
+    tipe: 'tipe',
+    namaTransaksi: 'namaTransaksi',
+    nominal: 'nominal',
+    deskripsi: 'deskripsi',
+    fileId: 'fileId',
+    mutasiId: 'mutasiId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BatchTransactionScalarFieldEnum = (typeof BatchTransactionScalarFieldEnum)[keyof typeof BatchTransactionScalarFieldEnum]
+
+
+  export const JurnalScalarFieldEnum: {
+    id: 'id',
+    jurnalNumber: 'jurnalNumber',
+    namaTransaksi: 'namaTransaksi',
+    tipe: 'tipe',
+    coaId: 'coaId',
+    tanggalTransaksi: 'tanggalTransaksi',
+    fileId: 'fileId',
+    nominal: 'nominal',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type JurnalScalarFieldEnum = (typeof JurnalScalarFieldEnum)[keyof typeof JurnalScalarFieldEnum]
+
+
+  export const COAScalarFieldEnum: {
+    id: 'id',
+    tipe: 'tipe',
+    kodeAkun: 'kodeAkun',
+    namaAkun: 'namaAkun'
+  };
+
+  export type COAScalarFieldEnum = (typeof COAScalarFieldEnum)[keyof typeof COAScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -6861,6 +22472,34 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'InvoiceStatus'
+   */
+  export type EnumInvoiceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InvoiceStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'InvoiceStatus[]'
+   */
+  export type ListEnumInvoiceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InvoiceStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'TipeTransaksi'
+   */
+  export type EnumTipeTransaksiFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TipeTransaksi'>
+    
+
+
+  /**
+   * Reference to a field of type 'TipeTransaksi[]'
+   */
+  export type ListEnumTipeTransaksiFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TipeTransaksi[]'>
     
   /**
    * Deep Input Types
@@ -7174,6 +22813,864 @@ export namespace Prisma {
     identifier?: StringWithAggregatesFilter<"VerificationToken"> | string
     token?: StringWithAggregatesFilter<"VerificationToken"> | string
     expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
+  }
+
+  export type AgenWhereInput = {
+    AND?: AgenWhereInput | AgenWhereInput[]
+    OR?: AgenWhereInput[]
+    NOT?: AgenWhereInput | AgenWhereInput[]
+    id?: IntFilter<"Agen"> | number
+    nama?: StringFilter<"Agen"> | string
+    alamat?: StringFilter<"Agen"> | string
+    nomorHp?: StringFilter<"Agen"> | string
+    barcodes?: BarcodeJemaahListRelationFilter
+    invoices?: InvoiceListRelationFilter
+  }
+
+  export type AgenOrderByWithRelationInput = {
+    id?: SortOrder
+    nama?: SortOrder
+    alamat?: SortOrder
+    nomorHp?: SortOrder
+    barcodes?: BarcodeJemaahOrderByRelationAggregateInput
+    invoices?: InvoiceOrderByRelationAggregateInput
+  }
+
+  export type AgenWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: AgenWhereInput | AgenWhereInput[]
+    OR?: AgenWhereInput[]
+    NOT?: AgenWhereInput | AgenWhereInput[]
+    nama?: StringFilter<"Agen"> | string
+    alamat?: StringFilter<"Agen"> | string
+    nomorHp?: StringFilter<"Agen"> | string
+    barcodes?: BarcodeJemaahListRelationFilter
+    invoices?: InvoiceListRelationFilter
+  }, "id">
+
+  export type AgenOrderByWithAggregationInput = {
+    id?: SortOrder
+    nama?: SortOrder
+    alamat?: SortOrder
+    nomorHp?: SortOrder
+    _count?: AgenCountOrderByAggregateInput
+    _avg?: AgenAvgOrderByAggregateInput
+    _max?: AgenMaxOrderByAggregateInput
+    _min?: AgenMinOrderByAggregateInput
+    _sum?: AgenSumOrderByAggregateInput
+  }
+
+  export type AgenScalarWhereWithAggregatesInput = {
+    AND?: AgenScalarWhereWithAggregatesInput | AgenScalarWhereWithAggregatesInput[]
+    OR?: AgenScalarWhereWithAggregatesInput[]
+    NOT?: AgenScalarWhereWithAggregatesInput | AgenScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Agen"> | number
+    nama?: StringWithAggregatesFilter<"Agen"> | string
+    alamat?: StringWithAggregatesFilter<"Agen"> | string
+    nomorHp?: StringWithAggregatesFilter<"Agen"> | string
+  }
+
+  export type ProdukWhereInput = {
+    AND?: ProdukWhereInput | ProdukWhereInput[]
+    OR?: ProdukWhereInput[]
+    NOT?: ProdukWhereInput | ProdukWhereInput[]
+    id?: IntFilter<"Produk"> | number
+    nama?: StringFilter<"Produk"> | string
+    paket?: PaketListRelationFilter
+    barcodes?: BarcodeJemaahListRelationFilter
+  }
+
+  export type ProdukOrderByWithRelationInput = {
+    id?: SortOrder
+    nama?: SortOrder
+    paket?: PaketOrderByRelationAggregateInput
+    barcodes?: BarcodeJemaahOrderByRelationAggregateInput
+  }
+
+  export type ProdukWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProdukWhereInput | ProdukWhereInput[]
+    OR?: ProdukWhereInput[]
+    NOT?: ProdukWhereInput | ProdukWhereInput[]
+    nama?: StringFilter<"Produk"> | string
+    paket?: PaketListRelationFilter
+    barcodes?: BarcodeJemaahListRelationFilter
+  }, "id">
+
+  export type ProdukOrderByWithAggregationInput = {
+    id?: SortOrder
+    nama?: SortOrder
+    _count?: ProdukCountOrderByAggregateInput
+    _avg?: ProdukAvgOrderByAggregateInput
+    _max?: ProdukMaxOrderByAggregateInput
+    _min?: ProdukMinOrderByAggregateInput
+    _sum?: ProdukSumOrderByAggregateInput
+  }
+
+  export type ProdukScalarWhereWithAggregatesInput = {
+    AND?: ProdukScalarWhereWithAggregatesInput | ProdukScalarWhereWithAggregatesInput[]
+    OR?: ProdukScalarWhereWithAggregatesInput[]
+    NOT?: ProdukScalarWhereWithAggregatesInput | ProdukScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Produk"> | number
+    nama?: StringWithAggregatesFilter<"Produk"> | string
+  }
+
+  export type PaketWhereInput = {
+    AND?: PaketWhereInput | PaketWhereInput[]
+    OR?: PaketWhereInput[]
+    NOT?: PaketWhereInput | PaketWhereInput[]
+    id?: IntFilter<"Paket"> | number
+    produkId?: IntFilter<"Paket"> | number
+    nama?: StringFilter<"Paket"> | string
+    produk?: XOR<ProdukScalarRelationFilter, ProdukWhereInput>
+    barcodes?: BarcodeJemaahListRelationFilter
+  }
+
+  export type PaketOrderByWithRelationInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+    nama?: SortOrder
+    produk?: ProdukOrderByWithRelationInput
+    barcodes?: BarcodeJemaahOrderByRelationAggregateInput
+  }
+
+  export type PaketWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: PaketWhereInput | PaketWhereInput[]
+    OR?: PaketWhereInput[]
+    NOT?: PaketWhereInput | PaketWhereInput[]
+    produkId?: IntFilter<"Paket"> | number
+    nama?: StringFilter<"Paket"> | string
+    produk?: XOR<ProdukScalarRelationFilter, ProdukWhereInput>
+    barcodes?: BarcodeJemaahListRelationFilter
+  }, "id">
+
+  export type PaketOrderByWithAggregationInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+    nama?: SortOrder
+    _count?: PaketCountOrderByAggregateInput
+    _avg?: PaketAvgOrderByAggregateInput
+    _max?: PaketMaxOrderByAggregateInput
+    _min?: PaketMinOrderByAggregateInput
+    _sum?: PaketSumOrderByAggregateInput
+  }
+
+  export type PaketScalarWhereWithAggregatesInput = {
+    AND?: PaketScalarWhereWithAggregatesInput | PaketScalarWhereWithAggregatesInput[]
+    OR?: PaketScalarWhereWithAggregatesInput[]
+    NOT?: PaketScalarWhereWithAggregatesInput | PaketScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Paket"> | number
+    produkId?: IntWithAggregatesFilter<"Paket"> | number
+    nama?: StringWithAggregatesFilter<"Paket"> | string
+  }
+
+  export type FileWhereInput = {
+    AND?: FileWhereInput | FileWhereInput[]
+    OR?: FileWhereInput[]
+    NOT?: FileWhereInput | FileWhereInput[]
+    id?: IntFilter<"File"> | number
+    url?: StringFilter<"File"> | string
+    type?: StringFilter<"File"> | string
+    barcodes?: BarcodeJemaahListRelationFilter
+    batchTransactions?: BatchTransactionListRelationFilter
+    journals?: JurnalListRelationFilter
+  }
+
+  export type FileOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    type?: SortOrder
+    barcodes?: BarcodeJemaahOrderByRelationAggregateInput
+    batchTransactions?: BatchTransactionOrderByRelationAggregateInput
+    journals?: JurnalOrderByRelationAggregateInput
+  }
+
+  export type FileWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: FileWhereInput | FileWhereInput[]
+    OR?: FileWhereInput[]
+    NOT?: FileWhereInput | FileWhereInput[]
+    url?: StringFilter<"File"> | string
+    type?: StringFilter<"File"> | string
+    barcodes?: BarcodeJemaahListRelationFilter
+    batchTransactions?: BatchTransactionListRelationFilter
+    journals?: JurnalListRelationFilter
+  }, "id">
+
+  export type FileOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    type?: SortOrder
+    _count?: FileCountOrderByAggregateInput
+    _avg?: FileAvgOrderByAggregateInput
+    _max?: FileMaxOrderByAggregateInput
+    _min?: FileMinOrderByAggregateInput
+    _sum?: FileSumOrderByAggregateInput
+  }
+
+  export type FileScalarWhereWithAggregatesInput = {
+    AND?: FileScalarWhereWithAggregatesInput | FileScalarWhereWithAggregatesInput[]
+    OR?: FileScalarWhereWithAggregatesInput[]
+    NOT?: FileScalarWhereWithAggregatesInput | FileScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"File"> | number
+    url?: StringWithAggregatesFilter<"File"> | string
+    type?: StringWithAggregatesFilter<"File"> | string
+  }
+
+  export type BarcodeJemaahWhereInput = {
+    AND?: BarcodeJemaahWhereInput | BarcodeJemaahWhereInput[]
+    OR?: BarcodeJemaahWhereInput[]
+    NOT?: BarcodeJemaahWhereInput | BarcodeJemaahWhereInput[]
+    id?: IntFilter<"BarcodeJemaah"> | number
+    oldBarcode?: StringNullableFilter<"BarcodeJemaah"> | string | null
+    nama?: StringFilter<"BarcodeJemaah"> | string
+    ktp?: StringFilter<"BarcodeJemaah"> | string
+    alamat?: StringFilter<"BarcodeJemaah"> | string
+    produkId?: IntFilter<"BarcodeJemaah"> | number
+    paketId?: IntFilter<"BarcodeJemaah"> | number
+    tingkat?: StringFilter<"BarcodeJemaah"> | string
+    tanggalKeberangkatan?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+    deskripsi?: StringNullableFilter<"BarcodeJemaah"> | string | null
+    agenId?: IntFilter<"BarcodeJemaah"> | number
+    harga?: FloatFilter<"BarcodeJemaah"> | number
+    fileId?: IntNullableFilter<"BarcodeJemaah"> | number | null
+    invoiceId?: IntNullableFilter<"BarcodeJemaah"> | number | null
+    createdAt?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+    updatedAt?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+    produk?: XOR<ProdukScalarRelationFilter, ProdukWhereInput>
+    paket?: XOR<PaketScalarRelationFilter, PaketWhereInput>
+    agen?: XOR<AgenScalarRelationFilter, AgenWhereInput>
+    file?: XOR<FileNullableScalarRelationFilter, FileWhereInput> | null
+    invoice?: XOR<InvoiceNullableScalarRelationFilter, InvoiceWhereInput> | null
+  }
+
+  export type BarcodeJemaahOrderByWithRelationInput = {
+    id?: SortOrder
+    oldBarcode?: SortOrderInput | SortOrder
+    nama?: SortOrder
+    ktp?: SortOrder
+    alamat?: SortOrder
+    produkId?: SortOrder
+    paketId?: SortOrder
+    tingkat?: SortOrder
+    tanggalKeberangkatan?: SortOrder
+    deskripsi?: SortOrderInput | SortOrder
+    agenId?: SortOrder
+    harga?: SortOrder
+    fileId?: SortOrderInput | SortOrder
+    invoiceId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    produk?: ProdukOrderByWithRelationInput
+    paket?: PaketOrderByWithRelationInput
+    agen?: AgenOrderByWithRelationInput
+    file?: FileOrderByWithRelationInput
+    invoice?: InvoiceOrderByWithRelationInput
+  }
+
+  export type BarcodeJemaahWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BarcodeJemaahWhereInput | BarcodeJemaahWhereInput[]
+    OR?: BarcodeJemaahWhereInput[]
+    NOT?: BarcodeJemaahWhereInput | BarcodeJemaahWhereInput[]
+    oldBarcode?: StringNullableFilter<"BarcodeJemaah"> | string | null
+    nama?: StringFilter<"BarcodeJemaah"> | string
+    ktp?: StringFilter<"BarcodeJemaah"> | string
+    alamat?: StringFilter<"BarcodeJemaah"> | string
+    produkId?: IntFilter<"BarcodeJemaah"> | number
+    paketId?: IntFilter<"BarcodeJemaah"> | number
+    tingkat?: StringFilter<"BarcodeJemaah"> | string
+    tanggalKeberangkatan?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+    deskripsi?: StringNullableFilter<"BarcodeJemaah"> | string | null
+    agenId?: IntFilter<"BarcodeJemaah"> | number
+    harga?: FloatFilter<"BarcodeJemaah"> | number
+    fileId?: IntNullableFilter<"BarcodeJemaah"> | number | null
+    invoiceId?: IntNullableFilter<"BarcodeJemaah"> | number | null
+    createdAt?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+    updatedAt?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+    produk?: XOR<ProdukScalarRelationFilter, ProdukWhereInput>
+    paket?: XOR<PaketScalarRelationFilter, PaketWhereInput>
+    agen?: XOR<AgenScalarRelationFilter, AgenWhereInput>
+    file?: XOR<FileNullableScalarRelationFilter, FileWhereInput> | null
+    invoice?: XOR<InvoiceNullableScalarRelationFilter, InvoiceWhereInput> | null
+  }, "id">
+
+  export type BarcodeJemaahOrderByWithAggregationInput = {
+    id?: SortOrder
+    oldBarcode?: SortOrderInput | SortOrder
+    nama?: SortOrder
+    ktp?: SortOrder
+    alamat?: SortOrder
+    produkId?: SortOrder
+    paketId?: SortOrder
+    tingkat?: SortOrder
+    tanggalKeberangkatan?: SortOrder
+    deskripsi?: SortOrderInput | SortOrder
+    agenId?: SortOrder
+    harga?: SortOrder
+    fileId?: SortOrderInput | SortOrder
+    invoiceId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BarcodeJemaahCountOrderByAggregateInput
+    _avg?: BarcodeJemaahAvgOrderByAggregateInput
+    _max?: BarcodeJemaahMaxOrderByAggregateInput
+    _min?: BarcodeJemaahMinOrderByAggregateInput
+    _sum?: BarcodeJemaahSumOrderByAggregateInput
+  }
+
+  export type BarcodeJemaahScalarWhereWithAggregatesInput = {
+    AND?: BarcodeJemaahScalarWhereWithAggregatesInput | BarcodeJemaahScalarWhereWithAggregatesInput[]
+    OR?: BarcodeJemaahScalarWhereWithAggregatesInput[]
+    NOT?: BarcodeJemaahScalarWhereWithAggregatesInput | BarcodeJemaahScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BarcodeJemaah"> | number
+    oldBarcode?: StringNullableWithAggregatesFilter<"BarcodeJemaah"> | string | null
+    nama?: StringWithAggregatesFilter<"BarcodeJemaah"> | string
+    ktp?: StringWithAggregatesFilter<"BarcodeJemaah"> | string
+    alamat?: StringWithAggregatesFilter<"BarcodeJemaah"> | string
+    produkId?: IntWithAggregatesFilter<"BarcodeJemaah"> | number
+    paketId?: IntWithAggregatesFilter<"BarcodeJemaah"> | number
+    tingkat?: StringWithAggregatesFilter<"BarcodeJemaah"> | string
+    tanggalKeberangkatan?: DateTimeWithAggregatesFilter<"BarcodeJemaah"> | Date | string
+    deskripsi?: StringNullableWithAggregatesFilter<"BarcodeJemaah"> | string | null
+    agenId?: IntWithAggregatesFilter<"BarcodeJemaah"> | number
+    harga?: FloatWithAggregatesFilter<"BarcodeJemaah"> | number
+    fileId?: IntNullableWithAggregatesFilter<"BarcodeJemaah"> | number | null
+    invoiceId?: IntNullableWithAggregatesFilter<"BarcodeJemaah"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"BarcodeJemaah"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BarcodeJemaah"> | Date | string
+  }
+
+  export type InvoiceWhereInput = {
+    AND?: InvoiceWhereInput | InvoiceWhereInput[]
+    OR?: InvoiceWhereInput[]
+    NOT?: InvoiceWhereInput | InvoiceWhereInput[]
+    id?: IntFilter<"Invoice"> | number
+    nomor?: StringFilter<"Invoice"> | string
+    tanggal?: DateTimeFilter<"Invoice"> | Date | string
+    agenId?: IntFilter<"Invoice"> | number
+    taxPercent?: FloatFilter<"Invoice"> | number
+    diskon?: FloatFilter<"Invoice"> | number
+    total?: FloatFilter<"Invoice"> | number
+    status?: EnumInvoiceStatusFilter<"Invoice"> | $Enums.InvoiceStatus
+    dueDate?: DateTimeFilter<"Invoice"> | Date | string
+    batchFlightId?: IntNullableFilter<"Invoice"> | number | null
+    createdAt?: DateTimeFilter<"Invoice"> | Date | string
+    updatedAt?: DateTimeFilter<"Invoice"> | Date | string
+    agen?: XOR<AgenScalarRelationFilter, AgenWhereInput>
+    barcodes?: BarcodeJemaahListRelationFilter
+    mutasiLinks?: InvoiceMutasiListRelationFilter
+    batch?: XOR<BatchFlightNullableScalarRelationFilter, BatchFlightWhereInput> | null
+  }
+
+  export type InvoiceOrderByWithRelationInput = {
+    id?: SortOrder
+    nomor?: SortOrder
+    tanggal?: SortOrder
+    agenId?: SortOrder
+    taxPercent?: SortOrder
+    diskon?: SortOrder
+    total?: SortOrder
+    status?: SortOrder
+    dueDate?: SortOrder
+    batchFlightId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    agen?: AgenOrderByWithRelationInput
+    barcodes?: BarcodeJemaahOrderByRelationAggregateInput
+    mutasiLinks?: InvoiceMutasiOrderByRelationAggregateInput
+    batch?: BatchFlightOrderByWithRelationInput
+  }
+
+  export type InvoiceWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    nomor?: string
+    AND?: InvoiceWhereInput | InvoiceWhereInput[]
+    OR?: InvoiceWhereInput[]
+    NOT?: InvoiceWhereInput | InvoiceWhereInput[]
+    tanggal?: DateTimeFilter<"Invoice"> | Date | string
+    agenId?: IntFilter<"Invoice"> | number
+    taxPercent?: FloatFilter<"Invoice"> | number
+    diskon?: FloatFilter<"Invoice"> | number
+    total?: FloatFilter<"Invoice"> | number
+    status?: EnumInvoiceStatusFilter<"Invoice"> | $Enums.InvoiceStatus
+    dueDate?: DateTimeFilter<"Invoice"> | Date | string
+    batchFlightId?: IntNullableFilter<"Invoice"> | number | null
+    createdAt?: DateTimeFilter<"Invoice"> | Date | string
+    updatedAt?: DateTimeFilter<"Invoice"> | Date | string
+    agen?: XOR<AgenScalarRelationFilter, AgenWhereInput>
+    barcodes?: BarcodeJemaahListRelationFilter
+    mutasiLinks?: InvoiceMutasiListRelationFilter
+    batch?: XOR<BatchFlightNullableScalarRelationFilter, BatchFlightWhereInput> | null
+  }, "id" | "nomor">
+
+  export type InvoiceOrderByWithAggregationInput = {
+    id?: SortOrder
+    nomor?: SortOrder
+    tanggal?: SortOrder
+    agenId?: SortOrder
+    taxPercent?: SortOrder
+    diskon?: SortOrder
+    total?: SortOrder
+    status?: SortOrder
+    dueDate?: SortOrder
+    batchFlightId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: InvoiceCountOrderByAggregateInput
+    _avg?: InvoiceAvgOrderByAggregateInput
+    _max?: InvoiceMaxOrderByAggregateInput
+    _min?: InvoiceMinOrderByAggregateInput
+    _sum?: InvoiceSumOrderByAggregateInput
+  }
+
+  export type InvoiceScalarWhereWithAggregatesInput = {
+    AND?: InvoiceScalarWhereWithAggregatesInput | InvoiceScalarWhereWithAggregatesInput[]
+    OR?: InvoiceScalarWhereWithAggregatesInput[]
+    NOT?: InvoiceScalarWhereWithAggregatesInput | InvoiceScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Invoice"> | number
+    nomor?: StringWithAggregatesFilter<"Invoice"> | string
+    tanggal?: DateTimeWithAggregatesFilter<"Invoice"> | Date | string
+    agenId?: IntWithAggregatesFilter<"Invoice"> | number
+    taxPercent?: FloatWithAggregatesFilter<"Invoice"> | number
+    diskon?: FloatWithAggregatesFilter<"Invoice"> | number
+    total?: FloatWithAggregatesFilter<"Invoice"> | number
+    status?: EnumInvoiceStatusWithAggregatesFilter<"Invoice"> | $Enums.InvoiceStatus
+    dueDate?: DateTimeWithAggregatesFilter<"Invoice"> | Date | string
+    batchFlightId?: IntNullableWithAggregatesFilter<"Invoice"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Invoice"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Invoice"> | Date | string
+  }
+
+  export type MutasiWhereInput = {
+    AND?: MutasiWhereInput | MutasiWhereInput[]
+    OR?: MutasiWhereInput[]
+    NOT?: MutasiWhereInput | MutasiWhereInput[]
+    id?: IntFilter<"Mutasi"> | number
+    timestamp?: DateTimeFilter<"Mutasi"> | Date | string
+    deskripsi?: StringFilter<"Mutasi"> | string
+    reff?: StringFilter<"Mutasi"> | string
+    amount?: FloatFilter<"Mutasi"> | number
+    createdAt?: DateTimeFilter<"Mutasi"> | Date | string
+    updatedAt?: DateTimeFilter<"Mutasi"> | Date | string
+    invoiceLinks?: InvoiceMutasiListRelationFilter
+    batchTransactions?: BatchTransactionListRelationFilter
+  }
+
+  export type MutasiOrderByWithRelationInput = {
+    id?: SortOrder
+    timestamp?: SortOrder
+    deskripsi?: SortOrder
+    reff?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    invoiceLinks?: InvoiceMutasiOrderByRelationAggregateInput
+    batchTransactions?: BatchTransactionOrderByRelationAggregateInput
+  }
+
+  export type MutasiWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: MutasiWhereInput | MutasiWhereInput[]
+    OR?: MutasiWhereInput[]
+    NOT?: MutasiWhereInput | MutasiWhereInput[]
+    timestamp?: DateTimeFilter<"Mutasi"> | Date | string
+    deskripsi?: StringFilter<"Mutasi"> | string
+    reff?: StringFilter<"Mutasi"> | string
+    amount?: FloatFilter<"Mutasi"> | number
+    createdAt?: DateTimeFilter<"Mutasi"> | Date | string
+    updatedAt?: DateTimeFilter<"Mutasi"> | Date | string
+    invoiceLinks?: InvoiceMutasiListRelationFilter
+    batchTransactions?: BatchTransactionListRelationFilter
+  }, "id">
+
+  export type MutasiOrderByWithAggregationInput = {
+    id?: SortOrder
+    timestamp?: SortOrder
+    deskripsi?: SortOrder
+    reff?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: MutasiCountOrderByAggregateInput
+    _avg?: MutasiAvgOrderByAggregateInput
+    _max?: MutasiMaxOrderByAggregateInput
+    _min?: MutasiMinOrderByAggregateInput
+    _sum?: MutasiSumOrderByAggregateInput
+  }
+
+  export type MutasiScalarWhereWithAggregatesInput = {
+    AND?: MutasiScalarWhereWithAggregatesInput | MutasiScalarWhereWithAggregatesInput[]
+    OR?: MutasiScalarWhereWithAggregatesInput[]
+    NOT?: MutasiScalarWhereWithAggregatesInput | MutasiScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Mutasi"> | number
+    timestamp?: DateTimeWithAggregatesFilter<"Mutasi"> | Date | string
+    deskripsi?: StringWithAggregatesFilter<"Mutasi"> | string
+    reff?: StringWithAggregatesFilter<"Mutasi"> | string
+    amount?: FloatWithAggregatesFilter<"Mutasi"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Mutasi"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Mutasi"> | Date | string
+  }
+
+  export type InvoiceMutasiWhereInput = {
+    AND?: InvoiceMutasiWhereInput | InvoiceMutasiWhereInput[]
+    OR?: InvoiceMutasiWhereInput[]
+    NOT?: InvoiceMutasiWhereInput | InvoiceMutasiWhereInput[]
+    id?: IntFilter<"InvoiceMutasi"> | number
+    invoiceId?: IntFilter<"InvoiceMutasi"> | number
+    mutasiId?: IntFilter<"InvoiceMutasi"> | number
+    totalDigunakan?: FloatFilter<"InvoiceMutasi"> | number
+    createdAt?: DateTimeFilter<"InvoiceMutasi"> | Date | string
+    updatedAt?: DateTimeFilter<"InvoiceMutasi"> | Date | string
+    invoice?: XOR<InvoiceScalarRelationFilter, InvoiceWhereInput>
+    mutasi?: XOR<MutasiScalarRelationFilter, MutasiWhereInput>
+  }
+
+  export type InvoiceMutasiOrderByWithRelationInput = {
+    id?: SortOrder
+    invoiceId?: SortOrder
+    mutasiId?: SortOrder
+    totalDigunakan?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    invoice?: InvoiceOrderByWithRelationInput
+    mutasi?: MutasiOrderByWithRelationInput
+  }
+
+  export type InvoiceMutasiWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: InvoiceMutasiWhereInput | InvoiceMutasiWhereInput[]
+    OR?: InvoiceMutasiWhereInput[]
+    NOT?: InvoiceMutasiWhereInput | InvoiceMutasiWhereInput[]
+    invoiceId?: IntFilter<"InvoiceMutasi"> | number
+    mutasiId?: IntFilter<"InvoiceMutasi"> | number
+    totalDigunakan?: FloatFilter<"InvoiceMutasi"> | number
+    createdAt?: DateTimeFilter<"InvoiceMutasi"> | Date | string
+    updatedAt?: DateTimeFilter<"InvoiceMutasi"> | Date | string
+    invoice?: XOR<InvoiceScalarRelationFilter, InvoiceWhereInput>
+    mutasi?: XOR<MutasiScalarRelationFilter, MutasiWhereInput>
+  }, "id">
+
+  export type InvoiceMutasiOrderByWithAggregationInput = {
+    id?: SortOrder
+    invoiceId?: SortOrder
+    mutasiId?: SortOrder
+    totalDigunakan?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: InvoiceMutasiCountOrderByAggregateInput
+    _avg?: InvoiceMutasiAvgOrderByAggregateInput
+    _max?: InvoiceMutasiMaxOrderByAggregateInput
+    _min?: InvoiceMutasiMinOrderByAggregateInput
+    _sum?: InvoiceMutasiSumOrderByAggregateInput
+  }
+
+  export type InvoiceMutasiScalarWhereWithAggregatesInput = {
+    AND?: InvoiceMutasiScalarWhereWithAggregatesInput | InvoiceMutasiScalarWhereWithAggregatesInput[]
+    OR?: InvoiceMutasiScalarWhereWithAggregatesInput[]
+    NOT?: InvoiceMutasiScalarWhereWithAggregatesInput | InvoiceMutasiScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"InvoiceMutasi"> | number
+    invoiceId?: IntWithAggregatesFilter<"InvoiceMutasi"> | number
+    mutasiId?: IntWithAggregatesFilter<"InvoiceMutasi"> | number
+    totalDigunakan?: FloatWithAggregatesFilter<"InvoiceMutasi"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"InvoiceMutasi"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"InvoiceMutasi"> | Date | string
+  }
+
+  export type BatchFlightWhereInput = {
+    AND?: BatchFlightWhereInput | BatchFlightWhereInput[]
+    OR?: BatchFlightWhereInput[]
+    NOT?: BatchFlightWhereInput | BatchFlightWhereInput[]
+    id?: IntFilter<"BatchFlight"> | number
+    nomorBatch?: StringFilter<"BatchFlight"> | string
+    route?: StringFilter<"BatchFlight"> | string
+    bookingCode?: StringFilter<"BatchFlight"> | string
+    flightDate?: DateTimeFilter<"BatchFlight"> | Date | string
+    createdAt?: DateTimeFilter<"BatchFlight"> | Date | string
+    updatedAt?: DateTimeFilter<"BatchFlight"> | Date | string
+    invoices?: InvoiceListRelationFilter
+    transactions?: BatchTransactionListRelationFilter
+  }
+
+  export type BatchFlightOrderByWithRelationInput = {
+    id?: SortOrder
+    nomorBatch?: SortOrder
+    route?: SortOrder
+    bookingCode?: SortOrder
+    flightDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    invoices?: InvoiceOrderByRelationAggregateInput
+    transactions?: BatchTransactionOrderByRelationAggregateInput
+  }
+
+  export type BatchFlightWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BatchFlightWhereInput | BatchFlightWhereInput[]
+    OR?: BatchFlightWhereInput[]
+    NOT?: BatchFlightWhereInput | BatchFlightWhereInput[]
+    nomorBatch?: StringFilter<"BatchFlight"> | string
+    route?: StringFilter<"BatchFlight"> | string
+    bookingCode?: StringFilter<"BatchFlight"> | string
+    flightDate?: DateTimeFilter<"BatchFlight"> | Date | string
+    createdAt?: DateTimeFilter<"BatchFlight"> | Date | string
+    updatedAt?: DateTimeFilter<"BatchFlight"> | Date | string
+    invoices?: InvoiceListRelationFilter
+    transactions?: BatchTransactionListRelationFilter
+  }, "id">
+
+  export type BatchFlightOrderByWithAggregationInput = {
+    id?: SortOrder
+    nomorBatch?: SortOrder
+    route?: SortOrder
+    bookingCode?: SortOrder
+    flightDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BatchFlightCountOrderByAggregateInput
+    _avg?: BatchFlightAvgOrderByAggregateInput
+    _max?: BatchFlightMaxOrderByAggregateInput
+    _min?: BatchFlightMinOrderByAggregateInput
+    _sum?: BatchFlightSumOrderByAggregateInput
+  }
+
+  export type BatchFlightScalarWhereWithAggregatesInput = {
+    AND?: BatchFlightScalarWhereWithAggregatesInput | BatchFlightScalarWhereWithAggregatesInput[]
+    OR?: BatchFlightScalarWhereWithAggregatesInput[]
+    NOT?: BatchFlightScalarWhereWithAggregatesInput | BatchFlightScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BatchFlight"> | number
+    nomorBatch?: StringWithAggregatesFilter<"BatchFlight"> | string
+    route?: StringWithAggregatesFilter<"BatchFlight"> | string
+    bookingCode?: StringWithAggregatesFilter<"BatchFlight"> | string
+    flightDate?: DateTimeWithAggregatesFilter<"BatchFlight"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"BatchFlight"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BatchFlight"> | Date | string
+  }
+
+  export type BatchTransactionWhereInput = {
+    AND?: BatchTransactionWhereInput | BatchTransactionWhereInput[]
+    OR?: BatchTransactionWhereInput[]
+    NOT?: BatchTransactionWhereInput | BatchTransactionWhereInput[]
+    id?: IntFilter<"BatchTransaction"> | number
+    batchId?: IntFilter<"BatchTransaction"> | number
+    tipe?: EnumTipeTransaksiFilter<"BatchTransaction"> | $Enums.TipeTransaksi
+    namaTransaksi?: StringFilter<"BatchTransaction"> | string
+    nominal?: FloatFilter<"BatchTransaction"> | number
+    deskripsi?: StringFilter<"BatchTransaction"> | string
+    fileId?: IntNullableFilter<"BatchTransaction"> | number | null
+    mutasiId?: IntNullableFilter<"BatchTransaction"> | number | null
+    createdAt?: DateTimeFilter<"BatchTransaction"> | Date | string
+    updatedAt?: DateTimeFilter<"BatchTransaction"> | Date | string
+    batch?: XOR<BatchFlightScalarRelationFilter, BatchFlightWhereInput>
+    file?: XOR<FileNullableScalarRelationFilter, FileWhereInput> | null
+    mutasi?: XOR<MutasiNullableScalarRelationFilter, MutasiWhereInput> | null
+  }
+
+  export type BatchTransactionOrderByWithRelationInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    tipe?: SortOrder
+    namaTransaksi?: SortOrder
+    nominal?: SortOrder
+    deskripsi?: SortOrder
+    fileId?: SortOrderInput | SortOrder
+    mutasiId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    batch?: BatchFlightOrderByWithRelationInput
+    file?: FileOrderByWithRelationInput
+    mutasi?: MutasiOrderByWithRelationInput
+  }
+
+  export type BatchTransactionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BatchTransactionWhereInput | BatchTransactionWhereInput[]
+    OR?: BatchTransactionWhereInput[]
+    NOT?: BatchTransactionWhereInput | BatchTransactionWhereInput[]
+    batchId?: IntFilter<"BatchTransaction"> | number
+    tipe?: EnumTipeTransaksiFilter<"BatchTransaction"> | $Enums.TipeTransaksi
+    namaTransaksi?: StringFilter<"BatchTransaction"> | string
+    nominal?: FloatFilter<"BatchTransaction"> | number
+    deskripsi?: StringFilter<"BatchTransaction"> | string
+    fileId?: IntNullableFilter<"BatchTransaction"> | number | null
+    mutasiId?: IntNullableFilter<"BatchTransaction"> | number | null
+    createdAt?: DateTimeFilter<"BatchTransaction"> | Date | string
+    updatedAt?: DateTimeFilter<"BatchTransaction"> | Date | string
+    batch?: XOR<BatchFlightScalarRelationFilter, BatchFlightWhereInput>
+    file?: XOR<FileNullableScalarRelationFilter, FileWhereInput> | null
+    mutasi?: XOR<MutasiNullableScalarRelationFilter, MutasiWhereInput> | null
+  }, "id">
+
+  export type BatchTransactionOrderByWithAggregationInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    tipe?: SortOrder
+    namaTransaksi?: SortOrder
+    nominal?: SortOrder
+    deskripsi?: SortOrder
+    fileId?: SortOrderInput | SortOrder
+    mutasiId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: BatchTransactionCountOrderByAggregateInput
+    _avg?: BatchTransactionAvgOrderByAggregateInput
+    _max?: BatchTransactionMaxOrderByAggregateInput
+    _min?: BatchTransactionMinOrderByAggregateInput
+    _sum?: BatchTransactionSumOrderByAggregateInput
+  }
+
+  export type BatchTransactionScalarWhereWithAggregatesInput = {
+    AND?: BatchTransactionScalarWhereWithAggregatesInput | BatchTransactionScalarWhereWithAggregatesInput[]
+    OR?: BatchTransactionScalarWhereWithAggregatesInput[]
+    NOT?: BatchTransactionScalarWhereWithAggregatesInput | BatchTransactionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BatchTransaction"> | number
+    batchId?: IntWithAggregatesFilter<"BatchTransaction"> | number
+    tipe?: EnumTipeTransaksiWithAggregatesFilter<"BatchTransaction"> | $Enums.TipeTransaksi
+    namaTransaksi?: StringWithAggregatesFilter<"BatchTransaction"> | string
+    nominal?: FloatWithAggregatesFilter<"BatchTransaction"> | number
+    deskripsi?: StringWithAggregatesFilter<"BatchTransaction"> | string
+    fileId?: IntNullableWithAggregatesFilter<"BatchTransaction"> | number | null
+    mutasiId?: IntNullableWithAggregatesFilter<"BatchTransaction"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"BatchTransaction"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BatchTransaction"> | Date | string
+  }
+
+  export type JurnalWhereInput = {
+    AND?: JurnalWhereInput | JurnalWhereInput[]
+    OR?: JurnalWhereInput[]
+    NOT?: JurnalWhereInput | JurnalWhereInput[]
+    id?: IntFilter<"Jurnal"> | number
+    jurnalNumber?: StringFilter<"Jurnal"> | string
+    namaTransaksi?: StringFilter<"Jurnal"> | string
+    tipe?: EnumTipeTransaksiFilter<"Jurnal"> | $Enums.TipeTransaksi
+    coaId?: IntFilter<"Jurnal"> | number
+    tanggalTransaksi?: DateTimeFilter<"Jurnal"> | Date | string
+    fileId?: IntNullableFilter<"Jurnal"> | number | null
+    nominal?: FloatFilter<"Jurnal"> | number
+    createdAt?: DateTimeFilter<"Jurnal"> | Date | string
+    updatedAt?: DateTimeFilter<"Jurnal"> | Date | string
+    coa?: XOR<COAScalarRelationFilter, COAWhereInput>
+    file?: XOR<FileNullableScalarRelationFilter, FileWhereInput> | null
+  }
+
+  export type JurnalOrderByWithRelationInput = {
+    id?: SortOrder
+    jurnalNumber?: SortOrder
+    namaTransaksi?: SortOrder
+    tipe?: SortOrder
+    coaId?: SortOrder
+    tanggalTransaksi?: SortOrder
+    fileId?: SortOrderInput | SortOrder
+    nominal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    coa?: COAOrderByWithRelationInput
+    file?: FileOrderByWithRelationInput
+  }
+
+  export type JurnalWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: JurnalWhereInput | JurnalWhereInput[]
+    OR?: JurnalWhereInput[]
+    NOT?: JurnalWhereInput | JurnalWhereInput[]
+    jurnalNumber?: StringFilter<"Jurnal"> | string
+    namaTransaksi?: StringFilter<"Jurnal"> | string
+    tipe?: EnumTipeTransaksiFilter<"Jurnal"> | $Enums.TipeTransaksi
+    coaId?: IntFilter<"Jurnal"> | number
+    tanggalTransaksi?: DateTimeFilter<"Jurnal"> | Date | string
+    fileId?: IntNullableFilter<"Jurnal"> | number | null
+    nominal?: FloatFilter<"Jurnal"> | number
+    createdAt?: DateTimeFilter<"Jurnal"> | Date | string
+    updatedAt?: DateTimeFilter<"Jurnal"> | Date | string
+    coa?: XOR<COAScalarRelationFilter, COAWhereInput>
+    file?: XOR<FileNullableScalarRelationFilter, FileWhereInput> | null
+  }, "id">
+
+  export type JurnalOrderByWithAggregationInput = {
+    id?: SortOrder
+    jurnalNumber?: SortOrder
+    namaTransaksi?: SortOrder
+    tipe?: SortOrder
+    coaId?: SortOrder
+    tanggalTransaksi?: SortOrder
+    fileId?: SortOrderInput | SortOrder
+    nominal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: JurnalCountOrderByAggregateInput
+    _avg?: JurnalAvgOrderByAggregateInput
+    _max?: JurnalMaxOrderByAggregateInput
+    _min?: JurnalMinOrderByAggregateInput
+    _sum?: JurnalSumOrderByAggregateInput
+  }
+
+  export type JurnalScalarWhereWithAggregatesInput = {
+    AND?: JurnalScalarWhereWithAggregatesInput | JurnalScalarWhereWithAggregatesInput[]
+    OR?: JurnalScalarWhereWithAggregatesInput[]
+    NOT?: JurnalScalarWhereWithAggregatesInput | JurnalScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Jurnal"> | number
+    jurnalNumber?: StringWithAggregatesFilter<"Jurnal"> | string
+    namaTransaksi?: StringWithAggregatesFilter<"Jurnal"> | string
+    tipe?: EnumTipeTransaksiWithAggregatesFilter<"Jurnal"> | $Enums.TipeTransaksi
+    coaId?: IntWithAggregatesFilter<"Jurnal"> | number
+    tanggalTransaksi?: DateTimeWithAggregatesFilter<"Jurnal"> | Date | string
+    fileId?: IntNullableWithAggregatesFilter<"Jurnal"> | number | null
+    nominal?: FloatWithAggregatesFilter<"Jurnal"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Jurnal"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Jurnal"> | Date | string
+  }
+
+  export type COAWhereInput = {
+    AND?: COAWhereInput | COAWhereInput[]
+    OR?: COAWhereInput[]
+    NOT?: COAWhereInput | COAWhereInput[]
+    id?: IntFilter<"COA"> | number
+    tipe?: EnumTipeTransaksiFilter<"COA"> | $Enums.TipeTransaksi
+    kodeAkun?: StringFilter<"COA"> | string
+    namaAkun?: StringFilter<"COA"> | string
+    journals?: JurnalListRelationFilter
+  }
+
+  export type COAOrderByWithRelationInput = {
+    id?: SortOrder
+    tipe?: SortOrder
+    kodeAkun?: SortOrder
+    namaAkun?: SortOrder
+    journals?: JurnalOrderByRelationAggregateInput
+  }
+
+  export type COAWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    kodeAkun?: string
+    AND?: COAWhereInput | COAWhereInput[]
+    OR?: COAWhereInput[]
+    NOT?: COAWhereInput | COAWhereInput[]
+    tipe?: EnumTipeTransaksiFilter<"COA"> | $Enums.TipeTransaksi
+    namaAkun?: StringFilter<"COA"> | string
+    journals?: JurnalListRelationFilter
+  }, "id" | "kodeAkun">
+
+  export type COAOrderByWithAggregationInput = {
+    id?: SortOrder
+    tipe?: SortOrder
+    kodeAkun?: SortOrder
+    namaAkun?: SortOrder
+    _count?: COACountOrderByAggregateInput
+    _avg?: COAAvgOrderByAggregateInput
+    _max?: COAMaxOrderByAggregateInput
+    _min?: COAMinOrderByAggregateInput
+    _sum?: COASumOrderByAggregateInput
+  }
+
+  export type COAScalarWhereWithAggregatesInput = {
+    AND?: COAScalarWhereWithAggregatesInput | COAScalarWhereWithAggregatesInput[]
+    OR?: COAScalarWhereWithAggregatesInput[]
+    NOT?: COAScalarWhereWithAggregatesInput | COAScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"COA"> | number
+    tipe?: EnumTipeTransaksiWithAggregatesFilter<"COA"> | $Enums.TipeTransaksi
+    kodeAkun?: StringWithAggregatesFilter<"COA"> | string
+    namaAkun?: StringWithAggregatesFilter<"COA"> | string
   }
 
   export type PostCreateInput = {
@@ -7495,6 +23992,855 @@ export namespace Prisma {
     identifier?: StringFieldUpdateOperationsInput | string
     token?: StringFieldUpdateOperationsInput | string
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AgenCreateInput = {
+    nama: string
+    alamat: string
+    nomorHp: string
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutAgenInput
+    invoices?: InvoiceCreateNestedManyWithoutAgenInput
+  }
+
+  export type AgenUncheckedCreateInput = {
+    id?: number
+    nama: string
+    alamat: string
+    nomorHp: string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutAgenInput
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutAgenInput
+  }
+
+  export type AgenUpdateInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    nomorHp?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUpdateManyWithoutAgenNestedInput
+    invoices?: InvoiceUpdateManyWithoutAgenNestedInput
+  }
+
+  export type AgenUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    nomorHp?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutAgenNestedInput
+    invoices?: InvoiceUncheckedUpdateManyWithoutAgenNestedInput
+  }
+
+  export type AgenCreateManyInput = {
+    id?: number
+    nama: string
+    alamat: string
+    nomorHp: string
+  }
+
+  export type AgenUpdateManyMutationInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    nomorHp?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AgenUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    nomorHp?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdukCreateInput = {
+    nama: string
+    paket?: PaketCreateNestedManyWithoutProdukInput
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutProdukInput
+  }
+
+  export type ProdukUncheckedCreateInput = {
+    id?: number
+    nama: string
+    paket?: PaketUncheckedCreateNestedManyWithoutProdukInput
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutProdukInput
+  }
+
+  export type ProdukUpdateInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    paket?: PaketUpdateManyWithoutProdukNestedInput
+    barcodes?: BarcodeJemaahUpdateManyWithoutProdukNestedInput
+  }
+
+  export type ProdukUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    paket?: PaketUncheckedUpdateManyWithoutProdukNestedInput
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutProdukNestedInput
+  }
+
+  export type ProdukCreateManyInput = {
+    id?: number
+    nama: string
+  }
+
+  export type ProdukUpdateManyMutationInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProdukUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PaketCreateInput = {
+    nama: string
+    produk: ProdukCreateNestedOneWithoutPaketInput
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutPaketInput
+  }
+
+  export type PaketUncheckedCreateInput = {
+    id?: number
+    produkId: number
+    nama: string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutPaketInput
+  }
+
+  export type PaketUpdateInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    produk?: ProdukUpdateOneRequiredWithoutPaketNestedInput
+    barcodes?: BarcodeJemaahUpdateManyWithoutPaketNestedInput
+  }
+
+  export type PaketUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    produkId?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutPaketNestedInput
+  }
+
+  export type PaketCreateManyInput = {
+    id?: number
+    produkId: number
+    nama: string
+  }
+
+  export type PaketUpdateManyMutationInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PaketUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    produkId?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FileCreateInput = {
+    url: string
+    type: string
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutFileInput
+    batchTransactions?: BatchTransactionCreateNestedManyWithoutFileInput
+    journals?: JurnalCreateNestedManyWithoutFileInput
+  }
+
+  export type FileUncheckedCreateInput = {
+    id?: number
+    url: string
+    type: string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutFileInput
+    batchTransactions?: BatchTransactionUncheckedCreateNestedManyWithoutFileInput
+    journals?: JurnalUncheckedCreateNestedManyWithoutFileInput
+  }
+
+  export type FileUpdateInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUpdateManyWithoutFileNestedInput
+    batchTransactions?: BatchTransactionUpdateManyWithoutFileNestedInput
+    journals?: JurnalUpdateManyWithoutFileNestedInput
+  }
+
+  export type FileUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutFileNestedInput
+    batchTransactions?: BatchTransactionUncheckedUpdateManyWithoutFileNestedInput
+    journals?: JurnalUncheckedUpdateManyWithoutFileNestedInput
+  }
+
+  export type FileCreateManyInput = {
+    id?: number
+    url: string
+    type: string
+  }
+
+  export type FileUpdateManyMutationInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FileUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BarcodeJemaahCreateInput = {
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    harga: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    produk: ProdukCreateNestedOneWithoutBarcodesInput
+    paket: PaketCreateNestedOneWithoutBarcodesInput
+    agen: AgenCreateNestedOneWithoutBarcodesInput
+    file?: FileCreateNestedOneWithoutBarcodesInput
+    invoice?: InvoiceCreateNestedOneWithoutBarcodesInput
+  }
+
+  export type BarcodeJemaahUncheckedCreateInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    fileId?: number | null
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahUpdateInput = {
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    produk?: ProdukUpdateOneRequiredWithoutBarcodesNestedInput
+    paket?: PaketUpdateOneRequiredWithoutBarcodesNestedInput
+    agen?: AgenUpdateOneRequiredWithoutBarcodesNestedInput
+    file?: FileUpdateOneWithoutBarcodesNestedInput
+    invoice?: InvoiceUpdateOneWithoutBarcodesNestedInput
+  }
+
+  export type BarcodeJemaahUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahCreateManyInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    fileId?: number | null
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahUpdateManyMutationInput = {
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceCreateInput = {
+    nomor: string
+    tanggal: Date | string
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    agen: AgenCreateNestedOneWithoutInvoicesInput
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutInvoiceInput
+    mutasiLinks?: InvoiceMutasiCreateNestedManyWithoutInvoiceInput
+    batch?: BatchFlightCreateNestedOneWithoutInvoicesInput
+  }
+
+  export type InvoiceUncheckedCreateInput = {
+    id?: number
+    nomor: string
+    tanggal: Date | string
+    agenId: number
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    batchFlightId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutInvoiceInput
+    mutasiLinks?: InvoiceMutasiUncheckedCreateNestedManyWithoutInvoiceInput
+  }
+
+  export type InvoiceUpdateInput = {
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    agen?: AgenUpdateOneRequiredWithoutInvoicesNestedInput
+    barcodes?: BarcodeJemaahUpdateManyWithoutInvoiceNestedInput
+    mutasiLinks?: InvoiceMutasiUpdateManyWithoutInvoiceNestedInput
+    batch?: BatchFlightUpdateOneWithoutInvoicesNestedInput
+  }
+
+  export type InvoiceUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    agenId?: IntFieldUpdateOperationsInput | number
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    batchFlightId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutInvoiceNestedInput
+    mutasiLinks?: InvoiceMutasiUncheckedUpdateManyWithoutInvoiceNestedInput
+  }
+
+  export type InvoiceCreateManyInput = {
+    id?: number
+    nomor: string
+    tanggal: Date | string
+    agenId: number
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    batchFlightId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceUpdateManyMutationInput = {
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    agenId?: IntFieldUpdateOperationsInput | number
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    batchFlightId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MutasiCreateInput = {
+    timestamp: Date | string
+    deskripsi: string
+    reff: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoiceLinks?: InvoiceMutasiCreateNestedManyWithoutMutasiInput
+    batchTransactions?: BatchTransactionCreateNestedManyWithoutMutasiInput
+  }
+
+  export type MutasiUncheckedCreateInput = {
+    id?: number
+    timestamp: Date | string
+    deskripsi: string
+    reff: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoiceLinks?: InvoiceMutasiUncheckedCreateNestedManyWithoutMutasiInput
+    batchTransactions?: BatchTransactionUncheckedCreateNestedManyWithoutMutasiInput
+  }
+
+  export type MutasiUpdateInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    reff?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoiceLinks?: InvoiceMutasiUpdateManyWithoutMutasiNestedInput
+    batchTransactions?: BatchTransactionUpdateManyWithoutMutasiNestedInput
+  }
+
+  export type MutasiUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    reff?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoiceLinks?: InvoiceMutasiUncheckedUpdateManyWithoutMutasiNestedInput
+    batchTransactions?: BatchTransactionUncheckedUpdateManyWithoutMutasiNestedInput
+  }
+
+  export type MutasiCreateManyInput = {
+    id?: number
+    timestamp: Date | string
+    deskripsi: string
+    reff: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MutasiUpdateManyMutationInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    reff?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MutasiUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    reff?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceMutasiCreateInput = {
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoice: InvoiceCreateNestedOneWithoutMutasiLinksInput
+    mutasi: MutasiCreateNestedOneWithoutInvoiceLinksInput
+  }
+
+  export type InvoiceMutasiUncheckedCreateInput = {
+    id?: number
+    invoiceId: number
+    mutasiId: number
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceMutasiUpdateInput = {
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoice?: InvoiceUpdateOneRequiredWithoutMutasiLinksNestedInput
+    mutasi?: MutasiUpdateOneRequiredWithoutInvoiceLinksNestedInput
+  }
+
+  export type InvoiceMutasiUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    invoiceId?: IntFieldUpdateOperationsInput | number
+    mutasiId?: IntFieldUpdateOperationsInput | number
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceMutasiCreateManyInput = {
+    id?: number
+    invoiceId: number
+    mutasiId: number
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceMutasiUpdateManyMutationInput = {
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceMutasiUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    invoiceId?: IntFieldUpdateOperationsInput | number
+    mutasiId?: IntFieldUpdateOperationsInput | number
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchFlightCreateInput = {
+    nomorBatch: string
+    route: string
+    bookingCode: string
+    flightDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoices?: InvoiceCreateNestedManyWithoutBatchInput
+    transactions?: BatchTransactionCreateNestedManyWithoutBatchInput
+  }
+
+  export type BatchFlightUncheckedCreateInput = {
+    id?: number
+    nomorBatch: string
+    route: string
+    bookingCode: string
+    flightDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutBatchInput
+    transactions?: BatchTransactionUncheckedCreateNestedManyWithoutBatchInput
+  }
+
+  export type BatchFlightUpdateInput = {
+    nomorBatch?: StringFieldUpdateOperationsInput | string
+    route?: StringFieldUpdateOperationsInput | string
+    bookingCode?: StringFieldUpdateOperationsInput | string
+    flightDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoices?: InvoiceUpdateManyWithoutBatchNestedInput
+    transactions?: BatchTransactionUpdateManyWithoutBatchNestedInput
+  }
+
+  export type BatchFlightUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomorBatch?: StringFieldUpdateOperationsInput | string
+    route?: StringFieldUpdateOperationsInput | string
+    bookingCode?: StringFieldUpdateOperationsInput | string
+    flightDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoices?: InvoiceUncheckedUpdateManyWithoutBatchNestedInput
+    transactions?: BatchTransactionUncheckedUpdateManyWithoutBatchNestedInput
+  }
+
+  export type BatchFlightCreateManyInput = {
+    id?: number
+    nomorBatch: string
+    route: string
+    bookingCode: string
+    flightDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchFlightUpdateManyMutationInput = {
+    nomorBatch?: StringFieldUpdateOperationsInput | string
+    route?: StringFieldUpdateOperationsInput | string
+    bookingCode?: StringFieldUpdateOperationsInput | string
+    flightDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchFlightUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomorBatch?: StringFieldUpdateOperationsInput | string
+    route?: StringFieldUpdateOperationsInput | string
+    bookingCode?: StringFieldUpdateOperationsInput | string
+    flightDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionCreateInput = {
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    batch: BatchFlightCreateNestedOneWithoutTransactionsInput
+    file?: FileCreateNestedOneWithoutBatchTransactionsInput
+    mutasi?: MutasiCreateNestedOneWithoutBatchTransactionsInput
+  }
+
+  export type BatchTransactionUncheckedCreateInput = {
+    id?: number
+    batchId: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    fileId?: number | null
+    mutasiId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchTransactionUpdateInput = {
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    batch?: BatchFlightUpdateOneRequiredWithoutTransactionsNestedInput
+    file?: FileUpdateOneWithoutBatchTransactionsNestedInput
+    mutasi?: MutasiUpdateOneWithoutBatchTransactionsNestedInput
+  }
+
+  export type BatchTransactionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    batchId?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    mutasiId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionCreateManyInput = {
+    id?: number
+    batchId: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    fileId?: number | null
+    mutasiId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchTransactionUpdateManyMutationInput = {
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    batchId?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    mutasiId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JurnalCreateInput = {
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    tanggalTransaksi: Date | string
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    coa: COACreateNestedOneWithoutJournalsInput
+    file?: FileCreateNestedOneWithoutJournalsInput
+  }
+
+  export type JurnalUncheckedCreateInput = {
+    id?: number
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    coaId: number
+    tanggalTransaksi: Date | string
+    fileId?: number | null
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JurnalUpdateInput = {
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    coa?: COAUpdateOneRequiredWithoutJournalsNestedInput
+    file?: FileUpdateOneWithoutJournalsNestedInput
+  }
+
+  export type JurnalUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    coaId?: IntFieldUpdateOperationsInput | number
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JurnalCreateManyInput = {
+    id?: number
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    coaId: number
+    tanggalTransaksi: Date | string
+    fileId?: number | null
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JurnalUpdateManyMutationInput = {
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JurnalUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    coaId?: IntFieldUpdateOperationsInput | number
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type COACreateInput = {
+    tipe: $Enums.TipeTransaksi
+    kodeAkun: string
+    namaAkun: string
+    journals?: JurnalCreateNestedManyWithoutCoaInput
+  }
+
+  export type COAUncheckedCreateInput = {
+    id?: number
+    tipe: $Enums.TipeTransaksi
+    kodeAkun: string
+    namaAkun: string
+    journals?: JurnalUncheckedCreateNestedManyWithoutCoaInput
+  }
+
+  export type COAUpdateInput = {
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    kodeAkun?: StringFieldUpdateOperationsInput | string
+    namaAkun?: StringFieldUpdateOperationsInput | string
+    journals?: JurnalUpdateManyWithoutCoaNestedInput
+  }
+
+  export type COAUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    kodeAkun?: StringFieldUpdateOperationsInput | string
+    namaAkun?: StringFieldUpdateOperationsInput | string
+    journals?: JurnalUncheckedUpdateManyWithoutCoaNestedInput
+  }
+
+  export type COACreateManyInput = {
+    id?: number
+    tipe: $Enums.TipeTransaksi
+    kodeAkun: string
+    namaAkun: string
+  }
+
+  export type COAUpdateManyMutationInput = {
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    kodeAkun?: StringFieldUpdateOperationsInput | string
+    namaAkun?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type COAUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    kodeAkun?: StringFieldUpdateOperationsInput | string
+    namaAkun?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -7870,6 +25216,684 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
+  export type BarcodeJemaahListRelationFilter = {
+    every?: BarcodeJemaahWhereInput
+    some?: BarcodeJemaahWhereInput
+    none?: BarcodeJemaahWhereInput
+  }
+
+  export type InvoiceListRelationFilter = {
+    every?: InvoiceWhereInput
+    some?: InvoiceWhereInput
+    none?: InvoiceWhereInput
+  }
+
+  export type BarcodeJemaahOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type InvoiceOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type AgenCountOrderByAggregateInput = {
+    id?: SortOrder
+    nama?: SortOrder
+    alamat?: SortOrder
+    nomorHp?: SortOrder
+  }
+
+  export type AgenAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type AgenMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nama?: SortOrder
+    alamat?: SortOrder
+    nomorHp?: SortOrder
+  }
+
+  export type AgenMinOrderByAggregateInput = {
+    id?: SortOrder
+    nama?: SortOrder
+    alamat?: SortOrder
+    nomorHp?: SortOrder
+  }
+
+  export type AgenSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type PaketListRelationFilter = {
+    every?: PaketWhereInput
+    some?: PaketWhereInput
+    none?: PaketWhereInput
+  }
+
+  export type PaketOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProdukCountOrderByAggregateInput = {
+    id?: SortOrder
+    nama?: SortOrder
+  }
+
+  export type ProdukAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ProdukMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nama?: SortOrder
+  }
+
+  export type ProdukMinOrderByAggregateInput = {
+    id?: SortOrder
+    nama?: SortOrder
+  }
+
+  export type ProdukSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ProdukScalarRelationFilter = {
+    is?: ProdukWhereInput
+    isNot?: ProdukWhereInput
+  }
+
+  export type PaketCountOrderByAggregateInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+    nama?: SortOrder
+  }
+
+  export type PaketAvgOrderByAggregateInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+  }
+
+  export type PaketMaxOrderByAggregateInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+    nama?: SortOrder
+  }
+
+  export type PaketMinOrderByAggregateInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+    nama?: SortOrder
+  }
+
+  export type PaketSumOrderByAggregateInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+  }
+
+  export type BatchTransactionListRelationFilter = {
+    every?: BatchTransactionWhereInput
+    some?: BatchTransactionWhereInput
+    none?: BatchTransactionWhereInput
+  }
+
+  export type JurnalListRelationFilter = {
+    every?: JurnalWhereInput
+    some?: JurnalWhereInput
+    none?: JurnalWhereInput
+  }
+
+  export type BatchTransactionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type JurnalOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FileCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    type?: SortOrder
+  }
+
+  export type FileAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type FileMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    type?: SortOrder
+  }
+
+  export type FileMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    type?: SortOrder
+  }
+
+  export type FileSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type PaketScalarRelationFilter = {
+    is?: PaketWhereInput
+    isNot?: PaketWhereInput
+  }
+
+  export type AgenScalarRelationFilter = {
+    is?: AgenWhereInput
+    isNot?: AgenWhereInput
+  }
+
+  export type FileNullableScalarRelationFilter = {
+    is?: FileWhereInput | null
+    isNot?: FileWhereInput | null
+  }
+
+  export type InvoiceNullableScalarRelationFilter = {
+    is?: InvoiceWhereInput | null
+    isNot?: InvoiceWhereInput | null
+  }
+
+  export type BarcodeJemaahCountOrderByAggregateInput = {
+    id?: SortOrder
+    oldBarcode?: SortOrder
+    nama?: SortOrder
+    ktp?: SortOrder
+    alamat?: SortOrder
+    produkId?: SortOrder
+    paketId?: SortOrder
+    tingkat?: SortOrder
+    tanggalKeberangkatan?: SortOrder
+    deskripsi?: SortOrder
+    agenId?: SortOrder
+    harga?: SortOrder
+    fileId?: SortOrder
+    invoiceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BarcodeJemaahAvgOrderByAggregateInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+    paketId?: SortOrder
+    agenId?: SortOrder
+    harga?: SortOrder
+    fileId?: SortOrder
+    invoiceId?: SortOrder
+  }
+
+  export type BarcodeJemaahMaxOrderByAggregateInput = {
+    id?: SortOrder
+    oldBarcode?: SortOrder
+    nama?: SortOrder
+    ktp?: SortOrder
+    alamat?: SortOrder
+    produkId?: SortOrder
+    paketId?: SortOrder
+    tingkat?: SortOrder
+    tanggalKeberangkatan?: SortOrder
+    deskripsi?: SortOrder
+    agenId?: SortOrder
+    harga?: SortOrder
+    fileId?: SortOrder
+    invoiceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BarcodeJemaahMinOrderByAggregateInput = {
+    id?: SortOrder
+    oldBarcode?: SortOrder
+    nama?: SortOrder
+    ktp?: SortOrder
+    alamat?: SortOrder
+    produkId?: SortOrder
+    paketId?: SortOrder
+    tingkat?: SortOrder
+    tanggalKeberangkatan?: SortOrder
+    deskripsi?: SortOrder
+    agenId?: SortOrder
+    harga?: SortOrder
+    fileId?: SortOrder
+    invoiceId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BarcodeJemaahSumOrderByAggregateInput = {
+    id?: SortOrder
+    produkId?: SortOrder
+    paketId?: SortOrder
+    agenId?: SortOrder
+    harga?: SortOrder
+    fileId?: SortOrder
+    invoiceId?: SortOrder
+  }
+
+  export type FloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type EnumInvoiceStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvoiceStatusFilter<$PrismaModel> | $Enums.InvoiceStatus
+  }
+
+  export type InvoiceMutasiListRelationFilter = {
+    every?: InvoiceMutasiWhereInput
+    some?: InvoiceMutasiWhereInput
+    none?: InvoiceMutasiWhereInput
+  }
+
+  export type BatchFlightNullableScalarRelationFilter = {
+    is?: BatchFlightWhereInput | null
+    isNot?: BatchFlightWhereInput | null
+  }
+
+  export type InvoiceMutasiOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type InvoiceCountOrderByAggregateInput = {
+    id?: SortOrder
+    nomor?: SortOrder
+    tanggal?: SortOrder
+    agenId?: SortOrder
+    taxPercent?: SortOrder
+    diskon?: SortOrder
+    total?: SortOrder
+    status?: SortOrder
+    dueDate?: SortOrder
+    batchFlightId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type InvoiceAvgOrderByAggregateInput = {
+    id?: SortOrder
+    agenId?: SortOrder
+    taxPercent?: SortOrder
+    diskon?: SortOrder
+    total?: SortOrder
+    batchFlightId?: SortOrder
+  }
+
+  export type InvoiceMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nomor?: SortOrder
+    tanggal?: SortOrder
+    agenId?: SortOrder
+    taxPercent?: SortOrder
+    diskon?: SortOrder
+    total?: SortOrder
+    status?: SortOrder
+    dueDate?: SortOrder
+    batchFlightId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type InvoiceMinOrderByAggregateInput = {
+    id?: SortOrder
+    nomor?: SortOrder
+    tanggal?: SortOrder
+    agenId?: SortOrder
+    taxPercent?: SortOrder
+    diskon?: SortOrder
+    total?: SortOrder
+    status?: SortOrder
+    dueDate?: SortOrder
+    batchFlightId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type InvoiceSumOrderByAggregateInput = {
+    id?: SortOrder
+    agenId?: SortOrder
+    taxPercent?: SortOrder
+    diskon?: SortOrder
+    total?: SortOrder
+    batchFlightId?: SortOrder
+  }
+
+  export type EnumInvoiceStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel> | $Enums.InvoiceStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInvoiceStatusFilter<$PrismaModel>
+    _max?: NestedEnumInvoiceStatusFilter<$PrismaModel>
+  }
+
+  export type MutasiCountOrderByAggregateInput = {
+    id?: SortOrder
+    timestamp?: SortOrder
+    deskripsi?: SortOrder
+    reff?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MutasiAvgOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type MutasiMaxOrderByAggregateInput = {
+    id?: SortOrder
+    timestamp?: SortOrder
+    deskripsi?: SortOrder
+    reff?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MutasiMinOrderByAggregateInput = {
+    id?: SortOrder
+    timestamp?: SortOrder
+    deskripsi?: SortOrder
+    reff?: SortOrder
+    amount?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MutasiSumOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+  }
+
+  export type InvoiceScalarRelationFilter = {
+    is?: InvoiceWhereInput
+    isNot?: InvoiceWhereInput
+  }
+
+  export type MutasiScalarRelationFilter = {
+    is?: MutasiWhereInput
+    isNot?: MutasiWhereInput
+  }
+
+  export type InvoiceMutasiCountOrderByAggregateInput = {
+    id?: SortOrder
+    invoiceId?: SortOrder
+    mutasiId?: SortOrder
+    totalDigunakan?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type InvoiceMutasiAvgOrderByAggregateInput = {
+    id?: SortOrder
+    invoiceId?: SortOrder
+    mutasiId?: SortOrder
+    totalDigunakan?: SortOrder
+  }
+
+  export type InvoiceMutasiMaxOrderByAggregateInput = {
+    id?: SortOrder
+    invoiceId?: SortOrder
+    mutasiId?: SortOrder
+    totalDigunakan?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type InvoiceMutasiMinOrderByAggregateInput = {
+    id?: SortOrder
+    invoiceId?: SortOrder
+    mutasiId?: SortOrder
+    totalDigunakan?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type InvoiceMutasiSumOrderByAggregateInput = {
+    id?: SortOrder
+    invoiceId?: SortOrder
+    mutasiId?: SortOrder
+    totalDigunakan?: SortOrder
+  }
+
+  export type BatchFlightCountOrderByAggregateInput = {
+    id?: SortOrder
+    nomorBatch?: SortOrder
+    route?: SortOrder
+    bookingCode?: SortOrder
+    flightDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BatchFlightAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type BatchFlightMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nomorBatch?: SortOrder
+    route?: SortOrder
+    bookingCode?: SortOrder
+    flightDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BatchFlightMinOrderByAggregateInput = {
+    id?: SortOrder
+    nomorBatch?: SortOrder
+    route?: SortOrder
+    bookingCode?: SortOrder
+    flightDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BatchFlightSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type EnumTipeTransaksiFilter<$PrismaModel = never> = {
+    equals?: $Enums.TipeTransaksi | EnumTipeTransaksiFieldRefInput<$PrismaModel>
+    in?: $Enums.TipeTransaksi[] | ListEnumTipeTransaksiFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TipeTransaksi[] | ListEnumTipeTransaksiFieldRefInput<$PrismaModel>
+    not?: NestedEnumTipeTransaksiFilter<$PrismaModel> | $Enums.TipeTransaksi
+  }
+
+  export type BatchFlightScalarRelationFilter = {
+    is?: BatchFlightWhereInput
+    isNot?: BatchFlightWhereInput
+  }
+
+  export type MutasiNullableScalarRelationFilter = {
+    is?: MutasiWhereInput | null
+    isNot?: MutasiWhereInput | null
+  }
+
+  export type BatchTransactionCountOrderByAggregateInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    tipe?: SortOrder
+    namaTransaksi?: SortOrder
+    nominal?: SortOrder
+    deskripsi?: SortOrder
+    fileId?: SortOrder
+    mutasiId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BatchTransactionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    nominal?: SortOrder
+    fileId?: SortOrder
+    mutasiId?: SortOrder
+  }
+
+  export type BatchTransactionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    tipe?: SortOrder
+    namaTransaksi?: SortOrder
+    nominal?: SortOrder
+    deskripsi?: SortOrder
+    fileId?: SortOrder
+    mutasiId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BatchTransactionMinOrderByAggregateInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    tipe?: SortOrder
+    namaTransaksi?: SortOrder
+    nominal?: SortOrder
+    deskripsi?: SortOrder
+    fileId?: SortOrder
+    mutasiId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type BatchTransactionSumOrderByAggregateInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    nominal?: SortOrder
+    fileId?: SortOrder
+    mutasiId?: SortOrder
+  }
+
+  export type EnumTipeTransaksiWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TipeTransaksi | EnumTipeTransaksiFieldRefInput<$PrismaModel>
+    in?: $Enums.TipeTransaksi[] | ListEnumTipeTransaksiFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TipeTransaksi[] | ListEnumTipeTransaksiFieldRefInput<$PrismaModel>
+    not?: NestedEnumTipeTransaksiWithAggregatesFilter<$PrismaModel> | $Enums.TipeTransaksi
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTipeTransaksiFilter<$PrismaModel>
+    _max?: NestedEnumTipeTransaksiFilter<$PrismaModel>
+  }
+
+  export type COAScalarRelationFilter = {
+    is?: COAWhereInput
+    isNot?: COAWhereInput
+  }
+
+  export type JurnalCountOrderByAggregateInput = {
+    id?: SortOrder
+    jurnalNumber?: SortOrder
+    namaTransaksi?: SortOrder
+    tipe?: SortOrder
+    coaId?: SortOrder
+    tanggalTransaksi?: SortOrder
+    fileId?: SortOrder
+    nominal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JurnalAvgOrderByAggregateInput = {
+    id?: SortOrder
+    coaId?: SortOrder
+    fileId?: SortOrder
+    nominal?: SortOrder
+  }
+
+  export type JurnalMaxOrderByAggregateInput = {
+    id?: SortOrder
+    jurnalNumber?: SortOrder
+    namaTransaksi?: SortOrder
+    tipe?: SortOrder
+    coaId?: SortOrder
+    tanggalTransaksi?: SortOrder
+    fileId?: SortOrder
+    nominal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JurnalMinOrderByAggregateInput = {
+    id?: SortOrder
+    jurnalNumber?: SortOrder
+    namaTransaksi?: SortOrder
+    tipe?: SortOrder
+    coaId?: SortOrder
+    tanggalTransaksi?: SortOrder
+    fileId?: SortOrder
+    nominal?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JurnalSumOrderByAggregateInput = {
+    id?: SortOrder
+    coaId?: SortOrder
+    fileId?: SortOrder
+    nominal?: SortOrder
+  }
+
+  export type COACountOrderByAggregateInput = {
+    id?: SortOrder
+    tipe?: SortOrder
+    kodeAkun?: SortOrder
+    namaAkun?: SortOrder
+  }
+
+  export type COAAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type COAMaxOrderByAggregateInput = {
+    id?: SortOrder
+    tipe?: SortOrder
+    kodeAkun?: SortOrder
+    namaAkun?: SortOrder
+  }
+
+  export type COAMinOrderByAggregateInput = {
+    id?: SortOrder
+    tipe?: SortOrder
+    kodeAkun?: SortOrder
+    namaAkun?: SortOrder
+  }
+
+  export type COASumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type UserCreateNestedOneWithoutPostsInput = {
     create?: XOR<UserCreateWithoutPostsInput, UserUncheckedCreateWithoutPostsInput>
     connectOrCreate?: UserCreateOrConnectWithoutPostsInput
@@ -8070,6 +26094,874 @@ export namespace Prisma {
     deleteMany?: PostScalarWhereInput | PostScalarWhereInput[]
   }
 
+  export type BarcodeJemaahCreateNestedManyWithoutAgenInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutAgenInput, BarcodeJemaahUncheckedCreateWithoutAgenInput> | BarcodeJemaahCreateWithoutAgenInput[] | BarcodeJemaahUncheckedCreateWithoutAgenInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutAgenInput | BarcodeJemaahCreateOrConnectWithoutAgenInput[]
+    createMany?: BarcodeJemaahCreateManyAgenInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type InvoiceCreateNestedManyWithoutAgenInput = {
+    create?: XOR<InvoiceCreateWithoutAgenInput, InvoiceUncheckedCreateWithoutAgenInput> | InvoiceCreateWithoutAgenInput[] | InvoiceUncheckedCreateWithoutAgenInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutAgenInput | InvoiceCreateOrConnectWithoutAgenInput[]
+    createMany?: InvoiceCreateManyAgenInputEnvelope
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+  }
+
+  export type BarcodeJemaahUncheckedCreateNestedManyWithoutAgenInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutAgenInput, BarcodeJemaahUncheckedCreateWithoutAgenInput> | BarcodeJemaahCreateWithoutAgenInput[] | BarcodeJemaahUncheckedCreateWithoutAgenInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutAgenInput | BarcodeJemaahCreateOrConnectWithoutAgenInput[]
+    createMany?: BarcodeJemaahCreateManyAgenInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type InvoiceUncheckedCreateNestedManyWithoutAgenInput = {
+    create?: XOR<InvoiceCreateWithoutAgenInput, InvoiceUncheckedCreateWithoutAgenInput> | InvoiceCreateWithoutAgenInput[] | InvoiceUncheckedCreateWithoutAgenInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutAgenInput | InvoiceCreateOrConnectWithoutAgenInput[]
+    createMany?: InvoiceCreateManyAgenInputEnvelope
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+  }
+
+  export type BarcodeJemaahUpdateManyWithoutAgenNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutAgenInput, BarcodeJemaahUncheckedCreateWithoutAgenInput> | BarcodeJemaahCreateWithoutAgenInput[] | BarcodeJemaahUncheckedCreateWithoutAgenInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutAgenInput | BarcodeJemaahCreateOrConnectWithoutAgenInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutAgenInput | BarcodeJemaahUpsertWithWhereUniqueWithoutAgenInput[]
+    createMany?: BarcodeJemaahCreateManyAgenInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutAgenInput | BarcodeJemaahUpdateWithWhereUniqueWithoutAgenInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutAgenInput | BarcodeJemaahUpdateManyWithWhereWithoutAgenInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type InvoiceUpdateManyWithoutAgenNestedInput = {
+    create?: XOR<InvoiceCreateWithoutAgenInput, InvoiceUncheckedCreateWithoutAgenInput> | InvoiceCreateWithoutAgenInput[] | InvoiceUncheckedCreateWithoutAgenInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutAgenInput | InvoiceCreateOrConnectWithoutAgenInput[]
+    upsert?: InvoiceUpsertWithWhereUniqueWithoutAgenInput | InvoiceUpsertWithWhereUniqueWithoutAgenInput[]
+    createMany?: InvoiceCreateManyAgenInputEnvelope
+    set?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    disconnect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    delete?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    update?: InvoiceUpdateWithWhereUniqueWithoutAgenInput | InvoiceUpdateWithWhereUniqueWithoutAgenInput[]
+    updateMany?: InvoiceUpdateManyWithWhereWithoutAgenInput | InvoiceUpdateManyWithWhereWithoutAgenInput[]
+    deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutAgenNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutAgenInput, BarcodeJemaahUncheckedCreateWithoutAgenInput> | BarcodeJemaahCreateWithoutAgenInput[] | BarcodeJemaahUncheckedCreateWithoutAgenInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutAgenInput | BarcodeJemaahCreateOrConnectWithoutAgenInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutAgenInput | BarcodeJemaahUpsertWithWhereUniqueWithoutAgenInput[]
+    createMany?: BarcodeJemaahCreateManyAgenInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutAgenInput | BarcodeJemaahUpdateWithWhereUniqueWithoutAgenInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutAgenInput | BarcodeJemaahUpdateManyWithWhereWithoutAgenInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type InvoiceUncheckedUpdateManyWithoutAgenNestedInput = {
+    create?: XOR<InvoiceCreateWithoutAgenInput, InvoiceUncheckedCreateWithoutAgenInput> | InvoiceCreateWithoutAgenInput[] | InvoiceUncheckedCreateWithoutAgenInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutAgenInput | InvoiceCreateOrConnectWithoutAgenInput[]
+    upsert?: InvoiceUpsertWithWhereUniqueWithoutAgenInput | InvoiceUpsertWithWhereUniqueWithoutAgenInput[]
+    createMany?: InvoiceCreateManyAgenInputEnvelope
+    set?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    disconnect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    delete?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    update?: InvoiceUpdateWithWhereUniqueWithoutAgenInput | InvoiceUpdateWithWhereUniqueWithoutAgenInput[]
+    updateMany?: InvoiceUpdateManyWithWhereWithoutAgenInput | InvoiceUpdateManyWithWhereWithoutAgenInput[]
+    deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+  }
+
+  export type PaketCreateNestedManyWithoutProdukInput = {
+    create?: XOR<PaketCreateWithoutProdukInput, PaketUncheckedCreateWithoutProdukInput> | PaketCreateWithoutProdukInput[] | PaketUncheckedCreateWithoutProdukInput[]
+    connectOrCreate?: PaketCreateOrConnectWithoutProdukInput | PaketCreateOrConnectWithoutProdukInput[]
+    createMany?: PaketCreateManyProdukInputEnvelope
+    connect?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+  }
+
+  export type BarcodeJemaahCreateNestedManyWithoutProdukInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutProdukInput, BarcodeJemaahUncheckedCreateWithoutProdukInput> | BarcodeJemaahCreateWithoutProdukInput[] | BarcodeJemaahUncheckedCreateWithoutProdukInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutProdukInput | BarcodeJemaahCreateOrConnectWithoutProdukInput[]
+    createMany?: BarcodeJemaahCreateManyProdukInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type PaketUncheckedCreateNestedManyWithoutProdukInput = {
+    create?: XOR<PaketCreateWithoutProdukInput, PaketUncheckedCreateWithoutProdukInput> | PaketCreateWithoutProdukInput[] | PaketUncheckedCreateWithoutProdukInput[]
+    connectOrCreate?: PaketCreateOrConnectWithoutProdukInput | PaketCreateOrConnectWithoutProdukInput[]
+    createMany?: PaketCreateManyProdukInputEnvelope
+    connect?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+  }
+
+  export type BarcodeJemaahUncheckedCreateNestedManyWithoutProdukInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutProdukInput, BarcodeJemaahUncheckedCreateWithoutProdukInput> | BarcodeJemaahCreateWithoutProdukInput[] | BarcodeJemaahUncheckedCreateWithoutProdukInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutProdukInput | BarcodeJemaahCreateOrConnectWithoutProdukInput[]
+    createMany?: BarcodeJemaahCreateManyProdukInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type PaketUpdateManyWithoutProdukNestedInput = {
+    create?: XOR<PaketCreateWithoutProdukInput, PaketUncheckedCreateWithoutProdukInput> | PaketCreateWithoutProdukInput[] | PaketUncheckedCreateWithoutProdukInput[]
+    connectOrCreate?: PaketCreateOrConnectWithoutProdukInput | PaketCreateOrConnectWithoutProdukInput[]
+    upsert?: PaketUpsertWithWhereUniqueWithoutProdukInput | PaketUpsertWithWhereUniqueWithoutProdukInput[]
+    createMany?: PaketCreateManyProdukInputEnvelope
+    set?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+    disconnect?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+    delete?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+    connect?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+    update?: PaketUpdateWithWhereUniqueWithoutProdukInput | PaketUpdateWithWhereUniqueWithoutProdukInput[]
+    updateMany?: PaketUpdateManyWithWhereWithoutProdukInput | PaketUpdateManyWithWhereWithoutProdukInput[]
+    deleteMany?: PaketScalarWhereInput | PaketScalarWhereInput[]
+  }
+
+  export type BarcodeJemaahUpdateManyWithoutProdukNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutProdukInput, BarcodeJemaahUncheckedCreateWithoutProdukInput> | BarcodeJemaahCreateWithoutProdukInput[] | BarcodeJemaahUncheckedCreateWithoutProdukInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutProdukInput | BarcodeJemaahCreateOrConnectWithoutProdukInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutProdukInput | BarcodeJemaahUpsertWithWhereUniqueWithoutProdukInput[]
+    createMany?: BarcodeJemaahCreateManyProdukInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutProdukInput | BarcodeJemaahUpdateWithWhereUniqueWithoutProdukInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutProdukInput | BarcodeJemaahUpdateManyWithWhereWithoutProdukInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type PaketUncheckedUpdateManyWithoutProdukNestedInput = {
+    create?: XOR<PaketCreateWithoutProdukInput, PaketUncheckedCreateWithoutProdukInput> | PaketCreateWithoutProdukInput[] | PaketUncheckedCreateWithoutProdukInput[]
+    connectOrCreate?: PaketCreateOrConnectWithoutProdukInput | PaketCreateOrConnectWithoutProdukInput[]
+    upsert?: PaketUpsertWithWhereUniqueWithoutProdukInput | PaketUpsertWithWhereUniqueWithoutProdukInput[]
+    createMany?: PaketCreateManyProdukInputEnvelope
+    set?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+    disconnect?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+    delete?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+    connect?: PaketWhereUniqueInput | PaketWhereUniqueInput[]
+    update?: PaketUpdateWithWhereUniqueWithoutProdukInput | PaketUpdateWithWhereUniqueWithoutProdukInput[]
+    updateMany?: PaketUpdateManyWithWhereWithoutProdukInput | PaketUpdateManyWithWhereWithoutProdukInput[]
+    deleteMany?: PaketScalarWhereInput | PaketScalarWhereInput[]
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutProdukNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutProdukInput, BarcodeJemaahUncheckedCreateWithoutProdukInput> | BarcodeJemaahCreateWithoutProdukInput[] | BarcodeJemaahUncheckedCreateWithoutProdukInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutProdukInput | BarcodeJemaahCreateOrConnectWithoutProdukInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutProdukInput | BarcodeJemaahUpsertWithWhereUniqueWithoutProdukInput[]
+    createMany?: BarcodeJemaahCreateManyProdukInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutProdukInput | BarcodeJemaahUpdateWithWhereUniqueWithoutProdukInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutProdukInput | BarcodeJemaahUpdateManyWithWhereWithoutProdukInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type ProdukCreateNestedOneWithoutPaketInput = {
+    create?: XOR<ProdukCreateWithoutPaketInput, ProdukUncheckedCreateWithoutPaketInput>
+    connectOrCreate?: ProdukCreateOrConnectWithoutPaketInput
+    connect?: ProdukWhereUniqueInput
+  }
+
+  export type BarcodeJemaahCreateNestedManyWithoutPaketInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutPaketInput, BarcodeJemaahUncheckedCreateWithoutPaketInput> | BarcodeJemaahCreateWithoutPaketInput[] | BarcodeJemaahUncheckedCreateWithoutPaketInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutPaketInput | BarcodeJemaahCreateOrConnectWithoutPaketInput[]
+    createMany?: BarcodeJemaahCreateManyPaketInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type BarcodeJemaahUncheckedCreateNestedManyWithoutPaketInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutPaketInput, BarcodeJemaahUncheckedCreateWithoutPaketInput> | BarcodeJemaahCreateWithoutPaketInput[] | BarcodeJemaahUncheckedCreateWithoutPaketInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutPaketInput | BarcodeJemaahCreateOrConnectWithoutPaketInput[]
+    createMany?: BarcodeJemaahCreateManyPaketInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type ProdukUpdateOneRequiredWithoutPaketNestedInput = {
+    create?: XOR<ProdukCreateWithoutPaketInput, ProdukUncheckedCreateWithoutPaketInput>
+    connectOrCreate?: ProdukCreateOrConnectWithoutPaketInput
+    upsert?: ProdukUpsertWithoutPaketInput
+    connect?: ProdukWhereUniqueInput
+    update?: XOR<XOR<ProdukUpdateToOneWithWhereWithoutPaketInput, ProdukUpdateWithoutPaketInput>, ProdukUncheckedUpdateWithoutPaketInput>
+  }
+
+  export type BarcodeJemaahUpdateManyWithoutPaketNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutPaketInput, BarcodeJemaahUncheckedCreateWithoutPaketInput> | BarcodeJemaahCreateWithoutPaketInput[] | BarcodeJemaahUncheckedCreateWithoutPaketInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutPaketInput | BarcodeJemaahCreateOrConnectWithoutPaketInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutPaketInput | BarcodeJemaahUpsertWithWhereUniqueWithoutPaketInput[]
+    createMany?: BarcodeJemaahCreateManyPaketInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutPaketInput | BarcodeJemaahUpdateWithWhereUniqueWithoutPaketInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutPaketInput | BarcodeJemaahUpdateManyWithWhereWithoutPaketInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutPaketNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutPaketInput, BarcodeJemaahUncheckedCreateWithoutPaketInput> | BarcodeJemaahCreateWithoutPaketInput[] | BarcodeJemaahUncheckedCreateWithoutPaketInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutPaketInput | BarcodeJemaahCreateOrConnectWithoutPaketInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutPaketInput | BarcodeJemaahUpsertWithWhereUniqueWithoutPaketInput[]
+    createMany?: BarcodeJemaahCreateManyPaketInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutPaketInput | BarcodeJemaahUpdateWithWhereUniqueWithoutPaketInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutPaketInput | BarcodeJemaahUpdateManyWithWhereWithoutPaketInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type BarcodeJemaahCreateNestedManyWithoutFileInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutFileInput, BarcodeJemaahUncheckedCreateWithoutFileInput> | BarcodeJemaahCreateWithoutFileInput[] | BarcodeJemaahUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutFileInput | BarcodeJemaahCreateOrConnectWithoutFileInput[]
+    createMany?: BarcodeJemaahCreateManyFileInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type BatchTransactionCreateNestedManyWithoutFileInput = {
+    create?: XOR<BatchTransactionCreateWithoutFileInput, BatchTransactionUncheckedCreateWithoutFileInput> | BatchTransactionCreateWithoutFileInput[] | BatchTransactionUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutFileInput | BatchTransactionCreateOrConnectWithoutFileInput[]
+    createMany?: BatchTransactionCreateManyFileInputEnvelope
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+  }
+
+  export type JurnalCreateNestedManyWithoutFileInput = {
+    create?: XOR<JurnalCreateWithoutFileInput, JurnalUncheckedCreateWithoutFileInput> | JurnalCreateWithoutFileInput[] | JurnalUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: JurnalCreateOrConnectWithoutFileInput | JurnalCreateOrConnectWithoutFileInput[]
+    createMany?: JurnalCreateManyFileInputEnvelope
+    connect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+  }
+
+  export type BarcodeJemaahUncheckedCreateNestedManyWithoutFileInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutFileInput, BarcodeJemaahUncheckedCreateWithoutFileInput> | BarcodeJemaahCreateWithoutFileInput[] | BarcodeJemaahUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutFileInput | BarcodeJemaahCreateOrConnectWithoutFileInput[]
+    createMany?: BarcodeJemaahCreateManyFileInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type BatchTransactionUncheckedCreateNestedManyWithoutFileInput = {
+    create?: XOR<BatchTransactionCreateWithoutFileInput, BatchTransactionUncheckedCreateWithoutFileInput> | BatchTransactionCreateWithoutFileInput[] | BatchTransactionUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutFileInput | BatchTransactionCreateOrConnectWithoutFileInput[]
+    createMany?: BatchTransactionCreateManyFileInputEnvelope
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+  }
+
+  export type JurnalUncheckedCreateNestedManyWithoutFileInput = {
+    create?: XOR<JurnalCreateWithoutFileInput, JurnalUncheckedCreateWithoutFileInput> | JurnalCreateWithoutFileInput[] | JurnalUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: JurnalCreateOrConnectWithoutFileInput | JurnalCreateOrConnectWithoutFileInput[]
+    createMany?: JurnalCreateManyFileInputEnvelope
+    connect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+  }
+
+  export type BarcodeJemaahUpdateManyWithoutFileNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutFileInput, BarcodeJemaahUncheckedCreateWithoutFileInput> | BarcodeJemaahCreateWithoutFileInput[] | BarcodeJemaahUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutFileInput | BarcodeJemaahCreateOrConnectWithoutFileInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutFileInput | BarcodeJemaahUpsertWithWhereUniqueWithoutFileInput[]
+    createMany?: BarcodeJemaahCreateManyFileInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutFileInput | BarcodeJemaahUpdateWithWhereUniqueWithoutFileInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutFileInput | BarcodeJemaahUpdateManyWithWhereWithoutFileInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type BatchTransactionUpdateManyWithoutFileNestedInput = {
+    create?: XOR<BatchTransactionCreateWithoutFileInput, BatchTransactionUncheckedCreateWithoutFileInput> | BatchTransactionCreateWithoutFileInput[] | BatchTransactionUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutFileInput | BatchTransactionCreateOrConnectWithoutFileInput[]
+    upsert?: BatchTransactionUpsertWithWhereUniqueWithoutFileInput | BatchTransactionUpsertWithWhereUniqueWithoutFileInput[]
+    createMany?: BatchTransactionCreateManyFileInputEnvelope
+    set?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    disconnect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    delete?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    update?: BatchTransactionUpdateWithWhereUniqueWithoutFileInput | BatchTransactionUpdateWithWhereUniqueWithoutFileInput[]
+    updateMany?: BatchTransactionUpdateManyWithWhereWithoutFileInput | BatchTransactionUpdateManyWithWhereWithoutFileInput[]
+    deleteMany?: BatchTransactionScalarWhereInput | BatchTransactionScalarWhereInput[]
+  }
+
+  export type JurnalUpdateManyWithoutFileNestedInput = {
+    create?: XOR<JurnalCreateWithoutFileInput, JurnalUncheckedCreateWithoutFileInput> | JurnalCreateWithoutFileInput[] | JurnalUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: JurnalCreateOrConnectWithoutFileInput | JurnalCreateOrConnectWithoutFileInput[]
+    upsert?: JurnalUpsertWithWhereUniqueWithoutFileInput | JurnalUpsertWithWhereUniqueWithoutFileInput[]
+    createMany?: JurnalCreateManyFileInputEnvelope
+    set?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    disconnect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    delete?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    connect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    update?: JurnalUpdateWithWhereUniqueWithoutFileInput | JurnalUpdateWithWhereUniqueWithoutFileInput[]
+    updateMany?: JurnalUpdateManyWithWhereWithoutFileInput | JurnalUpdateManyWithWhereWithoutFileInput[]
+    deleteMany?: JurnalScalarWhereInput | JurnalScalarWhereInput[]
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutFileNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutFileInput, BarcodeJemaahUncheckedCreateWithoutFileInput> | BarcodeJemaahCreateWithoutFileInput[] | BarcodeJemaahUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutFileInput | BarcodeJemaahCreateOrConnectWithoutFileInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutFileInput | BarcodeJemaahUpsertWithWhereUniqueWithoutFileInput[]
+    createMany?: BarcodeJemaahCreateManyFileInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutFileInput | BarcodeJemaahUpdateWithWhereUniqueWithoutFileInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutFileInput | BarcodeJemaahUpdateManyWithWhereWithoutFileInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type BatchTransactionUncheckedUpdateManyWithoutFileNestedInput = {
+    create?: XOR<BatchTransactionCreateWithoutFileInput, BatchTransactionUncheckedCreateWithoutFileInput> | BatchTransactionCreateWithoutFileInput[] | BatchTransactionUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutFileInput | BatchTransactionCreateOrConnectWithoutFileInput[]
+    upsert?: BatchTransactionUpsertWithWhereUniqueWithoutFileInput | BatchTransactionUpsertWithWhereUniqueWithoutFileInput[]
+    createMany?: BatchTransactionCreateManyFileInputEnvelope
+    set?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    disconnect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    delete?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    update?: BatchTransactionUpdateWithWhereUniqueWithoutFileInput | BatchTransactionUpdateWithWhereUniqueWithoutFileInput[]
+    updateMany?: BatchTransactionUpdateManyWithWhereWithoutFileInput | BatchTransactionUpdateManyWithWhereWithoutFileInput[]
+    deleteMany?: BatchTransactionScalarWhereInput | BatchTransactionScalarWhereInput[]
+  }
+
+  export type JurnalUncheckedUpdateManyWithoutFileNestedInput = {
+    create?: XOR<JurnalCreateWithoutFileInput, JurnalUncheckedCreateWithoutFileInput> | JurnalCreateWithoutFileInput[] | JurnalUncheckedCreateWithoutFileInput[]
+    connectOrCreate?: JurnalCreateOrConnectWithoutFileInput | JurnalCreateOrConnectWithoutFileInput[]
+    upsert?: JurnalUpsertWithWhereUniqueWithoutFileInput | JurnalUpsertWithWhereUniqueWithoutFileInput[]
+    createMany?: JurnalCreateManyFileInputEnvelope
+    set?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    disconnect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    delete?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    connect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    update?: JurnalUpdateWithWhereUniqueWithoutFileInput | JurnalUpdateWithWhereUniqueWithoutFileInput[]
+    updateMany?: JurnalUpdateManyWithWhereWithoutFileInput | JurnalUpdateManyWithWhereWithoutFileInput[]
+    deleteMany?: JurnalScalarWhereInput | JurnalScalarWhereInput[]
+  }
+
+  export type ProdukCreateNestedOneWithoutBarcodesInput = {
+    create?: XOR<ProdukCreateWithoutBarcodesInput, ProdukUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: ProdukCreateOrConnectWithoutBarcodesInput
+    connect?: ProdukWhereUniqueInput
+  }
+
+  export type PaketCreateNestedOneWithoutBarcodesInput = {
+    create?: XOR<PaketCreateWithoutBarcodesInput, PaketUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: PaketCreateOrConnectWithoutBarcodesInput
+    connect?: PaketWhereUniqueInput
+  }
+
+  export type AgenCreateNestedOneWithoutBarcodesInput = {
+    create?: XOR<AgenCreateWithoutBarcodesInput, AgenUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: AgenCreateOrConnectWithoutBarcodesInput
+    connect?: AgenWhereUniqueInput
+  }
+
+  export type FileCreateNestedOneWithoutBarcodesInput = {
+    create?: XOR<FileCreateWithoutBarcodesInput, FileUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: FileCreateOrConnectWithoutBarcodesInput
+    connect?: FileWhereUniqueInput
+  }
+
+  export type InvoiceCreateNestedOneWithoutBarcodesInput = {
+    create?: XOR<InvoiceCreateWithoutBarcodesInput, InvoiceUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: InvoiceCreateOrConnectWithoutBarcodesInput
+    connect?: InvoiceWhereUniqueInput
+  }
+
+  export type FloatFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type ProdukUpdateOneRequiredWithoutBarcodesNestedInput = {
+    create?: XOR<ProdukCreateWithoutBarcodesInput, ProdukUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: ProdukCreateOrConnectWithoutBarcodesInput
+    upsert?: ProdukUpsertWithoutBarcodesInput
+    connect?: ProdukWhereUniqueInput
+    update?: XOR<XOR<ProdukUpdateToOneWithWhereWithoutBarcodesInput, ProdukUpdateWithoutBarcodesInput>, ProdukUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type PaketUpdateOneRequiredWithoutBarcodesNestedInput = {
+    create?: XOR<PaketCreateWithoutBarcodesInput, PaketUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: PaketCreateOrConnectWithoutBarcodesInput
+    upsert?: PaketUpsertWithoutBarcodesInput
+    connect?: PaketWhereUniqueInput
+    update?: XOR<XOR<PaketUpdateToOneWithWhereWithoutBarcodesInput, PaketUpdateWithoutBarcodesInput>, PaketUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type AgenUpdateOneRequiredWithoutBarcodesNestedInput = {
+    create?: XOR<AgenCreateWithoutBarcodesInput, AgenUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: AgenCreateOrConnectWithoutBarcodesInput
+    upsert?: AgenUpsertWithoutBarcodesInput
+    connect?: AgenWhereUniqueInput
+    update?: XOR<XOR<AgenUpdateToOneWithWhereWithoutBarcodesInput, AgenUpdateWithoutBarcodesInput>, AgenUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type FileUpdateOneWithoutBarcodesNestedInput = {
+    create?: XOR<FileCreateWithoutBarcodesInput, FileUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: FileCreateOrConnectWithoutBarcodesInput
+    upsert?: FileUpsertWithoutBarcodesInput
+    disconnect?: FileWhereInput | boolean
+    delete?: FileWhereInput | boolean
+    connect?: FileWhereUniqueInput
+    update?: XOR<XOR<FileUpdateToOneWithWhereWithoutBarcodesInput, FileUpdateWithoutBarcodesInput>, FileUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type InvoiceUpdateOneWithoutBarcodesNestedInput = {
+    create?: XOR<InvoiceCreateWithoutBarcodesInput, InvoiceUncheckedCreateWithoutBarcodesInput>
+    connectOrCreate?: InvoiceCreateOrConnectWithoutBarcodesInput
+    upsert?: InvoiceUpsertWithoutBarcodesInput
+    disconnect?: InvoiceWhereInput | boolean
+    delete?: InvoiceWhereInput | boolean
+    connect?: InvoiceWhereUniqueInput
+    update?: XOR<XOR<InvoiceUpdateToOneWithWhereWithoutBarcodesInput, InvoiceUpdateWithoutBarcodesInput>, InvoiceUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type AgenCreateNestedOneWithoutInvoicesInput = {
+    create?: XOR<AgenCreateWithoutInvoicesInput, AgenUncheckedCreateWithoutInvoicesInput>
+    connectOrCreate?: AgenCreateOrConnectWithoutInvoicesInput
+    connect?: AgenWhereUniqueInput
+  }
+
+  export type BarcodeJemaahCreateNestedManyWithoutInvoiceInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutInvoiceInput, BarcodeJemaahUncheckedCreateWithoutInvoiceInput> | BarcodeJemaahCreateWithoutInvoiceInput[] | BarcodeJemaahUncheckedCreateWithoutInvoiceInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutInvoiceInput | BarcodeJemaahCreateOrConnectWithoutInvoiceInput[]
+    createMany?: BarcodeJemaahCreateManyInvoiceInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type InvoiceMutasiCreateNestedManyWithoutInvoiceInput = {
+    create?: XOR<InvoiceMutasiCreateWithoutInvoiceInput, InvoiceMutasiUncheckedCreateWithoutInvoiceInput> | InvoiceMutasiCreateWithoutInvoiceInput[] | InvoiceMutasiUncheckedCreateWithoutInvoiceInput[]
+    connectOrCreate?: InvoiceMutasiCreateOrConnectWithoutInvoiceInput | InvoiceMutasiCreateOrConnectWithoutInvoiceInput[]
+    createMany?: InvoiceMutasiCreateManyInvoiceInputEnvelope
+    connect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+  }
+
+  export type BatchFlightCreateNestedOneWithoutInvoicesInput = {
+    create?: XOR<BatchFlightCreateWithoutInvoicesInput, BatchFlightUncheckedCreateWithoutInvoicesInput>
+    connectOrCreate?: BatchFlightCreateOrConnectWithoutInvoicesInput
+    connect?: BatchFlightWhereUniqueInput
+  }
+
+  export type BarcodeJemaahUncheckedCreateNestedManyWithoutInvoiceInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutInvoiceInput, BarcodeJemaahUncheckedCreateWithoutInvoiceInput> | BarcodeJemaahCreateWithoutInvoiceInput[] | BarcodeJemaahUncheckedCreateWithoutInvoiceInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutInvoiceInput | BarcodeJemaahCreateOrConnectWithoutInvoiceInput[]
+    createMany?: BarcodeJemaahCreateManyInvoiceInputEnvelope
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+  }
+
+  export type InvoiceMutasiUncheckedCreateNestedManyWithoutInvoiceInput = {
+    create?: XOR<InvoiceMutasiCreateWithoutInvoiceInput, InvoiceMutasiUncheckedCreateWithoutInvoiceInput> | InvoiceMutasiCreateWithoutInvoiceInput[] | InvoiceMutasiUncheckedCreateWithoutInvoiceInput[]
+    connectOrCreate?: InvoiceMutasiCreateOrConnectWithoutInvoiceInput | InvoiceMutasiCreateOrConnectWithoutInvoiceInput[]
+    createMany?: InvoiceMutasiCreateManyInvoiceInputEnvelope
+    connect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+  }
+
+  export type EnumInvoiceStatusFieldUpdateOperationsInput = {
+    set?: $Enums.InvoiceStatus
+  }
+
+  export type AgenUpdateOneRequiredWithoutInvoicesNestedInput = {
+    create?: XOR<AgenCreateWithoutInvoicesInput, AgenUncheckedCreateWithoutInvoicesInput>
+    connectOrCreate?: AgenCreateOrConnectWithoutInvoicesInput
+    upsert?: AgenUpsertWithoutInvoicesInput
+    connect?: AgenWhereUniqueInput
+    update?: XOR<XOR<AgenUpdateToOneWithWhereWithoutInvoicesInput, AgenUpdateWithoutInvoicesInput>, AgenUncheckedUpdateWithoutInvoicesInput>
+  }
+
+  export type BarcodeJemaahUpdateManyWithoutInvoiceNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutInvoiceInput, BarcodeJemaahUncheckedCreateWithoutInvoiceInput> | BarcodeJemaahCreateWithoutInvoiceInput[] | BarcodeJemaahUncheckedCreateWithoutInvoiceInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutInvoiceInput | BarcodeJemaahCreateOrConnectWithoutInvoiceInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutInvoiceInput | BarcodeJemaahUpsertWithWhereUniqueWithoutInvoiceInput[]
+    createMany?: BarcodeJemaahCreateManyInvoiceInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutInvoiceInput | BarcodeJemaahUpdateWithWhereUniqueWithoutInvoiceInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutInvoiceInput | BarcodeJemaahUpdateManyWithWhereWithoutInvoiceInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type InvoiceMutasiUpdateManyWithoutInvoiceNestedInput = {
+    create?: XOR<InvoiceMutasiCreateWithoutInvoiceInput, InvoiceMutasiUncheckedCreateWithoutInvoiceInput> | InvoiceMutasiCreateWithoutInvoiceInput[] | InvoiceMutasiUncheckedCreateWithoutInvoiceInput[]
+    connectOrCreate?: InvoiceMutasiCreateOrConnectWithoutInvoiceInput | InvoiceMutasiCreateOrConnectWithoutInvoiceInput[]
+    upsert?: InvoiceMutasiUpsertWithWhereUniqueWithoutInvoiceInput | InvoiceMutasiUpsertWithWhereUniqueWithoutInvoiceInput[]
+    createMany?: InvoiceMutasiCreateManyInvoiceInputEnvelope
+    set?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    disconnect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    delete?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    connect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    update?: InvoiceMutasiUpdateWithWhereUniqueWithoutInvoiceInput | InvoiceMutasiUpdateWithWhereUniqueWithoutInvoiceInput[]
+    updateMany?: InvoiceMutasiUpdateManyWithWhereWithoutInvoiceInput | InvoiceMutasiUpdateManyWithWhereWithoutInvoiceInput[]
+    deleteMany?: InvoiceMutasiScalarWhereInput | InvoiceMutasiScalarWhereInput[]
+  }
+
+  export type BatchFlightUpdateOneWithoutInvoicesNestedInput = {
+    create?: XOR<BatchFlightCreateWithoutInvoicesInput, BatchFlightUncheckedCreateWithoutInvoicesInput>
+    connectOrCreate?: BatchFlightCreateOrConnectWithoutInvoicesInput
+    upsert?: BatchFlightUpsertWithoutInvoicesInput
+    disconnect?: BatchFlightWhereInput | boolean
+    delete?: BatchFlightWhereInput | boolean
+    connect?: BatchFlightWhereUniqueInput
+    update?: XOR<XOR<BatchFlightUpdateToOneWithWhereWithoutInvoicesInput, BatchFlightUpdateWithoutInvoicesInput>, BatchFlightUncheckedUpdateWithoutInvoicesInput>
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutInvoiceNestedInput = {
+    create?: XOR<BarcodeJemaahCreateWithoutInvoiceInput, BarcodeJemaahUncheckedCreateWithoutInvoiceInput> | BarcodeJemaahCreateWithoutInvoiceInput[] | BarcodeJemaahUncheckedCreateWithoutInvoiceInput[]
+    connectOrCreate?: BarcodeJemaahCreateOrConnectWithoutInvoiceInput | BarcodeJemaahCreateOrConnectWithoutInvoiceInput[]
+    upsert?: BarcodeJemaahUpsertWithWhereUniqueWithoutInvoiceInput | BarcodeJemaahUpsertWithWhereUniqueWithoutInvoiceInput[]
+    createMany?: BarcodeJemaahCreateManyInvoiceInputEnvelope
+    set?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    disconnect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    delete?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    connect?: BarcodeJemaahWhereUniqueInput | BarcodeJemaahWhereUniqueInput[]
+    update?: BarcodeJemaahUpdateWithWhereUniqueWithoutInvoiceInput | BarcodeJemaahUpdateWithWhereUniqueWithoutInvoiceInput[]
+    updateMany?: BarcodeJemaahUpdateManyWithWhereWithoutInvoiceInput | BarcodeJemaahUpdateManyWithWhereWithoutInvoiceInput[]
+    deleteMany?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+  }
+
+  export type InvoiceMutasiUncheckedUpdateManyWithoutInvoiceNestedInput = {
+    create?: XOR<InvoiceMutasiCreateWithoutInvoiceInput, InvoiceMutasiUncheckedCreateWithoutInvoiceInput> | InvoiceMutasiCreateWithoutInvoiceInput[] | InvoiceMutasiUncheckedCreateWithoutInvoiceInput[]
+    connectOrCreate?: InvoiceMutasiCreateOrConnectWithoutInvoiceInput | InvoiceMutasiCreateOrConnectWithoutInvoiceInput[]
+    upsert?: InvoiceMutasiUpsertWithWhereUniqueWithoutInvoiceInput | InvoiceMutasiUpsertWithWhereUniqueWithoutInvoiceInput[]
+    createMany?: InvoiceMutasiCreateManyInvoiceInputEnvelope
+    set?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    disconnect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    delete?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    connect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    update?: InvoiceMutasiUpdateWithWhereUniqueWithoutInvoiceInput | InvoiceMutasiUpdateWithWhereUniqueWithoutInvoiceInput[]
+    updateMany?: InvoiceMutasiUpdateManyWithWhereWithoutInvoiceInput | InvoiceMutasiUpdateManyWithWhereWithoutInvoiceInput[]
+    deleteMany?: InvoiceMutasiScalarWhereInput | InvoiceMutasiScalarWhereInput[]
+  }
+
+  export type InvoiceMutasiCreateNestedManyWithoutMutasiInput = {
+    create?: XOR<InvoiceMutasiCreateWithoutMutasiInput, InvoiceMutasiUncheckedCreateWithoutMutasiInput> | InvoiceMutasiCreateWithoutMutasiInput[] | InvoiceMutasiUncheckedCreateWithoutMutasiInput[]
+    connectOrCreate?: InvoiceMutasiCreateOrConnectWithoutMutasiInput | InvoiceMutasiCreateOrConnectWithoutMutasiInput[]
+    createMany?: InvoiceMutasiCreateManyMutasiInputEnvelope
+    connect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+  }
+
+  export type BatchTransactionCreateNestedManyWithoutMutasiInput = {
+    create?: XOR<BatchTransactionCreateWithoutMutasiInput, BatchTransactionUncheckedCreateWithoutMutasiInput> | BatchTransactionCreateWithoutMutasiInput[] | BatchTransactionUncheckedCreateWithoutMutasiInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutMutasiInput | BatchTransactionCreateOrConnectWithoutMutasiInput[]
+    createMany?: BatchTransactionCreateManyMutasiInputEnvelope
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+  }
+
+  export type InvoiceMutasiUncheckedCreateNestedManyWithoutMutasiInput = {
+    create?: XOR<InvoiceMutasiCreateWithoutMutasiInput, InvoiceMutasiUncheckedCreateWithoutMutasiInput> | InvoiceMutasiCreateWithoutMutasiInput[] | InvoiceMutasiUncheckedCreateWithoutMutasiInput[]
+    connectOrCreate?: InvoiceMutasiCreateOrConnectWithoutMutasiInput | InvoiceMutasiCreateOrConnectWithoutMutasiInput[]
+    createMany?: InvoiceMutasiCreateManyMutasiInputEnvelope
+    connect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+  }
+
+  export type BatchTransactionUncheckedCreateNestedManyWithoutMutasiInput = {
+    create?: XOR<BatchTransactionCreateWithoutMutasiInput, BatchTransactionUncheckedCreateWithoutMutasiInput> | BatchTransactionCreateWithoutMutasiInput[] | BatchTransactionUncheckedCreateWithoutMutasiInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutMutasiInput | BatchTransactionCreateOrConnectWithoutMutasiInput[]
+    createMany?: BatchTransactionCreateManyMutasiInputEnvelope
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+  }
+
+  export type InvoiceMutasiUpdateManyWithoutMutasiNestedInput = {
+    create?: XOR<InvoiceMutasiCreateWithoutMutasiInput, InvoiceMutasiUncheckedCreateWithoutMutasiInput> | InvoiceMutasiCreateWithoutMutasiInput[] | InvoiceMutasiUncheckedCreateWithoutMutasiInput[]
+    connectOrCreate?: InvoiceMutasiCreateOrConnectWithoutMutasiInput | InvoiceMutasiCreateOrConnectWithoutMutasiInput[]
+    upsert?: InvoiceMutasiUpsertWithWhereUniqueWithoutMutasiInput | InvoiceMutasiUpsertWithWhereUniqueWithoutMutasiInput[]
+    createMany?: InvoiceMutasiCreateManyMutasiInputEnvelope
+    set?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    disconnect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    delete?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    connect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    update?: InvoiceMutasiUpdateWithWhereUniqueWithoutMutasiInput | InvoiceMutasiUpdateWithWhereUniqueWithoutMutasiInput[]
+    updateMany?: InvoiceMutasiUpdateManyWithWhereWithoutMutasiInput | InvoiceMutasiUpdateManyWithWhereWithoutMutasiInput[]
+    deleteMany?: InvoiceMutasiScalarWhereInput | InvoiceMutasiScalarWhereInput[]
+  }
+
+  export type BatchTransactionUpdateManyWithoutMutasiNestedInput = {
+    create?: XOR<BatchTransactionCreateWithoutMutasiInput, BatchTransactionUncheckedCreateWithoutMutasiInput> | BatchTransactionCreateWithoutMutasiInput[] | BatchTransactionUncheckedCreateWithoutMutasiInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutMutasiInput | BatchTransactionCreateOrConnectWithoutMutasiInput[]
+    upsert?: BatchTransactionUpsertWithWhereUniqueWithoutMutasiInput | BatchTransactionUpsertWithWhereUniqueWithoutMutasiInput[]
+    createMany?: BatchTransactionCreateManyMutasiInputEnvelope
+    set?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    disconnect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    delete?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    update?: BatchTransactionUpdateWithWhereUniqueWithoutMutasiInput | BatchTransactionUpdateWithWhereUniqueWithoutMutasiInput[]
+    updateMany?: BatchTransactionUpdateManyWithWhereWithoutMutasiInput | BatchTransactionUpdateManyWithWhereWithoutMutasiInput[]
+    deleteMany?: BatchTransactionScalarWhereInput | BatchTransactionScalarWhereInput[]
+  }
+
+  export type InvoiceMutasiUncheckedUpdateManyWithoutMutasiNestedInput = {
+    create?: XOR<InvoiceMutasiCreateWithoutMutasiInput, InvoiceMutasiUncheckedCreateWithoutMutasiInput> | InvoiceMutasiCreateWithoutMutasiInput[] | InvoiceMutasiUncheckedCreateWithoutMutasiInput[]
+    connectOrCreate?: InvoiceMutasiCreateOrConnectWithoutMutasiInput | InvoiceMutasiCreateOrConnectWithoutMutasiInput[]
+    upsert?: InvoiceMutasiUpsertWithWhereUniqueWithoutMutasiInput | InvoiceMutasiUpsertWithWhereUniqueWithoutMutasiInput[]
+    createMany?: InvoiceMutasiCreateManyMutasiInputEnvelope
+    set?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    disconnect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    delete?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    connect?: InvoiceMutasiWhereUniqueInput | InvoiceMutasiWhereUniqueInput[]
+    update?: InvoiceMutasiUpdateWithWhereUniqueWithoutMutasiInput | InvoiceMutasiUpdateWithWhereUniqueWithoutMutasiInput[]
+    updateMany?: InvoiceMutasiUpdateManyWithWhereWithoutMutasiInput | InvoiceMutasiUpdateManyWithWhereWithoutMutasiInput[]
+    deleteMany?: InvoiceMutasiScalarWhereInput | InvoiceMutasiScalarWhereInput[]
+  }
+
+  export type BatchTransactionUncheckedUpdateManyWithoutMutasiNestedInput = {
+    create?: XOR<BatchTransactionCreateWithoutMutasiInput, BatchTransactionUncheckedCreateWithoutMutasiInput> | BatchTransactionCreateWithoutMutasiInput[] | BatchTransactionUncheckedCreateWithoutMutasiInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutMutasiInput | BatchTransactionCreateOrConnectWithoutMutasiInput[]
+    upsert?: BatchTransactionUpsertWithWhereUniqueWithoutMutasiInput | BatchTransactionUpsertWithWhereUniqueWithoutMutasiInput[]
+    createMany?: BatchTransactionCreateManyMutasiInputEnvelope
+    set?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    disconnect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    delete?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    update?: BatchTransactionUpdateWithWhereUniqueWithoutMutasiInput | BatchTransactionUpdateWithWhereUniqueWithoutMutasiInput[]
+    updateMany?: BatchTransactionUpdateManyWithWhereWithoutMutasiInput | BatchTransactionUpdateManyWithWhereWithoutMutasiInput[]
+    deleteMany?: BatchTransactionScalarWhereInput | BatchTransactionScalarWhereInput[]
+  }
+
+  export type InvoiceCreateNestedOneWithoutMutasiLinksInput = {
+    create?: XOR<InvoiceCreateWithoutMutasiLinksInput, InvoiceUncheckedCreateWithoutMutasiLinksInput>
+    connectOrCreate?: InvoiceCreateOrConnectWithoutMutasiLinksInput
+    connect?: InvoiceWhereUniqueInput
+  }
+
+  export type MutasiCreateNestedOneWithoutInvoiceLinksInput = {
+    create?: XOR<MutasiCreateWithoutInvoiceLinksInput, MutasiUncheckedCreateWithoutInvoiceLinksInput>
+    connectOrCreate?: MutasiCreateOrConnectWithoutInvoiceLinksInput
+    connect?: MutasiWhereUniqueInput
+  }
+
+  export type InvoiceUpdateOneRequiredWithoutMutasiLinksNestedInput = {
+    create?: XOR<InvoiceCreateWithoutMutasiLinksInput, InvoiceUncheckedCreateWithoutMutasiLinksInput>
+    connectOrCreate?: InvoiceCreateOrConnectWithoutMutasiLinksInput
+    upsert?: InvoiceUpsertWithoutMutasiLinksInput
+    connect?: InvoiceWhereUniqueInput
+    update?: XOR<XOR<InvoiceUpdateToOneWithWhereWithoutMutasiLinksInput, InvoiceUpdateWithoutMutasiLinksInput>, InvoiceUncheckedUpdateWithoutMutasiLinksInput>
+  }
+
+  export type MutasiUpdateOneRequiredWithoutInvoiceLinksNestedInput = {
+    create?: XOR<MutasiCreateWithoutInvoiceLinksInput, MutasiUncheckedCreateWithoutInvoiceLinksInput>
+    connectOrCreate?: MutasiCreateOrConnectWithoutInvoiceLinksInput
+    upsert?: MutasiUpsertWithoutInvoiceLinksInput
+    connect?: MutasiWhereUniqueInput
+    update?: XOR<XOR<MutasiUpdateToOneWithWhereWithoutInvoiceLinksInput, MutasiUpdateWithoutInvoiceLinksInput>, MutasiUncheckedUpdateWithoutInvoiceLinksInput>
+  }
+
+  export type InvoiceCreateNestedManyWithoutBatchInput = {
+    create?: XOR<InvoiceCreateWithoutBatchInput, InvoiceUncheckedCreateWithoutBatchInput> | InvoiceCreateWithoutBatchInput[] | InvoiceUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutBatchInput | InvoiceCreateOrConnectWithoutBatchInput[]
+    createMany?: InvoiceCreateManyBatchInputEnvelope
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+  }
+
+  export type BatchTransactionCreateNestedManyWithoutBatchInput = {
+    create?: XOR<BatchTransactionCreateWithoutBatchInput, BatchTransactionUncheckedCreateWithoutBatchInput> | BatchTransactionCreateWithoutBatchInput[] | BatchTransactionUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutBatchInput | BatchTransactionCreateOrConnectWithoutBatchInput[]
+    createMany?: BatchTransactionCreateManyBatchInputEnvelope
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+  }
+
+  export type InvoiceUncheckedCreateNestedManyWithoutBatchInput = {
+    create?: XOR<InvoiceCreateWithoutBatchInput, InvoiceUncheckedCreateWithoutBatchInput> | InvoiceCreateWithoutBatchInput[] | InvoiceUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutBatchInput | InvoiceCreateOrConnectWithoutBatchInput[]
+    createMany?: InvoiceCreateManyBatchInputEnvelope
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+  }
+
+  export type BatchTransactionUncheckedCreateNestedManyWithoutBatchInput = {
+    create?: XOR<BatchTransactionCreateWithoutBatchInput, BatchTransactionUncheckedCreateWithoutBatchInput> | BatchTransactionCreateWithoutBatchInput[] | BatchTransactionUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutBatchInput | BatchTransactionCreateOrConnectWithoutBatchInput[]
+    createMany?: BatchTransactionCreateManyBatchInputEnvelope
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+  }
+
+  export type InvoiceUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<InvoiceCreateWithoutBatchInput, InvoiceUncheckedCreateWithoutBatchInput> | InvoiceCreateWithoutBatchInput[] | InvoiceUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutBatchInput | InvoiceCreateOrConnectWithoutBatchInput[]
+    upsert?: InvoiceUpsertWithWhereUniqueWithoutBatchInput | InvoiceUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: InvoiceCreateManyBatchInputEnvelope
+    set?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    disconnect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    delete?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    update?: InvoiceUpdateWithWhereUniqueWithoutBatchInput | InvoiceUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: InvoiceUpdateManyWithWhereWithoutBatchInput | InvoiceUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+  }
+
+  export type BatchTransactionUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<BatchTransactionCreateWithoutBatchInput, BatchTransactionUncheckedCreateWithoutBatchInput> | BatchTransactionCreateWithoutBatchInput[] | BatchTransactionUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutBatchInput | BatchTransactionCreateOrConnectWithoutBatchInput[]
+    upsert?: BatchTransactionUpsertWithWhereUniqueWithoutBatchInput | BatchTransactionUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: BatchTransactionCreateManyBatchInputEnvelope
+    set?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    disconnect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    delete?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    update?: BatchTransactionUpdateWithWhereUniqueWithoutBatchInput | BatchTransactionUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: BatchTransactionUpdateManyWithWhereWithoutBatchInput | BatchTransactionUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: BatchTransactionScalarWhereInput | BatchTransactionScalarWhereInput[]
+  }
+
+  export type InvoiceUncheckedUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<InvoiceCreateWithoutBatchInput, InvoiceUncheckedCreateWithoutBatchInput> | InvoiceCreateWithoutBatchInput[] | InvoiceUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: InvoiceCreateOrConnectWithoutBatchInput | InvoiceCreateOrConnectWithoutBatchInput[]
+    upsert?: InvoiceUpsertWithWhereUniqueWithoutBatchInput | InvoiceUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: InvoiceCreateManyBatchInputEnvelope
+    set?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    disconnect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    delete?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    connect?: InvoiceWhereUniqueInput | InvoiceWhereUniqueInput[]
+    update?: InvoiceUpdateWithWhereUniqueWithoutBatchInput | InvoiceUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: InvoiceUpdateManyWithWhereWithoutBatchInput | InvoiceUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+  }
+
+  export type BatchTransactionUncheckedUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<BatchTransactionCreateWithoutBatchInput, BatchTransactionUncheckedCreateWithoutBatchInput> | BatchTransactionCreateWithoutBatchInput[] | BatchTransactionUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: BatchTransactionCreateOrConnectWithoutBatchInput | BatchTransactionCreateOrConnectWithoutBatchInput[]
+    upsert?: BatchTransactionUpsertWithWhereUniqueWithoutBatchInput | BatchTransactionUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: BatchTransactionCreateManyBatchInputEnvelope
+    set?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    disconnect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    delete?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    connect?: BatchTransactionWhereUniqueInput | BatchTransactionWhereUniqueInput[]
+    update?: BatchTransactionUpdateWithWhereUniqueWithoutBatchInput | BatchTransactionUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: BatchTransactionUpdateManyWithWhereWithoutBatchInput | BatchTransactionUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: BatchTransactionScalarWhereInput | BatchTransactionScalarWhereInput[]
+  }
+
+  export type BatchFlightCreateNestedOneWithoutTransactionsInput = {
+    create?: XOR<BatchFlightCreateWithoutTransactionsInput, BatchFlightUncheckedCreateWithoutTransactionsInput>
+    connectOrCreate?: BatchFlightCreateOrConnectWithoutTransactionsInput
+    connect?: BatchFlightWhereUniqueInput
+  }
+
+  export type FileCreateNestedOneWithoutBatchTransactionsInput = {
+    create?: XOR<FileCreateWithoutBatchTransactionsInput, FileUncheckedCreateWithoutBatchTransactionsInput>
+    connectOrCreate?: FileCreateOrConnectWithoutBatchTransactionsInput
+    connect?: FileWhereUniqueInput
+  }
+
+  export type MutasiCreateNestedOneWithoutBatchTransactionsInput = {
+    create?: XOR<MutasiCreateWithoutBatchTransactionsInput, MutasiUncheckedCreateWithoutBatchTransactionsInput>
+    connectOrCreate?: MutasiCreateOrConnectWithoutBatchTransactionsInput
+    connect?: MutasiWhereUniqueInput
+  }
+
+  export type EnumTipeTransaksiFieldUpdateOperationsInput = {
+    set?: $Enums.TipeTransaksi
+  }
+
+  export type BatchFlightUpdateOneRequiredWithoutTransactionsNestedInput = {
+    create?: XOR<BatchFlightCreateWithoutTransactionsInput, BatchFlightUncheckedCreateWithoutTransactionsInput>
+    connectOrCreate?: BatchFlightCreateOrConnectWithoutTransactionsInput
+    upsert?: BatchFlightUpsertWithoutTransactionsInput
+    connect?: BatchFlightWhereUniqueInput
+    update?: XOR<XOR<BatchFlightUpdateToOneWithWhereWithoutTransactionsInput, BatchFlightUpdateWithoutTransactionsInput>, BatchFlightUncheckedUpdateWithoutTransactionsInput>
+  }
+
+  export type FileUpdateOneWithoutBatchTransactionsNestedInput = {
+    create?: XOR<FileCreateWithoutBatchTransactionsInput, FileUncheckedCreateWithoutBatchTransactionsInput>
+    connectOrCreate?: FileCreateOrConnectWithoutBatchTransactionsInput
+    upsert?: FileUpsertWithoutBatchTransactionsInput
+    disconnect?: FileWhereInput | boolean
+    delete?: FileWhereInput | boolean
+    connect?: FileWhereUniqueInput
+    update?: XOR<XOR<FileUpdateToOneWithWhereWithoutBatchTransactionsInput, FileUpdateWithoutBatchTransactionsInput>, FileUncheckedUpdateWithoutBatchTransactionsInput>
+  }
+
+  export type MutasiUpdateOneWithoutBatchTransactionsNestedInput = {
+    create?: XOR<MutasiCreateWithoutBatchTransactionsInput, MutasiUncheckedCreateWithoutBatchTransactionsInput>
+    connectOrCreate?: MutasiCreateOrConnectWithoutBatchTransactionsInput
+    upsert?: MutasiUpsertWithoutBatchTransactionsInput
+    disconnect?: MutasiWhereInput | boolean
+    delete?: MutasiWhereInput | boolean
+    connect?: MutasiWhereUniqueInput
+    update?: XOR<XOR<MutasiUpdateToOneWithWhereWithoutBatchTransactionsInput, MutasiUpdateWithoutBatchTransactionsInput>, MutasiUncheckedUpdateWithoutBatchTransactionsInput>
+  }
+
+  export type COACreateNestedOneWithoutJournalsInput = {
+    create?: XOR<COACreateWithoutJournalsInput, COAUncheckedCreateWithoutJournalsInput>
+    connectOrCreate?: COACreateOrConnectWithoutJournalsInput
+    connect?: COAWhereUniqueInput
+  }
+
+  export type FileCreateNestedOneWithoutJournalsInput = {
+    create?: XOR<FileCreateWithoutJournalsInput, FileUncheckedCreateWithoutJournalsInput>
+    connectOrCreate?: FileCreateOrConnectWithoutJournalsInput
+    connect?: FileWhereUniqueInput
+  }
+
+  export type COAUpdateOneRequiredWithoutJournalsNestedInput = {
+    create?: XOR<COACreateWithoutJournalsInput, COAUncheckedCreateWithoutJournalsInput>
+    connectOrCreate?: COACreateOrConnectWithoutJournalsInput
+    upsert?: COAUpsertWithoutJournalsInput
+    connect?: COAWhereUniqueInput
+    update?: XOR<XOR<COAUpdateToOneWithWhereWithoutJournalsInput, COAUpdateWithoutJournalsInput>, COAUncheckedUpdateWithoutJournalsInput>
+  }
+
+  export type FileUpdateOneWithoutJournalsNestedInput = {
+    create?: XOR<FileCreateWithoutJournalsInput, FileUncheckedCreateWithoutJournalsInput>
+    connectOrCreate?: FileCreateOrConnectWithoutJournalsInput
+    upsert?: FileUpsertWithoutJournalsInput
+    disconnect?: FileWhereInput | boolean
+    delete?: FileWhereInput | boolean
+    connect?: FileWhereUniqueInput
+    update?: XOR<XOR<FileUpdateToOneWithWhereWithoutJournalsInput, FileUpdateWithoutJournalsInput>, FileUncheckedUpdateWithoutJournalsInput>
+  }
+
+  export type JurnalCreateNestedManyWithoutCoaInput = {
+    create?: XOR<JurnalCreateWithoutCoaInput, JurnalUncheckedCreateWithoutCoaInput> | JurnalCreateWithoutCoaInput[] | JurnalUncheckedCreateWithoutCoaInput[]
+    connectOrCreate?: JurnalCreateOrConnectWithoutCoaInput | JurnalCreateOrConnectWithoutCoaInput[]
+    createMany?: JurnalCreateManyCoaInputEnvelope
+    connect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+  }
+
+  export type JurnalUncheckedCreateNestedManyWithoutCoaInput = {
+    create?: XOR<JurnalCreateWithoutCoaInput, JurnalUncheckedCreateWithoutCoaInput> | JurnalCreateWithoutCoaInput[] | JurnalUncheckedCreateWithoutCoaInput[]
+    connectOrCreate?: JurnalCreateOrConnectWithoutCoaInput | JurnalCreateOrConnectWithoutCoaInput[]
+    createMany?: JurnalCreateManyCoaInputEnvelope
+    connect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+  }
+
+  export type JurnalUpdateManyWithoutCoaNestedInput = {
+    create?: XOR<JurnalCreateWithoutCoaInput, JurnalUncheckedCreateWithoutCoaInput> | JurnalCreateWithoutCoaInput[] | JurnalUncheckedCreateWithoutCoaInput[]
+    connectOrCreate?: JurnalCreateOrConnectWithoutCoaInput | JurnalCreateOrConnectWithoutCoaInput[]
+    upsert?: JurnalUpsertWithWhereUniqueWithoutCoaInput | JurnalUpsertWithWhereUniqueWithoutCoaInput[]
+    createMany?: JurnalCreateManyCoaInputEnvelope
+    set?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    disconnect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    delete?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    connect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    update?: JurnalUpdateWithWhereUniqueWithoutCoaInput | JurnalUpdateWithWhereUniqueWithoutCoaInput[]
+    updateMany?: JurnalUpdateManyWithWhereWithoutCoaInput | JurnalUpdateManyWithWhereWithoutCoaInput[]
+    deleteMany?: JurnalScalarWhereInput | JurnalScalarWhereInput[]
+  }
+
+  export type JurnalUncheckedUpdateManyWithoutCoaNestedInput = {
+    create?: XOR<JurnalCreateWithoutCoaInput, JurnalUncheckedCreateWithoutCoaInput> | JurnalCreateWithoutCoaInput[] | JurnalUncheckedCreateWithoutCoaInput[]
+    connectOrCreate?: JurnalCreateOrConnectWithoutCoaInput | JurnalCreateOrConnectWithoutCoaInput[]
+    upsert?: JurnalUpsertWithWhereUniqueWithoutCoaInput | JurnalUpsertWithWhereUniqueWithoutCoaInput[]
+    createMany?: JurnalCreateManyCoaInputEnvelope
+    set?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    disconnect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    delete?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    connect?: JurnalWhereUniqueInput | JurnalWhereUniqueInput[]
+    update?: JurnalUpdateWithWhereUniqueWithoutCoaInput | JurnalUpdateWithWhereUniqueWithoutCoaInput[]
+    updateMany?: JurnalUpdateManyWithWhereWithoutCoaInput | JurnalUpdateManyWithWhereWithoutCoaInput[]
+    deleteMany?: JurnalScalarWhereInput | JurnalScalarWhereInput[]
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -8256,6 +27148,56 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedFloatFilter<$PrismaModel>
+    _min?: NestedFloatFilter<$PrismaModel>
+    _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type NestedEnumInvoiceStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvoiceStatusFilter<$PrismaModel> | $Enums.InvoiceStatus
+  }
+
+  export type NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InvoiceStatus | EnumInvoiceStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.InvoiceStatus[] | ListEnumInvoiceStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumInvoiceStatusWithAggregatesFilter<$PrismaModel> | $Enums.InvoiceStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumInvoiceStatusFilter<$PrismaModel>
+    _max?: NestedEnumInvoiceStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumTipeTransaksiFilter<$PrismaModel = never> = {
+    equals?: $Enums.TipeTransaksi | EnumTipeTransaksiFieldRefInput<$PrismaModel>
+    in?: $Enums.TipeTransaksi[] | ListEnumTipeTransaksiFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TipeTransaksi[] | ListEnumTipeTransaksiFieldRefInput<$PrismaModel>
+    not?: NestedEnumTipeTransaksiFilter<$PrismaModel> | $Enums.TipeTransaksi
+  }
+
+  export type NestedEnumTipeTransaksiWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TipeTransaksi | EnumTipeTransaksiFieldRefInput<$PrismaModel>
+    in?: $Enums.TipeTransaksi[] | ListEnumTipeTransaksiFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TipeTransaksi[] | ListEnumTipeTransaksiFieldRefInput<$PrismaModel>
+    not?: NestedEnumTipeTransaksiWithAggregatesFilter<$PrismaModel> | $Enums.TipeTransaksi
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTipeTransaksiFilter<$PrismaModel>
+    _max?: NestedEnumTipeTransaksiFilter<$PrismaModel>
   }
 
   export type UserCreateWithoutPostsInput = {
@@ -8599,6 +27541,1656 @@ export namespace Prisma {
     createdById?: StringFilter<"Post"> | string
   }
 
+  export type BarcodeJemaahCreateWithoutAgenInput = {
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    harga: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    produk: ProdukCreateNestedOneWithoutBarcodesInput
+    paket: PaketCreateNestedOneWithoutBarcodesInput
+    file?: FileCreateNestedOneWithoutBarcodesInput
+    invoice?: InvoiceCreateNestedOneWithoutBarcodesInput
+  }
+
+  export type BarcodeJemaahUncheckedCreateWithoutAgenInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    harga: number
+    fileId?: number | null
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahCreateOrConnectWithoutAgenInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    create: XOR<BarcodeJemaahCreateWithoutAgenInput, BarcodeJemaahUncheckedCreateWithoutAgenInput>
+  }
+
+  export type BarcodeJemaahCreateManyAgenInputEnvelope = {
+    data: BarcodeJemaahCreateManyAgenInput | BarcodeJemaahCreateManyAgenInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type InvoiceCreateWithoutAgenInput = {
+    nomor: string
+    tanggal: Date | string
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutInvoiceInput
+    mutasiLinks?: InvoiceMutasiCreateNestedManyWithoutInvoiceInput
+    batch?: BatchFlightCreateNestedOneWithoutInvoicesInput
+  }
+
+  export type InvoiceUncheckedCreateWithoutAgenInput = {
+    id?: number
+    nomor: string
+    tanggal: Date | string
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    batchFlightId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutInvoiceInput
+    mutasiLinks?: InvoiceMutasiUncheckedCreateNestedManyWithoutInvoiceInput
+  }
+
+  export type InvoiceCreateOrConnectWithoutAgenInput = {
+    where: InvoiceWhereUniqueInput
+    create: XOR<InvoiceCreateWithoutAgenInput, InvoiceUncheckedCreateWithoutAgenInput>
+  }
+
+  export type InvoiceCreateManyAgenInputEnvelope = {
+    data: InvoiceCreateManyAgenInput | InvoiceCreateManyAgenInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BarcodeJemaahUpsertWithWhereUniqueWithoutAgenInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    update: XOR<BarcodeJemaahUpdateWithoutAgenInput, BarcodeJemaahUncheckedUpdateWithoutAgenInput>
+    create: XOR<BarcodeJemaahCreateWithoutAgenInput, BarcodeJemaahUncheckedCreateWithoutAgenInput>
+  }
+
+  export type BarcodeJemaahUpdateWithWhereUniqueWithoutAgenInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    data: XOR<BarcodeJemaahUpdateWithoutAgenInput, BarcodeJemaahUncheckedUpdateWithoutAgenInput>
+  }
+
+  export type BarcodeJemaahUpdateManyWithWhereWithoutAgenInput = {
+    where: BarcodeJemaahScalarWhereInput
+    data: XOR<BarcodeJemaahUpdateManyMutationInput, BarcodeJemaahUncheckedUpdateManyWithoutAgenInput>
+  }
+
+  export type BarcodeJemaahScalarWhereInput = {
+    AND?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+    OR?: BarcodeJemaahScalarWhereInput[]
+    NOT?: BarcodeJemaahScalarWhereInput | BarcodeJemaahScalarWhereInput[]
+    id?: IntFilter<"BarcodeJemaah"> | number
+    oldBarcode?: StringNullableFilter<"BarcodeJemaah"> | string | null
+    nama?: StringFilter<"BarcodeJemaah"> | string
+    ktp?: StringFilter<"BarcodeJemaah"> | string
+    alamat?: StringFilter<"BarcodeJemaah"> | string
+    produkId?: IntFilter<"BarcodeJemaah"> | number
+    paketId?: IntFilter<"BarcodeJemaah"> | number
+    tingkat?: StringFilter<"BarcodeJemaah"> | string
+    tanggalKeberangkatan?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+    deskripsi?: StringNullableFilter<"BarcodeJemaah"> | string | null
+    agenId?: IntFilter<"BarcodeJemaah"> | number
+    harga?: FloatFilter<"BarcodeJemaah"> | number
+    fileId?: IntNullableFilter<"BarcodeJemaah"> | number | null
+    invoiceId?: IntNullableFilter<"BarcodeJemaah"> | number | null
+    createdAt?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+    updatedAt?: DateTimeFilter<"BarcodeJemaah"> | Date | string
+  }
+
+  export type InvoiceUpsertWithWhereUniqueWithoutAgenInput = {
+    where: InvoiceWhereUniqueInput
+    update: XOR<InvoiceUpdateWithoutAgenInput, InvoiceUncheckedUpdateWithoutAgenInput>
+    create: XOR<InvoiceCreateWithoutAgenInput, InvoiceUncheckedCreateWithoutAgenInput>
+  }
+
+  export type InvoiceUpdateWithWhereUniqueWithoutAgenInput = {
+    where: InvoiceWhereUniqueInput
+    data: XOR<InvoiceUpdateWithoutAgenInput, InvoiceUncheckedUpdateWithoutAgenInput>
+  }
+
+  export type InvoiceUpdateManyWithWhereWithoutAgenInput = {
+    where: InvoiceScalarWhereInput
+    data: XOR<InvoiceUpdateManyMutationInput, InvoiceUncheckedUpdateManyWithoutAgenInput>
+  }
+
+  export type InvoiceScalarWhereInput = {
+    AND?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+    OR?: InvoiceScalarWhereInput[]
+    NOT?: InvoiceScalarWhereInput | InvoiceScalarWhereInput[]
+    id?: IntFilter<"Invoice"> | number
+    nomor?: StringFilter<"Invoice"> | string
+    tanggal?: DateTimeFilter<"Invoice"> | Date | string
+    agenId?: IntFilter<"Invoice"> | number
+    taxPercent?: FloatFilter<"Invoice"> | number
+    diskon?: FloatFilter<"Invoice"> | number
+    total?: FloatFilter<"Invoice"> | number
+    status?: EnumInvoiceStatusFilter<"Invoice"> | $Enums.InvoiceStatus
+    dueDate?: DateTimeFilter<"Invoice"> | Date | string
+    batchFlightId?: IntNullableFilter<"Invoice"> | number | null
+    createdAt?: DateTimeFilter<"Invoice"> | Date | string
+    updatedAt?: DateTimeFilter<"Invoice"> | Date | string
+  }
+
+  export type PaketCreateWithoutProdukInput = {
+    nama: string
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutPaketInput
+  }
+
+  export type PaketUncheckedCreateWithoutProdukInput = {
+    id?: number
+    nama: string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutPaketInput
+  }
+
+  export type PaketCreateOrConnectWithoutProdukInput = {
+    where: PaketWhereUniqueInput
+    create: XOR<PaketCreateWithoutProdukInput, PaketUncheckedCreateWithoutProdukInput>
+  }
+
+  export type PaketCreateManyProdukInputEnvelope = {
+    data: PaketCreateManyProdukInput | PaketCreateManyProdukInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BarcodeJemaahCreateWithoutProdukInput = {
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    harga: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    paket: PaketCreateNestedOneWithoutBarcodesInput
+    agen: AgenCreateNestedOneWithoutBarcodesInput
+    file?: FileCreateNestedOneWithoutBarcodesInput
+    invoice?: InvoiceCreateNestedOneWithoutBarcodesInput
+  }
+
+  export type BarcodeJemaahUncheckedCreateWithoutProdukInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    fileId?: number | null
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahCreateOrConnectWithoutProdukInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    create: XOR<BarcodeJemaahCreateWithoutProdukInput, BarcodeJemaahUncheckedCreateWithoutProdukInput>
+  }
+
+  export type BarcodeJemaahCreateManyProdukInputEnvelope = {
+    data: BarcodeJemaahCreateManyProdukInput | BarcodeJemaahCreateManyProdukInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type PaketUpsertWithWhereUniqueWithoutProdukInput = {
+    where: PaketWhereUniqueInput
+    update: XOR<PaketUpdateWithoutProdukInput, PaketUncheckedUpdateWithoutProdukInput>
+    create: XOR<PaketCreateWithoutProdukInput, PaketUncheckedCreateWithoutProdukInput>
+  }
+
+  export type PaketUpdateWithWhereUniqueWithoutProdukInput = {
+    where: PaketWhereUniqueInput
+    data: XOR<PaketUpdateWithoutProdukInput, PaketUncheckedUpdateWithoutProdukInput>
+  }
+
+  export type PaketUpdateManyWithWhereWithoutProdukInput = {
+    where: PaketScalarWhereInput
+    data: XOR<PaketUpdateManyMutationInput, PaketUncheckedUpdateManyWithoutProdukInput>
+  }
+
+  export type PaketScalarWhereInput = {
+    AND?: PaketScalarWhereInput | PaketScalarWhereInput[]
+    OR?: PaketScalarWhereInput[]
+    NOT?: PaketScalarWhereInput | PaketScalarWhereInput[]
+    id?: IntFilter<"Paket"> | number
+    produkId?: IntFilter<"Paket"> | number
+    nama?: StringFilter<"Paket"> | string
+  }
+
+  export type BarcodeJemaahUpsertWithWhereUniqueWithoutProdukInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    update: XOR<BarcodeJemaahUpdateWithoutProdukInput, BarcodeJemaahUncheckedUpdateWithoutProdukInput>
+    create: XOR<BarcodeJemaahCreateWithoutProdukInput, BarcodeJemaahUncheckedCreateWithoutProdukInput>
+  }
+
+  export type BarcodeJemaahUpdateWithWhereUniqueWithoutProdukInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    data: XOR<BarcodeJemaahUpdateWithoutProdukInput, BarcodeJemaahUncheckedUpdateWithoutProdukInput>
+  }
+
+  export type BarcodeJemaahUpdateManyWithWhereWithoutProdukInput = {
+    where: BarcodeJemaahScalarWhereInput
+    data: XOR<BarcodeJemaahUpdateManyMutationInput, BarcodeJemaahUncheckedUpdateManyWithoutProdukInput>
+  }
+
+  export type ProdukCreateWithoutPaketInput = {
+    nama: string
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutProdukInput
+  }
+
+  export type ProdukUncheckedCreateWithoutPaketInput = {
+    id?: number
+    nama: string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutProdukInput
+  }
+
+  export type ProdukCreateOrConnectWithoutPaketInput = {
+    where: ProdukWhereUniqueInput
+    create: XOR<ProdukCreateWithoutPaketInput, ProdukUncheckedCreateWithoutPaketInput>
+  }
+
+  export type BarcodeJemaahCreateWithoutPaketInput = {
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    harga: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    produk: ProdukCreateNestedOneWithoutBarcodesInput
+    agen: AgenCreateNestedOneWithoutBarcodesInput
+    file?: FileCreateNestedOneWithoutBarcodesInput
+    invoice?: InvoiceCreateNestedOneWithoutBarcodesInput
+  }
+
+  export type BarcodeJemaahUncheckedCreateWithoutPaketInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    fileId?: number | null
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahCreateOrConnectWithoutPaketInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    create: XOR<BarcodeJemaahCreateWithoutPaketInput, BarcodeJemaahUncheckedCreateWithoutPaketInput>
+  }
+
+  export type BarcodeJemaahCreateManyPaketInputEnvelope = {
+    data: BarcodeJemaahCreateManyPaketInput | BarcodeJemaahCreateManyPaketInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProdukUpsertWithoutPaketInput = {
+    update: XOR<ProdukUpdateWithoutPaketInput, ProdukUncheckedUpdateWithoutPaketInput>
+    create: XOR<ProdukCreateWithoutPaketInput, ProdukUncheckedCreateWithoutPaketInput>
+    where?: ProdukWhereInput
+  }
+
+  export type ProdukUpdateToOneWithWhereWithoutPaketInput = {
+    where?: ProdukWhereInput
+    data: XOR<ProdukUpdateWithoutPaketInput, ProdukUncheckedUpdateWithoutPaketInput>
+  }
+
+  export type ProdukUpdateWithoutPaketInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUpdateManyWithoutProdukNestedInput
+  }
+
+  export type ProdukUncheckedUpdateWithoutPaketInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutProdukNestedInput
+  }
+
+  export type BarcodeJemaahUpsertWithWhereUniqueWithoutPaketInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    update: XOR<BarcodeJemaahUpdateWithoutPaketInput, BarcodeJemaahUncheckedUpdateWithoutPaketInput>
+    create: XOR<BarcodeJemaahCreateWithoutPaketInput, BarcodeJemaahUncheckedCreateWithoutPaketInput>
+  }
+
+  export type BarcodeJemaahUpdateWithWhereUniqueWithoutPaketInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    data: XOR<BarcodeJemaahUpdateWithoutPaketInput, BarcodeJemaahUncheckedUpdateWithoutPaketInput>
+  }
+
+  export type BarcodeJemaahUpdateManyWithWhereWithoutPaketInput = {
+    where: BarcodeJemaahScalarWhereInput
+    data: XOR<BarcodeJemaahUpdateManyMutationInput, BarcodeJemaahUncheckedUpdateManyWithoutPaketInput>
+  }
+
+  export type BarcodeJemaahCreateWithoutFileInput = {
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    harga: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    produk: ProdukCreateNestedOneWithoutBarcodesInput
+    paket: PaketCreateNestedOneWithoutBarcodesInput
+    agen: AgenCreateNestedOneWithoutBarcodesInput
+    invoice?: InvoiceCreateNestedOneWithoutBarcodesInput
+  }
+
+  export type BarcodeJemaahUncheckedCreateWithoutFileInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahCreateOrConnectWithoutFileInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    create: XOR<BarcodeJemaahCreateWithoutFileInput, BarcodeJemaahUncheckedCreateWithoutFileInput>
+  }
+
+  export type BarcodeJemaahCreateManyFileInputEnvelope = {
+    data: BarcodeJemaahCreateManyFileInput | BarcodeJemaahCreateManyFileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BatchTransactionCreateWithoutFileInput = {
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    batch: BatchFlightCreateNestedOneWithoutTransactionsInput
+    mutasi?: MutasiCreateNestedOneWithoutBatchTransactionsInput
+  }
+
+  export type BatchTransactionUncheckedCreateWithoutFileInput = {
+    id?: number
+    batchId: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    mutasiId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchTransactionCreateOrConnectWithoutFileInput = {
+    where: BatchTransactionWhereUniqueInput
+    create: XOR<BatchTransactionCreateWithoutFileInput, BatchTransactionUncheckedCreateWithoutFileInput>
+  }
+
+  export type BatchTransactionCreateManyFileInputEnvelope = {
+    data: BatchTransactionCreateManyFileInput | BatchTransactionCreateManyFileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JurnalCreateWithoutFileInput = {
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    tanggalTransaksi: Date | string
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    coa: COACreateNestedOneWithoutJournalsInput
+  }
+
+  export type JurnalUncheckedCreateWithoutFileInput = {
+    id?: number
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    coaId: number
+    tanggalTransaksi: Date | string
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JurnalCreateOrConnectWithoutFileInput = {
+    where: JurnalWhereUniqueInput
+    create: XOR<JurnalCreateWithoutFileInput, JurnalUncheckedCreateWithoutFileInput>
+  }
+
+  export type JurnalCreateManyFileInputEnvelope = {
+    data: JurnalCreateManyFileInput | JurnalCreateManyFileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BarcodeJemaahUpsertWithWhereUniqueWithoutFileInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    update: XOR<BarcodeJemaahUpdateWithoutFileInput, BarcodeJemaahUncheckedUpdateWithoutFileInput>
+    create: XOR<BarcodeJemaahCreateWithoutFileInput, BarcodeJemaahUncheckedCreateWithoutFileInput>
+  }
+
+  export type BarcodeJemaahUpdateWithWhereUniqueWithoutFileInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    data: XOR<BarcodeJemaahUpdateWithoutFileInput, BarcodeJemaahUncheckedUpdateWithoutFileInput>
+  }
+
+  export type BarcodeJemaahUpdateManyWithWhereWithoutFileInput = {
+    where: BarcodeJemaahScalarWhereInput
+    data: XOR<BarcodeJemaahUpdateManyMutationInput, BarcodeJemaahUncheckedUpdateManyWithoutFileInput>
+  }
+
+  export type BatchTransactionUpsertWithWhereUniqueWithoutFileInput = {
+    where: BatchTransactionWhereUniqueInput
+    update: XOR<BatchTransactionUpdateWithoutFileInput, BatchTransactionUncheckedUpdateWithoutFileInput>
+    create: XOR<BatchTransactionCreateWithoutFileInput, BatchTransactionUncheckedCreateWithoutFileInput>
+  }
+
+  export type BatchTransactionUpdateWithWhereUniqueWithoutFileInput = {
+    where: BatchTransactionWhereUniqueInput
+    data: XOR<BatchTransactionUpdateWithoutFileInput, BatchTransactionUncheckedUpdateWithoutFileInput>
+  }
+
+  export type BatchTransactionUpdateManyWithWhereWithoutFileInput = {
+    where: BatchTransactionScalarWhereInput
+    data: XOR<BatchTransactionUpdateManyMutationInput, BatchTransactionUncheckedUpdateManyWithoutFileInput>
+  }
+
+  export type BatchTransactionScalarWhereInput = {
+    AND?: BatchTransactionScalarWhereInput | BatchTransactionScalarWhereInput[]
+    OR?: BatchTransactionScalarWhereInput[]
+    NOT?: BatchTransactionScalarWhereInput | BatchTransactionScalarWhereInput[]
+    id?: IntFilter<"BatchTransaction"> | number
+    batchId?: IntFilter<"BatchTransaction"> | number
+    tipe?: EnumTipeTransaksiFilter<"BatchTransaction"> | $Enums.TipeTransaksi
+    namaTransaksi?: StringFilter<"BatchTransaction"> | string
+    nominal?: FloatFilter<"BatchTransaction"> | number
+    deskripsi?: StringFilter<"BatchTransaction"> | string
+    fileId?: IntNullableFilter<"BatchTransaction"> | number | null
+    mutasiId?: IntNullableFilter<"BatchTransaction"> | number | null
+    createdAt?: DateTimeFilter<"BatchTransaction"> | Date | string
+    updatedAt?: DateTimeFilter<"BatchTransaction"> | Date | string
+  }
+
+  export type JurnalUpsertWithWhereUniqueWithoutFileInput = {
+    where: JurnalWhereUniqueInput
+    update: XOR<JurnalUpdateWithoutFileInput, JurnalUncheckedUpdateWithoutFileInput>
+    create: XOR<JurnalCreateWithoutFileInput, JurnalUncheckedCreateWithoutFileInput>
+  }
+
+  export type JurnalUpdateWithWhereUniqueWithoutFileInput = {
+    where: JurnalWhereUniqueInput
+    data: XOR<JurnalUpdateWithoutFileInput, JurnalUncheckedUpdateWithoutFileInput>
+  }
+
+  export type JurnalUpdateManyWithWhereWithoutFileInput = {
+    where: JurnalScalarWhereInput
+    data: XOR<JurnalUpdateManyMutationInput, JurnalUncheckedUpdateManyWithoutFileInput>
+  }
+
+  export type JurnalScalarWhereInput = {
+    AND?: JurnalScalarWhereInput | JurnalScalarWhereInput[]
+    OR?: JurnalScalarWhereInput[]
+    NOT?: JurnalScalarWhereInput | JurnalScalarWhereInput[]
+    id?: IntFilter<"Jurnal"> | number
+    jurnalNumber?: StringFilter<"Jurnal"> | string
+    namaTransaksi?: StringFilter<"Jurnal"> | string
+    tipe?: EnumTipeTransaksiFilter<"Jurnal"> | $Enums.TipeTransaksi
+    coaId?: IntFilter<"Jurnal"> | number
+    tanggalTransaksi?: DateTimeFilter<"Jurnal"> | Date | string
+    fileId?: IntNullableFilter<"Jurnal"> | number | null
+    nominal?: FloatFilter<"Jurnal"> | number
+    createdAt?: DateTimeFilter<"Jurnal"> | Date | string
+    updatedAt?: DateTimeFilter<"Jurnal"> | Date | string
+  }
+
+  export type ProdukCreateWithoutBarcodesInput = {
+    nama: string
+    paket?: PaketCreateNestedManyWithoutProdukInput
+  }
+
+  export type ProdukUncheckedCreateWithoutBarcodesInput = {
+    id?: number
+    nama: string
+    paket?: PaketUncheckedCreateNestedManyWithoutProdukInput
+  }
+
+  export type ProdukCreateOrConnectWithoutBarcodesInput = {
+    where: ProdukWhereUniqueInput
+    create: XOR<ProdukCreateWithoutBarcodesInput, ProdukUncheckedCreateWithoutBarcodesInput>
+  }
+
+  export type PaketCreateWithoutBarcodesInput = {
+    nama: string
+    produk: ProdukCreateNestedOneWithoutPaketInput
+  }
+
+  export type PaketUncheckedCreateWithoutBarcodesInput = {
+    id?: number
+    produkId: number
+    nama: string
+  }
+
+  export type PaketCreateOrConnectWithoutBarcodesInput = {
+    where: PaketWhereUniqueInput
+    create: XOR<PaketCreateWithoutBarcodesInput, PaketUncheckedCreateWithoutBarcodesInput>
+  }
+
+  export type AgenCreateWithoutBarcodesInput = {
+    nama: string
+    alamat: string
+    nomorHp: string
+    invoices?: InvoiceCreateNestedManyWithoutAgenInput
+  }
+
+  export type AgenUncheckedCreateWithoutBarcodesInput = {
+    id?: number
+    nama: string
+    alamat: string
+    nomorHp: string
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutAgenInput
+  }
+
+  export type AgenCreateOrConnectWithoutBarcodesInput = {
+    where: AgenWhereUniqueInput
+    create: XOR<AgenCreateWithoutBarcodesInput, AgenUncheckedCreateWithoutBarcodesInput>
+  }
+
+  export type FileCreateWithoutBarcodesInput = {
+    url: string
+    type: string
+    batchTransactions?: BatchTransactionCreateNestedManyWithoutFileInput
+    journals?: JurnalCreateNestedManyWithoutFileInput
+  }
+
+  export type FileUncheckedCreateWithoutBarcodesInput = {
+    id?: number
+    url: string
+    type: string
+    batchTransactions?: BatchTransactionUncheckedCreateNestedManyWithoutFileInput
+    journals?: JurnalUncheckedCreateNestedManyWithoutFileInput
+  }
+
+  export type FileCreateOrConnectWithoutBarcodesInput = {
+    where: FileWhereUniqueInput
+    create: XOR<FileCreateWithoutBarcodesInput, FileUncheckedCreateWithoutBarcodesInput>
+  }
+
+  export type InvoiceCreateWithoutBarcodesInput = {
+    nomor: string
+    tanggal: Date | string
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    agen: AgenCreateNestedOneWithoutInvoicesInput
+    mutasiLinks?: InvoiceMutasiCreateNestedManyWithoutInvoiceInput
+    batch?: BatchFlightCreateNestedOneWithoutInvoicesInput
+  }
+
+  export type InvoiceUncheckedCreateWithoutBarcodesInput = {
+    id?: number
+    nomor: string
+    tanggal: Date | string
+    agenId: number
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    batchFlightId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mutasiLinks?: InvoiceMutasiUncheckedCreateNestedManyWithoutInvoiceInput
+  }
+
+  export type InvoiceCreateOrConnectWithoutBarcodesInput = {
+    where: InvoiceWhereUniqueInput
+    create: XOR<InvoiceCreateWithoutBarcodesInput, InvoiceUncheckedCreateWithoutBarcodesInput>
+  }
+
+  export type ProdukUpsertWithoutBarcodesInput = {
+    update: XOR<ProdukUpdateWithoutBarcodesInput, ProdukUncheckedUpdateWithoutBarcodesInput>
+    create: XOR<ProdukCreateWithoutBarcodesInput, ProdukUncheckedCreateWithoutBarcodesInput>
+    where?: ProdukWhereInput
+  }
+
+  export type ProdukUpdateToOneWithWhereWithoutBarcodesInput = {
+    where?: ProdukWhereInput
+    data: XOR<ProdukUpdateWithoutBarcodesInput, ProdukUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type ProdukUpdateWithoutBarcodesInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    paket?: PaketUpdateManyWithoutProdukNestedInput
+  }
+
+  export type ProdukUncheckedUpdateWithoutBarcodesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    paket?: PaketUncheckedUpdateManyWithoutProdukNestedInput
+  }
+
+  export type PaketUpsertWithoutBarcodesInput = {
+    update: XOR<PaketUpdateWithoutBarcodesInput, PaketUncheckedUpdateWithoutBarcodesInput>
+    create: XOR<PaketCreateWithoutBarcodesInput, PaketUncheckedCreateWithoutBarcodesInput>
+    where?: PaketWhereInput
+  }
+
+  export type PaketUpdateToOneWithWhereWithoutBarcodesInput = {
+    where?: PaketWhereInput
+    data: XOR<PaketUpdateWithoutBarcodesInput, PaketUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type PaketUpdateWithoutBarcodesInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    produk?: ProdukUpdateOneRequiredWithoutPaketNestedInput
+  }
+
+  export type PaketUncheckedUpdateWithoutBarcodesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    produkId?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type AgenUpsertWithoutBarcodesInput = {
+    update: XOR<AgenUpdateWithoutBarcodesInput, AgenUncheckedUpdateWithoutBarcodesInput>
+    create: XOR<AgenCreateWithoutBarcodesInput, AgenUncheckedCreateWithoutBarcodesInput>
+    where?: AgenWhereInput
+  }
+
+  export type AgenUpdateToOneWithWhereWithoutBarcodesInput = {
+    where?: AgenWhereInput
+    data: XOR<AgenUpdateWithoutBarcodesInput, AgenUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type AgenUpdateWithoutBarcodesInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    nomorHp?: StringFieldUpdateOperationsInput | string
+    invoices?: InvoiceUpdateManyWithoutAgenNestedInput
+  }
+
+  export type AgenUncheckedUpdateWithoutBarcodesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    nomorHp?: StringFieldUpdateOperationsInput | string
+    invoices?: InvoiceUncheckedUpdateManyWithoutAgenNestedInput
+  }
+
+  export type FileUpsertWithoutBarcodesInput = {
+    update: XOR<FileUpdateWithoutBarcodesInput, FileUncheckedUpdateWithoutBarcodesInput>
+    create: XOR<FileCreateWithoutBarcodesInput, FileUncheckedCreateWithoutBarcodesInput>
+    where?: FileWhereInput
+  }
+
+  export type FileUpdateToOneWithWhereWithoutBarcodesInput = {
+    where?: FileWhereInput
+    data: XOR<FileUpdateWithoutBarcodesInput, FileUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type FileUpdateWithoutBarcodesInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    batchTransactions?: BatchTransactionUpdateManyWithoutFileNestedInput
+    journals?: JurnalUpdateManyWithoutFileNestedInput
+  }
+
+  export type FileUncheckedUpdateWithoutBarcodesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    batchTransactions?: BatchTransactionUncheckedUpdateManyWithoutFileNestedInput
+    journals?: JurnalUncheckedUpdateManyWithoutFileNestedInput
+  }
+
+  export type InvoiceUpsertWithoutBarcodesInput = {
+    update: XOR<InvoiceUpdateWithoutBarcodesInput, InvoiceUncheckedUpdateWithoutBarcodesInput>
+    create: XOR<InvoiceCreateWithoutBarcodesInput, InvoiceUncheckedCreateWithoutBarcodesInput>
+    where?: InvoiceWhereInput
+  }
+
+  export type InvoiceUpdateToOneWithWhereWithoutBarcodesInput = {
+    where?: InvoiceWhereInput
+    data: XOR<InvoiceUpdateWithoutBarcodesInput, InvoiceUncheckedUpdateWithoutBarcodesInput>
+  }
+
+  export type InvoiceUpdateWithoutBarcodesInput = {
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    agen?: AgenUpdateOneRequiredWithoutInvoicesNestedInput
+    mutasiLinks?: InvoiceMutasiUpdateManyWithoutInvoiceNestedInput
+    batch?: BatchFlightUpdateOneWithoutInvoicesNestedInput
+  }
+
+  export type InvoiceUncheckedUpdateWithoutBarcodesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    agenId?: IntFieldUpdateOperationsInput | number
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    batchFlightId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mutasiLinks?: InvoiceMutasiUncheckedUpdateManyWithoutInvoiceNestedInput
+  }
+
+  export type AgenCreateWithoutInvoicesInput = {
+    nama: string
+    alamat: string
+    nomorHp: string
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutAgenInput
+  }
+
+  export type AgenUncheckedCreateWithoutInvoicesInput = {
+    id?: number
+    nama: string
+    alamat: string
+    nomorHp: string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutAgenInput
+  }
+
+  export type AgenCreateOrConnectWithoutInvoicesInput = {
+    where: AgenWhereUniqueInput
+    create: XOR<AgenCreateWithoutInvoicesInput, AgenUncheckedCreateWithoutInvoicesInput>
+  }
+
+  export type BarcodeJemaahCreateWithoutInvoiceInput = {
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    harga: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    produk: ProdukCreateNestedOneWithoutBarcodesInput
+    paket: PaketCreateNestedOneWithoutBarcodesInput
+    agen: AgenCreateNestedOneWithoutBarcodesInput
+    file?: FileCreateNestedOneWithoutBarcodesInput
+  }
+
+  export type BarcodeJemaahUncheckedCreateWithoutInvoiceInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    fileId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahCreateOrConnectWithoutInvoiceInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    create: XOR<BarcodeJemaahCreateWithoutInvoiceInput, BarcodeJemaahUncheckedCreateWithoutInvoiceInput>
+  }
+
+  export type BarcodeJemaahCreateManyInvoiceInputEnvelope = {
+    data: BarcodeJemaahCreateManyInvoiceInput | BarcodeJemaahCreateManyInvoiceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type InvoiceMutasiCreateWithoutInvoiceInput = {
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mutasi: MutasiCreateNestedOneWithoutInvoiceLinksInput
+  }
+
+  export type InvoiceMutasiUncheckedCreateWithoutInvoiceInput = {
+    id?: number
+    mutasiId: number
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceMutasiCreateOrConnectWithoutInvoiceInput = {
+    where: InvoiceMutasiWhereUniqueInput
+    create: XOR<InvoiceMutasiCreateWithoutInvoiceInput, InvoiceMutasiUncheckedCreateWithoutInvoiceInput>
+  }
+
+  export type InvoiceMutasiCreateManyInvoiceInputEnvelope = {
+    data: InvoiceMutasiCreateManyInvoiceInput | InvoiceMutasiCreateManyInvoiceInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BatchFlightCreateWithoutInvoicesInput = {
+    nomorBatch: string
+    route: string
+    bookingCode: string
+    flightDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    transactions?: BatchTransactionCreateNestedManyWithoutBatchInput
+  }
+
+  export type BatchFlightUncheckedCreateWithoutInvoicesInput = {
+    id?: number
+    nomorBatch: string
+    route: string
+    bookingCode: string
+    flightDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    transactions?: BatchTransactionUncheckedCreateNestedManyWithoutBatchInput
+  }
+
+  export type BatchFlightCreateOrConnectWithoutInvoicesInput = {
+    where: BatchFlightWhereUniqueInput
+    create: XOR<BatchFlightCreateWithoutInvoicesInput, BatchFlightUncheckedCreateWithoutInvoicesInput>
+  }
+
+  export type AgenUpsertWithoutInvoicesInput = {
+    update: XOR<AgenUpdateWithoutInvoicesInput, AgenUncheckedUpdateWithoutInvoicesInput>
+    create: XOR<AgenCreateWithoutInvoicesInput, AgenUncheckedCreateWithoutInvoicesInput>
+    where?: AgenWhereInput
+  }
+
+  export type AgenUpdateToOneWithWhereWithoutInvoicesInput = {
+    where?: AgenWhereInput
+    data: XOR<AgenUpdateWithoutInvoicesInput, AgenUncheckedUpdateWithoutInvoicesInput>
+  }
+
+  export type AgenUpdateWithoutInvoicesInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    nomorHp?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUpdateManyWithoutAgenNestedInput
+  }
+
+  export type AgenUncheckedUpdateWithoutInvoicesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    nomorHp?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutAgenNestedInput
+  }
+
+  export type BarcodeJemaahUpsertWithWhereUniqueWithoutInvoiceInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    update: XOR<BarcodeJemaahUpdateWithoutInvoiceInput, BarcodeJemaahUncheckedUpdateWithoutInvoiceInput>
+    create: XOR<BarcodeJemaahCreateWithoutInvoiceInput, BarcodeJemaahUncheckedCreateWithoutInvoiceInput>
+  }
+
+  export type BarcodeJemaahUpdateWithWhereUniqueWithoutInvoiceInput = {
+    where: BarcodeJemaahWhereUniqueInput
+    data: XOR<BarcodeJemaahUpdateWithoutInvoiceInput, BarcodeJemaahUncheckedUpdateWithoutInvoiceInput>
+  }
+
+  export type BarcodeJemaahUpdateManyWithWhereWithoutInvoiceInput = {
+    where: BarcodeJemaahScalarWhereInput
+    data: XOR<BarcodeJemaahUpdateManyMutationInput, BarcodeJemaahUncheckedUpdateManyWithoutInvoiceInput>
+  }
+
+  export type InvoiceMutasiUpsertWithWhereUniqueWithoutInvoiceInput = {
+    where: InvoiceMutasiWhereUniqueInput
+    update: XOR<InvoiceMutasiUpdateWithoutInvoiceInput, InvoiceMutasiUncheckedUpdateWithoutInvoiceInput>
+    create: XOR<InvoiceMutasiCreateWithoutInvoiceInput, InvoiceMutasiUncheckedCreateWithoutInvoiceInput>
+  }
+
+  export type InvoiceMutasiUpdateWithWhereUniqueWithoutInvoiceInput = {
+    where: InvoiceMutasiWhereUniqueInput
+    data: XOR<InvoiceMutasiUpdateWithoutInvoiceInput, InvoiceMutasiUncheckedUpdateWithoutInvoiceInput>
+  }
+
+  export type InvoiceMutasiUpdateManyWithWhereWithoutInvoiceInput = {
+    where: InvoiceMutasiScalarWhereInput
+    data: XOR<InvoiceMutasiUpdateManyMutationInput, InvoiceMutasiUncheckedUpdateManyWithoutInvoiceInput>
+  }
+
+  export type InvoiceMutasiScalarWhereInput = {
+    AND?: InvoiceMutasiScalarWhereInput | InvoiceMutasiScalarWhereInput[]
+    OR?: InvoiceMutasiScalarWhereInput[]
+    NOT?: InvoiceMutasiScalarWhereInput | InvoiceMutasiScalarWhereInput[]
+    id?: IntFilter<"InvoiceMutasi"> | number
+    invoiceId?: IntFilter<"InvoiceMutasi"> | number
+    mutasiId?: IntFilter<"InvoiceMutasi"> | number
+    totalDigunakan?: FloatFilter<"InvoiceMutasi"> | number
+    createdAt?: DateTimeFilter<"InvoiceMutasi"> | Date | string
+    updatedAt?: DateTimeFilter<"InvoiceMutasi"> | Date | string
+  }
+
+  export type BatchFlightUpsertWithoutInvoicesInput = {
+    update: XOR<BatchFlightUpdateWithoutInvoicesInput, BatchFlightUncheckedUpdateWithoutInvoicesInput>
+    create: XOR<BatchFlightCreateWithoutInvoicesInput, BatchFlightUncheckedCreateWithoutInvoicesInput>
+    where?: BatchFlightWhereInput
+  }
+
+  export type BatchFlightUpdateToOneWithWhereWithoutInvoicesInput = {
+    where?: BatchFlightWhereInput
+    data: XOR<BatchFlightUpdateWithoutInvoicesInput, BatchFlightUncheckedUpdateWithoutInvoicesInput>
+  }
+
+  export type BatchFlightUpdateWithoutInvoicesInput = {
+    nomorBatch?: StringFieldUpdateOperationsInput | string
+    route?: StringFieldUpdateOperationsInput | string
+    bookingCode?: StringFieldUpdateOperationsInput | string
+    flightDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    transactions?: BatchTransactionUpdateManyWithoutBatchNestedInput
+  }
+
+  export type BatchFlightUncheckedUpdateWithoutInvoicesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomorBatch?: StringFieldUpdateOperationsInput | string
+    route?: StringFieldUpdateOperationsInput | string
+    bookingCode?: StringFieldUpdateOperationsInput | string
+    flightDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    transactions?: BatchTransactionUncheckedUpdateManyWithoutBatchNestedInput
+  }
+
+  export type InvoiceMutasiCreateWithoutMutasiInput = {
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoice: InvoiceCreateNestedOneWithoutMutasiLinksInput
+  }
+
+  export type InvoiceMutasiUncheckedCreateWithoutMutasiInput = {
+    id?: number
+    invoiceId: number
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceMutasiCreateOrConnectWithoutMutasiInput = {
+    where: InvoiceMutasiWhereUniqueInput
+    create: XOR<InvoiceMutasiCreateWithoutMutasiInput, InvoiceMutasiUncheckedCreateWithoutMutasiInput>
+  }
+
+  export type InvoiceMutasiCreateManyMutasiInputEnvelope = {
+    data: InvoiceMutasiCreateManyMutasiInput | InvoiceMutasiCreateManyMutasiInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BatchTransactionCreateWithoutMutasiInput = {
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    batch: BatchFlightCreateNestedOneWithoutTransactionsInput
+    file?: FileCreateNestedOneWithoutBatchTransactionsInput
+  }
+
+  export type BatchTransactionUncheckedCreateWithoutMutasiInput = {
+    id?: number
+    batchId: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    fileId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchTransactionCreateOrConnectWithoutMutasiInput = {
+    where: BatchTransactionWhereUniqueInput
+    create: XOR<BatchTransactionCreateWithoutMutasiInput, BatchTransactionUncheckedCreateWithoutMutasiInput>
+  }
+
+  export type BatchTransactionCreateManyMutasiInputEnvelope = {
+    data: BatchTransactionCreateManyMutasiInput | BatchTransactionCreateManyMutasiInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type InvoiceMutasiUpsertWithWhereUniqueWithoutMutasiInput = {
+    where: InvoiceMutasiWhereUniqueInput
+    update: XOR<InvoiceMutasiUpdateWithoutMutasiInput, InvoiceMutasiUncheckedUpdateWithoutMutasiInput>
+    create: XOR<InvoiceMutasiCreateWithoutMutasiInput, InvoiceMutasiUncheckedCreateWithoutMutasiInput>
+  }
+
+  export type InvoiceMutasiUpdateWithWhereUniqueWithoutMutasiInput = {
+    where: InvoiceMutasiWhereUniqueInput
+    data: XOR<InvoiceMutasiUpdateWithoutMutasiInput, InvoiceMutasiUncheckedUpdateWithoutMutasiInput>
+  }
+
+  export type InvoiceMutasiUpdateManyWithWhereWithoutMutasiInput = {
+    where: InvoiceMutasiScalarWhereInput
+    data: XOR<InvoiceMutasiUpdateManyMutationInput, InvoiceMutasiUncheckedUpdateManyWithoutMutasiInput>
+  }
+
+  export type BatchTransactionUpsertWithWhereUniqueWithoutMutasiInput = {
+    where: BatchTransactionWhereUniqueInput
+    update: XOR<BatchTransactionUpdateWithoutMutasiInput, BatchTransactionUncheckedUpdateWithoutMutasiInput>
+    create: XOR<BatchTransactionCreateWithoutMutasiInput, BatchTransactionUncheckedCreateWithoutMutasiInput>
+  }
+
+  export type BatchTransactionUpdateWithWhereUniqueWithoutMutasiInput = {
+    where: BatchTransactionWhereUniqueInput
+    data: XOR<BatchTransactionUpdateWithoutMutasiInput, BatchTransactionUncheckedUpdateWithoutMutasiInput>
+  }
+
+  export type BatchTransactionUpdateManyWithWhereWithoutMutasiInput = {
+    where: BatchTransactionScalarWhereInput
+    data: XOR<BatchTransactionUpdateManyMutationInput, BatchTransactionUncheckedUpdateManyWithoutMutasiInput>
+  }
+
+  export type InvoiceCreateWithoutMutasiLinksInput = {
+    nomor: string
+    tanggal: Date | string
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    agen: AgenCreateNestedOneWithoutInvoicesInput
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutInvoiceInput
+    batch?: BatchFlightCreateNestedOneWithoutInvoicesInput
+  }
+
+  export type InvoiceUncheckedCreateWithoutMutasiLinksInput = {
+    id?: number
+    nomor: string
+    tanggal: Date | string
+    agenId: number
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    batchFlightId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutInvoiceInput
+  }
+
+  export type InvoiceCreateOrConnectWithoutMutasiLinksInput = {
+    where: InvoiceWhereUniqueInput
+    create: XOR<InvoiceCreateWithoutMutasiLinksInput, InvoiceUncheckedCreateWithoutMutasiLinksInput>
+  }
+
+  export type MutasiCreateWithoutInvoiceLinksInput = {
+    timestamp: Date | string
+    deskripsi: string
+    reff: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    batchTransactions?: BatchTransactionCreateNestedManyWithoutMutasiInput
+  }
+
+  export type MutasiUncheckedCreateWithoutInvoiceLinksInput = {
+    id?: number
+    timestamp: Date | string
+    deskripsi: string
+    reff: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    batchTransactions?: BatchTransactionUncheckedCreateNestedManyWithoutMutasiInput
+  }
+
+  export type MutasiCreateOrConnectWithoutInvoiceLinksInput = {
+    where: MutasiWhereUniqueInput
+    create: XOR<MutasiCreateWithoutInvoiceLinksInput, MutasiUncheckedCreateWithoutInvoiceLinksInput>
+  }
+
+  export type InvoiceUpsertWithoutMutasiLinksInput = {
+    update: XOR<InvoiceUpdateWithoutMutasiLinksInput, InvoiceUncheckedUpdateWithoutMutasiLinksInput>
+    create: XOR<InvoiceCreateWithoutMutasiLinksInput, InvoiceUncheckedCreateWithoutMutasiLinksInput>
+    where?: InvoiceWhereInput
+  }
+
+  export type InvoiceUpdateToOneWithWhereWithoutMutasiLinksInput = {
+    where?: InvoiceWhereInput
+    data: XOR<InvoiceUpdateWithoutMutasiLinksInput, InvoiceUncheckedUpdateWithoutMutasiLinksInput>
+  }
+
+  export type InvoiceUpdateWithoutMutasiLinksInput = {
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    agen?: AgenUpdateOneRequiredWithoutInvoicesNestedInput
+    barcodes?: BarcodeJemaahUpdateManyWithoutInvoiceNestedInput
+    batch?: BatchFlightUpdateOneWithoutInvoicesNestedInput
+  }
+
+  export type InvoiceUncheckedUpdateWithoutMutasiLinksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    agenId?: IntFieldUpdateOperationsInput | number
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    batchFlightId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutInvoiceNestedInput
+  }
+
+  export type MutasiUpsertWithoutInvoiceLinksInput = {
+    update: XOR<MutasiUpdateWithoutInvoiceLinksInput, MutasiUncheckedUpdateWithoutInvoiceLinksInput>
+    create: XOR<MutasiCreateWithoutInvoiceLinksInput, MutasiUncheckedCreateWithoutInvoiceLinksInput>
+    where?: MutasiWhereInput
+  }
+
+  export type MutasiUpdateToOneWithWhereWithoutInvoiceLinksInput = {
+    where?: MutasiWhereInput
+    data: XOR<MutasiUpdateWithoutInvoiceLinksInput, MutasiUncheckedUpdateWithoutInvoiceLinksInput>
+  }
+
+  export type MutasiUpdateWithoutInvoiceLinksInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    reff?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    batchTransactions?: BatchTransactionUpdateManyWithoutMutasiNestedInput
+  }
+
+  export type MutasiUncheckedUpdateWithoutInvoiceLinksInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    reff?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    batchTransactions?: BatchTransactionUncheckedUpdateManyWithoutMutasiNestedInput
+  }
+
+  export type InvoiceCreateWithoutBatchInput = {
+    nomor: string
+    tanggal: Date | string
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    agen: AgenCreateNestedOneWithoutInvoicesInput
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutInvoiceInput
+    mutasiLinks?: InvoiceMutasiCreateNestedManyWithoutInvoiceInput
+  }
+
+  export type InvoiceUncheckedCreateWithoutBatchInput = {
+    id?: number
+    nomor: string
+    tanggal: Date | string
+    agenId: number
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutInvoiceInput
+    mutasiLinks?: InvoiceMutasiUncheckedCreateNestedManyWithoutInvoiceInput
+  }
+
+  export type InvoiceCreateOrConnectWithoutBatchInput = {
+    where: InvoiceWhereUniqueInput
+    create: XOR<InvoiceCreateWithoutBatchInput, InvoiceUncheckedCreateWithoutBatchInput>
+  }
+
+  export type InvoiceCreateManyBatchInputEnvelope = {
+    data: InvoiceCreateManyBatchInput | InvoiceCreateManyBatchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BatchTransactionCreateWithoutBatchInput = {
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    file?: FileCreateNestedOneWithoutBatchTransactionsInput
+    mutasi?: MutasiCreateNestedOneWithoutBatchTransactionsInput
+  }
+
+  export type BatchTransactionUncheckedCreateWithoutBatchInput = {
+    id?: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    fileId?: number | null
+    mutasiId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchTransactionCreateOrConnectWithoutBatchInput = {
+    where: BatchTransactionWhereUniqueInput
+    create: XOR<BatchTransactionCreateWithoutBatchInput, BatchTransactionUncheckedCreateWithoutBatchInput>
+  }
+
+  export type BatchTransactionCreateManyBatchInputEnvelope = {
+    data: BatchTransactionCreateManyBatchInput | BatchTransactionCreateManyBatchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type InvoiceUpsertWithWhereUniqueWithoutBatchInput = {
+    where: InvoiceWhereUniqueInput
+    update: XOR<InvoiceUpdateWithoutBatchInput, InvoiceUncheckedUpdateWithoutBatchInput>
+    create: XOR<InvoiceCreateWithoutBatchInput, InvoiceUncheckedCreateWithoutBatchInput>
+  }
+
+  export type InvoiceUpdateWithWhereUniqueWithoutBatchInput = {
+    where: InvoiceWhereUniqueInput
+    data: XOR<InvoiceUpdateWithoutBatchInput, InvoiceUncheckedUpdateWithoutBatchInput>
+  }
+
+  export type InvoiceUpdateManyWithWhereWithoutBatchInput = {
+    where: InvoiceScalarWhereInput
+    data: XOR<InvoiceUpdateManyMutationInput, InvoiceUncheckedUpdateManyWithoutBatchInput>
+  }
+
+  export type BatchTransactionUpsertWithWhereUniqueWithoutBatchInput = {
+    where: BatchTransactionWhereUniqueInput
+    update: XOR<BatchTransactionUpdateWithoutBatchInput, BatchTransactionUncheckedUpdateWithoutBatchInput>
+    create: XOR<BatchTransactionCreateWithoutBatchInput, BatchTransactionUncheckedCreateWithoutBatchInput>
+  }
+
+  export type BatchTransactionUpdateWithWhereUniqueWithoutBatchInput = {
+    where: BatchTransactionWhereUniqueInput
+    data: XOR<BatchTransactionUpdateWithoutBatchInput, BatchTransactionUncheckedUpdateWithoutBatchInput>
+  }
+
+  export type BatchTransactionUpdateManyWithWhereWithoutBatchInput = {
+    where: BatchTransactionScalarWhereInput
+    data: XOR<BatchTransactionUpdateManyMutationInput, BatchTransactionUncheckedUpdateManyWithoutBatchInput>
+  }
+
+  export type BatchFlightCreateWithoutTransactionsInput = {
+    nomorBatch: string
+    route: string
+    bookingCode: string
+    flightDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoices?: InvoiceCreateNestedManyWithoutBatchInput
+  }
+
+  export type BatchFlightUncheckedCreateWithoutTransactionsInput = {
+    id?: number
+    nomorBatch: string
+    route: string
+    bookingCode: string
+    flightDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoices?: InvoiceUncheckedCreateNestedManyWithoutBatchInput
+  }
+
+  export type BatchFlightCreateOrConnectWithoutTransactionsInput = {
+    where: BatchFlightWhereUniqueInput
+    create: XOR<BatchFlightCreateWithoutTransactionsInput, BatchFlightUncheckedCreateWithoutTransactionsInput>
+  }
+
+  export type FileCreateWithoutBatchTransactionsInput = {
+    url: string
+    type: string
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutFileInput
+    journals?: JurnalCreateNestedManyWithoutFileInput
+  }
+
+  export type FileUncheckedCreateWithoutBatchTransactionsInput = {
+    id?: number
+    url: string
+    type: string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutFileInput
+    journals?: JurnalUncheckedCreateNestedManyWithoutFileInput
+  }
+
+  export type FileCreateOrConnectWithoutBatchTransactionsInput = {
+    where: FileWhereUniqueInput
+    create: XOR<FileCreateWithoutBatchTransactionsInput, FileUncheckedCreateWithoutBatchTransactionsInput>
+  }
+
+  export type MutasiCreateWithoutBatchTransactionsInput = {
+    timestamp: Date | string
+    deskripsi: string
+    reff: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoiceLinks?: InvoiceMutasiCreateNestedManyWithoutMutasiInput
+  }
+
+  export type MutasiUncheckedCreateWithoutBatchTransactionsInput = {
+    id?: number
+    timestamp: Date | string
+    deskripsi: string
+    reff: string
+    amount: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    invoiceLinks?: InvoiceMutasiUncheckedCreateNestedManyWithoutMutasiInput
+  }
+
+  export type MutasiCreateOrConnectWithoutBatchTransactionsInput = {
+    where: MutasiWhereUniqueInput
+    create: XOR<MutasiCreateWithoutBatchTransactionsInput, MutasiUncheckedCreateWithoutBatchTransactionsInput>
+  }
+
+  export type BatchFlightUpsertWithoutTransactionsInput = {
+    update: XOR<BatchFlightUpdateWithoutTransactionsInput, BatchFlightUncheckedUpdateWithoutTransactionsInput>
+    create: XOR<BatchFlightCreateWithoutTransactionsInput, BatchFlightUncheckedCreateWithoutTransactionsInput>
+    where?: BatchFlightWhereInput
+  }
+
+  export type BatchFlightUpdateToOneWithWhereWithoutTransactionsInput = {
+    where?: BatchFlightWhereInput
+    data: XOR<BatchFlightUpdateWithoutTransactionsInput, BatchFlightUncheckedUpdateWithoutTransactionsInput>
+  }
+
+  export type BatchFlightUpdateWithoutTransactionsInput = {
+    nomorBatch?: StringFieldUpdateOperationsInput | string
+    route?: StringFieldUpdateOperationsInput | string
+    bookingCode?: StringFieldUpdateOperationsInput | string
+    flightDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoices?: InvoiceUpdateManyWithoutBatchNestedInput
+  }
+
+  export type BatchFlightUncheckedUpdateWithoutTransactionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomorBatch?: StringFieldUpdateOperationsInput | string
+    route?: StringFieldUpdateOperationsInput | string
+    bookingCode?: StringFieldUpdateOperationsInput | string
+    flightDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoices?: InvoiceUncheckedUpdateManyWithoutBatchNestedInput
+  }
+
+  export type FileUpsertWithoutBatchTransactionsInput = {
+    update: XOR<FileUpdateWithoutBatchTransactionsInput, FileUncheckedUpdateWithoutBatchTransactionsInput>
+    create: XOR<FileCreateWithoutBatchTransactionsInput, FileUncheckedCreateWithoutBatchTransactionsInput>
+    where?: FileWhereInput
+  }
+
+  export type FileUpdateToOneWithWhereWithoutBatchTransactionsInput = {
+    where?: FileWhereInput
+    data: XOR<FileUpdateWithoutBatchTransactionsInput, FileUncheckedUpdateWithoutBatchTransactionsInput>
+  }
+
+  export type FileUpdateWithoutBatchTransactionsInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUpdateManyWithoutFileNestedInput
+    journals?: JurnalUpdateManyWithoutFileNestedInput
+  }
+
+  export type FileUncheckedUpdateWithoutBatchTransactionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutFileNestedInput
+    journals?: JurnalUncheckedUpdateManyWithoutFileNestedInput
+  }
+
+  export type MutasiUpsertWithoutBatchTransactionsInput = {
+    update: XOR<MutasiUpdateWithoutBatchTransactionsInput, MutasiUncheckedUpdateWithoutBatchTransactionsInput>
+    create: XOR<MutasiCreateWithoutBatchTransactionsInput, MutasiUncheckedCreateWithoutBatchTransactionsInput>
+    where?: MutasiWhereInput
+  }
+
+  export type MutasiUpdateToOneWithWhereWithoutBatchTransactionsInput = {
+    where?: MutasiWhereInput
+    data: XOR<MutasiUpdateWithoutBatchTransactionsInput, MutasiUncheckedUpdateWithoutBatchTransactionsInput>
+  }
+
+  export type MutasiUpdateWithoutBatchTransactionsInput = {
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    reff?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoiceLinks?: InvoiceMutasiUpdateManyWithoutMutasiNestedInput
+  }
+
+  export type MutasiUncheckedUpdateWithoutBatchTransactionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    timestamp?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    reff?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoiceLinks?: InvoiceMutasiUncheckedUpdateManyWithoutMutasiNestedInput
+  }
+
+  export type COACreateWithoutJournalsInput = {
+    tipe: $Enums.TipeTransaksi
+    kodeAkun: string
+    namaAkun: string
+  }
+
+  export type COAUncheckedCreateWithoutJournalsInput = {
+    id?: number
+    tipe: $Enums.TipeTransaksi
+    kodeAkun: string
+    namaAkun: string
+  }
+
+  export type COACreateOrConnectWithoutJournalsInput = {
+    where: COAWhereUniqueInput
+    create: XOR<COACreateWithoutJournalsInput, COAUncheckedCreateWithoutJournalsInput>
+  }
+
+  export type FileCreateWithoutJournalsInput = {
+    url: string
+    type: string
+    barcodes?: BarcodeJemaahCreateNestedManyWithoutFileInput
+    batchTransactions?: BatchTransactionCreateNestedManyWithoutFileInput
+  }
+
+  export type FileUncheckedCreateWithoutJournalsInput = {
+    id?: number
+    url: string
+    type: string
+    barcodes?: BarcodeJemaahUncheckedCreateNestedManyWithoutFileInput
+    batchTransactions?: BatchTransactionUncheckedCreateNestedManyWithoutFileInput
+  }
+
+  export type FileCreateOrConnectWithoutJournalsInput = {
+    where: FileWhereUniqueInput
+    create: XOR<FileCreateWithoutJournalsInput, FileUncheckedCreateWithoutJournalsInput>
+  }
+
+  export type COAUpsertWithoutJournalsInput = {
+    update: XOR<COAUpdateWithoutJournalsInput, COAUncheckedUpdateWithoutJournalsInput>
+    create: XOR<COACreateWithoutJournalsInput, COAUncheckedCreateWithoutJournalsInput>
+    where?: COAWhereInput
+  }
+
+  export type COAUpdateToOneWithWhereWithoutJournalsInput = {
+    where?: COAWhereInput
+    data: XOR<COAUpdateWithoutJournalsInput, COAUncheckedUpdateWithoutJournalsInput>
+  }
+
+  export type COAUpdateWithoutJournalsInput = {
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    kodeAkun?: StringFieldUpdateOperationsInput | string
+    namaAkun?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type COAUncheckedUpdateWithoutJournalsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    kodeAkun?: StringFieldUpdateOperationsInput | string
+    namaAkun?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type FileUpsertWithoutJournalsInput = {
+    update: XOR<FileUpdateWithoutJournalsInput, FileUncheckedUpdateWithoutJournalsInput>
+    create: XOR<FileCreateWithoutJournalsInput, FileUncheckedCreateWithoutJournalsInput>
+    where?: FileWhereInput
+  }
+
+  export type FileUpdateToOneWithWhereWithoutJournalsInput = {
+    where?: FileWhereInput
+    data: XOR<FileUpdateWithoutJournalsInput, FileUncheckedUpdateWithoutJournalsInput>
+  }
+
+  export type FileUpdateWithoutJournalsInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUpdateManyWithoutFileNestedInput
+    batchTransactions?: BatchTransactionUpdateManyWithoutFileNestedInput
+  }
+
+  export type FileUncheckedUpdateWithoutJournalsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutFileNestedInput
+    batchTransactions?: BatchTransactionUncheckedUpdateManyWithoutFileNestedInput
+  }
+
+  export type JurnalCreateWithoutCoaInput = {
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    tanggalTransaksi: Date | string
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    file?: FileCreateNestedOneWithoutJournalsInput
+  }
+
+  export type JurnalUncheckedCreateWithoutCoaInput = {
+    id?: number
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    tanggalTransaksi: Date | string
+    fileId?: number | null
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JurnalCreateOrConnectWithoutCoaInput = {
+    where: JurnalWhereUniqueInput
+    create: XOR<JurnalCreateWithoutCoaInput, JurnalUncheckedCreateWithoutCoaInput>
+  }
+
+  export type JurnalCreateManyCoaInputEnvelope = {
+    data: JurnalCreateManyCoaInput | JurnalCreateManyCoaInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JurnalUpsertWithWhereUniqueWithoutCoaInput = {
+    where: JurnalWhereUniqueInput
+    update: XOR<JurnalUpdateWithoutCoaInput, JurnalUncheckedUpdateWithoutCoaInput>
+    create: XOR<JurnalCreateWithoutCoaInput, JurnalUncheckedCreateWithoutCoaInput>
+  }
+
+  export type JurnalUpdateWithWhereUniqueWithoutCoaInput = {
+    where: JurnalWhereUniqueInput
+    data: XOR<JurnalUpdateWithoutCoaInput, JurnalUncheckedUpdateWithoutCoaInput>
+  }
+
+  export type JurnalUpdateManyWithWhereWithoutCoaInput = {
+    where: JurnalScalarWhereInput
+    data: XOR<JurnalUpdateManyMutationInput, JurnalUncheckedUpdateManyWithoutCoaInput>
+  }
+
   export type AccountCreateManyUserInput = {
     id?: string
     type: string
@@ -8706,6 +29298,797 @@ export namespace Prisma {
   export type PostUncheckedUpdateManyWithoutCreatedByInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahCreateManyAgenInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    harga: number
+    fileId?: number | null
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceCreateManyAgenInput = {
+    id?: number
+    nomor: string
+    tanggal: Date | string
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    batchFlightId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahUpdateWithoutAgenInput = {
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    produk?: ProdukUpdateOneRequiredWithoutBarcodesNestedInput
+    paket?: PaketUpdateOneRequiredWithoutBarcodesNestedInput
+    file?: FileUpdateOneWithoutBarcodesNestedInput
+    invoice?: InvoiceUpdateOneWithoutBarcodesNestedInput
+  }
+
+  export type BarcodeJemaahUncheckedUpdateWithoutAgenInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutAgenInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceUpdateWithoutAgenInput = {
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    barcodes?: BarcodeJemaahUpdateManyWithoutInvoiceNestedInput
+    mutasiLinks?: InvoiceMutasiUpdateManyWithoutInvoiceNestedInput
+    batch?: BatchFlightUpdateOneWithoutInvoicesNestedInput
+  }
+
+  export type InvoiceUncheckedUpdateWithoutAgenInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    batchFlightId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutInvoiceNestedInput
+    mutasiLinks?: InvoiceMutasiUncheckedUpdateManyWithoutInvoiceNestedInput
+  }
+
+  export type InvoiceUncheckedUpdateManyWithoutAgenInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    batchFlightId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaketCreateManyProdukInput = {
+    id?: number
+    nama: string
+  }
+
+  export type BarcodeJemaahCreateManyProdukInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    fileId?: number | null
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PaketUpdateWithoutProdukInput = {
+    nama?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUpdateManyWithoutPaketNestedInput
+  }
+
+  export type PaketUncheckedUpdateWithoutProdukInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutPaketNestedInput
+  }
+
+  export type PaketUncheckedUpdateManyWithoutProdukInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nama?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BarcodeJemaahUpdateWithoutProdukInput = {
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paket?: PaketUpdateOneRequiredWithoutBarcodesNestedInput
+    agen?: AgenUpdateOneRequiredWithoutBarcodesNestedInput
+    file?: FileUpdateOneWithoutBarcodesNestedInput
+    invoice?: InvoiceUpdateOneWithoutBarcodesNestedInput
+  }
+
+  export type BarcodeJemaahUncheckedUpdateWithoutProdukInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutProdukInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahCreateManyPaketInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    fileId?: number | null
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahUpdateWithoutPaketInput = {
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    produk?: ProdukUpdateOneRequiredWithoutBarcodesNestedInput
+    agen?: AgenUpdateOneRequiredWithoutBarcodesNestedInput
+    file?: FileUpdateOneWithoutBarcodesNestedInput
+    invoice?: InvoiceUpdateOneWithoutBarcodesNestedInput
+  }
+
+  export type BarcodeJemaahUncheckedUpdateWithoutPaketInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutPaketInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahCreateManyFileInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    invoiceId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchTransactionCreateManyFileInput = {
+    id?: number
+    batchId: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    mutasiId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JurnalCreateManyFileInput = {
+    id?: number
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    coaId: number
+    tanggalTransaksi: Date | string
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahUpdateWithoutFileInput = {
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    produk?: ProdukUpdateOneRequiredWithoutBarcodesNestedInput
+    paket?: PaketUpdateOneRequiredWithoutBarcodesNestedInput
+    agen?: AgenUpdateOneRequiredWithoutBarcodesNestedInput
+    invoice?: InvoiceUpdateOneWithoutBarcodesNestedInput
+  }
+
+  export type BarcodeJemaahUncheckedUpdateWithoutFileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutFileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    invoiceId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionUpdateWithoutFileInput = {
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    batch?: BatchFlightUpdateOneRequiredWithoutTransactionsNestedInput
+    mutasi?: MutasiUpdateOneWithoutBatchTransactionsNestedInput
+  }
+
+  export type BatchTransactionUncheckedUpdateWithoutFileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    batchId?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    mutasiId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionUncheckedUpdateManyWithoutFileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    batchId?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    mutasiId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JurnalUpdateWithoutFileInput = {
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    coa?: COAUpdateOneRequiredWithoutJournalsNestedInput
+  }
+
+  export type JurnalUncheckedUpdateWithoutFileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    coaId?: IntFieldUpdateOperationsInput | number
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JurnalUncheckedUpdateManyWithoutFileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    coaId?: IntFieldUpdateOperationsInput | number
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahCreateManyInvoiceInput = {
+    id?: number
+    oldBarcode?: string | null
+    nama: string
+    ktp: string
+    alamat: string
+    produkId: number
+    paketId: number
+    tingkat: string
+    tanggalKeberangkatan: Date | string
+    deskripsi?: string | null
+    agenId: number
+    harga: number
+    fileId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceMutasiCreateManyInvoiceInput = {
+    id?: number
+    mutasiId: number
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BarcodeJemaahUpdateWithoutInvoiceInput = {
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    harga?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    produk?: ProdukUpdateOneRequiredWithoutBarcodesNestedInput
+    paket?: PaketUpdateOneRequiredWithoutBarcodesNestedInput
+    agen?: AgenUpdateOneRequiredWithoutBarcodesNestedInput
+    file?: FileUpdateOneWithoutBarcodesNestedInput
+  }
+
+  export type BarcodeJemaahUncheckedUpdateWithoutInvoiceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BarcodeJemaahUncheckedUpdateManyWithoutInvoiceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    oldBarcode?: NullableStringFieldUpdateOperationsInput | string | null
+    nama?: StringFieldUpdateOperationsInput | string
+    ktp?: StringFieldUpdateOperationsInput | string
+    alamat?: StringFieldUpdateOperationsInput | string
+    produkId?: IntFieldUpdateOperationsInput | number
+    paketId?: IntFieldUpdateOperationsInput | number
+    tingkat?: StringFieldUpdateOperationsInput | string
+    tanggalKeberangkatan?: DateTimeFieldUpdateOperationsInput | Date | string
+    deskripsi?: NullableStringFieldUpdateOperationsInput | string | null
+    agenId?: IntFieldUpdateOperationsInput | number
+    harga?: FloatFieldUpdateOperationsInput | number
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceMutasiUpdateWithoutInvoiceInput = {
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mutasi?: MutasiUpdateOneRequiredWithoutInvoiceLinksNestedInput
+  }
+
+  export type InvoiceMutasiUncheckedUpdateWithoutInvoiceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mutasiId?: IntFieldUpdateOperationsInput | number
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceMutasiUncheckedUpdateManyWithoutInvoiceInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    mutasiId?: IntFieldUpdateOperationsInput | number
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceMutasiCreateManyMutasiInput = {
+    id?: number
+    invoiceId: number
+    totalDigunakan: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchTransactionCreateManyMutasiInput = {
+    id?: number
+    batchId: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    fileId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceMutasiUpdateWithoutMutasiInput = {
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    invoice?: InvoiceUpdateOneRequiredWithoutMutasiLinksNestedInput
+  }
+
+  export type InvoiceMutasiUncheckedUpdateWithoutMutasiInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    invoiceId?: IntFieldUpdateOperationsInput | number
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceMutasiUncheckedUpdateManyWithoutMutasiInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    invoiceId?: IntFieldUpdateOperationsInput | number
+    totalDigunakan?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionUpdateWithoutMutasiInput = {
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    batch?: BatchFlightUpdateOneRequiredWithoutTransactionsNestedInput
+    file?: FileUpdateOneWithoutBatchTransactionsNestedInput
+  }
+
+  export type BatchTransactionUncheckedUpdateWithoutMutasiInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    batchId?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionUncheckedUpdateManyWithoutMutasiInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    batchId?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type InvoiceCreateManyBatchInput = {
+    id?: number
+    nomor: string
+    tanggal: Date | string
+    agenId: number
+    taxPercent: number
+    diskon: number
+    total: number
+    status: $Enums.InvoiceStatus
+    dueDate: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type BatchTransactionCreateManyBatchInput = {
+    id?: number
+    tipe: $Enums.TipeTransaksi
+    namaTransaksi: string
+    nominal: number
+    deskripsi: string
+    fileId?: number | null
+    mutasiId?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type InvoiceUpdateWithoutBatchInput = {
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    agen?: AgenUpdateOneRequiredWithoutInvoicesNestedInput
+    barcodes?: BarcodeJemaahUpdateManyWithoutInvoiceNestedInput
+    mutasiLinks?: InvoiceMutasiUpdateManyWithoutInvoiceNestedInput
+  }
+
+  export type InvoiceUncheckedUpdateWithoutBatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    agenId?: IntFieldUpdateOperationsInput | number
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    barcodes?: BarcodeJemaahUncheckedUpdateManyWithoutInvoiceNestedInput
+    mutasiLinks?: InvoiceMutasiUncheckedUpdateManyWithoutInvoiceNestedInput
+  }
+
+  export type InvoiceUncheckedUpdateManyWithoutBatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nomor?: StringFieldUpdateOperationsInput | string
+    tanggal?: DateTimeFieldUpdateOperationsInput | Date | string
+    agenId?: IntFieldUpdateOperationsInput | number
+    taxPercent?: FloatFieldUpdateOperationsInput | number
+    diskon?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    status?: EnumInvoiceStatusFieldUpdateOperationsInput | $Enums.InvoiceStatus
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionUpdateWithoutBatchInput = {
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    file?: FileUpdateOneWithoutBatchTransactionsNestedInput
+    mutasi?: MutasiUpdateOneWithoutBatchTransactionsNestedInput
+  }
+
+  export type BatchTransactionUncheckedUpdateWithoutBatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    mutasiId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type BatchTransactionUncheckedUpdateManyWithoutBatchInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    deskripsi?: StringFieldUpdateOperationsInput | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    mutasiId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JurnalCreateManyCoaInput = {
+    id?: number
+    jurnalNumber: string
+    namaTransaksi: string
+    tipe: $Enums.TipeTransaksi
+    tanggalTransaksi: Date | string
+    fileId?: number | null
+    nominal: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JurnalUpdateWithoutCoaInput = {
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    file?: FileUpdateOneWithoutJournalsNestedInput
+  }
+
+  export type JurnalUncheckedUpdateWithoutCoaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    nominal?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JurnalUncheckedUpdateManyWithoutCoaInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    jurnalNumber?: StringFieldUpdateOperationsInput | string
+    namaTransaksi?: StringFieldUpdateOperationsInput | string
+    tipe?: EnumTipeTransaksiFieldUpdateOperationsInput | $Enums.TipeTransaksi
+    tanggalTransaksi?: DateTimeFieldUpdateOperationsInput | Date | string
+    fileId?: NullableIntFieldUpdateOperationsInput | number | null
+    nominal?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

@@ -138,6 +138,126 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.AgenScalarFieldEnum = {
+  id: 'id',
+  nama: 'nama',
+  alamat: 'alamat',
+  nomorHp: 'nomorHp'
+};
+
+exports.Prisma.ProdukScalarFieldEnum = {
+  id: 'id',
+  nama: 'nama'
+};
+
+exports.Prisma.PaketScalarFieldEnum = {
+  id: 'id',
+  produkId: 'produkId',
+  nama: 'nama'
+};
+
+exports.Prisma.FileScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  type: 'type'
+};
+
+exports.Prisma.BarcodeJemaahScalarFieldEnum = {
+  id: 'id',
+  oldBarcode: 'oldBarcode',
+  nama: 'nama',
+  ktp: 'ktp',
+  alamat: 'alamat',
+  produkId: 'produkId',
+  paketId: 'paketId',
+  tingkat: 'tingkat',
+  tanggalKeberangkatan: 'tanggalKeberangkatan',
+  deskripsi: 'deskripsi',
+  agenId: 'agenId',
+  harga: 'harga',
+  fileId: 'fileId',
+  invoiceId: 'invoiceId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InvoiceScalarFieldEnum = {
+  id: 'id',
+  nomor: 'nomor',
+  tanggal: 'tanggal',
+  agenId: 'agenId',
+  taxPercent: 'taxPercent',
+  diskon: 'diskon',
+  total: 'total',
+  status: 'status',
+  dueDate: 'dueDate',
+  batchFlightId: 'batchFlightId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MutasiScalarFieldEnum = {
+  id: 'id',
+  timestamp: 'timestamp',
+  deskripsi: 'deskripsi',
+  reff: 'reff',
+  amount: 'amount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InvoiceMutasiScalarFieldEnum = {
+  id: 'id',
+  invoiceId: 'invoiceId',
+  mutasiId: 'mutasiId',
+  totalDigunakan: 'totalDigunakan',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BatchFlightScalarFieldEnum = {
+  id: 'id',
+  nomorBatch: 'nomorBatch',
+  route: 'route',
+  bookingCode: 'bookingCode',
+  flightDate: 'flightDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.BatchTransactionScalarFieldEnum = {
+  id: 'id',
+  batchId: 'batchId',
+  tipe: 'tipe',
+  namaTransaksi: 'namaTransaksi',
+  nominal: 'nominal',
+  deskripsi: 'deskripsi',
+  fileId: 'fileId',
+  mutasiId: 'mutasiId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.JurnalScalarFieldEnum = {
+  id: 'id',
+  jurnalNumber: 'jurnalNumber',
+  namaTransaksi: 'namaTransaksi',
+  tipe: 'tipe',
+  coaId: 'coaId',
+  tanggalTransaksi: 'tanggalTransaksi',
+  fileId: 'fileId',
+  nominal: 'nominal',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.COAScalarFieldEnum = {
+  id: 'id',
+  tipe: 'tipe',
+  kodeAkun: 'kodeAkun',
+  namaAkun: 'namaAkun'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -152,14 +272,35 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.TipeTransaksi = exports.$Enums.TipeTransaksi = {
+  PENGELUARAN: 'PENGELUARAN',
+  PEMASUKAN: 'PEMASUKAN'
+};
 
+exports.InvoiceStatus = exports.$Enums.InvoiceStatus = {
+  DRAFT: 'DRAFT',
+  PAID: 'PAID',
+  OVERDUE: 'OVERDUE'
+};
 
 exports.Prisma.ModelName = {
   Post: 'Post',
   Account: 'Account',
   Session: 'Session',
   User: 'User',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  Agen: 'Agen',
+  Produk: 'Produk',
+  Paket: 'Paket',
+  File: 'File',
+  BarcodeJemaah: 'BarcodeJemaah',
+  Invoice: 'Invoice',
+  Mutasi: 'Mutasi',
+  InvoiceMutasi: 'InvoiceMutasi',
+  BatchFlight: 'BatchFlight',
+  BatchTransaction: 'BatchTransaction',
+  Jurnal: 'Jurnal',
+  COA: 'COA'
 };
 /**
  * Create the Client
@@ -200,6 +341,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -208,13 +350,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below\n  // Further reading:\n  // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema\n  // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Post {\n  id        Int      @id @default(autoincrement())\n  name      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  createdBy   User   @relation(fields: [createdById], references: [id])\n  createdById String\n\n  @@index([name])\n}\n\n// Necessary for Next auth\nmodel Account {\n  id                       String  @id @default(cuid())\n  userId                   String\n  type                     String\n  provider                 String\n  providerAccountId        String\n  refresh_token            String? // @db.Text\n  access_token             String? // @db.Text\n  expires_at               Int?\n  token_type               String?\n  scope                    String?\n  id_token                 String? // @db.Text\n  session_state            String?\n  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n  refresh_token_expires_in Int?\n\n  @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n  id           String   @id @default(cuid())\n  sessionToken String   @unique\n  userId       String\n  expires      DateTime\n  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel User {\n  id            String    @id @default(cuid())\n  name          String?\n  email         String?   @unique\n  emailVerified DateTime?\n  image         String?\n  accounts      Account[]\n  sessions      Session[]\n  posts         Post[]\n}\n\nmodel VerificationToken {\n  identifier String\n  token      String   @unique\n  expires    DateTime\n\n  @@unique([identifier, token])\n}\n",
-  "inlineSchemaHash": "dd9a6edd7dcf3768e8fd246695361ce51823871115a517c30ff53e4d5bffa20b",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below\n  // Further reading:\n  // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema\n  // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string\n  url      = env(\"DATABASE_URL\")\n}\n\n// ============================================\n// ENUMS\n// ============================================\n\nenum TipeTransaksi {\n  PENGELUARAN\n  PEMASUKAN\n}\n\nenum InvoiceStatus {\n  DRAFT\n  PAID\n  OVERDUE\n}\n\n// ============================================\n// AUTH MODELS (Next Auth)\n// ============================================\n\nmodel Post {\n  id        Int      @id @default(autoincrement())\n  name      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  createdBy   User   @relation(fields: [createdById], references: [id])\n  createdById String\n\n  @@index([name])\n}\n\n// Necessary for Next auth\nmodel Account {\n  id                       String  @id @default(cuid())\n  userId                   String\n  type                     String\n  provider                 String\n  providerAccountId        String\n  refresh_token            String? // @db.Text\n  access_token             String? // @db.Text\n  expires_at               Int?\n  token_type               String?\n  scope                    String?\n  id_token                 String? // @db.Text\n  session_state            String?\n  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n  refresh_token_expires_in Int?\n\n  @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n  id           String   @id @default(cuid())\n  sessionToken String   @unique\n  userId       String\n  expires      DateTime\n  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel User {\n  id            String    @id @default(cuid())\n  name          String?\n  email         String?   @unique\n  emailVerified DateTime?\n  image         String?\n  accounts      Account[]\n  sessions      Session[]\n  posts         Post[]\n}\n\nmodel VerificationToken {\n  identifier String\n  token      String   @unique\n  expires    DateTime\n\n  @@unique([identifier, token])\n}\n\n// ============================================\n// BUSINESS MODELS\n// ============================================\n\nmodel Agen {\n  id       Int             @id @default(autoincrement())\n  nama     String\n  alamat   String\n  nomorHp  String\n  barcodes BarcodeJemaah[]\n  invoices Invoice[]\n\n  @@index([nama])\n}\n\nmodel Produk {\n  id       Int             @id @default(autoincrement())\n  nama     String\n  paket    Paket[]\n  barcodes BarcodeJemaah[]\n\n  @@index([nama])\n}\n\nmodel Paket {\n  id       Int             @id @default(autoincrement())\n  produk   Produk          @relation(fields: [produkId], references: [id])\n  produkId Int\n  nama     String\n  barcodes BarcodeJemaah[]\n\n  @@index([produkId])\n  @@index([nama])\n}\n\nmodel File {\n  id                Int                @id @default(autoincrement())\n  url               String\n  type              String\n  barcodes          BarcodeJemaah[]\n  batchTransactions BatchTransaction[]\n  journals          Jurnal[]\n}\n\nmodel BarcodeJemaah {\n  id                   Int      @id @default(autoincrement())\n  oldBarcode           String?\n  nama                 String\n  ktp                  String\n  alamat               String\n  produk               Produk   @relation(fields: [produkId], references: [id])\n  produkId             Int\n  paket                Paket    @relation(fields: [paketId], references: [id])\n  paketId              Int\n  tingkat              String\n  tanggalKeberangkatan DateTime\n  deskripsi            String?\n  agen                 Agen     @relation(fields: [agenId], references: [id])\n  agenId               Int\n  harga                Float\n  file                 File?    @relation(fields: [fileId], references: [id])\n  fileId               Int?\n  invoice              Invoice? @relation(fields: [invoiceId], references: [id])\n  invoiceId            Int?\n  createdAt            DateTime @default(now())\n  updatedAt            DateTime @updatedAt\n\n  @@index([agenId])\n  @@index([produkId])\n  @@index([paketId])\n  @@index([invoiceId])\n  @@index([nama])\n  @@index([ktp])\n}\n\nmodel Invoice {\n  id            Int             @id @default(autoincrement())\n  nomor         String          @unique\n  tanggal       DateTime\n  agen          Agen            @relation(fields: [agenId], references: [id])\n  agenId        Int\n  taxPercent    Float\n  diskon        Float\n  total         Float\n  status        InvoiceStatus\n  dueDate       DateTime\n  barcodes      BarcodeJemaah[]\n  mutasiLinks   InvoiceMutasi[]\n  batch         BatchFlight?    @relation(fields: [batchFlightId], references: [id])\n  batchFlightId Int?\n  createdAt     DateTime        @default(now())\n  updatedAt     DateTime        @updatedAt\n\n  @@index([agenId])\n  @@index([batchFlightId])\n  @@index([nomor])\n  @@index([status])\n}\n\nmodel Mutasi {\n  id                Int                @id @default(autoincrement())\n  timestamp         DateTime\n  deskripsi         String\n  reff              String\n  amount            Float\n  invoiceLinks      InvoiceMutasi[]\n  batchTransactions BatchTransaction[]\n  createdAt         DateTime           @default(now())\n  updatedAt         DateTime           @updatedAt\n\n  @@index([timestamp])\n  @@index([reff])\n}\n\nmodel InvoiceMutasi {\n  id             Int      @id @default(autoincrement())\n  invoice        Invoice  @relation(fields: [invoiceId], references: [id])\n  invoiceId      Int\n  mutasi         Mutasi   @relation(fields: [mutasiId], references: [id])\n  mutasiId       Int\n  totalDigunakan Float\n  createdAt      DateTime @default(now())\n  updatedAt      DateTime @updatedAt\n\n  @@index([invoiceId])\n  @@index([mutasiId])\n}\n\nmodel BatchFlight {\n  id           Int                @id @default(autoincrement())\n  nomorBatch   String\n  route        String\n  bookingCode  String\n  flightDate   DateTime\n  invoices     Invoice[]\n  transactions BatchTransaction[]\n  createdAt    DateTime           @default(now())\n  updatedAt    DateTime           @updatedAt\n\n  @@index([nomorBatch])\n  @@index([flightDate])\n}\n\nmodel BatchTransaction {\n  id            Int           @id @default(autoincrement())\n  batch         BatchFlight   @relation(fields: [batchId], references: [id])\n  batchId       Int\n  tipe          TipeTransaksi\n  namaTransaksi String\n  nominal       Float\n  deskripsi     String\n  file          File?         @relation(fields: [fileId], references: [id])\n  fileId        Int?\n  mutasi        Mutasi?       @relation(fields: [mutasiId], references: [id])\n  mutasiId      Int?\n  createdAt     DateTime      @default(now())\n  updatedAt     DateTime      @updatedAt\n\n  @@index([batchId])\n  @@index([tipe])\n}\n\nmodel Jurnal {\n  id               Int           @id @default(autoincrement())\n  jurnalNumber     String\n  namaTransaksi    String\n  tipe             TipeTransaksi\n  coa              COA           @relation(fields: [coaId], references: [id])\n  coaId            Int\n  tanggalTransaksi DateTime\n  file             File?         @relation(fields: [fileId], references: [id])\n  fileId           Int?\n  nominal          Float\n  createdAt        DateTime      @default(now())\n  updatedAt        DateTime      @updatedAt\n\n  @@index([coaId])\n  @@index([jurnalNumber])\n  @@index([tanggalTransaksi])\n  @@index([tipe])\n}\n\nmodel COA {\n  id       Int           @id @default(autoincrement())\n  tipe     TipeTransaksi\n  kodeAkun String        @unique\n  namaAkun String\n  journals Jurnal[]\n\n  @@index([kodeAkun])\n  @@index([tipe])\n}\n",
+  "inlineSchemaHash": "54c2a48e1c4b55086e50e758497cd0e839d5a912aaace3da1e6819b9aa07cb45",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Post\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdBy\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"PostToUser\"},{\"name\":\"createdById\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"Account\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"provider\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"providerAccountId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"refresh_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"access_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires_at\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"token_type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"scope\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"id_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"session_state\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"AccountToUser\"},{\"name\":\"refresh_token_expires_in\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null},\"Session\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sessionToken\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"SessionToUser\"}],\"dbName\":null},\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"emailVerified\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"accounts\",\"kind\":\"object\",\"type\":\"Account\",\"relationName\":\"AccountToUser\"},{\"name\":\"sessions\",\"kind\":\"object\",\"type\":\"Session\",\"relationName\":\"SessionToUser\"},{\"name\":\"posts\",\"kind\":\"object\",\"type\":\"Post\",\"relationName\":\"PostToUser\"}],\"dbName\":null},\"VerificationToken\":{\"fields\":[{\"name\":\"identifier\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Post\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdBy\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"PostToUser\"},{\"name\":\"createdById\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"Account\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"provider\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"providerAccountId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"refresh_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"access_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires_at\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"token_type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"scope\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"id_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"session_state\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"AccountToUser\"},{\"name\":\"refresh_token_expires_in\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null},\"Session\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sessionToken\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"SessionToUser\"}],\"dbName\":null},\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"emailVerified\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"accounts\",\"kind\":\"object\",\"type\":\"Account\",\"relationName\":\"AccountToUser\"},{\"name\":\"sessions\",\"kind\":\"object\",\"type\":\"Session\",\"relationName\":\"SessionToUser\"},{\"name\":\"posts\",\"kind\":\"object\",\"type\":\"Post\",\"relationName\":\"PostToUser\"}],\"dbName\":null},\"VerificationToken\":{\"fields\":[{\"name\":\"identifier\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Agen\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"nama\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"alamat\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"nomorHp\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"barcodes\",\"kind\":\"object\",\"type\":\"BarcodeJemaah\",\"relationName\":\"AgenToBarcodeJemaah\"},{\"name\":\"invoices\",\"kind\":\"object\",\"type\":\"Invoice\",\"relationName\":\"AgenToInvoice\"}],\"dbName\":null},\"Produk\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"nama\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"paket\",\"kind\":\"object\",\"type\":\"Paket\",\"relationName\":\"PaketToProduk\"},{\"name\":\"barcodes\",\"kind\":\"object\",\"type\":\"BarcodeJemaah\",\"relationName\":\"BarcodeJemaahToProduk\"}],\"dbName\":null},\"Paket\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"produk\",\"kind\":\"object\",\"type\":\"Produk\",\"relationName\":\"PaketToProduk\"},{\"name\":\"produkId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"nama\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"barcodes\",\"kind\":\"object\",\"type\":\"BarcodeJemaah\",\"relationName\":\"BarcodeJemaahToPaket\"}],\"dbName\":null},\"File\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"barcodes\",\"kind\":\"object\",\"type\":\"BarcodeJemaah\",\"relationName\":\"BarcodeJemaahToFile\"},{\"name\":\"batchTransactions\",\"kind\":\"object\",\"type\":\"BatchTransaction\",\"relationName\":\"BatchTransactionToFile\"},{\"name\":\"journals\",\"kind\":\"object\",\"type\":\"Jurnal\",\"relationName\":\"FileToJurnal\"}],\"dbName\":null},\"BarcodeJemaah\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"oldBarcode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"nama\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"ktp\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"alamat\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"produk\",\"kind\":\"object\",\"type\":\"Produk\",\"relationName\":\"BarcodeJemaahToProduk\"},{\"name\":\"produkId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"paket\",\"kind\":\"object\",\"type\":\"Paket\",\"relationName\":\"BarcodeJemaahToPaket\"},{\"name\":\"paketId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"tingkat\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tanggalKeberangkatan\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"deskripsi\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"agen\",\"kind\":\"object\",\"type\":\"Agen\",\"relationName\":\"AgenToBarcodeJemaah\"},{\"name\":\"agenId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"harga\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"file\",\"kind\":\"object\",\"type\":\"File\",\"relationName\":\"BarcodeJemaahToFile\"},{\"name\":\"fileId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"invoice\",\"kind\":\"object\",\"type\":\"Invoice\",\"relationName\":\"BarcodeJemaahToInvoice\"},{\"name\":\"invoiceId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Invoice\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"nomor\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tanggal\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"agen\",\"kind\":\"object\",\"type\":\"Agen\",\"relationName\":\"AgenToInvoice\"},{\"name\":\"agenId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"taxPercent\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"diskon\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"total\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"status\",\"kind\":\"enum\",\"type\":\"InvoiceStatus\"},{\"name\":\"dueDate\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"barcodes\",\"kind\":\"object\",\"type\":\"BarcodeJemaah\",\"relationName\":\"BarcodeJemaahToInvoice\"},{\"name\":\"mutasiLinks\",\"kind\":\"object\",\"type\":\"InvoiceMutasi\",\"relationName\":\"InvoiceToInvoiceMutasi\"},{\"name\":\"batch\",\"kind\":\"object\",\"type\":\"BatchFlight\",\"relationName\":\"BatchFlightToInvoice\"},{\"name\":\"batchFlightId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Mutasi\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"timestamp\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"deskripsi\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"reff\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"amount\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"invoiceLinks\",\"kind\":\"object\",\"type\":\"InvoiceMutasi\",\"relationName\":\"InvoiceMutasiToMutasi\"},{\"name\":\"batchTransactions\",\"kind\":\"object\",\"type\":\"BatchTransaction\",\"relationName\":\"BatchTransactionToMutasi\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"InvoiceMutasi\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"invoice\",\"kind\":\"object\",\"type\":\"Invoice\",\"relationName\":\"InvoiceToInvoiceMutasi\"},{\"name\":\"invoiceId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"mutasi\",\"kind\":\"object\",\"type\":\"Mutasi\",\"relationName\":\"InvoiceMutasiToMutasi\"},{\"name\":\"mutasiId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"totalDigunakan\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"BatchFlight\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"nomorBatch\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"route\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"bookingCode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"flightDate\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"invoices\",\"kind\":\"object\",\"type\":\"Invoice\",\"relationName\":\"BatchFlightToInvoice\"},{\"name\":\"transactions\",\"kind\":\"object\",\"type\":\"BatchTransaction\",\"relationName\":\"BatchFlightToBatchTransaction\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"BatchTransaction\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"batch\",\"kind\":\"object\",\"type\":\"BatchFlight\",\"relationName\":\"BatchFlightToBatchTransaction\"},{\"name\":\"batchId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"tipe\",\"kind\":\"enum\",\"type\":\"TipeTransaksi\"},{\"name\":\"namaTransaksi\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"nominal\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"deskripsi\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"file\",\"kind\":\"object\",\"type\":\"File\",\"relationName\":\"BatchTransactionToFile\"},{\"name\":\"fileId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"mutasi\",\"kind\":\"object\",\"type\":\"Mutasi\",\"relationName\":\"BatchTransactionToMutasi\"},{\"name\":\"mutasiId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Jurnal\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"jurnalNumber\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"namaTransaksi\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tipe\",\"kind\":\"enum\",\"type\":\"TipeTransaksi\"},{\"name\":\"coa\",\"kind\":\"object\",\"type\":\"COA\",\"relationName\":\"COAToJurnal\"},{\"name\":\"coaId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"tanggalTransaksi\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"file\",\"kind\":\"object\",\"type\":\"File\",\"relationName\":\"FileToJurnal\"},{\"name\":\"fileId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"nominal\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"COA\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"tipe\",\"kind\":\"enum\",\"type\":\"TipeTransaksi\"},{\"name\":\"kodeAkun\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"namaAkun\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"journals\",\"kind\":\"object\",\"type\":\"Jurnal\",\"relationName\":\"COAToJurnal\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

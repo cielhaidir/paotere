@@ -15,6 +15,25 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+// ============================================
+// ENUMS
+// ============================================
+
+enum TipeTransaksi {
+    PENGELUARAN
+    PEMASUKAN
+}
+
+enum InvoiceStatus {
+    DRAFT
+    PAID
+    OVERDUE
+}
+
+// ============================================
+// AUTH MODELS (Next Auth)
+// ============================================
+
 model Post {
     id        Int      @id @default(autoincrement())
     name      String
@@ -72,4 +91,197 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+// ============================================
+// BUSINESS MODELS
+// ============================================
+
+model Agen {
+    id       Int             @id @default(autoincrement())
+    nama     String
+    alamat   String
+    nomorHp  String
+    barcodes BarcodeJemaah[]
+    invoices Invoice[]
+
+    @@index([nama])
+}
+
+model Produk {
+    id       Int             @id @default(autoincrement())
+    nama     String
+    paket    Paket[]
+    barcodes BarcodeJemaah[]
+
+    @@index([nama])
+}
+
+model Paket {
+    id       Int             @id @default(autoincrement())
+    produk   Produk          @relation(fields: [produkId], references: [id])
+    produkId Int
+    nama     String
+    barcodes BarcodeJemaah[]
+
+    @@index([produkId])
+    @@index([nama])
+}
+
+model File {
+    id                Int                @id @default(autoincrement())
+    url               String
+    type              String
+    barcodes          BarcodeJemaah[]
+    batchTransactions BatchTransaction[]
+    journals          Jurnal[]
+}
+
+model BarcodeJemaah {
+    id                   Int       @id @default(autoincrement())
+    oldBarcode           String?
+    nama                 String
+    ktp                  String
+    alamat               String
+    produk               Produk    @relation(fields: [produkId], references: [id])
+    produkId             Int
+    paket                Paket     @relation(fields: [paketId], references: [id])
+    paketId              Int
+    tingkat              String
+    tanggalKeberangkatan DateTime
+    deskripsi            String?
+    agen                 Agen      @relation(fields: [agenId], references: [id])
+    agenId               Int
+    harga                Float
+    file                 File?     @relation(fields: [fileId], references: [id])
+    fileId               Int?
+    invoice              Invoice?  @relation(fields: [invoiceId], references: [id])
+    invoiceId            Int?
+    createdAt            DateTime  @default(now())
+    updatedAt            DateTime  @updatedAt
+
+    @@index([agenId])
+    @@index([produkId])
+    @@index([paketId])
+    @@index([invoiceId])
+    @@index([nama])
+    @@index([ktp])
+}
+
+model Invoice {
+    id            Int             @id @default(autoincrement())
+    nomor         String          @unique
+    tanggal       DateTime
+    agen          Agen            @relation(fields: [agenId], references: [id])
+    agenId        Int
+    taxPercent    Float
+    diskon        Float
+    total         Float
+    status        InvoiceStatus
+    dueDate       DateTime
+    barcodes      BarcodeJemaah[]
+    mutasiLinks   InvoiceMutasi[]
+    batch         BatchFlight?    @relation(fields: [batchFlightId], references: [id])
+    batchFlightId Int?
+    createdAt     DateTime        @default(now())
+    updatedAt     DateTime        @updatedAt
+
+    @@index([agenId])
+    @@index([batchFlightId])
+    @@index([nomor])
+    @@index([status])
+}
+
+model Mutasi {
+    id                Int                @id @default(autoincrement())
+    timestamp         DateTime
+    deskripsi         String
+    reff              String
+    amount            Float
+    invoiceLinks      InvoiceMutasi[]
+    batchTransactions BatchTransaction[]
+    createdAt         DateTime           @default(now())
+    updatedAt         DateTime           @updatedAt
+
+    @@index([timestamp])
+    @@index([reff])
+}
+
+model InvoiceMutasi {
+    id             Int      @id @default(autoincrement())
+    invoice        Invoice  @relation(fields: [invoiceId], references: [id])
+    invoiceId      Int
+    mutasi         Mutasi   @relation(fields: [mutasiId], references: [id])
+    mutasiId       Int
+    totalDigunakan Float
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+
+    @@index([invoiceId])
+    @@index([mutasiId])
+}
+
+model BatchFlight {
+    id           Int                @id @default(autoincrement())
+    nomorBatch   String
+    route        String
+    bookingCode  String
+    flightDate   DateTime
+    invoices     Invoice[]
+    transactions BatchTransaction[]
+    createdAt    DateTime           @default(now())
+    updatedAt    DateTime           @updatedAt
+
+    @@index([nomorBatch])
+    @@index([flightDate])
+}
+
+model BatchTransaction {
+    id            Int           @id @default(autoincrement())
+    batch         BatchFlight   @relation(fields: [batchId], references: [id])
+    batchId       Int
+    tipe          TipeTransaksi
+    namaTransaksi String
+    nominal       Float
+    deskripsi     String
+    file          File?         @relation(fields: [fileId], references: [id])
+    fileId        Int?
+    mutasi        Mutasi?       @relation(fields: [mutasiId], references: [id])
+    mutasiId      Int?
+    createdAt     DateTime      @default(now())
+    updatedAt     DateTime      @updatedAt
+
+    @@index([batchId])
+    @@index([tipe])
+}
+
+model Jurnal {
+    id               Int           @id @default(autoincrement())
+    jurnalNumber     String
+    namaTransaksi    String
+    tipe             TipeTransaksi
+    coa              COA           @relation(fields: [coaId], references: [id])
+    coaId            Int
+    tanggalTransaksi DateTime
+    file             File?         @relation(fields: [fileId], references: [id])
+    fileId           Int?
+    nominal          Float
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+
+    @@index([coaId])
+    @@index([jurnalNumber])
+    @@index([tanggalTransaksi])
+    @@index([tipe])
+}
+
+model COA {
+    id       Int           @id @default(autoincrement())
+    tipe     TipeTransaksi
+    kodeAkun String        @unique
+    namaAkun String
+    journals Jurnal[]
+
+    @@index([kodeAkun])
+    @@index([tipe])
 }
