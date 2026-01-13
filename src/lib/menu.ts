@@ -131,11 +131,17 @@ export const Menu: { navMain: MenuGroup[] } = {
                     icon: BarChart3,
                     requiredPermission: "menu:laporan-keuangan",
                 },
+                // {
+                //     title: "Laporan Batch Flight",
+                //     url: "/laporan/laporan-batch-flight",
+                //     icon: BarChart3,
+                //     requiredPermission: "menu:laporan-batch-flight",
+                // },
                 {
-                    title: "Laporan Agen",
-                    url: "/laporan/laporan-agen",
+                    title: "Laporan Batch",
+                    url: "/laporan/laporan-batch",
                     icon: BarChart3,
-                    requiredPermission: "menu:laporan-agen",
+                    requiredPermission: "menu:laporan-batch",
                 }
             ],
         }
